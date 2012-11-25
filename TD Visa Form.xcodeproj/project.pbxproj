@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		702337AC1652C56800B87249 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702337AB1652C56800B87249 /* UIKit.framework */; };
+		702337AE1652C56800B87249 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702337AD1652C56800B87249 /* Foundation.framework */; };
+		702337B01652C56800B87249 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702337AF1652C56800B87249 /* CoreGraphics.framework */; };
+		702337B21652C56800B87249 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702337B11652C56800B87249 /* CoreData.framework */; };
+		702337B81652C56800B87249 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 702337B61652C56800B87249 /* InfoPlist.strings */; };
+		702337BA1652C56800B87249 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 702337B91652C56800B87249 /* main.m */; };
+		702337BE1652C56800B87249 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 702337BD1652C56800B87249 /* AppDelegate.m */; };
+		702337C01652C56800B87249 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 702337BF1652C56800B87249 /* Default.png */; };
+		702337C21652C56800B87249 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702337C11652C56800B87249 /* Default@2x.png */; };
+		702337C41652C56800B87249 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 702337C31652C56800B87249 /* Default-568h@2x.png */; };
+		702337C71652C56800B87249 /* TD_Visa_Form.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 702337C51652C56800B87249 /* TD_Visa_Form.xcdatamodeld */; };
+		702337D11652C5B800B87249 /* FirstScreenSaverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702337CF1652C5B800B87249 /* FirstScreenSaverViewController.m */; };
+		702337D21652C5B800B87249 /* FirstScreenSaverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 702337D01652C5B800B87249 /* FirstScreenSaverViewController.xib */; };
+		702337DC1652D1BB00B87249 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 702337DA1652D1BB00B87249 /* RootViewController.m */; };
+		703E130B165968450043D72A /* GCPINViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E1309165968450043D72A /* GCPINViewController.m */; };
+		703E130C165968450043D72A /* GCPINViewController~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 703E130A165968450043D72A /* GCPINViewController~ipad.xib */; };
+		703E13101659695F0043D72A /* PINBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 703E130E1659695F0043D72A /* PINBox.png */; };
+		703E13111659695F0043D72A /* PINBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703E130F1659695F0043D72A /* PINBox@2x.png */; };
+		703E13161659744C0043D72A /* GettingStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E13141659744C0043D72A /* GettingStartedViewController.m */; };
+		703E13171659744C0043D72A /* GettingStartedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 703E13151659744C0043D72A /* GettingStartedViewController.xib */; };
+		703E1326165979BE0043D72A /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E131F165979BE0043D72A /* DCRoundSwitch.m */; };
+		703E1327165979BE0043D72A /* DCRoundSwitchKnobLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E1321165979BE0043D72A /* DCRoundSwitchKnobLayer.m */; };
+		703E1328165979BE0043D72A /* DCRoundSwitchOutlineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E1323165979BE0043D72A /* DCRoundSwitchOutlineLayer.m */; };
+		703E1329165979BE0043D72A /* DCRoundSwitchToggleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E1325165979BE0043D72A /* DCRoundSwitchToggleLayer.m */; };
+		703E132B16597A410043D72A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703E132A16597A410043D72A /* QuartzCore.framework */; };
+		70A2515C1655540A00049612 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A2515B1655540A00049612 /* RootViewController.xib */; };
+		70A2527E16555F7400049612 /* UserFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A2527C16555F7400049612 /* UserFormViewController.m */; };
+		70A2527F16555F7400049612 /* UserFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A2527D16555F7400049612 /* UserFormViewController.xib */; };
+		70A252841655754400049612 /* AppProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A252821655754400049612 /* AppProcessViewController.m */; };
+		70A252851655754400049612 /* AppProcessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A252831655754400049612 /* AppProcessViewController.xib */; };
+		70A2528A1655786E00049612 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A252881655786E00049612 /* ModalViewController.m */; };
+		70A2528B1655786E00049612 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A252891655786E00049612 /* ModalViewController.xib */; };
+		70A2528F16557E6B00049612 /* SelectThisCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A2528D16557E6B00049612 /* SelectThisCardViewController.m */; };
+		70A2529016557E6B00049612 /* SelectThisCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A2528E16557E6B00049612 /* SelectThisCardViewController.xib */; };
+		70A252971655831E00049612 /* sageata.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A252961655831E00049612 /* sageata.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		702337A71652C56800B87249 /* TD Visa Form.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TD Visa Form.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		702337AB1652C56800B87249 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		702337AD1652C56800B87249 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		702337AF1652C56800B87249 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		702337B11652C56800B87249 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		702337B51652C56800B87249 /* TD Visa Form-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TD Visa Form-Info.plist"; sourceTree = "<group>"; };
+		702337B71652C56800B87249 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		702337B91652C56800B87249 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		702337BB1652C56800B87249 /* TD Visa Form-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TD Visa Form-Prefix.pch"; sourceTree = "<group>"; };
+		702337BC1652C56800B87249 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		702337BD1652C56800B87249 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		702337BF1652C56800B87249 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		702337C11652C56800B87249 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		702337C31652C56800B87249 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		702337C61652C56800B87249 /* TD_Visa_Form.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TD_Visa_Form.xcdatamodel; sourceTree = "<group>"; };
+		702337CE1652C5B800B87249 /* FirstScreenSaverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstScreenSaverViewController.h; sourceTree = "<group>"; };
+		702337CF1652C5B800B87249 /* FirstScreenSaverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstScreenSaverViewController.m; sourceTree = "<group>"; };
+		702337D01652C5B800B87249 /* FirstScreenSaverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstScreenSaverViewController.xib; sourceTree = "<group>"; };
+		702337D91652D1BB00B87249 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		702337DA1652D1BB00B87249 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		703E1308165968450043D72A /* GCPINViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPINViewController.h; sourceTree = "<group>"; };
+		703E1309165968450043D72A /* GCPINViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPINViewController.m; sourceTree = "<group>"; };
+		703E130A165968450043D72A /* GCPINViewController~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "GCPINViewController~ipad.xib"; sourceTree = "<group>"; };
+		703E130E1659695F0043D72A /* PINBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PINBox.png; path = "TD Visa Form/PINBox.png"; sourceTree = "<group>"; };
+		703E130F1659695F0043D72A /* PINBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PINBox@2x.png"; path = "TD Visa Form/PINBox@2x.png"; sourceTree = "<group>"; };
+		703E13131659744C0043D72A /* GettingStartedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GettingStartedViewController.h; sourceTree = "<group>"; };
+		703E13141659744C0043D72A /* GettingStartedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GettingStartedViewController.m; sourceTree = "<group>"; };
+		703E13151659744C0043D72A /* GettingStartedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GettingStartedViewController.xib; sourceTree = "<group>"; };
+		703E131E165979BE0043D72A /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
+		703E131F165979BE0043D72A /* DCRoundSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitch.m; sourceTree = "<group>"; };
+		703E1320165979BE0043D72A /* DCRoundSwitchKnobLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchKnobLayer.h; sourceTree = "<group>"; };
+		703E1321165979BE0043D72A /* DCRoundSwitchKnobLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchKnobLayer.m; sourceTree = "<group>"; };
+		703E1322165979BE0043D72A /* DCRoundSwitchOutlineLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchOutlineLayer.h; sourceTree = "<group>"; };
+		703E1323165979BE0043D72A /* DCRoundSwitchOutlineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchOutlineLayer.m; sourceTree = "<group>"; };
+		703E1324165979BE0043D72A /* DCRoundSwitchToggleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchToggleLayer.h; sourceTree = "<group>"; };
+		703E1325165979BE0043D72A /* DCRoundSwitchToggleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchToggleLayer.m; sourceTree = "<group>"; };
+		703E132A16597A410043D72A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		70A2515B1655540A00049612 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		70A2527B16555F7400049612 /* UserFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFormViewController.h; sourceTree = "<group>"; };
+		70A2527C16555F7400049612 /* UserFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFormViewController.m; sourceTree = "<group>"; };
+		70A2527D16555F7400049612 /* UserFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserFormViewController.xib; sourceTree = "<group>"; };
+		70A252811655754400049612 /* AppProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppProcessViewController.h; sourceTree = "<group>"; };
+		70A252821655754400049612 /* AppProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppProcessViewController.m; sourceTree = "<group>"; };
+		70A252831655754400049612 /* AppProcessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppProcessViewController.xib; sourceTree = "<group>"; };
+		70A252871655786E00049612 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
+		70A252881655786E00049612 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+		70A252891655786E00049612 /* ModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
+		70A2528C16557E6B00049612 /* SelectThisCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectThisCardViewController.h; sourceTree = "<group>"; };
+		70A2528D16557E6B00049612 /* SelectThisCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectThisCardViewController.m; sourceTree = "<group>"; };
+		70A2528E16557E6B00049612 /* SelectThisCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectThisCardViewController.xib; sourceTree = "<group>"; };
+		70A252911655803B00049612 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		70A252961655831E00049612 /* sageata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sageata.png; path = "TD Visa Form/sageata.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		702337A41652C56800B87249 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				703E132B16597A410043D72A /* QuartzCore.framework in Frameworks */,
+				702337AC1652C56800B87249 /* UIKit.framework in Frameworks */,
+				702337AE1652C56800B87249 /* Foundation.framework in Frameworks */,
+				702337B01652C56800B87249 /* CoreGraphics.framework in Frameworks */,
+				702337B21652C56800B87249 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7023379C1652C56800B87249 = {
+			isa = PBXGroup;
+			children = (
+				703E131D165979BE0043D72A /* DCRoundSwitch */,
+				703E1312165974380043D72A /* Getting Started */,
+				70A252911655803B00049612 /* Constants.h */,
+				70A25286165577F700049612 /* Modals */,
+				70A252801655751C00049612 /* Application process */,
+				70A2527A16555F4900049612 /* Procces User */,
+				702337D81652D1AB00B87249 /* RootViewController */,
+				702337CD1652C59100B87249 /* Screen saver controllers */,
+				703E1318165975430043D72A /* Resources */,
+				702337B31652C56800B87249 /* TD Visa Form */,
+				702337AA1652C56800B87249 /* Frameworks */,
+				702337A81652C56800B87249 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		702337A81652C56800B87249 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				702337A71652C56800B87249 /* TD Visa Form.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		702337AA1652C56800B87249 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				703E132A16597A410043D72A /* QuartzCore.framework */,
+				702337AB1652C56800B87249 /* UIKit.framework */,
+				702337AD1652C56800B87249 /* Foundation.framework */,
+				702337AF1652C56800B87249 /* CoreGraphics.framework */,
+				702337B11652C56800B87249 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		702337B31652C56800B87249 /* TD Visa Form */ = {
+			isa = PBXGroup;
+			children = (
+				702337BC1652C56800B87249 /* AppDelegate.h */,
+				702337BD1652C56800B87249 /* AppDelegate.m */,
+				702337C51652C56800B87249 /* TD_Visa_Form.xcdatamodeld */,
+				702337B41652C56800B87249 /* Supporting Files */,
+			);
+			path = "TD Visa Form";
+			sourceTree = "<group>";
+		};
+		702337B41652C56800B87249 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				702337B51652C56800B87249 /* TD Visa Form-Info.plist */,
+				702337B61652C56800B87249 /* InfoPlist.strings */,
+				702337B91652C56800B87249 /* main.m */,
+				702337BB1652C56800B87249 /* TD Visa Form-Prefix.pch */,
+				702337BF1652C56800B87249 /* Default.png */,
+				702337C11652C56800B87249 /* Default@2x.png */,
+				702337C31652C56800B87249 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		702337CD1652C59100B87249 /* Screen saver controllers */ = {
+			isa = PBXGroup;
+			children = (
+				702337CE1652C5B800B87249 /* FirstScreenSaverViewController.h */,
+				702337CF1652C5B800B87249 /* FirstScreenSaverViewController.m */,
+				702337D01652C5B800B87249 /* FirstScreenSaverViewController.xib */,
+			);
+			name = "Screen saver controllers";
+			sourceTree = "<group>";
+		};
+		702337D81652D1AB00B87249 /* RootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				703E1308165968450043D72A /* GCPINViewController.h */,
+				703E1309165968450043D72A /* GCPINViewController.m */,
+				703E130A165968450043D72A /* GCPINViewController~ipad.xib */,
+				70A2515B1655540A00049612 /* RootViewController.xib */,
+				702337D91652D1BB00B87249 /* RootViewController.h */,
+				702337DA1652D1BB00B87249 /* RootViewController.m */,
+			);
+			name = RootViewController;
+			sourceTree = "<group>";
+		};
+		703E1312165974380043D72A /* Getting Started */ = {
+			isa = PBXGroup;
+			children = (
+				703E13131659744C0043D72A /* GettingStartedViewController.h */,
+				703E13141659744C0043D72A /* GettingStartedViewController.m */,
+				703E13151659744C0043D72A /* GettingStartedViewController.xib */,
+			);
+			name = "Getting Started";
+			sourceTree = "<group>";
+		};
+		703E1318165975430043D72A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				703E130E1659695F0043D72A /* PINBox.png */,
+				703E130F1659695F0043D72A /* PINBox@2x.png */,
+				70A252961655831E00049612 /* sageata.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		703E131D165979BE0043D72A /* DCRoundSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				703E131E165979BE0043D72A /* DCRoundSwitch.h */,
+				703E131F165979BE0043D72A /* DCRoundSwitch.m */,
+				703E1320165979BE0043D72A /* DCRoundSwitchKnobLayer.h */,
+				703E1321165979BE0043D72A /* DCRoundSwitchKnobLayer.m */,
+				703E1322165979BE0043D72A /* DCRoundSwitchOutlineLayer.h */,
+				703E1323165979BE0043D72A /* DCRoundSwitchOutlineLayer.m */,
+				703E1324165979BE0043D72A /* DCRoundSwitchToggleLayer.h */,
+				703E1325165979BE0043D72A /* DCRoundSwitchToggleLayer.m */,
+			);
+			path = DCRoundSwitch;
+			sourceTree = "<group>";
+		};
+		70A2527A16555F4900049612 /* Procces User */ = {
+			isa = PBXGroup;
+			children = (
+				70A2527B16555F7400049612 /* UserFormViewController.h */,
+				70A2527C16555F7400049612 /* UserFormViewController.m */,
+				70A2527D16555F7400049612 /* UserFormViewController.xib */,
+			);
+			name = "Procces User";
+			sourceTree = "<group>";
+		};
+		70A252801655751C00049612 /* Application process */ = {
+			isa = PBXGroup;
+			children = (
+				70A252811655754400049612 /* AppProcessViewController.h */,
+				70A252821655754400049612 /* AppProcessViewController.m */,
+				70A252831655754400049612 /* AppProcessViewController.xib */,
+				70A2528C16557E6B00049612 /* SelectThisCardViewController.h */,
+				70A2528D16557E6B00049612 /* SelectThisCardViewController.m */,
+				70A2528E16557E6B00049612 /* SelectThisCardViewController.xib */,
+			);
+			name = "Application process";
+			sourceTree = "<group>";
+		};
+		70A25286165577F700049612 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				70A252871655786E00049612 /* ModalViewController.h */,
+				70A252881655786E00049612 /* ModalViewController.m */,
+				70A252891655786E00049612 /* ModalViewController.xib */,
+			);
+			name = Modals;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		702337A61652C56800B87249 /* TD Visa Form */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 702337CA1652C56800B87249 /* Build configuration list for PBXNativeTarget "TD Visa Form" */;
+			buildPhases = (
+				702337A31652C56800B87249 /* Sources */,
+				702337A41652C56800B87249 /* Frameworks */,
+				702337A51652C56800B87249 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TD Visa Form";
+			productName = "TD Visa Form";
+			productReference = 702337A71652C56800B87249 /* TD Visa Form.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7023379E1652C56800B87249 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Adrian Somesan";
+			};
+			buildConfigurationList = 702337A11652C56800B87249 /* Build configuration list for PBXProject "TD Visa Form" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7023379C1652C56800B87249;
+			productRefGroup = 702337A81652C56800B87249 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				702337A61652C56800B87249 /* TD Visa Form */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		702337A51652C56800B87249 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				702337B81652C56800B87249 /* InfoPlist.strings in Resources */,
+				702337C01652C56800B87249 /* Default.png in Resources */,
+				702337C21652C56800B87249 /* Default@2x.png in Resources */,
+				702337C41652C56800B87249 /* Default-568h@2x.png in Resources */,
+				702337D21652C5B800B87249 /* FirstScreenSaverViewController.xib in Resources */,
+				70A2515C1655540A00049612 /* RootViewController.xib in Resources */,
+				70A2527F16555F7400049612 /* UserFormViewController.xib in Resources */,
+				70A252851655754400049612 /* AppProcessViewController.xib in Resources */,
+				70A2528B1655786E00049612 /* ModalViewController.xib in Resources */,
+				70A2529016557E6B00049612 /* SelectThisCardViewController.xib in Resources */,
+				70A252971655831E00049612 /* sageata.png in Resources */,
+				703E130C165968450043D72A /* GCPINViewController~ipad.xib in Resources */,
+				703E13101659695F0043D72A /* PINBox.png in Resources */,
+				703E13111659695F0043D72A /* PINBox@2x.png in Resources */,
+				703E13171659744C0043D72A /* GettingStartedViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		702337A31652C56800B87249 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				702337BA1652C56800B87249 /* main.m in Sources */,
+				702337BE1652C56800B87249 /* AppDelegate.m in Sources */,
+				702337C71652C56800B87249 /* TD_Visa_Form.xcdatamodeld in Sources */,
+				702337D11652C5B800B87249 /* FirstScreenSaverViewController.m in Sources */,
+				702337DC1652D1BB00B87249 /* RootViewController.m in Sources */,
+				70A2527E16555F7400049612 /* UserFormViewController.m in Sources */,
+				70A252841655754400049612 /* AppProcessViewController.m in Sources */,
+				70A2528A1655786E00049612 /* ModalViewController.m in Sources */,
+				70A2528F16557E6B00049612 /* SelectThisCardViewController.m in Sources */,
+				703E130B165968450043D72A /* GCPINViewController.m in Sources */,
+				703E13161659744C0043D72A /* GettingStartedViewController.m in Sources */,
+				703E1326165979BE0043D72A /* DCRoundSwitch.m in Sources */,
+				703E1327165979BE0043D72A /* DCRoundSwitchKnobLayer.m in Sources */,
+				703E1328165979BE0043D72A /* DCRoundSwitchOutlineLayer.m in Sources */,
+				703E1329165979BE0043D72A /* DCRoundSwitchToggleLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		702337B61652C56800B87249 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				702337B71652C56800B87249 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		702337C81652C56800B87249 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		702337C91652C56800B87249 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		702337CB1652C56800B87249 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TD Visa Form/TD Visa Form-Prefix.pch";
+				INFOPLIST_FILE = "TD Visa Form/TD Visa Form-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		702337CC1652C56800B87249 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TD Visa Form/TD Visa Form-Prefix.pch";
+				INFOPLIST_FILE = "TD Visa Form/TD Visa Form-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		702337A11652C56800B87249 /* Build configuration list for PBXProject "TD Visa Form" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				702337C81652C56800B87249 /* Debug */,
+				702337C91652C56800B87249 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		702337CA1652C56800B87249 /* Build configuration list for PBXNativeTarget "TD Visa Form" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				702337CB1652C56800B87249 /* Debug */,
+				702337CC1652C56800B87249 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		702337C51652C56800B87249 /* TD_Visa_Form.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				702337C61652C56800B87249 /* TD_Visa_Form.xcdatamodel */,
+			);
+			currentVersion = 702337C61652C56800B87249 /* TD_Visa_Form.xcdatamodel */;
+			path = TD_Visa_Form.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7023379E1652C56800B87249 /* Project object */;
+}
