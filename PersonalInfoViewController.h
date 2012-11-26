@@ -18,6 +18,7 @@
 @property (strong, nonatomic) UIPopoverController* popoverController1;
 @property (strong, nonatomic) IBOutlet UIButton *selectGenderButton;
 @property (strong, nonatomic) IBOutlet UIButton *doneGeneralInfo;
+@property (strong, nonatomic) IBOutlet UIView *currentHomeAddressView;
 
 - (void)refresh;
 - (IBAction)previousStep:(id)sender;

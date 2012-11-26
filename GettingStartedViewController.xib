@@ -720,6 +720,24 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">nextStep:</string>
+						<reference key="source" ref="367272078"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">56</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">previousStep:</string>
+						<reference key="source" ref="627865690"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">57</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">areYouACanadianResidentSwitch:</string>
 						<reference key="source" ref="805696233"/>
 						<reference key="destination" ref="841351856"/>
@@ -1003,7 +1021,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">51</int>
+			<int key="maxID">57</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1022,6 +1040,7 @@
 						<string key="areYouACanadianResidentSwitch:">id</string>
 						<string key="bankruptcySwitch:">id</string>
 						<string key="existingTDCanadaCustomer:">id</string>
+						<string key="nextStep:">id</string>
 						<string key="showBirthDatePicker:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
@@ -1035,6 +1054,10 @@
 						</object>
 						<object class="IBActionInfo" key="existingTDCanadaCustomer:">
 							<string key="name">existingTDCanadaCustomer:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="nextStep:">
+							<string key="name">nextStep:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showBirthDatePicker:">

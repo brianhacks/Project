@@ -23,6 +23,9 @@
 - (IBAction)areYouACanadianResidentSwitch:(id)sender;
 - (IBAction)bankruptcySwitch:(id)sender;
 - (IBAction)existingTDCanadaCustomer:(id)sender;
+- (IBAction)nextStep:(id)sender;
+- (IBAction)previousStep:(id)sender;
+
 
 
 

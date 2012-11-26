@@ -14,6 +14,9 @@
 #import "ModalViewController.h"
 #import "GCPINViewController.h"
 #import "GettingStartedViewController.h"
+#import "PersonalInfoViewController.h"
+#import "FinancialInfoViewController.h"
+#import "PickLocationViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -30,11 +33,15 @@
 @property (nonatomic, strong) ModalViewController* modalViewController;
 @property (nonatomic, strong) GCPINViewController* gCPINViewController;
 @property (nonatomic, strong) GettingStartedViewController* gettingStartedViewController;
+@property (nonatomic, strong) PersonalInfoViewController* personalInfoViewController;
+@property (nonatomic, strong) FinancialInfoViewController* financialInfoViewController;
+@property (nonatomic, strong) PickLocationViewController* pickLocationViewController;
 @property (nonatomic, strong) UINavigationController *navController;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 - (void)closeRootAndLaunchNextPart:(BOOL)isAdmin;
 - (void)setNewRootView:(UIViewController *)controller;
+- (void)backOneView;
 
 @end

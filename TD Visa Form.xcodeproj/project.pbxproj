@@ -32,6 +32,9 @@
 		703E1328165979BE0043D72A /* DCRoundSwitchOutlineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E1323165979BE0043D72A /* DCRoundSwitchOutlineLayer.m */; };
 		703E1329165979BE0043D72A /* DCRoundSwitchToggleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E1325165979BE0043D72A /* DCRoundSwitchToggleLayer.m */; };
 		703E132B16597A410043D72A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703E132A16597A410043D72A /* QuartzCore.framework */; };
+		709BABCF1662BD4C00F852CD /* AccordionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 709BABCE1662BD4C00F852CD /* AccordionView.m */; };
+		709BABD41662BD5B00F852CD /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709BABD21662BD5B00F852CD /* PersonalInfoViewController.m */; };
+		709BABD51662BD5B00F852CD /* PersonalInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709BABD31662BD5B00F852CD /* PersonalInfoViewController.xib */; };
 		70A2515C1655540A00049612 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A2515B1655540A00049612 /* RootViewController.xib */; };
 		70A2527E16555F7400049612 /* UserFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A2527C16555F7400049612 /* UserFormViewController.m */; };
 		70A2527F16555F7400049612 /* UserFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A2527D16555F7400049612 /* UserFormViewController.xib */; };
@@ -42,6 +45,11 @@
 		70A2528F16557E6B00049612 /* SelectThisCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70A2528D16557E6B00049612 /* SelectThisCardViewController.m */; };
 		70A2529016557E6B00049612 /* SelectThisCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70A2528E16557E6B00049612 /* SelectThisCardViewController.xib */; };
 		70A252971655831E00049612 /* sageata.png in Resources */ = {isa = PBXBuildFile; fileRef = 70A252961655831E00049612 /* sageata.png */; };
+		70CB814F1664003C0003B225 /* FinancialInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CB814D1664003C0003B225 /* FinancialInfoViewController.m */; };
+		70CB81501664003C0003B225 /* FinancialInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70CB814E1664003C0003B225 /* FinancialInfoViewController.xib */; };
+		70CB815516640EA90003B225 /* PickLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CB815316640EA90003B225 /* PickLocationViewController.m */; };
+		70CB815616640EA90003B225 /* PickLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70CB815416640EA90003B225 /* PickLocationViewController.xib */; };
+		70CB8158166410BE0003B225 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CB8157166410BE0003B225 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +90,11 @@
 		703E1324165979BE0043D72A /* DCRoundSwitchToggleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchToggleLayer.h; sourceTree = "<group>"; };
 		703E1325165979BE0043D72A /* DCRoundSwitchToggleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchToggleLayer.m; sourceTree = "<group>"; };
 		703E132A16597A410043D72A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		709BABCD1662BD4C00F852CD /* AccordionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccordionView.h; sourceTree = "<group>"; };
+		709BABCE1662BD4C00F852CD /* AccordionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccordionView.m; sourceTree = "<group>"; };
+		709BABD11662BD5B00F852CD /* PersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoViewController.h; sourceTree = "<group>"; };
+		709BABD21662BD5B00F852CD /* PersonalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoViewController.m; sourceTree = "<group>"; };
+		709BABD31662BD5B00F852CD /* PersonalInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalInfoViewController.xib; sourceTree = "<group>"; };
 		70A2515B1655540A00049612 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		70A2527B16555F7400049612 /* UserFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFormViewController.h; sourceTree = "<group>"; };
 		70A2527C16555F7400049612 /* UserFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFormViewController.m; sourceTree = "<group>"; };
@@ -97,6 +110,13 @@
 		70A2528E16557E6B00049612 /* SelectThisCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectThisCardViewController.xib; sourceTree = "<group>"; };
 		70A252911655803B00049612 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		70A252961655831E00049612 /* sageata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sageata.png; path = "TD Visa Form/sageata.png"; sourceTree = "<group>"; };
+		70CB814C1664003C0003B225 /* FinancialInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinancialInfoViewController.h; sourceTree = "<group>"; };
+		70CB814D1664003C0003B225 /* FinancialInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinancialInfoViewController.m; sourceTree = "<group>"; };
+		70CB814E1664003C0003B225 /* FinancialInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinancialInfoViewController.xib; sourceTree = "<group>"; };
+		70CB815216640EA90003B225 /* PickLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickLocationViewController.h; sourceTree = "<group>"; };
+		70CB815316640EA90003B225 /* PickLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickLocationViewController.m; sourceTree = "<group>"; };
+		70CB815416640EA90003B225 /* PickLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickLocationViewController.xib; sourceTree = "<group>"; };
+		70CB8157166410BE0003B225 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70CB8158166410BE0003B225 /* MapKit.framework in Frameworks */,
 				703E132B16597A410043D72A /* QuartzCore.framework in Frameworks */,
 				702337AC1652C56800B87249 /* UIKit.framework in Frameworks */,
 				702337AE1652C56800B87249 /* Foundation.framework in Frameworks */,
@@ -118,6 +139,10 @@
 		7023379C1652C56800B87249 = {
 			isa = PBXGroup;
 			children = (
+				70CB8157166410BE0003B225 /* MapKit.framework */,
+				70CB815116640E330003B225 /* Pick Location */,
+				70CB814A166400240003B225 /* Financial Information */,
+				705C2C051663F8D200D5205D /* Personal Info */,
 				703E131D165979BE0043D72A /* DCRoundSwitch */,
 				703E1312165974380043D72A /* Getting Started */,
 				70A252911655803B00049612 /* Constants.h */,
@@ -236,6 +261,18 @@
 			path = DCRoundSwitch;
 			sourceTree = "<group>";
 		};
+		705C2C051663F8D200D5205D /* Personal Info */ = {
+			isa = PBXGroup;
+			children = (
+				709BABCD1662BD4C00F852CD /* AccordionView.h */,
+				709BABCE1662BD4C00F852CD /* AccordionView.m */,
+				709BABD11662BD5B00F852CD /* PersonalInfoViewController.h */,
+				709BABD21662BD5B00F852CD /* PersonalInfoViewController.m */,
+				709BABD31662BD5B00F852CD /* PersonalInfoViewController.xib */,
+			);
+			name = "Personal Info";
+			sourceTree = "<group>";
+		};
 		70A2527A16555F4900049612 /* Procces User */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +304,26 @@
 				70A252891655786E00049612 /* ModalViewController.xib */,
 			);
 			name = Modals;
+			sourceTree = "<group>";
+		};
+		70CB814A166400240003B225 /* Financial Information */ = {
+			isa = PBXGroup;
+			children = (
+				70CB814C1664003C0003B225 /* FinancialInfoViewController.h */,
+				70CB814D1664003C0003B225 /* FinancialInfoViewController.m */,
+				70CB814E1664003C0003B225 /* FinancialInfoViewController.xib */,
+			);
+			name = "Financial Information";
+			sourceTree = "<group>";
+		};
+		70CB815116640E330003B225 /* Pick Location */ = {
+			isa = PBXGroup;
+			children = (
+				70CB815216640EA90003B225 /* PickLocationViewController.h */,
+				70CB815316640EA90003B225 /* PickLocationViewController.m */,
+				70CB815416640EA90003B225 /* PickLocationViewController.xib */,
+			);
+			name = "Pick Location";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,6 +392,9 @@
 				703E13101659695F0043D72A /* PINBox.png in Resources */,
 				703E13111659695F0043D72A /* PINBox@2x.png in Resources */,
 				703E13171659744C0043D72A /* GettingStartedViewController.xib in Resources */,
+				709BABD51662BD5B00F852CD /* PersonalInfoViewController.xib in Resources */,
+				70CB81501664003C0003B225 /* FinancialInfoViewController.xib in Resources */,
+				70CB815616640EA90003B225 /* PickLocationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +420,10 @@
 				703E1327165979BE0043D72A /* DCRoundSwitchKnobLayer.m in Sources */,
 				703E1328165979BE0043D72A /* DCRoundSwitchOutlineLayer.m in Sources */,
 				703E1329165979BE0043D72A /* DCRoundSwitchToggleLayer.m in Sources */,
+				709BABCF1662BD4C00F852CD /* AccordionView.m in Sources */,
+				709BABD41662BD5B00F852CD /* PersonalInfoViewController.m in Sources */,
+				70CB814F1664003C0003B225 /* FinancialInfoViewController.m in Sources */,
+				70CB815516640EA90003B225 /* PickLocationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

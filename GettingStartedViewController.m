@@ -7,6 +7,7 @@
 //
 
 #import "GettingStartedViewController.h"
+#import "AppDelegate.h"
 
 @interface GettingStartedViewController ()
 
@@ -68,10 +69,12 @@
     
 }
 
-- (IBAction)areYouACanadianResidentSwitch:(id)sender {
+- (IBAction)areYouACanadianResidentSwitch:(id)sender
+{
 }
 
-- (IBAction)bankruptcySwitch:(id)sender {
+- (IBAction)bankruptcySwitch:(id)sender
+{
 }
 
 - (IBAction)existingTDCanadaCustomer:(id)sender
@@ -86,6 +89,27 @@
         self.existingTDCustomerHiddenView.hidden = YES;
         
     }
+    
+}
+
+- (IBAction)nextStep:(id)sender
+{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    [appDelegate setNewRootView:appDelegate.personalInfoViewController];
+    [appDelegate.personalInfoViewController refresh];
+
+    
+}
+
+- (IBAction)previousStep:(id)sender
+{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    [appDelegate backOneView];
+
     
 }
 

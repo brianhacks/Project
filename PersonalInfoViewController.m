@@ -45,7 +45,10 @@
 
 - (IBAction)nextStep:(id)sender
 {
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
+    [appDelegate setNewRootView:appDelegate.financialInfoViewController];
+    [appDelegate.financialInfoViewController refresh];
     
     
 }
@@ -132,7 +135,7 @@
     UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
     view2.backgroundColor = [UIColor blueColor];
     
-    [self.accordion addHeader:header2 withView:view2];
+    [self.accordion addHeader:header2 withView:self.currentHomeAddressView];
     
     [self.accordion setNeedsLayout];
     

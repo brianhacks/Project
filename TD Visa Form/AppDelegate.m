@@ -12,6 +12,9 @@
 #import "UserFormViewController.h"
 #import "AppProcessViewController.h"
 #import "ModalViewController.h"
+#import "PersonalInfoViewController.h"
+#import "FinancialInfoViewController.h"
+#import "PickLocationViewController.h"
 
 @interface AppDelegate ()
 
@@ -38,6 +41,9 @@
     self.appProcessViewController = [[AppProcessViewController alloc] initWithNibName:@"AppProcessViewController" bundle:nil];
     self.modalViewController = [[ModalViewController alloc] initWithNibName:@"ModalViewController" bundle:nil];
     self.gettingStartedViewController = [[GettingStartedViewController alloc] initWithNibName:@"GettingStartedViewController" bundle:nil];
+    self.personalInfoViewController = [[PersonalInfoViewController alloc] initWithNibName:@"PersonalInfoViewController" bundle:nil];
+    self.financialInfoViewController = [[FinancialInfoViewController alloc] initWithNibName:@"FinancialInfoViewController" bundle:nil];
+    self.pickLocationViewController = [[PickLocationViewController alloc] initWithNibName:@"PickLocationViewController" bundle:nil];
     
     self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeCreate];
     
@@ -61,6 +67,12 @@
 {
     self.window.rootViewController = self.gCPINViewController;
     
+}
+
+- (void)backOneView
+{
+    
+    [self.navController popViewControllerAnimated:YES];
 }
 
 - (void)setNewRootView:(UIViewController *)controller
