@@ -47,14 +47,14 @@
     
     self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeCreate];
     
-    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-    [self.navController setNavigationBarHidden:YES animated:YES];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+//    [self.navController setNavigationBarHidden:YES animated:YES];
 
 //for debug mode only
-    self.window.rootViewController = self.navController;
+//    self.window.rootViewController = self.navController;
    
  
-//    self.window.rootViewController = self.firstScreenSaverViewController;
+    self.window.rootViewController = self.firstScreenSaverViewController;
 
    
 
@@ -91,7 +91,11 @@
     }
     else
     {
-        self.window.rootViewController = self.appProcessViewController;
+        
+        self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+        [self.navController setNavigationBarHidden:YES animated:YES];
+
+        self.window.rootViewController = self.navController;
     }
     
 }
