@@ -50,6 +50,7 @@
 		70CB815516640EA90003B225 /* PickLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CB815316640EA90003B225 /* PickLocationViewController.m */; };
 		70CB815616640EA90003B225 /* PickLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70CB815416640EA90003B225 /* PickLocationViewController.xib */; };
 		70CB8158166410BE0003B225 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CB8157166410BE0003B225 /* MapKit.framework */; };
+		70CB8F3D1666933400DC2E70 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CB8F3C1666933400DC2E70 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,8 @@
 		70CB815316640EA90003B225 /* PickLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickLocationViewController.m; sourceTree = "<group>"; };
 		70CB815416640EA90003B225 /* PickLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickLocationViewController.xib; sourceTree = "<group>"; };
 		70CB8157166410BE0003B225 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		70CB8F3B1666933400DC2E70 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		70CB8F3C1666933400DC2E70 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 				702337BC1652C56800B87249 /* AppDelegate.h */,
 				702337BD1652C56800B87249 /* AppDelegate.m */,
 				702337C51652C56800B87249 /* TD_Visa_Form.xcdatamodeld */,
+				70CB8F3B1666933400DC2E70 /* User.h */,
+				70CB8F3C1666933400DC2E70 /* User.m */,
 				702337B41652C56800B87249 /* Supporting Files */,
 			);
 			path = "TD Visa Form";
@@ -424,6 +429,7 @@
 				709BABD41662BD5B00F852CD /* PersonalInfoViewController.m in Sources */,
 				70CB814F1664003C0003B225 /* FinancialInfoViewController.m in Sources */,
 				70CB815516640EA90003B225 /* PickLocationViewController.m in Sources */,
+				70CB8F3D1666933400DC2E70 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

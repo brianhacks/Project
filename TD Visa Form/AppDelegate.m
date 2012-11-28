@@ -15,6 +15,7 @@
 #import "PersonalInfoViewController.h"
 #import "FinancialInfoViewController.h"
 #import "PickLocationViewController.h"
+#import "User.h"
 
 @interface AppDelegate ()
 
@@ -47,20 +48,148 @@
     
     self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeCreate];
     
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-//    [self.navController setNavigationBarHidden:YES animated:YES];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+    [self.navController setNavigationBarHidden:YES animated:YES];
+    
+    NSManagedObjectContext* context = [self managedObjectContext];
+    
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:nil];
+    
+
+//    NSError* error = nil;
+//    NSArray* fetchedResult = [context executeFetchRequest:fetchRequest error:&error];
+    
 
 //for debug mode only
-//    self.window.rootViewController = self.navController;
+    self.window.rootViewController = self.navController;
    
  
-    self.window.rootViewController = self.firstScreenSaverViewController;
+//    self.window.rootViewController = self.firstScreenSaverViewController;
 
    
-
-    
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)addInfoToUser:(id)info andFieldToAddItTo:(NSString *)_field
+{
+    
+    User* userInfo = nil;
+    
+    NSString* field = [NSString stringWithFormat:@"%@",_field];
+    
+    NSManagedObjectContext* context = [self managedObjectContext];
+    
+    NSFetchRequest* request = [NSFetchRequest new];
+//    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"firstName = %@", _firstName];
+//    [request setPredicate:predicate];
+    
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError* error = nil;
+    NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
+    
+    if ([fetchedResult count] == 0) {
+        
+        userInfo = [[User alloc] initWithEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:[self managedObjectContext]] insertIntoManagedObjectContext:[self managedObjectContext]];
+        
+    }else{
+        
+        userInfo = [fetchedResult objectAtIndex:0];
+        
+    }
+    [userInfo setValue:info forKey:field];
+    
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+}
+
+- (void)addBOOLInfoToUser:(BOOL)info andFieldToAddItTo:(NSString *)_field
+{
+    
+    User* userInfo = nil;
+    
+    NSString* field = [NSString stringWithFormat:@"%@",_field];
+    
+    NSManagedObjectContext* context = [self managedObjectContext];
+    
+    NSFetchRequest* request = [NSFetchRequest new];
+    
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSArray *fetchedObjects = [context executeFetchRequest:request error:nil];
+    
+    NSError* error = nil;
+    
+    if ([fetchedObjects count] == 0) {
+        
+        userInfo = [[User alloc] initWithEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:[self managedObjectContext]] insertIntoManagedObjectContext:[self managedObjectContext]];
+        
+    }else{
+        
+        userInfo = [fetchedObjects objectAtIndex:0];
+        
+    }
+    
+    if (info) {
+    
+        [userInfo setValue:[NSNumber numberWithBool:YES] forKey:field];
+        
+    }else
+    {
+        [userInfo setValue:[NSNumber numberWithBool:NO] forKey:field];
+        
+    }
+    
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+}
+
+- (void)insertUserWithFirstName:(NSString *)_firstName andLastName:(NSString *)_lastName andDateOfBirth:(NSString *)_dateOfBirth{
+    
+    NSManagedObjectContext* context = [self managedObjectContext];
+    
+    NSFetchRequest* request = [NSFetchRequest new];
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"firstName = %@", _firstName];
+    [request setPredicate:predicate];
+    
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError* error = nil;
+//    NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
+    
+    User* userInfo = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+    [userInfo setValue:[NSString stringWithFormat:@"%@",_firstName] forKey:@"firstName"];
+    [userInfo setValue:[NSString stringWithFormat:@"%@",_lastName] forKey:@"lastName"];
+    [userInfo setValue:[NSString stringWithFormat:@"%@",_dateOfBirth] forKey:@"dateOfBirth"];
+    
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+        
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
 }
 
 - (void)stopScreenSaverAndAddRootView
@@ -92,10 +221,12 @@
     else
     {
         
-        self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-        [self.navController setNavigationBarHidden:YES animated:YES];
-
-        self.window.rootViewController = self.navController;
+//        self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+//        [self.navController setNavigationBarHidden:YES animated:YES];
+//        self.window.rootViewController = self.navController;
+        
+        self.window.rootViewController = self.appProcessViewController;
+        
     }
     
 }

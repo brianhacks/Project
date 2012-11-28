@@ -16,6 +16,8 @@
 
 @implementation PersonalInfoViewController
 
+@synthesize gender;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -45,7 +47,17 @@
 
 - (IBAction)nextStep:(id)sender
 {
+    
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    [appDelegate addInfoToUser:self.firstName.text andFieldToAddItTo:@"firstName"];
+    [appDelegate addInfoToUser:self.lastName.text andFieldToAddItTo:@"lastName"];
+    [appDelegate addInfoToUser:self.areaCode.text andFieldToAddItTo:@"areaCode"];
+    [appDelegate addInfoToUser:self.primaryPhoneNumber.text andFieldToAddItTo:@"primaryPhone"];
+    [appDelegate addInfoToUser:self.emailAddress.text andFieldToAddItTo:@"email"];
+    [appDelegate addInfoToUser:self.streetAddress.text andFieldToAddItTo:@"street"];
+    [appDelegate addInfoToUser:self.postalCode.text andFieldToAddItTo:@"postalCode"];
+    [appDelegate addInfoToUser:self.totalMonthlyHousingCosts.text andFieldToAddItTo:@"monthlyHouseCosts"];
     
     [appDelegate setNewRootView:appDelegate.financialInfoViewController];
     [appDelegate.financialInfoViewController refresh];
@@ -90,11 +102,16 @@
 
 - (void)chooseMaleButton
 {
+    
+    self.gender = [NSString stringWithFormat:@"Male"];
+    
     [self.popoverController1 dismissPopoverAnimated:YES];
 }
 
 - (void)chooseFemaleButton
 {
+    self.gender = [NSString stringWithFormat:@"Female"];
+    
     [self.popoverController1 dismissPopoverAnimated:YES];
 }
 

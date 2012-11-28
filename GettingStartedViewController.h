@@ -19,6 +19,8 @@
 @property (strong, nonatomic) IBOutlet UISwitch *bankruptcySwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *existingTDCanadaCustomer;
 @property (strong, nonatomic) IBOutlet UIView *existingTDCustomerHiddenView;
+@property (strong, nonatomic) UIDatePicker *datePicker;
+@property (strong, nonatomic) UIButton* chooseDateButton2;
 
 - (IBAction)areYouACanadianResidentSwitch:(id)sender;
 - (IBAction)bankruptcySwitch:(id)sender;

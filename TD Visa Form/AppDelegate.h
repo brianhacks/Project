@@ -44,4 +44,7 @@
 - (void)setNewRootView:(UIViewController *)controller;
 - (void)backOneView;
 
+- (void)addInfoToUser:(id)info andFieldToAddItTo:(NSString *)_field;
+- (void)addBOOLInfoToUser:(BOOL)info andFieldToAddItTo:(NSString *)_field;
+
 @end
