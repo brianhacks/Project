@@ -93,14 +93,14 @@
 - (IBAction)nextStep:(id)sender
 {
     
-//    if ([self.titleString isEqualToString:@""] || self.firstName.text.length < 1 || self.lastName.text.length < 1 || self.primaryPhoneNumber.text.length < 1 || [self.gender isEqualToString:@""] || self.streetAddress.text.length < 1 || self.currentCity.text.length < 1 || [self.provinceButton.titleLabel.text isEqualToString:@"Province"] || self.postalCode.text.length < 1 || [self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"]) {
-//        
-//        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
-//        [alert show];
-//        
-//        return;
-//        
-//    }
+    if ([self.titleString isEqualToString:@""] || self.firstName.text.length < 1 || self.lastName.text.length < 1 || self.primaryPhoneNumber.text.length < 1 || [self.gender isEqualToString:@""] || self.streetAddress.text.length < 1 || self.currentCity.text.length < 1 || [self.provinceButton.titleLabel.text isEqualToString:@"Province"] || self.postalCode.text.length < 1 || [self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"]) {
+        
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+        [alert show];
+        
+        return;
+        
+    }
     
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
