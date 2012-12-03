@@ -43,5 +43,6 @@
 @property (nonatomic, retain) NSString * workPhone;
 @property (nonatomic, retain) NSString * requestedCreditLimit;
 @property (nonatomic, retain) NSString * householdIncome;
+@property (nonatomic, retain) NSString * title;
 
 @end

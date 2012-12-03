@@ -142,13 +142,12 @@
 		7023379C1652C56800B87249 = {
 			isa = PBXGroup;
 			children = (
-				70CB8157166410BE0003B225 /* MapKit.framework */,
+				70A252911655803B00049612 /* Constants.h */,
 				70CB815116640E330003B225 /* Pick Location */,
 				70CB814A166400240003B225 /* Financial Information */,
 				705C2C051663F8D200D5205D /* Personal Info */,
 				703E131D165979BE0043D72A /* DCRoundSwitch */,
 				703E1312165974380043D72A /* Getting Started */,
-				70A252911655803B00049612 /* Constants.h */,
 				70A25286165577F700049612 /* Modals */,
 				70A252801655751C00049612 /* Application process */,
 				70A2527A16555F4900049612 /* Procces User */,
@@ -172,6 +171,7 @@
 		702337AA1652C56800B87249 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				70CB8157166410BE0003B225 /* MapKit.framework */,
 				703E132A16597A410043D72A /* QuartzCore.framework */,
 				702337AB1652C56800B87249 /* UIKit.framework */,
 				702337AD1652C56800B87249 /* Foundation.framework */,

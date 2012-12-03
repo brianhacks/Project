@@ -16,7 +16,7 @@
 
 @implementation PersonalInfoViewController
 
-@synthesize gender;
+@synthesize gender, titleString, languageOfCorespondaceString;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,6 +25,45 @@
         // Custom initialization
     }
     return self;
+}
+
+- (IBAction)titleSelection:(id)sender
+{
+    
+    UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
+    
+    UIView *popoverView = [[UIView alloc] init];   //view
+    popoverView.backgroundColor = [UIColor grayColor];
+    
+    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    doneButton.frame = CGRectMake(150., 0., 60., 44.);
+    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    [doneButton addTarget:self action:@selector(chooseTitle) forControlEvents:UIControlEventTouchUpInside];
+    [popoverView addSubview:doneButton];
+    
+    self.titlePicker = [[UIPickerView alloc]init];//Date picker
+    self.titlePicker.frame = CGRectMake(0,44,220, 116);
+    self.titlePicker.dataSource = self;
+    self.titlePicker.delegate = self;
+    self.titlePicker.showsSelectionIndicator = YES;
+    [popoverView addSubview:self.titlePicker];
+
+    popoverContent.view = popoverView;
+    self.popoverController2 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+    self.popoverController2.delegate = self;
+
+    [self.popoverController2 setPopoverContentSize:CGSizeMake(220, 220) animated:NO];
+    [self.popoverController2 presentPopoverFromRect:CGRectMake(30.0, 220.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    
+}
+
+- (void)chooseTitle
+{
+    
+    self.titleString = [NSString stringWithFormat:@"%@",[self.titleArray objectAtIndex:[self.titlePicker selectedRowInComponent:0]]];
+    [self.selectTitelButton setTitle:[NSString stringWithFormat:@"%@",self.titleString] forState:UIControlStateNormal];
+    [self.popoverController2 dismissPopoverAnimated:YES];
+    
 }
 
 - (void)refresh
@@ -36,6 +75,9 @@
     [self.accordion setNeedsLayout];
 }
 
+#pragma mark
+#pragma mark previousStep
+
 - (IBAction)previousStep:(id)sender
 {
     
@@ -45,8 +87,20 @@
     
 }
 
+#pragma mark
+#pragma mark nextStep
+
 - (IBAction)nextStep:(id)sender
 {
+    
+//    if ([self.titleString isEqualToString:@""] || self.firstName.text.length < 1 || self.lastName.text.length < 1 || self.primaryPhoneNumber.text.length < 1 || [self.gender isEqualToString:@""] || self.streetAddress.text.length < 1 || self.currentCity.text.length < 1 || [self.provinceButton.titleLabel.text isEqualToString:@"Province"] || self.postalCode.text.length < 1 || [self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"]) {
+//        
+//        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+//        [alert show];
+//        
+//        return;
+//        
+//    }
     
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
@@ -58,6 +112,7 @@
     [appDelegate addInfoToUser:self.streetAddress.text andFieldToAddItTo:@"street"];
     [appDelegate addInfoToUser:self.postalCode.text andFieldToAddItTo:@"postalCode"];
     [appDelegate addInfoToUser:self.totalMonthlyHousingCosts.text andFieldToAddItTo:@"monthlyHouseCosts"];
+    [appDelegate addInfoToUser:self.titleString andFieldToAddItTo:@"title"];
     
     [appDelegate setNewRootView:appDelegate.financialInfoViewController];
     [appDelegate.financialInfoViewController refresh];
@@ -76,20 +131,15 @@
     UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     doneButton.frame = CGRectMake(150., 0., 60., 44.);
     [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton addTarget:self action:@selector(dismissPopover) forControlEvents:UIControlEventTouchUpInside];
+    [doneButton addTarget:self action:@selector(selectGender) forControlEvents:UIControlEventTouchUpInside];
     [popoverView addSubview:doneButton];
-
-    UIButton* maleButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    maleButton.frame = CGRectMake(0., 47., 220., 44.);
-    [maleButton setTitle:@"Male" forState:UIControlStateNormal];
-    [maleButton addTarget:self action:@selector(chooseMaleButton) forControlEvents:UIControlEventTouchUpInside];
-    [popoverView addSubview:maleButton];
     
-    UIButton* femaleButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    femaleButton.frame = CGRectMake(0., 93., 220., 44.);
-    [femaleButton setTitle:@"Female" forState:UIControlStateNormal];
-    [femaleButton addTarget:self action:@selector(chooseFemaleButton) forControlEvents:UIControlEventTouchUpInside];
-    [popoverView addSubview:femaleButton];
+    self.genderPicker = [[UIPickerView alloc]init];//Date picker
+    self.genderPicker.frame = CGRectMake(0,44,220, 116);
+    self.genderPicker.dataSource = self;
+    self.genderPicker.delegate = self;
+    self.genderPicker.showsSelectionIndicator = YES;
+    [popoverView addSubview:self.genderPicker];
     
     popoverContent.view = popoverView;
     self.popoverController1 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
@@ -100,24 +150,19 @@
     
 }
 
-- (void)chooseMaleButton
+- (void)selectGender
 {
     
-    self.gender = [NSString stringWithFormat:@"Male"];
-    
+    self.gender = [NSString stringWithFormat:@"%@",[self.genderArray objectAtIndex:[self.genderPicker selectedRowInComponent:0]]];
+    [self.selectGenderButton setTitle:[NSString stringWithFormat:@"%@",self.gender] forState:UIControlStateNormal];
     [self.popoverController1 dismissPopoverAnimated:YES];
-}
-
-- (void)chooseFemaleButton
-{
-    self.gender = [NSString stringWithFormat:@"Female"];
     
-    [self.popoverController1 dismissPopoverAnimated:YES];
 }
 
 - (void)dismissPopover
 {
     [self.popoverController1 dismissPopoverAnimated:YES];
+    [self.popoverController2 dismissPopoverAnimated:YES];
 }
 
 - (IBAction)selectLanguageOfCorrespondace:(id)sender
@@ -135,6 +180,24 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self.selectLanguageOfCorespondace setTitle:@"English" forState:UIControlStateNormal];
+    
+    self.provinceArray = [NSArray new];
+    self.provinceArray = @[@"Alberta", @"British Columbia", @"Manitoba", @"New Brunswick", @"Newfoundland & Labrador", @"Nova Scotia", @"Northwest Territories", @"Nunavut", @"Ontario", @"Prince Edward Island", @"Quebec", @"Saskatchewan", @"Yukon"];
+    
+    
+    self.titleArray = [NSArray new];
+    self.titleArray = @[@"Mr.", @"Mrs.", @"Miss.", @"Ms.", @"Dr."];
+    
+    self.genderArray = [NSArray new];
+    self.genderArray = @[@"Male", @"Female"];
+    
+    self.languageOfCorespondaceArray = [NSArray new];
+    self.languageOfCorespondaceArray = @[@"English", @"French"];
+    
+    self.residentialStatusArray = [NSArray new];
+    self.residentialStatusArray = @[@"Own", @"Rent", @"Live w/Parents/Relatives", @"Board"];
 
     self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(10, 190, 1000, 420)];
     [self.view addSubview:self.accordion];
@@ -165,6 +228,235 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark
+#pragma mark selectLanguageOfCorespondance
+
+- (IBAction)selectLanguageOfCorespondance:(id)sender
+{
+    UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
+    
+    UIView *popoverView = [[UIView alloc] init];   //view
+    popoverView.backgroundColor = [UIColor grayColor];
+    
+    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    doneButton.frame = CGRectMake(150., 0., 60., 44.);
+    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    [doneButton addTarget:self action:@selector(chooseLanguage:) forControlEvents:UIControlEventTouchUpInside];
+    [popoverView addSubview:doneButton];
+
+    self.languageOfCorespondacePicker = [[UIPickerView alloc]init];//Date picker
+    self.languageOfCorespondacePicker.frame = CGRectMake(0,44,220, 116);
+    self.languageOfCorespondacePicker.dataSource = self;
+    self.languageOfCorespondacePicker.delegate = self;
+    self.languageOfCorespondacePicker.showsSelectionIndicator = YES;
+    [popoverView addSubview:self.languageOfCorespondacePicker];
+    
+    popoverContent.view = popoverView;
+    self.popoverController3 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+    self.popoverController3.delegate = self;
+    
+    [self.popoverController3 setPopoverContentSize:CGSizeMake(220, 164) animated:NO];
+    [self.popoverController3 presentPopoverFromRect:CGRectMake(550.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+}
+
+- (void)chooseLanguage:(UIButton *)sender
+{
+    
+    self.languageOfCorespondaceString = [NSString stringWithFormat:@"%@",[self.languageOfCorespondaceArray objectAtIndex:[self.languageOfCorespondacePicker selectedRowInComponent:0]]];
+    [self.selectLanguageOfCorespondace setTitle:self.languageOfCorespondaceString forState:UIControlStateNormal];
+    [self.popoverController3 dismissPopoverAnimated:YES];
+    
+}
+
+- (IBAction)selectProvince:(id)sender
+{
+    
+    UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
+    
+    UIView *popoverView = [[UIView alloc] init];   //view
+    popoverView.backgroundColor = [UIColor grayColor];
+    
+    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    doneButton.frame = CGRectMake(200., 0., 60., 44.);
+    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    [doneButton addTarget:self action:@selector(chooseProvince) forControlEvents:UIControlEventTouchUpInside];
+    [popoverView addSubview:doneButton];
+    
+    self.statesPicker = [[UIPickerView alloc]init];//Date picker
+    self.statesPicker.frame = CGRectMake(0,44,320, 216);
+    self.statesPicker.dataSource = self;
+    self.statesPicker.delegate = self;
+    self.statesPicker.showsSelectionIndicator = YES;
+    [popoverView addSubview:self.statesPicker];
+    
+    popoverContent.view = popoverView;
+    self.popoverController4 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+    self.popoverController4.delegate = self;
+    [self.popoverController4 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
+    [self.popoverController4 presentPopoverFromRect:CGRectMake(550.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+}
+
+- (void)chooseProvince
+{
+    
+//    NSLog(@"%@",[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]]);
+    [self.provinceButton setTitle:[NSString stringWithFormat:@"%@",[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+    [self.popoverController4 dismissPopoverAnimated:YES];
+    
+}
+
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    if (pickerView == self.statesPicker) {
+        
+        return [self.provinceArray count];
+        
+    }else if (pickerView == self.titlePicker){
+        
+        return [self.titleArray count];
+        
+    }else if(pickerView == self.languageOfCorespondacePicker){
+        
+        return [self.languageOfCorespondaceArray count];
+        
+    }else if (pickerView == self.genderPicker){
+        
+        return [self.genderArray count];
+        
+    }else{
+        
+        return [self.residentialStatusArray count];
+    }
+    
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    
+    NSString* val1;
+    
+    if (pickerView == self.statesPicker) {
+        
+         val1 = [self.provinceArray objectAtIndex:row];
+        
+    }else if (pickerView == self.titlePicker){
+        
+         val1 = [self.titleArray objectAtIndex:row];
+        
+    }else if(pickerView == self.languageOfCorespondacePicker){
+        
+         val1 = [self.languageOfCorespondaceArray objectAtIndex:row];
+        
+    }else if (pickerView == self.genderPicker){
+        
+         val1 = [self.genderArray objectAtIndex:row];
+        
+    }else{
+        
+        val1 = [self.residentialStatusArray objectAtIndex:row];
+    }
+    
+    return val1;
+}
+
+- (IBAction)selectResidentialStatus:(id)sender
+{
+    UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
+    
+    UIView *popoverView = [[UIView alloc] init];   //view
+    popoverView.backgroundColor = [UIColor grayColor];
+    
+    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    doneButton.frame = CGRectMake(200., 0., 60., 44.);
+    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    [doneButton addTarget:self action:@selector(chooseResidentialStatus) forControlEvents:UIControlEventTouchUpInside];
+    [popoverView addSubview:doneButton];
+    
+    self.residentialStatusPicker = [[UIPickerView alloc]init];//Date picker
+    self.residentialStatusPicker.frame = CGRectMake(0,44,320, 216);
+    self.residentialStatusPicker.dataSource = self;
+    self.residentialStatusPicker.delegate = self;
+    self.residentialStatusPicker.showsSelectionIndicator = YES;
+    [popoverView addSubview:self.residentialStatusPicker];
+    
+    popoverContent.view = popoverView;
+    self.popoverController5 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+    self.popoverController5.delegate = self;
+    [self.popoverController5 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
+    [self.popoverController5 presentPopoverFromRect:CGRectMake(550.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+}
+
+- (void)chooseResidentialStatus
+{
+    
+    [self.residentialStatusButton setTitle:[NSString stringWithFormat:@"%@",[self.residentialStatusArray objectAtIndex:[self.residentialStatusPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+    [self.popoverController5 dismissPopoverAnimated:YES];
+    
+}
+
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField == self.firstName || textField == self.lastName ) {
+        
+        int length = [textField.text length] ;
+        if (length >= MAXLENGTHFORFIRSTNAME && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:MAXLENGTHFORFIRSTNAME];
+            return NO;
+        }
+        return YES;
+        
+    }else if(textField == self.sinNumber){
+        
+        int length = [textField.text length] ;
+        if (length >= MAXLENGTHFORSIN && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:MAXLENGTHFORSIN];
+            return NO;
+        }
+        return YES;
+        
+    }else if(textField == self.streetAddress){
+        
+        int length = [textField.text length] ;
+        if (length >= MAXLENGTHFORSTREETADDRESS && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:MAXLENGTHFORSTREETADDRESS];
+            return NO;
+        }
+        return YES;
+        
+    }else if(textField == self.currentCity){
+        
+        int length = [textField.text length] ;
+        if (length >= MAXLENGTHFORCURRENTCITY && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:MAXLENGTHFORCURRENTCITY];
+            return NO;
+        }
+        return YES;
+        
+    }else if(textField == self.totalMonthlyHousingCosts){
+        
+        int length = [textField.text length] ;
+        if (length >= MAXLENGTHFORTOTALMONTHLYCOSTS && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:MAXLENGTHFORTOTALMONTHLYCOSTS];
+            return NO;
+        }
+        return YES;
+        
+    }
+    
+    return YES;
 }
 
 @end

@@ -11,6 +11,7 @@
 
 @implementation User
 
+@dynamic title;
 @dynamic card;
 @dynamic birthDate;
 @dynamic bankrupcy;

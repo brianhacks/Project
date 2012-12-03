@@ -31,9 +31,10 @@
         <attribute name="sin" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startDateForWork" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="workPhone" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="-7344" positionY="189" width="155" height="510"/>
+        <element name="User" positionX="-7344" positionY="189" width="155" height="525"/>
     </elements>
 </model>
