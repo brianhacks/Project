@@ -277,7 +277,10 @@
     
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
-    [appDelegate addInfoToUser:self.specifyOtherOcupation.text andFieldToAddItTo:@"currentOcupation"];
+    [appDelegate addInfoToUser:self.occupationButton.titleLabel.text andFieldToAddItTo:@"currentOcupation"];
+    [appDelegate addInfoToUser:self.employmentStatus.titleLabel.text andFieldToAddItTo:@"employmentStatus"];
+    [appDelegate addInfoToUser:self.employerCity.text andFieldToAddItTo:@"employerCity"];
+    
     [appDelegate addInfoToUser:self.employerName.text andFieldToAddItTo:@"employerName"];
     [appDelegate addInfoToUser:self.employerStreetAddress.text andFieldToAddItTo:@"employerStreetAddress"];
     [appDelegate addInfoToUser:self.employerAreaCode.text andFieldToAddItTo:@"employerAreaCode"];

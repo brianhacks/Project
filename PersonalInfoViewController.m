@@ -122,15 +122,25 @@
     
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
+    [appDelegate addInfoToUser:self.titleString andFieldToAddItTo:@"title"];
     [appDelegate addInfoToUser:self.firstName.text andFieldToAddItTo:@"firstName"];
     [appDelegate addInfoToUser:self.lastName.text andFieldToAddItTo:@"lastName"];
     [appDelegate addInfoToUser:self.areaCode.text andFieldToAddItTo:@"areaCode"];
     [appDelegate addInfoToUser:self.primaryPhoneNumber.text andFieldToAddItTo:@"primaryPhone"];
     [appDelegate addInfoToUser:self.emailAddress.text andFieldToAddItTo:@"email"];
+    [appDelegate addInfoToUser:self.gender andFieldToAddItTo:@"gender"];
+    [appDelegate addInfoToUser:self.languageOfCorespondaceString andFieldToAddItTo:@"languagOfCorespondace"];
+    [appDelegate addInfoToUser:self.sinNumber.text andFieldToAddItTo:@"sin"];
     [appDelegate addInfoToUser:self.streetAddress.text andFieldToAddItTo:@"street"];
     [appDelegate addInfoToUser:self.postalCode.text andFieldToAddItTo:@"postalCode"];
     [appDelegate addInfoToUser:self.totalMonthlyHousingCosts.text andFieldToAddItTo:@"monthlyHouseCosts"];
-    [appDelegate addInfoToUser:self.titleString andFieldToAddItTo:@"title"];
+    [appDelegate addInfoToUser:self.currentCity.text andFieldToAddItTo:@"city"];
+    [appDelegate addInfoToUser:self.residentialStatusButton.titleLabel.text andFieldToAddItTo:@"resincialStatus"];
+    [appDelegate addInfoToUser:self.totalMonthlyHousingCosts.text andFieldToAddItTo:@"monthlyHouseCosts"];
+    
+    
+    
+    
     
     [appDelegate setNewRootView:appDelegate.financialInfoViewController];
     [appDelegate.financialInfoViewController refresh];
