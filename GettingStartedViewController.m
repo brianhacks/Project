@@ -124,49 +124,49 @@
 - (IBAction)nextStep:(id)sender
 {
 
-//    if (!self.areYouACanadianResidentSwitch.isOn) {
-//    
-//        UIAlertView* alerView = [[UIAlertView alloc] initWithTitle:@"Info" message:@"You must be a Canadian Resident to be eligible. Please speak to a TD representative or visit a TD Canada Trust branch if you have any questions or need assistance." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles:@"CANCEL", nil];
-//        [alerView show];
-//        
-//        return;
-//        
-//    }
-//    
-//    NSDate* now = [NSDate date];
-//    
-//    NSLog(@"%f",[datePicker.date timeIntervalSinceDate:now]);
-//    
-//    NSTimeInterval theTimeInterval = [datePicker.date timeIntervalSinceDate:now];
-//    
-//    NSCalendar *sysCalendar = [NSCalendar currentCalendar];
-//    
-//    NSDate *date1 = [[NSDate alloc] init];
-//    NSDate *date2 = [[NSDate alloc] initWithTimeInterval:theTimeInterval sinceDate:date1];
-//    
-//    unsigned int unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit;
-//    
-//    NSDateComponents *breakdownInfo = [sysCalendar components:unitFlags fromDate:date1  toDate:date2  options:0];
-//    
-//    NSLog(@"Break down: %dyears", [breakdownInfo year]);
-//    
-//    if ([breakdownInfo year] >= -18) {
-//        
-//        UIAlertView* alerView = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Your Date of Birth as specified is invalid" delegate:self cancelButtonTitle:@"TRY AGAIN" otherButtonTitles: nil];
-//        [alerView show];
-//        
-//        return;
-//        
-//    }
-//    
-//    if (self.bankruptcySwitch.isOn) {
-//        
-//        UIAlertView* alerView = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Thank you for your interest in applying for this TD Credit Card. We regret to inform you that we are unable to process your application online at this time. Please speak to a TD representative or visit a TD Canada Trust branch if you have any questions or need assistance." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
-//        [alerView show];
-//        
-//        return;
-//        
-//    }
+    if (!self.areYouACanadianResidentSwitch.isOn) {
+    
+        UIAlertView* alerView = [[UIAlertView alloc] initWithTitle:@"Info" message:@"You must be a Canadian Resident to be eligible. Please speak to a TD representative or visit a TD Canada Trust branch if you have any questions or need assistance." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles:@"CANCEL", nil];
+        [alerView show];
+        
+        return;
+        
+    }
+    
+    NSDate* now = [NSDate date];
+    
+    NSLog(@"%f",[datePicker.date timeIntervalSinceDate:now]);
+    
+    NSTimeInterval theTimeInterval = [datePicker.date timeIntervalSinceDate:now];
+    
+    NSCalendar *sysCalendar = [NSCalendar currentCalendar];
+    
+    NSDate *date1 = [[NSDate alloc] init];
+    NSDate *date2 = [[NSDate alloc] initWithTimeInterval:theTimeInterval sinceDate:date1];
+    
+    unsigned int unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit;
+    
+    NSDateComponents *breakdownInfo = [sysCalendar components:unitFlags fromDate:date1  toDate:date2  options:0];
+    
+    NSLog(@"Break down: %dyears", [breakdownInfo year]);
+    
+    if ([breakdownInfo year] >= -18) {
+        
+        UIAlertView* alerView = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Your Date of Birth as specified is invalid" delegate:self cancelButtonTitle:@"TRY AGAIN" otherButtonTitles: nil];
+        [alerView show];
+        
+        return;
+        
+    }
+    
+    if (self.bankruptcySwitch.isOn) {
+        
+        UIAlertView* alerView = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Thank you for your interest in applying for this TD Credit Card. We regret to inform you that we are unable to process your application online at this time. Please speak to a TD representative or visit a TD Canada Trust branch if you have any questions or need assistance." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+        [alerView show];
+        
+        return;
+        
+    }
 
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
