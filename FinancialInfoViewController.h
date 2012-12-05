@@ -11,6 +11,14 @@
 
 @interface FinancialInfoViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UITextField *employerCity;
+
+- (IBAction)selectOccupation:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *occupationButton;
+@property (strong, nonatomic) NSArray* occupationArray;
+@property (strong, nonatomic) UIPickerView *occupationPicker;
+@property (strong, nonatomic) UIPopoverController* popoverController3;
+
 @property (strong, nonatomic) NSMutableString* textfieldString;
 @property (strong, nonatomic) IBOutlet UITextField *otherOccupationTextField;
 

@@ -93,14 +93,32 @@
 - (IBAction)nextStep:(id)sender
 {
     
-    if ([self.titleString isEqualToString:@""] || self.firstName.text.length < 1 || self.lastName.text.length < 1 || self.primaryPhoneNumber.text.length < 1 || [self.gender isEqualToString:@""] || self.streetAddress.text.length < 1 || self.currentCity.text.length < 1 || [self.provinceButton.titleLabel.text isEqualToString:@"Province"] || self.postalCode.text.length < 1 || [self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"]) {
-        
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
-        [alert show];
-        
-        return;
-        
-    }
+//    if (self.emailAddress.text.length > 1) {
+//        
+//        NSString *emailRegEx = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+//        NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
+//        //Valid email address
+//        if ([emailTest evaluateWithObject:self.emailAddress.text] == YES) {
+//            
+//            
+//        }else{
+//            
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Info" message:[NSString stringWithFormat:@"Invalid e-mail address!"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            [alert show];
+//
+//            return;
+//        }
+//        
+//    }
+//     
+//    if ([self.titleString isEqualToString:@""] || self.firstName.text.length < 1 || self.lastName.text.length < 1 || self.primaryPhoneNumber.text.length < 1 || [self.gender isEqualToString:@""] || self.streetAddress.text.length < 1 || self.currentCity.text.length < 1 || [self.provinceButton.titleLabel.text isEqualToString:@"Province"] || self.postalCode.text.length < 1 || [self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"]) {
+//        
+//        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+//        [alert show];
+//        
+//        return;
+//        
+//    }
     
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
@@ -197,7 +215,7 @@
     self.languageOfCorespondaceArray = @[@"English", @"French"];
     
     self.residentialStatusArray = [NSArray new];
-    self.residentialStatusArray = @[@"Own", @"Rent", @"Live w/Parents/Relatives", @"Board"];
+    self.residentialStatusArray = @[@"Rent", @"Live w/Parents/Relatives", @"Board"];
 
     self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(10, 190, 1000, 420)];
     [self.view addSubview:self.accordion];

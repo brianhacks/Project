@@ -24,6 +24,8 @@
 @property (strong, nonatomic) UIPickerView *genderPicker;
 @property (strong, nonatomic) UIPickerView *languageOfCorespondacePicker;
 @property (strong, nonatomic) UIPickerView *residentialStatusPicker;
+
+
 @property (strong, nonatomic) IBOutlet UIButton *provinceButton;
 @property (strong, nonatomic) IBOutlet UIButton *residentialStatusButton;
 - (IBAction)selectResidentialStatus:(id)sender;
