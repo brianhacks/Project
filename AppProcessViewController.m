@@ -32,9 +32,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(39.0, 62.0, 94., 81)];
-    self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
-    [self.view addSubview:self.sageataImage];
+  //  self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(39.0, 62.0, 94., 81)];
+   // self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
+    //[self.view addSubview:self.sageataImage];
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+
+#define METERS_PER_MILE 1609.344
 
 @interface PickLocationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UIImageView* sageataImage;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)nextStep:(id)sender;
 - (IBAction)previousStep:(id)sender;

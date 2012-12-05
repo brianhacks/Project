@@ -28,6 +28,49 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    //parse the JSON
+    
+    // 1
+    MKCoordinateRegion mapRegion = [self.mapView region];
+    CLLocationCoordinate2D centerLocation = mapRegion.center;
+    
+    // 2
+    NSString *jsonFile = [[NSBundle mainBundle] pathForResource:@"branches" ofType:@"json"];
+ 
+    
+    NSError *error = nil; // This so that we can access the error if something goes wrong
+   
+    NSData *jsonData = [NSData dataWithContentsOfFile:jsonFile options:NSDataReadingMappedIfSafe error:&error];
+    
+    NSDictionary* json = [NSJSONSerialization
+                          JSONObjectWithData:jsonData 
+                          options:kNilOptions
+                          error:&error];
+    
+    NSArray* allBranches = [json objectForKey:@"branches"]; //2
+    NSLog(@"length: %ld", sizeof(allBranches)); 
+    NSDictionary* branch = [allBranches objectAtIndex:0];
+    NSString* address = [branch objectForKey:@"address"]; 
+   NSLog(@"address1: %@", address);
+    //put pin on map
+    for (NSDictionary *branch in allBranches) {
+        NSNumber *latitude = [branch objectForKey:@"lat"]; 
+        NSNumber *longitude = [branch objectForKey:@"lon"]; 
+        NSString *address = [branch objectForKey:@"address"]; ;
+        
+        
+        CLLocationCoordinate2D coordinate;
+        coordinate.latitude = latitude.doubleValue;
+        coordinate.longitude = longitude.doubleValue;
+      //  MyLocation *annotation = [[MyLocation alloc] initWithName:crimeDescription address:address coordinate:coordinate] ;
+        //[_mapView addAnnotation:annotation];
+        
+        //[self.tableView ]
+	}
+   
+    
+    
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,11 +121,11 @@
 
 - (void)refresh
 {
-    
+    /*
     self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(669.0, 62.0, 94., 81)];
     self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
     [self.view addSubview:self.sageataImage];
-    
+    */
     [self.tableView reloadData];
     
 }

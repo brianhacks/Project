@@ -68,10 +68,10 @@
 
 - (void)refresh
 {
-    self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(349.0, 62.0, 94., 81)];
+   /* self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(349.0, 62.0, 94., 81)];
     self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
     [self.view addSubview:self.sageataImage];
-    
+    */
     [self.accordion setNeedsLayout];
 }
 

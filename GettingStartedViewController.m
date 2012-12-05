@@ -8,7 +8,7 @@
 
 #import "GettingStartedViewController.h"
 #import "AppDelegate.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @interface GettingStartedViewController ()
 
@@ -34,6 +34,36 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.view.backgroundColor = background;
+    
+    self.firstBorderView.layer.cornerRadius = 15.0;
+    self.firstBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
+    self.firstBorderView.layer.backgroundColor = [UIColor colorWithRed:.963 green:.963 blue:.963 alpha:1.0].CGColor;
+    self.firstBorderView.layer.borderWidth = 2.0f;
+        
+    self.secondBorderView.layer.cornerRadius = 15.0;
+    self.secondBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
+    self.secondBorderView.layer.backgroundColor = [UIColor colorWithRed:.963 green:.963 blue:.963 alpha:1.0].CGColor;
+    self.secondBorderView.layer.borderWidth = 2.0f;
+    
+
+
+    self.thirdBorderView.layer.cornerRadius = 15.0;
+    self.thirdBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
+    self.thirdBorderView.layer.backgroundColor = [UIColor colorWithRed:.963 green:.963 blue:.963 alpha:1.0].CGColor;
+    self.thirdBorderView.layer.borderWidth = 2.0f;
+    
+
+
+    self.fourthBorderView.layer.cornerRadius = 15.0;
+    self.fourthBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
+    self.fourthBorderView.layer.backgroundColor = [UIColor colorWithRed:.963 green:.963 blue:.963 alpha:1.0].CGColor;
+    self.fourthBorderView.layer.borderWidth = 2.0f;
+    
+
+
+    
 }
 
 - (IBAction)showBirthDatePicker:(id)sender
@@ -77,7 +107,14 @@
 	NSDateFormatter *df = [[NSDateFormatter alloc] init];
 	df.dateStyle = NSDateFormatterMediumStyle;
 	NSLog(@"%@",datePicker.date);
+    NSDateFormatter *formatter;
+    NSString        *dateString;
     
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM dd, yyyy"];
+    
+    dateString = [formatter stringFromDate:datePicker.date];
+    [self.birthDateButton setTitle:dateString forState:UIControlStateNormal ];
     [appDelegate addInfoToUser:datePicker.date andFieldToAddItTo:@"birthDate"];
     
     [self.popoverController1 dismissPopoverAnimated:YES];
@@ -108,16 +145,7 @@
 
 - (IBAction)existingTDCanadaCustomer:(id)sender
 {
-    
-    if (self.existingTDCanadaCustomer.isOn) {
-        
-        self.existingTDCustomerHiddenView.hidden = NO;
-        
-    }else{
-        
-        self.existingTDCustomerHiddenView.hidden = YES;
-        
-    }
+
     
 }
 
@@ -230,10 +258,10 @@
 
 - (void)refresh
 {
-    self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(169.0, 62.0, 94., 81)];
+   /* self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(169.0, 62.0, 94., 81)];
     self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
     [self.view addSubview:self.sageataImage];
-    
+    */
     
 }
 

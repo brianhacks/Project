@@ -18,9 +18,12 @@
 @property (strong, nonatomic) IBOutlet UISwitch *areYouACanadianResidentSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *bankruptcySwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *existingTDCanadaCustomer;
-@property (strong, nonatomic) IBOutlet UIView *existingTDCustomerHiddenView;
 @property (strong, nonatomic) UIDatePicker *datePicker;
 @property (strong, nonatomic) UIButton* chooseDateButton2;
+@property (strong, nonatomic) IBOutlet UIView *firstBorderView;
+@property (strong, nonatomic) IBOutlet UIView *secondBorderView;
+@property (strong, nonatomic) IBOutlet UIView *thirdBorderView;
+@property (strong, nonatomic) IBOutlet UIView *fourthBorderView;
 
 - (IBAction)areYouACanadianResidentSwitch:(id)sender;
 - (IBAction)bankruptcySwitch:(id)sender;

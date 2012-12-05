@@ -47,6 +47,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+
+    // self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    
     UITextField *fakeField2 = [[UITextField alloc] initWithFrame:CGRectZero];
     fakeField2.delegate = self;
     fakeField2.keyboardType = UIKeyboardTypeNumberPad;
@@ -58,6 +62,8 @@
     
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = NSLocalizedString(@"Passcode", @"");
+
+    
 }
 
 - (void)viewDidUnload {

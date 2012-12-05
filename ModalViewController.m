@@ -19,7 +19,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+     
     }
+    
     return self;
 }
 
@@ -40,6 +42,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSString *urlAddress = @"http://www.google.com";
+    
+    //Create a URL object.
+    NSURL *url = [NSURL URLWithString:urlAddress];
+    
+    //URL Requst Object
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    
+    //Load the request in the UIWebView.
+    [self.webView loadRequest:requestObj];
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -231,9 +231,12 @@
 
 - (void)refresh
 {
-    self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(489.0, 62.0, 94., 81)];
-    self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
-    [self.view addSubview:self.sageataImage];
+ // we need to swap out he header image here based on them clicking on the next button
+    
+    
+    //   self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(489.0, 62.0, 94., 81)];
+  //  self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
+  //  [self.view addSubview:self.sageataImage];
 }
 
 - (IBAction)nextStep:(id)sender

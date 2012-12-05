@@ -68,10 +68,13 @@
     self.window.rootViewController = self.navController;
    
  
-//    self.window.rootViewController = self.firstScreenSaverViewController;
+ //   self.window.rootViewController = self.firstScreenSaverViewController;
+   // self.window.rootViewController = self.pickLocationViewController;
 
    
     [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 
@@ -197,6 +200,7 @@
     self.window.rootViewController = self.gCPINViewController;
     
 }
+
 
 - (void)backOneView
 {
