@@ -11,6 +11,15 @@
 
 @interface FinancialInfoViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UITextField *employerCity;
+
+- (IBAction)selectOccupation:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *occupationButton;
+@property (strong, nonatomic) NSArray* occupationArray;
+@property (strong, nonatomic) UIPickerView *occupationPicker;
+@property (strong, nonatomic) UIPopoverController* popoverController3;
+
+
 @property (strong, nonatomic) NSMutableString* textfieldString;
 @property (strong, nonatomic) IBOutlet UITextField *otherOccupationTextField;
 
@@ -40,12 +49,9 @@
 - (void)refresh;
 - (IBAction)nextStep:(id)sender;
 - (IBAction)previousStep:(id)sender;
-
-- (IBAction)doneFinance:(id)sender;
-
-- (IBAction)doneEmployee:(id)sender;
-
-- (IBAction)doneIncome:(id)sender;
-
+@property (strong, nonatomic) IBOutlet UIButton *closeFinancialDetails;
+- (IBAction)closeEmployerDetails:(id)sender;
+- (IBAction)closeFinancialDetails:(id)sender;
+- (IBAction)closeIncomeAndCreditLimitDetails:(id)sender;
 
 @end

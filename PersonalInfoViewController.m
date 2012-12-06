@@ -152,7 +152,7 @@
     self.popoverController1 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController1.delegate = self;
     
-    [self.popoverController1 setPopoverContentSize:CGSizeMake(220, 164) animated:NO];
+    [self.popoverController1 setPopoverContentSize:CGSizeMake(220, 264) animated:NO];
     [self.popoverController1 presentPopoverFromRect:CGRectMake(550.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
 }
@@ -428,8 +428,8 @@
     self.popoverController3 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController3.delegate = self;
     
-    [self.popoverController3 setPopoverContentSize:CGSizeMake(220, 164) animated:NO];
-    [self.popoverController3 presentPopoverFromRect:CGRectMake(550.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popoverController3 setPopoverContentSize:CGSizeMake(220, 194) animated:NO];
+    [self.popoverController3 presentPopoverFromRect:CGRectMake(780.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
 }
 
@@ -467,7 +467,7 @@
     self.popoverController4 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController4.delegate = self;
     [self.popoverController4 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
-    [self.popoverController4 presentPopoverFromRect:CGRectMake(550.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popoverController4 presentPopoverFromRect:CGRectMake(360.0, 270.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
 }
 
@@ -564,7 +564,7 @@
     self.popoverController5 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController5.delegate = self;
     [self.popoverController5 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
-    [self.popoverController5 presentPopoverFromRect:CGRectMake(550.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popoverController5 presentPopoverFromRect:CGRectMake(770.0, 220.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
 }
 

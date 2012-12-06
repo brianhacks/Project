@@ -51,7 +51,9 @@
     self.popoverController1 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController1.delegate = self;
     [self.popoverController1 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
-    [self.popoverController1 presentPopoverFromRect:CGRectMake(170.0, 200.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    //    [self.popoverController1 presentPopoverFromRect:CGRectMake(170.0, 200.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    [self.popoverController1 presentPopoverFromRect:CGRectMake(80.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
     
 }
 
@@ -70,33 +72,36 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-//    if (pickerView == self.statesPicker) {
-//        
-//        return [self.provinceArray count];
-//        
-//    }else if (pickerView == self.titlePicker){
-//        
-//        return [self.titleArray count];
-//        
-//    }else if(pickerView == self.languageOfCorespondacePicker){
-//        
-//        return [self.languageOfCorespondaceArray count];
-//        
-//    }else if (pickerView == self.genderPicker){
-//        
-//        return [self.genderArray count];
-//        
-//    }else{
-//        
-//        return [self.residentialStatusArray count];
-//    }
-
+    //    if (pickerView == self.statesPicker) {
+    //
+    //        return [self.provinceArray count];
+    //
+    //    }else if (pickerView == self.titlePicker){
+    //
+    //        return [self.titleArray count];
+    //
+    //    }else if(pickerView == self.languageOfCorespondacePicker){
+    //
+    //        return [self.languageOfCorespondaceArray count];
+    //
+    //    }else if (pickerView == self.genderPicker){
+    //
+    //        return [self.genderArray count];
+    //
+    //    }else{
+    //
+    //        return [self.residentialStatusArray count];
+    //    }
+    
     if (pickerView == self.statesPicker) {
         
         return [self.provinceArray count];
         
-    }else
-    {
+    }else if(pickerView == self.occupationPicker){
+        
+        return [self.occupationArray count];
+        
+    }else{
         return [self.employmentStatusArray count];
     }
     
@@ -109,35 +114,39 @@
     
     NSString* val1;
     
-   
+    
     
     if (pickerView == self.statesPicker) {
         
         val1 = [self.provinceArray objectAtIndex:row];
         
+    }else if(pickerView == self.occupationPicker){
+        
+        val1 = [self.occupationArray objectAtIndex:row];
+        
     }else{
         
-         val1 = [self.employmentStatusArray objectAtIndex:row];
+        val1 = [self.employmentStatusArray objectAtIndex:row];
         
     }
     
     
-//    }else if (pickerView == self.titlePicker){
-//        
-//        val1 = [self.titleArray objectAtIndex:row];
-//        
-//    }else if(pickerView == self.languageOfCorespondacePicker){
-//        
-//        val1 = [self.languageOfCorespondaceArray objectAtIndex:row];
-//        
-//    }else if (pickerView == self.genderPicker){
-//        
-//        val1 = [self.genderArray objectAtIndex:row];
-//        
-//    }else{
-//        
-//        val1 = [self.residentialStatusArray objectAtIndex:row];
-//    }
+    //    }else if (pickerView == self.titlePicker){
+    //
+    //        val1 = [self.titleArray objectAtIndex:row];
+    //
+    //    }else if(pickerView == self.languageOfCorespondacePicker){
+    //
+    //        val1 = [self.languageOfCorespondaceArray objectAtIndex:row];
+    //
+    //    }else if (pickerView == self.genderPicker){
+    //
+    //        val1 = [self.genderArray objectAtIndex:row];
+    //
+    //    }else{
+    //
+    //        val1 = [self.residentialStatusArray objectAtIndex:row];
+    //    }
     
     return val1;
 }
@@ -167,7 +176,7 @@
     self.popoverController2 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController2.delegate = self;
     [self.popoverController2 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
-    [self.popoverController2 presentPopoverFromRect:CGRectMake(550.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popoverController2 presentPopoverFromRect:CGRectMake(550.0, 290.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
 }
 
@@ -182,39 +191,42 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
     
     self.textfieldString = [[NSMutableString alloc] initWithCapacity:100];
     
-//    self.occupationArray = [NSArray new];
-//    self.occupationArray = @[@"Accounting/Finance/Insurance",
-//    @"Administrative/Clarical",
-//    @"Banking/Real Estate/Mortgage Professionals",
-//    @"Biotech/R&D/Science",
-//    @"Building Construction/Skilled Trades",
-//    @"Business/Strategic Management",
-//    @"Creative Design",
-//    @"Customer Support/Client Care",
-//    @"Editorial/Writing",
-//    @"Education/Training",
-//    @"Engineering/Architect",
-//    @"Food Services/Hospitality",
-//    @"Human Resources",
-//    @"IT/Software Development",
-//    @"Installation/Maintenance/Repair",
-//    @"Legal",
-//    @"Logistics/Transportation",
-//    @"Manufacturing/Production/Operations",
-//    @"Marketing/Production/Operations",
-//    @"Marketing/Product",
-//    @"Medical/Health",
-//    @"Other",
-//    @"Project/Program Management",
-//    @"Quality Assurance/Safety",
-//    @"Sales/Retail/Business Development",
-//    @"Security/Protective Services",
-//    @"Trades"];
+    self.occupationArray = [NSArray new];
+    self.occupationArray = @[@"Accounting/Finance/Insurance",
+    @"Administrative/Clarical",
+    @"Banking/Real Estate/Mortgage Professionals",
+    @"Biotech/R&D/Science",
+    @"Building Construction/Skilled Trades",
+    @"Business/Strategic Management",
+    @"Creative Design",
+    @"Customer Support/Client Care",
+    @"Editorial/Writing",
+    @"Education/Training",
+    @"Engineering/Architect",
+    @"Food Services/Hospitality",
+    @"Human Resources",
+    @"IT/Software Development",
+    @"Installation/Maintenance/Repair",
+    @"Legal",
+    @"Logistics/Transportation",
+    @"Manufacturing/Production/Operations",
+    @"Marketing/Production/Operations",
+    @"Marketing/Product",
+    @"Medical/Health",
+    @"Other",
+    @"Project/Program Management",
+    @"Quality Assurance/Safety",
+    @"Sales/Retail/Business Development",
+    @"Security/Protective Services",
+    @"Trades"];
     
     self.employmentStatusArray = [NSArray new];
     self.employmentStatusArray = @[@"Employed Full Time", @"Employed Part Time", @"Self-employed", @"Unemployed", @"Retired"];
@@ -267,12 +279,12 @@
 
 - (void)refresh
 {
- // we need to swap out he header image here based on them clicking on the next button
+    // we need to swap out he header image here based on them clicking on the next button
     
     
     //   self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(489.0, 62.0, 94., 81)];
-  //  self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
-  //  [self.view addSubview:self.sageataImage];
+    //  self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
+    //  [self.view addSubview:self.sageataImage];
 }
 
 - (IBAction)nextStep:(id)sender
@@ -280,12 +292,15 @@
     
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
-    [appDelegate addInfoToUser:self.specifyOtherOcupation.text andFieldToAddItTo:@"currentOcupation"];
+    
+    [appDelegate addInfoToUser:self.occupationButton.titleLabel.text andFieldToAddItTo:@"currentOcupation"];
+    [appDelegate addInfoToUser:self.employmentStatus.titleLabel.text andFieldToAddItTo:@"employmentStatus"];
+    //    [appDelegate addInfoToUser:self.employerCity.text andFieldToAddItTo:@"employerCity"];
     [appDelegate addInfoToUser:self.employerName.text andFieldToAddItTo:@"employerName"];
     [appDelegate addInfoToUser:self.employerStreetAddress.text andFieldToAddItTo:@"employerStreetAddress"];
     [appDelegate addInfoToUser:self.employerAreaCode.text andFieldToAddItTo:@"employerAreaCode"];
     [appDelegate addInfoToUser:self.employerWorkPhoneNumber.text andFieldToAddItTo:@"workPhone"];
-//    [appDelegate addInfoToUser:self.employerExt.text andFieldToAddItTo:@"street"];
+    //    [appDelegate addInfoToUser:self.employerExt.text andFieldToAddItTo:@"street"];
     
     [appDelegate setNewRootView:appDelegate.pickLocationViewController];
     [appDelegate.pickLocationViewController refresh];
@@ -301,23 +316,6 @@
     
 }
 
-
-- (IBAction)doneFinance:(id)sender {
-    [self.accordion setSelectedIndex:1];
-}
-
-- (IBAction)doneEmployee:(id)sender {
-     [self.accordion setSelectedIndex:2];
-}
-
-- (IBAction)doneIncome:(id)sender {
-    
-    //close it and highlight the bottom next button
-    [self.accordion setSelectedIndex:3];
-}
-
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -326,12 +324,12 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-        
+    
     string = [string lowercaseString];
     
     if ([string isEqualToString:@""]) {
-    
-//        [self.textfieldString insertString:string atIndex:self.textfieldString.length];
+        
+        //        [self.textfieldString insertString:string atIndex:self.textfieldString.length];
         [self.textfieldString setString:[self.textfieldString substringToIndex:[self.textfieldString length] - 1]];
         
         NSLog(@"%@",self.textfieldString);
@@ -361,9 +359,168 @@
         }
         return YES;
         
+    }else if(textField == self.employerName){
+        
+        int length = [textField.text length] ;
+        if (length >= MAXLENGTHFOREMPLOYERNAME && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:MAXLENGTHFOREMPLOYERNAME];
+            return NO;
+        }
+        return YES;
+        
+    }else if (textField == self.employerStreetAddress){
+        
+        int length = [textField.text length] ;
+        if (length >= MAXLENGTHFOREMPLOYERSTREET && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:MAXLENGTHFOREMPLOYERSTREET];
+            return NO;
+        }
+        return YES;
+        
+    }else if(textField == self.employerCity){
+        
+        int length = [textField.text length] ;
+        if (length >= MAXLENGTHFORCURRENTCITY && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:MAXLENGTHFORCURRENTCITY];
+            return NO;
+        }
+        return YES;
+        
+        
+        
     }
     
     return YES;
 }
 
+- (IBAction)selectOccupation:(id)sender
+{
+    
+    UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
+    
+    UIView *popoverView = [[UIView alloc] init];   //view
+    popoverView.backgroundColor = [UIColor grayColor];
+    
+    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    doneButton.frame = CGRectMake(400., 0., 60., 44.);
+    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    [doneButton addTarget:self action:@selector(chooseOccupation) forControlEvents:UIControlEventTouchUpInside];
+    [popoverView addSubview:doneButton];
+    
+    self.occupationPicker = [[UIPickerView alloc]init];//Date picker
+    self.occupationPicker.frame = CGRectMake(0,44,480, 216);
+    self.occupationPicker.dataSource = self;
+    self.occupationPicker.delegate = self;
+    self.occupationPicker.showsSelectionIndicator = YES;
+    [popoverView addSubview:self.occupationPicker];
+    
+    popoverContent.view = popoverView;
+    self.popoverController3 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+    self.popoverController3.delegate = self;
+    [self.popoverController3 setPopoverContentSize:CGSizeMake(480, 264) animated:NO];
+    [self.popoverController3 presentPopoverFromRect:CGRectMake(400.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+}
+
+- (void)chooseOccupation
+{
+    if ([[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]] isEqualToString:@"Other"]) {
+        
+        self.otherOccupationTextField.hidden = NO;
+        
+    }else{
+        
+        self.otherOccupationTextField.hidden = YES;
+    }
+    
+    [self.occupationButton setTitle:[NSString stringWithFormat:@"%@",[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+    [self.popoverController3 dismissPopoverAnimated:YES];
+    
+}
+
+- (IBAction)closeFinancialDetails:(id)sender
+{
+    //validate the fields here!
+    bool isValid = true;
+    
+    if([self.occupationButton.titleLabel.text isEqualToString:@"Occupation"]){
+        isValid=false;
+        //mark field as invalid
+        self.occupationButton.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.occupationButton.backgroundColor = [UIColor whiteColor];
+    }
+    //
+    if([self.employmentStatus.titleLabel.text isEqualToString:@"Current Employment Status"]){
+        isValid=false;
+        //mark field as invalid
+        self.employmentStatus.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.employmentStatus.backgroundColor = [UIColor whiteColor];
+    }
+    
+    if(isValid==false){
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+        [alert show];
+        
+        
+        return;
+    }
+    
+    //TODO need to modify accordion to replace panel with infopanel and hide header.
+    [self.accordion setSelectedIndex:1];
+    
+}
+
+- (IBAction)closeEmployerDetails:(id)sender
+{
+    
+    //validate the fields here!
+    bool isValid = true;
+    
+    if(self.employerName.text.length < 1){
+        isValid=false;
+        //mark field as invalid
+        self.employerName.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.employerName.backgroundColor = [UIColor whiteColor];
+    }
+    //
+    if(self.employerStreetAddress.text.length < 1){
+        isValid=false;
+        //mark field as invalid
+        self.employerStreetAddress.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.employerStreetAddress.backgroundColor = [UIColor whiteColor];
+    }
+    
+    if([self.provinceButton.titleLabel.text isEqualToString:@"Province"]){
+        isValid=false;
+        //mark field as invalid
+        self.provinceButton.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.provinceButton.backgroundColor = [UIColor whiteColor];
+    }
+    
+    if(isValid==false){
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+        [alert show];
+        
+        
+        return;
+    }
+    
+    //TODO need to modify accordion to replace panel with infopanel and hide header.
+    [self.accordion setSelectedIndex:2];
+    
+}
+
+
+
+- (IBAction)closeIncomeAndCreditLimitDetails:(id)sender
+{
+    
+    [self.accordion setSelectedIndex:3];
+    
+}
 @end
