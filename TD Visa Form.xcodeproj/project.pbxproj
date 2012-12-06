@@ -63,6 +63,23 @@
 		9F2B90B5166FA897003DD835 /* banner-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B3166FA897003DD835 /* banner-5.png */; };
 		9F2B90B6166FA897003DD835 /* banner-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B4166FA897003DD835 /* banner-4.png */; };
 		9F2B90B8166FABFE003DD835 /* header-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B7166FABFE003DD835 /* header-5.png */; };
+		9F854C6A166FE859009F9E01 /* body-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C68166FE859009F9E01 /* body-2.png */; };
+		9F854C6B166FE859009F9E01 /* footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C69166FE859009F9E01 /* footer.png */; };
+		9F854C76166FFA10009F9E01 /* FrutigerLTStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C6D166FFA10009F9E01 /* FrutigerLTStd-Bold.otf */; };
+		9F854C77166FFA10009F9E01 /* FrutiBol in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C6E166FFA10009F9E01 /* FrutiBol */; };
+		9F854C78166FFA10009F9E01 /* FrutiRom in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C6F166FFA10009F9E01 /* FrutiRom */; };
+		9F854C79166FFA10009F9E01 /* FrutiBlaCn in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C70166FFA10009F9E01 /* FrutiBlaCn */; };
+		9F854C7A166FFA10009F9E01 /* FrutiBolCn in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C71166FFA10009F9E01 /* FrutiBolCn */; };
+		9F854C7B166FFA10009F9E01 /* FrutiCn in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C72166FFA10009F9E01 /* FrutiCn */; };
+		9F854C7C166FFA10009F9E01 /* FrutiExtBlaCn in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C73166FFA10009F9E01 /* FrutiExtBlaCn */; };
+		9F854C7D166FFA10009F9E01 /* Frutiger Condensed in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C74166FFA10009F9E01 /* Frutiger Condensed */; };
+		9F854C7E166FFA10009F9E01 /* FrutiLigCn in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C75166FFA10009F9E01 /* FrutiLigCn */; };
+		9F854C81167022F9009F9E01 /* btn-security-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C7F167022F8009F9E01 /* btn-security-down.png */; };
+		9F854C82167022F9009F9E01 /* btn-security-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C80167022F9009F9E01 /* btn-security-normal.png */; };
+		9F854C8516703CE5009F9E01 /* body-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C8316703CE4009F9E01 /* body-1.png */; };
+		9F854C8616703CE5009F9E01 /* banner-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C8416703CE5009F9E01 /* banner-1.png */; };
+		9F854C8A16706F2B009F9E01 /* AdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F854C8816706F2B009F9E01 /* AdminViewController.m */; };
+		9F854C8B16706F2B009F9E01 /* AdminViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C8916706F2B009F9E01 /* AdminViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,7 +151,7 @@
 		70CB8F3C1666933400DC2E70 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		9F0C3902166FB582009C8297 /* passcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = passcode.png; path = "TD Visa Form/images/passcode.png"; sourceTree = "<group>"; };
 		9F0C3904166FB812009C8297 /* select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = select.png; path = "TD Visa Form/images/select.png"; sourceTree = "<group>"; };
-		9F0C3906166FB9DB009C8297 /* banner-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-2.png"; path = "images/banner-2.png"; sourceTree = "<group>"; };
+		9F0C3906166FB9DB009C8297 /* banner-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-2.png"; path = "TD Visa Form/images/banner-2.png"; sourceTree = "<group>"; };
 		9F0C3908166FC98F009C8297 /* Frutiger */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Frutiger; sourceTree = "<group>"; };
 		9F2B90A0166EEF80003DD835 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "TD Visa Form/background.png"; sourceTree = "<group>"; };
 		9F2B90A3166F057A003DD835 /* ssaver2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ssaver2.png; path = "TD Visa Form/ssaver2.png"; sourceTree = "<group>"; };
@@ -144,6 +161,24 @@
 		9F2B90B3166FA897003DD835 /* banner-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-5.png"; path = "TD Visa Form/images/banner-5.png"; sourceTree = "<group>"; };
 		9F2B90B4166FA897003DD835 /* banner-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-4.png"; path = "TD Visa Form/images/banner-4.png"; sourceTree = "<group>"; };
 		9F2B90B7166FABFE003DD835 /* header-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header-5.png"; path = "TD Visa Form/images/header-5.png"; sourceTree = "<group>"; };
+		9F854C68166FE859009F9E01 /* body-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "body-2.png"; path = "TD Visa Form/images/body-2.png"; sourceTree = "<group>"; };
+		9F854C69166FE859009F9E01 /* footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = footer.png; path = "TD Visa Form/images/footer.png"; sourceTree = "<group>"; };
+		9F854C6D166FFA10009F9E01 /* FrutigerLTStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Bold.otf"; path = "TD Visa Form/FrutigerLTStd-Bold.otf"; sourceTree = "<group>"; };
+		9F854C6E166FFA10009F9E01 /* FrutiBol */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiBol; path = "TD Visa Form/FrutiBol"; sourceTree = "<group>"; };
+		9F854C6F166FFA10009F9E01 /* FrutiRom */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiRom; path = "TD Visa Form/FrutiRom"; sourceTree = "<group>"; };
+		9F854C70166FFA10009F9E01 /* FrutiBlaCn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiBlaCn; path = "TD Visa Form/FrutiBlaCn"; sourceTree = "<group>"; };
+		9F854C71166FFA10009F9E01 /* FrutiBolCn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiBolCn; path = "TD Visa Form/FrutiBolCn"; sourceTree = "<group>"; };
+		9F854C72166FFA10009F9E01 /* FrutiCn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiCn; path = "TD Visa Form/FrutiCn"; sourceTree = "<group>"; };
+		9F854C73166FFA10009F9E01 /* FrutiExtBlaCn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiExtBlaCn; path = "TD Visa Form/FrutiExtBlaCn"; sourceTree = "<group>"; };
+		9F854C74166FFA10009F9E01 /* Frutiger Condensed */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Frutiger Condensed"; path = "TD Visa Form/Frutiger Condensed"; sourceTree = "<group>"; };
+		9F854C75166FFA10009F9E01 /* FrutiLigCn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiLigCn; path = "TD Visa Form/FrutiLigCn"; sourceTree = "<group>"; };
+		9F854C7F167022F8009F9E01 /* btn-security-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-security-down.png"; path = "TD Visa Form/images/btn-security-down.png"; sourceTree = "<group>"; };
+		9F854C80167022F9009F9E01 /* btn-security-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-security-normal.png"; path = "TD Visa Form/images/btn-security-normal.png"; sourceTree = "<group>"; };
+		9F854C8316703CE4009F9E01 /* body-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "body-1.png"; path = "TD Visa Form/images/body-1.png"; sourceTree = "<group>"; };
+		9F854C8416703CE5009F9E01 /* banner-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-1.png"; path = "TD Visa Form/images/banner-1.png"; sourceTree = "<group>"; };
+		9F854C8716706F2B009F9E01 /* AdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminViewController.h; sourceTree = "<group>"; };
+		9F854C8816706F2B009F9E01 /* AdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminViewController.m; sourceTree = "<group>"; };
+		9F854C8916706F2B009F9E01 /* AdminViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdminViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +201,7 @@
 		7023379C1652C56800B87249 = {
 			isa = PBXGroup;
 			children = (
+				9F854C8C16706F31009F9E01 /* admin */,
 				9F2B90A7166F0588003DD835 /* images */,
 				70A252911655803B00049612 /* Constants.h */,
 				70CB815116640E330003B225 /* Pick Location */,
@@ -212,7 +248,6 @@
 			children = (
 				702337BC1652C56800B87249 /* AppDelegate.h */,
 				702337BD1652C56800B87249 /* AppDelegate.m */,
-				9F0C3906166FB9DB009C8297 /* banner-2.png */,
 				702337C51652C56800B87249 /* TD_Visa_Form.xcdatamodeld */,
 				70CB8F3B1666933400DC2E70 /* User.h */,
 				70CB8F3C1666933400DC2E70 /* User.m */,
@@ -251,7 +286,6 @@
 				703E1308165968450043D72A /* GCPINViewController.h */,
 				703E1309165968450043D72A /* GCPINViewController.m */,
 				703E130A165968450043D72A /* GCPINViewController~ipad.xib */,
-				9F0C3904166FB812009C8297 /* select.png */,
 				70A2515B1655540A00049612 /* RootViewController.xib */,
 				702337D91652D1BB00B87249 /* RootViewController.h */,
 				702337DA1652D1BB00B87249 /* RootViewController.m */,
@@ -265,7 +299,6 @@
 				703E13131659744C0043D72A /* GettingStartedViewController.h */,
 				703E13141659744C0043D72A /* GettingStartedViewController.m */,
 				703E13151659744C0043D72A /* GettingStartedViewController.xib */,
-				9F2B90B1166FA473003DD835 /* banner-3.png */,
 			);
 			name = "Getting Started";
 			sourceTree = "<group>";
@@ -365,6 +398,15 @@
 			isa = PBXGroup;
 			children = (
 				9F0C3908166FC98F009C8297 /* Frutiger */,
+				9F854C6D166FFA10009F9E01 /* FrutigerLTStd-Bold.otf */,
+				9F854C6E166FFA10009F9E01 /* FrutiBol */,
+				9F854C6F166FFA10009F9E01 /* FrutiRom */,
+				9F854C70166FFA10009F9E01 /* FrutiBlaCn */,
+				9F854C71166FFA10009F9E01 /* FrutiBolCn */,
+				9F854C72166FFA10009F9E01 /* FrutiCn */,
+				9F854C73166FFA10009F9E01 /* FrutiExtBlaCn */,
+				9F854C74166FFA10009F9E01 /* Frutiger Condensed */,
+				9F854C75166FFA10009F9E01 /* FrutiLigCn */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -372,15 +414,34 @@
 		9F2B90A7166F0588003DD835 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9F0C3904166FB812009C8297 /* select.png */,
+				9F854C7F167022F8009F9E01 /* btn-security-down.png */,
+				9F854C80167022F9009F9E01 /* btn-security-normal.png */,
 				9F2B90A0166EEF80003DD835 /* background.png */,
+				9F854C68166FE859009F9E01 /* body-2.png */,
+				9F854C69166FE859009F9E01 /* footer.png */,
 				9F2B90B7166FABFE003DD835 /* header-5.png */,
+				9F2B90B1166FA473003DD835 /* banner-3.png */,
 				9F2B90A3166F057A003DD835 /* ssaver2.png */,
 				9F2B90B3166FA897003DD835 /* banner-5.png */,
 				9F0C3902166FB582009C8297 /* passcode.png */,
 				9F2B90B4166FA897003DD835 /* banner-4.png */,
+				9F854C8316703CE4009F9E01 /* body-1.png */,
+				9F0C3906166FB9DB009C8297 /* banner-2.png */,
+				9F854C8416703CE5009F9E01 /* banner-1.png */,
 				9F2B90A4166F057A003DD835 /* ssaver1.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		9F854C8C16706F31009F9E01 /* admin */ = {
+			isa = PBXGroup;
+			children = (
+				9F854C8716706F2B009F9E01 /* AdminViewController.h */,
+				9F854C8816706F2B009F9E01 /* AdminViewController.m */,
+				9F854C8916706F2B009F9E01 /* AdminViewController.xib */,
+			);
+			name = admin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -464,6 +525,22 @@
 				9F0C3905166FB812009C8297 /* select.png in Resources */,
 				9F0C3907166FB9DB009C8297 /* banner-2.png in Resources */,
 				9F0C3909166FC98F009C8297 /* Frutiger in Resources */,
+				9F854C6A166FE859009F9E01 /* body-2.png in Resources */,
+				9F854C6B166FE859009F9E01 /* footer.png in Resources */,
+				9F854C76166FFA10009F9E01 /* FrutigerLTStd-Bold.otf in Resources */,
+				9F854C77166FFA10009F9E01 /* FrutiBol in Resources */,
+				9F854C78166FFA10009F9E01 /* FrutiRom in Resources */,
+				9F854C79166FFA10009F9E01 /* FrutiBlaCn in Resources */,
+				9F854C7A166FFA10009F9E01 /* FrutiBolCn in Resources */,
+				9F854C7B166FFA10009F9E01 /* FrutiCn in Resources */,
+				9F854C7C166FFA10009F9E01 /* FrutiExtBlaCn in Resources */,
+				9F854C7D166FFA10009F9E01 /* Frutiger Condensed in Resources */,
+				9F854C7E166FFA10009F9E01 /* FrutiLigCn in Resources */,
+				9F854C81167022F9009F9E01 /* btn-security-down.png in Resources */,
+				9F854C82167022F9009F9E01 /* btn-security-normal.png in Resources */,
+				9F854C8516703CE5009F9E01 /* body-1.png in Resources */,
+				9F854C8616703CE5009F9E01 /* banner-1.png in Resources */,
+				9F854C8B16706F2B009F9E01 /* AdminViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +571,7 @@
 				70CB814F1664003C0003B225 /* FinancialInfoViewController.m in Sources */,
 				70CB815516640EA90003B225 /* PickLocationViewController.m in Sources */,
 				70CB8F3D1666933400DC2E70 /* User.m in Sources */,
+				9F854C8A16706F2B009F9E01 /* AdminViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
