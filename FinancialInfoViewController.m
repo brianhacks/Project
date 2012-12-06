@@ -52,7 +52,7 @@
     self.popoverController1.delegate = self;
     [self.popoverController1 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
     //    [self.popoverController1 presentPopoverFromRect:CGRectMake(170.0, 200.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-    [self.popoverController1 presentPopoverFromRect:CGRectMake(100.0, 200.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    [self.popoverController1 presentPopoverFromRect:CGRectMake(80.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
     
 }
@@ -176,7 +176,7 @@
     self.popoverController2 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController2.delegate = self;
     [self.popoverController2 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
-    [self.popoverController2 presentPopoverFromRect:CGRectMake(550.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popoverController2 presentPopoverFromRect:CGRectMake(550.0, 290.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
 }
 

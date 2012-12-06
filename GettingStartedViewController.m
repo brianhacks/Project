@@ -95,7 +95,7 @@
 
     
     [self.popoverController1 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
-    [self.popoverController1 presentPopoverFromRect:self.birthDateButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];//tempButton.frame where you need you can put that frame
+    [self.popoverController1 presentPopoverFromRect:CGRectMake(180., 160., 320., 264.) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];//tempButton.frame where you need you can put that frame
     
 }
 
