@@ -31,6 +31,11 @@
     //parse the JSON
     
     // 1
+    
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.view.backgroundColor = background;
+    
+    
     MKCoordinateRegion mapRegion = [self.mapView region];
     CLLocationCoordinate2D centerLocation = mapRegion.center;
     

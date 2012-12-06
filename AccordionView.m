@@ -83,7 +83,7 @@
         
         if ([aHeader respondsToSelector:@selector(addTarget:action:forControlEvents:)]) {
             [aHeader setTag:[headers count] - 1];
-            [aHeader addTarget:self action:@selector(touchDown:) forControlEvents:UIControlEventTouchUpInside];
+           // [aHeader addTarget:self action:@selector(touchDown:) forControlEvents:UIControlEventTouchUpInside];
         }
         
         if ([selectionIndexes count] == 0) {

@@ -172,9 +172,116 @@
 - (IBAction)closeGeneralInfoView:(id)sender
 {
     
+       //validate the fields here!
+    bool isValid = true;
+       
+    if ([self.titleString isEqualToString:@""] ){
+        isValid=false;
+        //mark field as invalid
+       self.selectTitelButton.backgroundColor = [UIColor yellowColor];
+     }else{
+         self.selectTitelButton.backgroundColor = [UIColor whiteColor];
+    }
+    
+    //
+    if(self.firstName.text.length < 1){
+        isValid=false;
+        //mark field as invalid
+        self.firstName.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.firstName.backgroundColor = [UIColor whiteColor];
+    }
+    //
+    if(self.lastName.text.length < 1){
+        isValid=false;
+        //mark field as invalid
+        self.lastName.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.lastName.backgroundColor = [UIColor whiteColor];
+    }
+    if(self.primaryPhoneNumber.text.length < 1){
+        isValid=false;
+        //mark field as invalid
+        self.primaryPhoneNumber.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.primaryPhoneNumber.backgroundColor = [UIColor whiteColor];
+    }
+
+    
+    
+    if( [self.gender isEqualToString:@""] ){
+        //mark field as invalid
+        self.selectGenderButton.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.selectGenderButton.backgroundColor = [UIColor whiteColor];
+        
+    }
+       
+    if(isValid==false){
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+        [alert show];
+        
+        
+        return;
+    }
+    
+    //TODO need to modify accordion to replace panel with infopanel and hide header.
     [self.accordion setSelectedIndex:1];
     
 }
+
+- (void)closeAddressView
+{
+    bool isValid=true;
+    
+     if(self.streetAddress.text.length < 1 )
+     {
+     isValid=false;
+     //mark field as invalid
+     self.streetAddress.backgroundColor = [UIColor yellowColor];
+     }else{
+     self.streetAddress.backgroundColor = [UIColor whiteColor];
+     
+     }
+     if(self.currentCity.text.length < 1 )
+     {
+     isValid=false;
+     //mark field as invalid
+     self.currentCity.backgroundColor = [UIColor yellowColor];
+     }else{
+     self.currentCity.backgroundColor = [UIColor whiteColor];
+     
+     }
+     if([self.provinceButton.titleLabel.text isEqualToString:@"Province"]){}
+     
+     if(self.postalCode.text.length < 1)
+     {
+     self.postalCode.backgroundColor = [UIColor yellowColor];
+     }else{
+     self.postalCode.backgroundColor = [UIColor whiteColor];
+     }
+     
+     if([self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"])
+     {
+     isValid=false;
+     
+     }
+     
+
+    
+    if(isValid==false){
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+        [alert show];
+        
+        
+        return;
+    }
+     [self.accordion setSelectedIndex:1];
+
+    
+}
+
+
 
 - (void)viewDidLoad
 {
@@ -198,23 +305,31 @@
     
     self.residentialStatusArray = [NSArray new];
     self.residentialStatusArray = @[@"Own", @"Rent", @"Live w/Parents/Relatives", @"Board"];
+    
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.view.backgroundColor = background;
 
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(10, 190, 1000, 420)];
+    
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(17, 170, 990, 720)];
     [self.view addSubview:self.accordion];
     
     // Only height is taken into account, so other parameters are just dummy
-    self.doneGeneralInfo = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
-    self.doneGeneralInfo.backgroundColor = [UIColor blueColor];
+    UIButton *header1= [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    header1.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    [header1 setTitle:@"General Information" forState:UIControlStateNormal];
+    header1.titleLabel.textAlignment = UITextAlignmentLeft;
+    self.doneGeneralInfo = header1;
     
     [self.accordion addHeader:self.doneGeneralInfo withView:self.generalInfoView];
     
-    UIButton *header2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
-    header2.backgroundColor = [UIColor blueColor];
-    [header2 setTitle:@"Second row" forState:UIControlStateNormal];
+    UIButton *header2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    header2.backgroundColor = [UIColor  colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    [header2 setTitle:@"Current Home Address" forState:UIControlStateNormal];
     
-    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
-    view2.backgroundColor = [UIColor blueColor];
-    
+    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 400)];
+    view2.backgroundColor = [UIColor whiteColor];
+     
+    //need to figure out how to alternate the color of white and green
     [self.accordion addHeader:header2 withView:self.currentHomeAddressView];
     
     [self.accordion setNeedsLayout];

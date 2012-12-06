@@ -195,6 +195,9 @@
         isAdmin = YES;
         NSLog(@"launch admin part of the app");
         NSLog(@"%@",password);
+        // verify the password and clear if its wrong
+       
+        
         [appDelegate closeRootAndLaunchNextPart:isAdmin];
     }
     else if ([password hasPrefix:@"c"])

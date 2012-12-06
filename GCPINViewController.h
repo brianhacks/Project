@@ -37,7 +37,7 @@ typedef BOOL (^GCPasscodeVerifyBlock) (NSString *code);
  Settings > General > Passcode Lock.
  
  */
-@interface GCPINViewController : UIViewController <UITextFieldDelegate> {
+@interface GCPINViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate> {
 @private
     BOOL __dismiss;
 }

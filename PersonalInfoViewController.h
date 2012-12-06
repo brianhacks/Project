@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *selectTitelButton;
 @property (strong, nonatomic) AccordionView *accordion;
 
+
 @property (strong, nonatomic) IBOutlet UIPickerView *statesPicker;
 @property (strong, nonatomic) UIPickerView *titlePicker;
 @property (strong, nonatomic) UIPickerView *genderPicker;
@@ -66,6 +67,7 @@
 - (IBAction)selectGender:(id)sender;
 - (IBAction)selectLanguageOfCorrespondace:(id)sender;
 - (IBAction)closeGeneralInfoView:(id)sender;
+- (IBAction)closeAddressView:(id)sender;
 
 
 @end

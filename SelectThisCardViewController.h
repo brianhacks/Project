@@ -19,6 +19,8 @@
 @interface SelectThisCardViewController : UIViewController 
 
 @property (nonatomic, weak) id <SelectThisCardViewControllerDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UIWebView *selectCardWebView;
+@property (strong, nonatomic) IBOutlet UIView *webShowdowView;
 
 - (IBAction)backToCards:(id)sender;
 - (IBAction)chooseThisCard:(id)sender;

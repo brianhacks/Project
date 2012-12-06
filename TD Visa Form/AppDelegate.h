@@ -17,6 +17,7 @@
 #import "PersonalInfoViewController.h"
 #import "FinancialInfoViewController.h"
 #import "PickLocationViewController.h"
+#import "AdminViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -36,6 +37,8 @@
 @property (nonatomic, strong) PersonalInfoViewController* personalInfoViewController;
 @property (nonatomic, strong) FinancialInfoViewController* financialInfoViewController;
 @property (nonatomic, strong) PickLocationViewController* pickLocationViewController;
+@property (nonatomic, strong) AdminViewController* adminViewController;
+
 @property (nonatomic, strong) UINavigationController *navController;
 
 - (void)saveContext;

@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Frutiger</string>
+		<string>Frutiger LT Std</string>
 	</array>
 	<key>UIStatusBarHidden</key>
 	<false/>

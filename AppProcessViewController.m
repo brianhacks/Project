@@ -35,6 +35,10 @@
   //  self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(39.0, 62.0, 94., 81)];
    // self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
     //[self.view addSubview:self.sageataImage];
+    
+    [self.security setImage:[UIImage imageNamed:@"btn-security-down.png"] forState:UIControlStateSelected | UIControlStateHighlighted];
+     [self.security setImage:[UIImage imageNamed:@"btn-security-normal.png"] forState:UIControlStateNormal];
+    
 }
 
 - (void)didReceiveMemoryWarning

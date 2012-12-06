@@ -7,7 +7,7 @@
 //
 
 #import "SelectThisCardViewController.h"
-
+#import <QuartzCore/QuartzCore.h>
 @interface SelectThisCardViewController ()
 
 @end
@@ -31,6 +31,36 @@
     
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
+   
+    //load the web view
+    NSString *urlAddress = @"http://news.ycombinator.com";
+    
+    //Create a URL object.
+    NSURL *url = [NSURL URLWithString:urlAddress];
+    
+    //URL Requst Object
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    
+    
+    [self.selectCardWebView.layer setMasksToBounds:YES];
+    [self.selectCardWebView.layer setCornerRadius:12.0f];
+    [self.selectCardWebView.layer setBorderColor:[[UIColor grayColor] CGColor]];
+    [self.selectCardWebView.layer setBorderWidth:1.0f];
+    
+    [self.selectCardWebView.layer setShadowOffset:CGSizeMake(0, 0)];
+    [self.selectCardWebView.layer setShadowOpacity:1];
+    [self.selectCardWebView.layer setShadowRadius:2.0];
+    
+    [self.selectCardWebView loadRequest:requestObj];
+    [self.selectCardWebView.layer setShadowColor:[[UIColor blackColor] CGColor]];
+    [self.selectCardWebView.layer setShadowOffset:CGSizeMake(1.0, 1.0)];
+    [self.selectCardWebView.layer setShadowOpacity:0.5];
+    [self.selectCardWebView.layer setShadowRadius:1];
+   
+    
+    
+    
+    
 }
 
 

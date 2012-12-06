@@ -263,8 +263,30 @@
         isAdmin = YES;
         NSLog(@"launch admin part of the app");
         NSLog(@"%@",password);
-        [appDelegate closeRootAndLaunchNextPart:isAdmin];
-        [self.inputField resignFirstResponder];
+        
+        //check - for now against dummy code
+        NSString *validCode =  @"a1111";
+        if(![password isEqualToString:validCode]){
+            
+         //   getEmailView.alertViewStyle=  UIAlertViewStylePlainTextInput;
+          
+            NSLog(@"failed!");
+            
+            
+           
+            
+        }else{
+            // we needto collect the email address and log it to a file someplace :-(
+        
+        /*    UIAlertView *getEmailView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Enter your Email address", @"") message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:NSLocalizedString(@"OK", @""), nil];
+            [getEmailView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+            [getEmailView show];
+          */  
+            [appDelegate closeRootAndLaunchNextPart:isAdmin];
+            [self.inputField resignFirstResponder];
+        }
+        
+       
         
     }
     else if ([password hasPrefix:@"c"])
@@ -275,6 +297,10 @@
         [appDelegate closeRootAndLaunchNextPart:isAdmin];
         [self.inputField resignFirstResponder];
     }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"Entered: %@",[[alertView textFieldAtIndex:0] text]);
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {

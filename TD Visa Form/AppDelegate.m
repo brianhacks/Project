@@ -15,6 +15,7 @@
 #import "PersonalInfoViewController.h"
 #import "FinancialInfoViewController.h"
 #import "PickLocationViewController.h"
+#import "AdminViewController.h"
 #import "User.h"
 
 @interface AppDelegate ()
@@ -29,6 +30,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -46,9 +51,15 @@
     self.financialInfoViewController = [[FinancialInfoViewController alloc] initWithNibName:@"FinancialInfoViewController" bundle:nil];
     self.pickLocationViewController = [[PickLocationViewController alloc] initWithNibName:@"PickLocationViewController" bundle:nil];
     
+   
+    
     self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeCreate];
+     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+    
+    
+    
     [self.navController setNavigationBarHidden:YES animated:YES];
     
     NSManagedObjectContext* context = [self managedObjectContext];
@@ -59,7 +70,7 @@
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:nil];
     
-
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"Frutiger LT Std" size:17.0]];
 //    NSError* error = nil;
 //    NSArray* fetchedResult = [context executeFetchRequest:fetchRequest error:&error];
     
@@ -68,7 +79,7 @@
     self.window.rootViewController = self.navController;
    
  
- //   self.window.rootViewController = self.firstScreenSaverViewController;
+    self.window.rootViewController = self.firstScreenSaverViewController;
    // self.window.rootViewController = self.pickLocationViewController;
 
    
@@ -220,7 +231,7 @@
     
     if (isAdmin)
     {
-        
+         self.window.rootViewController = self.adminViewController;
     }
     else
     {
