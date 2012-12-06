@@ -206,14 +206,17 @@
     }else{
         self.lastName.backgroundColor = [UIColor whiteColor];
     }
-    if(self.primaryPhoneNumber.text.length < 1){
+    
+    NSString *str=@"^\\+(?:[0-9] ?){6,14}[0-9]$";
+    NSPredicate *no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",str];
+  
+    if(self.primaryPhoneNumber.text.length < 1 || [no evaluateWithObject:self.primaryPhoneNumber.text]==NO){
         isValid=false;
         //mark field as invalid
         self.primaryPhoneNumber.backgroundColor = [UIColor yellowColor];
     }else{
         self.primaryPhoneNumber.backgroundColor = [UIColor whiteColor];
     }
-    
     
     
     if( [self.gender isEqualToString:@""] ){
@@ -223,6 +226,26 @@
         self.selectGenderButton.backgroundColor = [UIColor whiteColor];
         
     }
+    
+    if(self.sinNumber.text.length > 9 ){
+        //mark field as invalid
+        self.sinNumber.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.sinNumber.backgroundColor = [UIColor whiteColor];
+        
+    }
+    NSString *email_regex_str=@".+@.+\\.[A-Za-z]{2}[A-Za-z]*";
+    NSPredicate *email_no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",email_regex_str];
+
+    if(self.emailAddress.text.length > 0 && [email_no evaluateWithObject:self.emailAddress.text]==NO){
+        //mark field as invalid
+        self.emailAddress.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.emailAddress.backgroundColor = [UIColor whiteColor];
+        
+    }
+
+    
     
     if(isValid==false){
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
@@ -241,7 +264,7 @@
 {
     bool isValid=true;
     
-    if(self.streetAddress.text.length < 1 )
+    if(self.streetAddress.text.length < 1 || self.streetAddress.text.length >30 )
     {
         isValid=false;
         //mark field as invalid
@@ -250,7 +273,7 @@
         self.streetAddress.backgroundColor = [UIColor whiteColor];
         
     }
-    if(self.currentCity.text.length < 1 )
+    if(self.currentCity.text.length < 1 || self.currentCity.text.length > 30 )
     {
         isValid=false;
         //mark field as invalid
@@ -259,9 +282,18 @@
         self.currentCity.backgroundColor = [UIColor whiteColor];
         
     }
-    if([self.provinceButton.titleLabel.text isEqualToString:@"Province"]){}
+    if([self.provinceButton.titleLabel.text isEqualToString:@"Province"]){
     
-    if(self.postalCode.text.length < 1)
+    }
+    
+    //^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}$
+    
+    NSString *zip_regex_str=@"^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}$";
+    NSPredicate *zip_no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",zip_regex_str];
+    
+
+    
+    if(self.postalCode.text.length < 1 || [zip_no evaluateWithObject:self.postalCode.text])
     {
         self.postalCode.backgroundColor = [UIColor yellowColor];
     }else{
@@ -273,6 +305,25 @@
         isValid=false;
         
     }
+    /*
+    Minimum – 1, Maximum – 12 characters
+    Rules (1) If Residential Status = Own, Rent, Board Total Monthly Housing Cost is Required and must be >$0.00
+    (2) If Residential Status = Live with Parents/Relatives Total Monthly Housing Cost is NOT Required
+    */
+    
+    int totalCosts = [self.totalMonthlyHousingCosts.text intValue];
+    
+    if(self.totalMonthlyHousingCosts.text.length>12 ||
+       !(totalCosts==0 &&
+         [ self.residentialStatusButton.titleLabel.text  isEqualToString:@"Live with Parents/Relatives"  ]
+         )
+       )
+    {
+        isValid=false;
+        
+    }
+    
+    
     
     if(isValid==false){
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
