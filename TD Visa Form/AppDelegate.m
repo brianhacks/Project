@@ -30,6 +30,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -47,12 +51,13 @@
     self.financialInfoViewController = [[FinancialInfoViewController alloc] initWithNibName:@"FinancialInfoViewController" bundle:nil];
     self.pickLocationViewController = [[PickLocationViewController alloc] initWithNibName:@"PickLocationViewController" bundle:nil];
     
-   
+    
     
     self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeCreate];
-     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
+    self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+    //    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
     
     
     
@@ -66,18 +71,19 @@
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:nil];
     
- //   [[UILabel appearance] setFont:[UIFont fontWithName:@"FrutiCn" size:17.0]];
-//    NSError* error = nil;
-//    NSArray* fetchedResult = [context executeFetchRequest:fetchRequest error:&error];
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"FrutiCn" size:17.0]];
+    //    NSError* error = nil;
+    //    NSArray* fetchedResult = [context executeFetchRequest:fetchRequest error:&error];
     
-
-//for debug mode only
+    
+    //for debug mode only
     self.window.rootViewController = self.navController;
-   
- 
-    //  self.window.rootViewController = self.personalInfoViewController;
-
-   
+    
+    
+    self.window.rootViewController = self.firstScreenSaverViewController;
+    // self.window.rootViewController = self.pickLocationViewController;
+    
+    
     [self.window makeKeyAndVisible];
     
     
@@ -94,8 +100,8 @@
     NSManagedObjectContext* context = [self managedObjectContext];
     
     NSFetchRequest* request = [NSFetchRequest new];
-//    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"firstName = %@", _firstName];
-//    [request setPredicate:predicate];
+    //    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"firstName = %@", _firstName];
+    //    [request setPredicate:predicate];
     
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
     [request setEntity:entity];
@@ -153,7 +159,7 @@
     }
     
     if (info) {
-    
+        
         [userInfo setValue:[NSNumber numberWithBool:YES] forKey:field];
         
     }else
@@ -184,7 +190,7 @@
     [request setEntity:entity];
     
     NSError* error = nil;
-//    NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
+    //    NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
     
     User* userInfo = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
     [userInfo setValue:[NSString stringWithFormat:@"%@",_firstName] forKey:@"firstName"];
@@ -194,7 +200,7 @@
     if (![context save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
-        
+    
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
     entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
@@ -217,7 +223,7 @@
 - (void)setNewRootView:(UIViewController *)controller
 {
     [self.navController pushViewController:controller animated:YES];
-//    [self.window.rootViewController.navigationController pushViewController:controller animated:YES];
+    //    [self.window.rootViewController.navigationController pushViewController:controller animated:YES];
     
 }
 
@@ -226,16 +232,16 @@
     
     if (isAdmin)
     {
-         self.window.rootViewController = self.adminViewController;
+        self.window.rootViewController = self.adminViewController;
     }
     else
     {
         
-//        self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-//        [self.navController setNavigationBarHidden:YES animated:YES];
-//        self.window.rootViewController = self.navController;
+        //        self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+        //        [self.navController setNavigationBarHidden:YES animated:YES];
+        //        self.window.rootViewController = self.navController;
         
-        self.window.rootViewController = self.appProcessViewController;
+        self.window.rootViewController = self.navController;
         
     }
     
@@ -249,7 +255,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -275,11 +281,11 @@
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
-        } 
+        }
     }
 }
 
@@ -329,7 +335,7 @@
         /*
          Replace this implementation with code to handle the error appropriately.
          
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
          
          Typical reasons for an error here include:
          * The persistent store is not accessible;
@@ -351,7 +357,7 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }    
+    }
     
     return _persistentStoreCoordinator;
 }

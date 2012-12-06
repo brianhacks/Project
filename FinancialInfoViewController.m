@@ -182,34 +182,66 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.view.backgroundColor = background;
     
     self.textfieldString = [[NSMutableString alloc] initWithCapacity:100];
     
+//    self.occupationArray = [NSArray new];
+//    self.occupationArray = @[@"Accounting/Finance/Insurance",
+//    @"Administrative/Clarical",
+//    @"Banking/Real Estate/Mortgage Professionals",
+//    @"Biotech/R&D/Science",
+//    @"Building Construction/Skilled Trades",
+//    @"Business/Strategic Management",
+//    @"Creative Design",
+//    @"Customer Support/Client Care",
+//    @"Editorial/Writing",
+//    @"Education/Training",
+//    @"Engineering/Architect",
+//    @"Food Services/Hospitality",
+//    @"Human Resources",
+//    @"IT/Software Development",
+//    @"Installation/Maintenance/Repair",
+//    @"Legal",
+//    @"Logistics/Transportation",
+//    @"Manufacturing/Production/Operations",
+//    @"Marketing/Production/Operations",
+//    @"Marketing/Product",
+//    @"Medical/Health",
+//    @"Other",
+//    @"Project/Program Management",
+//    @"Quality Assurance/Safety",
+//    @"Sales/Retail/Business Development",
+//    @"Security/Protective Services",
+//    @"Trades"];
+    
     self.employmentStatusArray = [NSArray new];
     self.employmentStatusArray = @[@"Employed Full Time", @"Employed Part Time", @"Self-employed", @"Unemployed", @"Retired"];
-  
+    
     
     self.provinceArray = [NSArray new];
     self.provinceArray = @[@"Alberta", @"British Columbia", @"Manitoba", @"New Brunswick", @"Newfoundland & Labrador", @"Nova Scotia", @"Northwest Territories", @"Nunavut", @"Ontario", @"Prince Edward Island", @"Quebec", @"Saskatchewan", @"Yukon"];
     
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(17, 170, 990, 720)];
-    
-    //145 223 293
-    
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(10, 190, 1000, 520)];
     [self.view addSubview:self.accordion];
     
     // Only height is taken into account, so other parameters are just dummy
-    UIButton *header1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    //    UIButton *header1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
+    //    header1.backgroundColor = [UIColor blueColor];
+    //    [header1 setTitle:@"First row" forState:UIControlStateNormal];
+    
+    UIButton *header1= [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     header1.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    [header1 setTitle:@"First row" forState:UIControlStateNormal];
+    [header1 setTitle:@"Financial Details" forState:UIControlStateNormal];
+    header1.titleLabel.textAlignment = NSTextAlignmentLeft;
     
     [self.accordion addHeader:header1 withView:self.financialDetailsView];
     
     UIButton *header2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     header2.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    [header2 setTitle:@"Second row" forState:UIControlStateNormal];
+    [header2 setTitle:@"Employer's Details" forState:UIControlStateNormal];
+    header2.titleLabel.textAlignment = NSTextAlignmentLeft;
     
     UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
     view2.backgroundColor = [UIColor blueColor];
@@ -218,10 +250,11 @@
     
     UIButton *header3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     header3.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    [header3 setTitle:@"Third row" forState:UIControlStateNormal];
+    [header3 setTitle:@"Income and Credit Limit Details" forState:UIControlStateNormal];
+    header3.titleLabel.textAlignment = NSTextAlignmentLeft;
     
     UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
-    view3.backgroundColor = [UIColor whiteColor];
+    view3.backgroundColor = [UIColor blueColor];
     
     [self.accordion addHeader:header3 withView:self.incomeAndCreditDetailsView];
     
@@ -280,6 +313,7 @@
 - (IBAction)doneIncome:(id)sender {
     
     //close it and highlight the bottom next button
+    [self.accordion setSelectedIndex:3];
 }
 
 

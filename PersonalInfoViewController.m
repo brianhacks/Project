@@ -47,11 +47,11 @@
     self.titlePicker.delegate = self;
     self.titlePicker.showsSelectionIndicator = YES;
     [popoverView addSubview:self.titlePicker];
-
+    
     popoverContent.view = popoverView;
     self.popoverController2 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController2.delegate = self;
-
+    
     [self.popoverController2 setPopoverContentSize:CGSizeMake(220, 220) animated:NO];
     [self.popoverController2 presentPopoverFromRect:CGRectMake(30.0, 220.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
@@ -68,10 +68,10 @@
 
 - (void)refresh
 {
-   /* self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(349.0, 62.0, 94., 81)];
-    self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
-    [self.view addSubview:self.sageataImage];
-    */
+    /* self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(349.0, 62.0, 94., 81)];
+     self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
+     [self.view addSubview:self.sageataImage];
+     */
     [self.accordion setNeedsLayout];
 }
 
@@ -104,15 +104,22 @@
     
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
+    [appDelegate addInfoToUser:self.titleString andFieldToAddItTo:@"title"];
     [appDelegate addInfoToUser:self.firstName.text andFieldToAddItTo:@"firstName"];
     [appDelegate addInfoToUser:self.lastName.text andFieldToAddItTo:@"lastName"];
     [appDelegate addInfoToUser:self.areaCode.text andFieldToAddItTo:@"areaCode"];
     [appDelegate addInfoToUser:self.primaryPhoneNumber.text andFieldToAddItTo:@"primaryPhone"];
     [appDelegate addInfoToUser:self.emailAddress.text andFieldToAddItTo:@"email"];
+    [appDelegate addInfoToUser:self.gender andFieldToAddItTo:@"gender"];
+    [appDelegate addInfoToUser:self.languageOfCorespondaceString andFieldToAddItTo:@"languagOfCorespondace"];
+    [appDelegate addInfoToUser:self.sinNumber.text andFieldToAddItTo:@"sin"];
     [appDelegate addInfoToUser:self.streetAddress.text andFieldToAddItTo:@"street"];
     [appDelegate addInfoToUser:self.postalCode.text andFieldToAddItTo:@"postalCode"];
     [appDelegate addInfoToUser:self.totalMonthlyHousingCosts.text andFieldToAddItTo:@"monthlyHouseCosts"];
-    [appDelegate addInfoToUser:self.titleString andFieldToAddItTo:@"title"];
+    [appDelegate addInfoToUser:self.currentCity.text andFieldToAddItTo:@"city"];
+    [appDelegate addInfoToUser:self.residentialStatusButton.titleLabel.text andFieldToAddItTo:@"resincialStatus"];
+    [appDelegate addInfoToUser:self.totalMonthlyHousingCosts.text andFieldToAddItTo:@"monthlyHouseCosts"];
+    
     
     [appDelegate setNewRootView:appDelegate.financialInfoViewController];
     [appDelegate.financialInfoViewController refresh];
@@ -126,13 +133,10 @@
     UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
     
     UIView *popoverView = [[UIView alloc] init];   //view
-    popoverView.backgroundColor = [UIColor blackColor];
+    popoverView.backgroundColor = [UIColor grayColor];
     
     UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doneButton.frame = CGRectMake(170., 5., 50., 36.);
-   
-    doneButton.titleLabel.textColor = [UIColor whiteColor];
-   
+    doneButton.frame = CGRectMake(150., 0., 60., 44.);
     [doneButton setTitle:@"Done" forState:UIControlStateNormal];
     [doneButton addTarget:self action:@selector(selectGender) forControlEvents:UIControlEventTouchUpInside];
     [popoverView addSubview:doneButton];
@@ -175,15 +179,15 @@
 - (IBAction)closeGeneralInfoView:(id)sender
 {
     
-       //validate the fields here!
+    //validate the fields here!
     bool isValid = true;
-       
+    
     if ([self.titleString isEqualToString:@""] ){
         isValid=false;
         //mark field as invalid
-       self.selectTitelButton.backgroundColor = [UIColor yellowColor];
-     }else{
-         self.selectTitelButton.backgroundColor = [UIColor whiteColor];
+        self.selectTitelButton.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.selectTitelButton.backgroundColor = [UIColor whiteColor];
     }
     
     //
@@ -209,7 +213,7 @@
     }else{
         self.primaryPhoneNumber.backgroundColor = [UIColor whiteColor];
     }
-
+    
     
     
     if( [self.gender isEqualToString:@""] ){
@@ -219,7 +223,7 @@
         self.selectGenderButton.backgroundColor = [UIColor whiteColor];
         
     }
-       
+    
     if(isValid==false){
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
         [alert show];
@@ -233,44 +237,42 @@
     
 }
 
-- (void)closeAddressView
+- (IBAction)closeAddressView:(id)sender;
 {
     bool isValid=true;
     
-     if(self.streetAddress.text.length < 1 )
-     {
-     isValid=false;
-     //mark field as invalid
-     self.streetAddress.backgroundColor = [UIColor yellowColor];
-     }else{
-     self.streetAddress.backgroundColor = [UIColor whiteColor];
-     
-     }
-     if(self.currentCity.text.length < 1 )
-     {
-     isValid=false;
-     //mark field as invalid
-     self.currentCity.backgroundColor = [UIColor yellowColor];
-     }else{
-     self.currentCity.backgroundColor = [UIColor whiteColor];
-     
-     }
-     if([self.provinceButton.titleLabel.text isEqualToString:@"Province"]){}
-     
-     if(self.postalCode.text.length < 1)
-     {
-     self.postalCode.backgroundColor = [UIColor yellowColor];
-     }else{
-     self.postalCode.backgroundColor = [UIColor whiteColor];
-     }
-     
-     if([self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"])
-     {
-     isValid=false;
-     
-     }
-     
-
+    if(self.streetAddress.text.length < 1 )
+    {
+        isValid=false;
+        //mark field as invalid
+        self.streetAddress.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.streetAddress.backgroundColor = [UIColor whiteColor];
+        
+    }
+    if(self.currentCity.text.length < 1 )
+    {
+        isValid=false;
+        //mark field as invalid
+        self.currentCity.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.currentCity.backgroundColor = [UIColor whiteColor];
+        
+    }
+    if([self.provinceButton.titleLabel.text isEqualToString:@"Province"]){}
+    
+    if(self.postalCode.text.length < 1)
+    {
+        self.postalCode.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.postalCode.backgroundColor = [UIColor whiteColor];
+    }
+    
+    if([self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"])
+    {
+        isValid=false;
+        
+    }
     
     if(isValid==false){
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
@@ -279,8 +281,8 @@
         
         return;
     }
-     [self.accordion setSelectedIndex:1];
-
+    [self.accordion setSelectedIndex:3];
+    
     
 }
 
@@ -311,16 +313,16 @@
     
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
-
     
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(17, 170, 990, 720)];
+    
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(17, 170, 990, 420)];
     [self.view addSubview:self.accordion];
     
     // Only height is taken into account, so other parameters are just dummy
     UIButton *header1= [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     header1.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     [header1 setTitle:@"General Information" forState:UIControlStateNormal];
-    header1.titleLabel.textAlignment = UITextAlignmentLeft;
+    header1.titleLabel.textAlignment = NSTextAlignmentLeft;
     self.doneGeneralInfo = header1;
     
     [self.accordion addHeader:self.doneGeneralInfo withView:self.generalInfoView];
@@ -331,7 +333,7 @@
     
     UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 400)];
     view2.backgroundColor = [UIColor whiteColor];
-     
+    
     //need to figure out how to alternate the color of white and green
     [self.accordion addHeader:header2 withView:self.currentHomeAddressView];
     
@@ -363,7 +365,7 @@
     [doneButton setTitle:@"Done" forState:UIControlStateNormal];
     [doneButton addTarget:self action:@selector(chooseLanguage:) forControlEvents:UIControlEventTouchUpInside];
     [popoverView addSubview:doneButton];
-
+    
     self.languageOfCorespondacePicker = [[UIPickerView alloc]init];//Date picker
     self.languageOfCorespondacePicker.frame = CGRectMake(0,44,220, 116);
     self.languageOfCorespondacePicker.dataSource = self;
@@ -421,7 +423,7 @@
 - (void)chooseProvince
 {
     
-//    NSLog(@"%@",[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]]);
+    //    NSLog(@"%@",[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]]);
     [self.provinceButton setTitle:[NSString stringWithFormat:@"%@",[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
     [self.popoverController4 dismissPopoverAnimated:YES];
     
@@ -465,19 +467,19 @@
     
     if (pickerView == self.statesPicker) {
         
-         val1 = [self.provinceArray objectAtIndex:row];
+        val1 = [self.provinceArray objectAtIndex:row];
         
     }else if (pickerView == self.titlePicker){
         
-         val1 = [self.titleArray objectAtIndex:row];
+        val1 = [self.titleArray objectAtIndex:row];
         
     }else if(pickerView == self.languageOfCorespondacePicker){
         
-         val1 = [self.languageOfCorespondaceArray objectAtIndex:row];
+        val1 = [self.languageOfCorespondaceArray objectAtIndex:row];
         
     }else if (pickerView == self.genderPicker){
         
-         val1 = [self.genderArray objectAtIndex:row];
+        val1 = [self.genderArray objectAtIndex:row];
         
     }else{
         
