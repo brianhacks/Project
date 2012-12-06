@@ -371,7 +371,6 @@
 								<string key="NSFrame">{{923, 8}, {90, 44}}</string>
 								<reference key="NSSuperview" ref="192691471"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -686,8 +685,8 @@
 							<reference ref="196454338"/>
 							<reference ref="311945288"/>
 							<reference ref="954247496"/>
-							<reference ref="627865690"/>
 							<reference ref="367272078"/>
+							<reference ref="627865690"/>
 						</array>
 						<reference key="parent" ref="766721923"/>
 					</object>

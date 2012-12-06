@@ -47,7 +47,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{6, 14}, {36, 31}}</string>
 								<reference key="NSSuperview" ref="561748402"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="666274357"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor" id="947287022">
@@ -62,7 +61,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{48, 8}, {78, 44}}</string>
 								<reference key="NSSuperview" ref="561748402"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="856806502"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -98,7 +96,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{134, 8}, {64, 44}}</string>
 								<reference key="NSSuperview" ref="561748402"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="722125856"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -121,7 +118,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{206, 8}, {84, 44}}</string>
 								<reference key="NSSuperview" ref="561748402"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="733721747"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -144,7 +140,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{298, 8}, {97, 44}}</string>
 								<reference key="NSSuperview" ref="561748402"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="708316708"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -167,7 +162,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{923, 8}, {90, 44}}</string>
 								<reference key="NSSuperview" ref="561748402"/>
-								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -181,7 +176,12 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="675196040"/>
-								<reference key="IBUIFontDescription" ref="466476269"/>
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
+									<string key="name">Helvetica-Bold</string>
+									<string key="family">Helvetica</string>
+									<int key="traits">2</int>
+									<double key="pointSize">15</double>
+								</object>
 								<reference key="IBUIFont" ref="218832593"/>
 							</object>
 							<object class="IBUIButton" id="708316708">
@@ -189,7 +189,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{793, 8}, {122, 44}}</string>
 								<reference key="NSSuperview" ref="561748402"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="177383057"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -210,7 +209,6 @@
 						</array>
 						<string key="NSFrame">{{0, 688}, {1024, 60}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="346203100"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -224,7 +222,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{1024, 173}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="561748402"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -236,8 +234,7 @@
 				</array>
 				<string key="NSFrame">{{0, 20}, {1024, 748}}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
+				<reference key="NSNextKeyView" ref="642375882"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -257,7 +254,7 @@
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
 			<object class="IBUIView" id="439640075">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIButton" id="190645391">
@@ -287,6 +284,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{942, 230}, {62, 44}}</string>
 						<reference key="NSSuperview" ref="439640075"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -366,6 +364,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{1024, 293}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="190645391"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -1376,106 +1375,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">145</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">FinancialInfoViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="nextStep:">id</string>
-						<string key="previousStep:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="nextStep:">
-							<string key="name">nextStep:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="previousStep:">
-							<string key="name">previousStep:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="employerAreaCode">UITextField</string>
-						<string key="employerDetailsView">UIView</string>
-						<string key="employerExt">UITextField</string>
-						<string key="employerName">UITextField</string>
-						<string key="employerStreetAddress">UITextField</string>
-						<string key="employerWorkPhoneNumber">UITextField</string>
-						<string key="employmentStatus">UIButton</string>
-						<string key="financialDetailsView">UIView</string>
-						<string key="incomeAndCreditDetailsView">UIView</string>
-						<string key="occupationTextField">UITextField</string>
-						<string key="otherOccupationTextField">UITextField</string>
-						<string key="provinceButton">UIButton</string>
-						<string key="specifyOtherOcupation">UITextField</string>
-						<string key="statesPicker">UIPickerView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="employerAreaCode">
-							<string key="name">employerAreaCode</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="employerDetailsView">
-							<string key="name">employerDetailsView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="employerExt">
-							<string key="name">employerExt</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="employerName">
-							<string key="name">employerName</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="employerStreetAddress">
-							<string key="name">employerStreetAddress</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="employerWorkPhoneNumber">
-							<string key="name">employerWorkPhoneNumber</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="employmentStatus">
-							<string key="name">employmentStatus</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="financialDetailsView">
-							<string key="name">financialDetailsView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="incomeAndCreditDetailsView">
-							<string key="name">incomeAndCreditDetailsView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="occupationTextField">
-							<string key="name">occupationTextField</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="otherOccupationTextField">
-							<string key="name">otherOccupationTextField</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="provinceButton">
-							<string key="name">provinceButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="specifyOtherOcupation">
-							<string key="name">specifyOtherOcupation</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="statesPicker">
-							<string key="name">statesPicker</string>
-							<string key="candidateClassName">UIPickerView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/FinancialInfoViewController.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

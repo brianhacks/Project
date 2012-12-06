@@ -80,6 +80,42 @@
 		9F854C8616703CE5009F9E01 /* banner-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C8416703CE5009F9E01 /* banner-1.png */; };
 		9F854C8A16706F2B009F9E01 /* AdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F854C8816706F2B009F9E01 /* AdminViewController.m */; };
 		9F854C8B16706F2B009F9E01 /* AdminViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C8916706F2B009F9E01 /* AdminViewController.xib */; };
+		9F90EBD01670F68F00501F8C /* bg-body.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBAC1670F68F00501F8C /* bg-body.png */; };
+		9F90EBD11670F68F00501F8C /* bg-footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBAD1670F68F00501F8C /* bg-footer.png */; };
+		9F90EBD21670F68F00501F8C /* bg-input-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBAE1670F68F00501F8C /* bg-input-active.png */; };
+		9F90EBD31670F68F00501F8C /* bg-input.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBAF1670F68F00501F8C /* bg-input.png */; };
+		9F90EBD41670F68F00501F8C /* bg-loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBB01670F68F00501F8C /* bg-loading.png */; };
+		9F90EBD51670F68F00501F8C /* btn-accept-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBB11670F68F00501F8C /* btn-accept-hover.png */; };
+		9F90EBD61670F68F00501F8C /* btn-accept-inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBB21670F68F00501F8C /* btn-accept-inactive.png */; };
+		9F90EBD71670F68F00501F8C /* btn-accept.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBB31670F68F00501F8C /* btn-accept.png */; };
+		9F90EBD81670F68F00501F8C /* btn-branch-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBB41670F68F00501F8C /* btn-branch-hover.png */; };
+		9F90EBD91670F68F00501F8C /* btn-branch.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBB51670F68F00501F8C /* btn-branch.png */; };
+		9F90EBDA1670F68F00501F8C /* btn-cancel-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBB61670F68F00501F8C /* btn-cancel-hover.png */; };
+		9F90EBDB1670F68F00501F8C /* btn-cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBB71670F68F00501F8C /* btn-cancel.png */; };
+		9F90EBDC1670F68F00501F8C /* btn-done-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBB81670F68F00501F8C /* btn-done-hover.png */; };
+		9F90EBDD1670F68F00501F8C /* btn-done.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBB91670F68F00501F8C /* btn-done.png */; };
+		9F90EBDE1670F68F00501F8C /* btn-edit-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBBA1670F68F00501F8C /* btn-edit-hover.png */; };
+		9F90EBDF1670F68F00501F8C /* btn-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBBB1670F68F00501F8C /* btn-edit.png */; };
+		9F90EBE01670F68F00501F8C /* btn-legal-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBBC1670F68F00501F8C /* btn-legal-hover.png */; };
+		9F90EBE11670F68F00501F8C /* btn-legal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBBD1670F68F00501F8C /* btn-legal.png */; };
+		9F90EBE21670F68F00501F8C /* btn-lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBBE1670F68F00501F8C /* btn-lock.png */; };
+		9F90EBE31670F68F00501F8C /* btn-next-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBBF1670F68F00501F8C /* btn-next-hover.png */; };
+		9F90EBE41670F68F00501F8C /* btn-next-inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBC01670F68F00501F8C /* btn-next-inactive.png */; };
+		9F90EBE51670F68F00501F8C /* btn-next.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBC11670F68F00501F8C /* btn-next.png */; };
+		9F90EBE61670F68F00501F8C /* btn-occupation.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBC21670F68F00501F8C /* btn-occupation.png */; };
+		9F90EBE71670F68F00501F8C /* btn-prev-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBC31670F68F00501F8C /* btn-prev-hover.png */; };
+		9F90EBE81670F68F00501F8C /* btn-prev.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBC41670F68F00501F8C /* btn-prev.png */; };
+		9F90EBE91670F68F00501F8C /* btn-privacy-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBC51670F68F00501F8C /* btn-privacy-hover.png */; };
+		9F90EBEA1670F68F00501F8C /* btn-privacy.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBC61670F68F00501F8C /* btn-privacy.png */; };
+		9F90EBEB1670F68F00501F8C /* btn-security-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBC71670F68F00501F8C /* btn-security-hover.png */; };
+		9F90EBEC1670F68F00501F8C /* btn-security.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBC81670F68F00501F8C /* btn-security.png */; };
+		9F90EBED1670F68F00501F8C /* btn-select-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBC91670F68F00501F8C /* btn-select-hover.png */; };
+		9F90EBEE1670F68F00501F8C /* btn-select.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBCA1670F68F00501F8C /* btn-select.png */; };
+		9F90EBEF1670F68F00501F8C /* btn-start-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBCB1670F68F00501F8C /* btn-start-hover.png */; };
+		9F90EBF01670F68F00501F8C /* btn-start.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBCC1670F68F00501F8C /* btn-start.png */; };
+		9F90EBF11670F68F00501F8C /* btn-terms-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBCD1670F68F00501F8C /* btn-terms-hover.png */; };
+		9F90EBF21670F68F00501F8C /* btn-terms-inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBCE1670F68F00501F8C /* btn-terms-inactive.png */; };
+		9F90EBF31670F68F00501F8C /* btn-terms.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBCF1670F68F00501F8C /* btn-terms.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +215,42 @@
 		9F854C8716706F2B009F9E01 /* AdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminViewController.h; sourceTree = "<group>"; };
 		9F854C8816706F2B009F9E01 /* AdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminViewController.m; sourceTree = "<group>"; };
 		9F854C8916706F2B009F9E01 /* AdminViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdminViewController.xib; sourceTree = "<group>"; };
+		9F90EBAC1670F68F00501F8C /* bg-body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-body.png"; sourceTree = "<group>"; };
+		9F90EBAD1670F68F00501F8C /* bg-footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-footer.png"; sourceTree = "<group>"; };
+		9F90EBAE1670F68F00501F8C /* bg-input-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-input-active.png"; sourceTree = "<group>"; };
+		9F90EBAF1670F68F00501F8C /* bg-input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-input.png"; sourceTree = "<group>"; };
+		9F90EBB01670F68F00501F8C /* bg-loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-loading.png"; sourceTree = "<group>"; };
+		9F90EBB11670F68F00501F8C /* btn-accept-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-accept-hover.png"; sourceTree = "<group>"; };
+		9F90EBB21670F68F00501F8C /* btn-accept-inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-accept-inactive.png"; sourceTree = "<group>"; };
+		9F90EBB31670F68F00501F8C /* btn-accept.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-accept.png"; sourceTree = "<group>"; };
+		9F90EBB41670F68F00501F8C /* btn-branch-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-branch-hover.png"; sourceTree = "<group>"; };
+		9F90EBB51670F68F00501F8C /* btn-branch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-branch.png"; sourceTree = "<group>"; };
+		9F90EBB61670F68F00501F8C /* btn-cancel-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cancel-hover.png"; sourceTree = "<group>"; };
+		9F90EBB71670F68F00501F8C /* btn-cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-cancel.png"; sourceTree = "<group>"; };
+		9F90EBB81670F68F00501F8C /* btn-done-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-done-hover.png"; sourceTree = "<group>"; };
+		9F90EBB91670F68F00501F8C /* btn-done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-done.png"; sourceTree = "<group>"; };
+		9F90EBBA1670F68F00501F8C /* btn-edit-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-edit-hover.png"; sourceTree = "<group>"; };
+		9F90EBBB1670F68F00501F8C /* btn-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-edit.png"; sourceTree = "<group>"; };
+		9F90EBBC1670F68F00501F8C /* btn-legal-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-legal-hover.png"; sourceTree = "<group>"; };
+		9F90EBBD1670F68F00501F8C /* btn-legal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-legal.png"; sourceTree = "<group>"; };
+		9F90EBBE1670F68F00501F8C /* btn-lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-lock.png"; sourceTree = "<group>"; };
+		9F90EBBF1670F68F00501F8C /* btn-next-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-next-hover.png"; sourceTree = "<group>"; };
+		9F90EBC01670F68F00501F8C /* btn-next-inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-next-inactive.png"; sourceTree = "<group>"; };
+		9F90EBC11670F68F00501F8C /* btn-next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-next.png"; sourceTree = "<group>"; };
+		9F90EBC21670F68F00501F8C /* btn-occupation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-occupation.png"; sourceTree = "<group>"; };
+		9F90EBC31670F68F00501F8C /* btn-prev-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-prev-hover.png"; sourceTree = "<group>"; };
+		9F90EBC41670F68F00501F8C /* btn-prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-prev.png"; sourceTree = "<group>"; };
+		9F90EBC51670F68F00501F8C /* btn-privacy-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-privacy-hover.png"; sourceTree = "<group>"; };
+		9F90EBC61670F68F00501F8C /* btn-privacy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-privacy.png"; sourceTree = "<group>"; };
+		9F90EBC71670F68F00501F8C /* btn-security-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-security-hover.png"; sourceTree = "<group>"; };
+		9F90EBC81670F68F00501F8C /* btn-security.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-security.png"; sourceTree = "<group>"; };
+		9F90EBC91670F68F00501F8C /* btn-select-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-select-hover.png"; sourceTree = "<group>"; };
+		9F90EBCA1670F68F00501F8C /* btn-select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-select.png"; sourceTree = "<group>"; };
+		9F90EBCB1670F68F00501F8C /* btn-start-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-start-hover.png"; sourceTree = "<group>"; };
+		9F90EBCC1670F68F00501F8C /* btn-start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-start.png"; sourceTree = "<group>"; };
+		9F90EBCD1670F68F00501F8C /* btn-terms-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-terms-hover.png"; sourceTree = "<group>"; };
+		9F90EBCE1670F68F00501F8C /* btn-terms-inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-terms-inactive.png"; sourceTree = "<group>"; };
+		9F90EBCF1670F68F00501F8C /* btn-terms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-terms.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				9F854C8C16706F31009F9E01 /* admin */,
+				9F90EBAB1670F68F00501F8C /* buttons */,
 				9F2B90A7166F0588003DD835 /* images */,
 				70A252911655803B00049612 /* Constants.h */,
 				70CB815116640E330003B225 /* Pick Location */,
@@ -444,6 +517,50 @@
 			name = admin;
 			sourceTree = "<group>";
 		};
+		9F90EBAB1670F68F00501F8C /* buttons */ = {
+			isa = PBXGroup;
+			children = (
+				9F90EBAC1670F68F00501F8C /* bg-body.png */,
+				9F90EBAD1670F68F00501F8C /* bg-footer.png */,
+				9F90EBAE1670F68F00501F8C /* bg-input-active.png */,
+				9F90EBAF1670F68F00501F8C /* bg-input.png */,
+				9F90EBB01670F68F00501F8C /* bg-loading.png */,
+				9F90EBB11670F68F00501F8C /* btn-accept-hover.png */,
+				9F90EBB21670F68F00501F8C /* btn-accept-inactive.png */,
+				9F90EBB31670F68F00501F8C /* btn-accept.png */,
+				9F90EBB41670F68F00501F8C /* btn-branch-hover.png */,
+				9F90EBB51670F68F00501F8C /* btn-branch.png */,
+				9F90EBB61670F68F00501F8C /* btn-cancel-hover.png */,
+				9F90EBB71670F68F00501F8C /* btn-cancel.png */,
+				9F90EBB81670F68F00501F8C /* btn-done-hover.png */,
+				9F90EBB91670F68F00501F8C /* btn-done.png */,
+				9F90EBBA1670F68F00501F8C /* btn-edit-hover.png */,
+				9F90EBBB1670F68F00501F8C /* btn-edit.png */,
+				9F90EBBC1670F68F00501F8C /* btn-legal-hover.png */,
+				9F90EBBD1670F68F00501F8C /* btn-legal.png */,
+				9F90EBBE1670F68F00501F8C /* btn-lock.png */,
+				9F90EBBF1670F68F00501F8C /* btn-next-hover.png */,
+				9F90EBC01670F68F00501F8C /* btn-next-inactive.png */,
+				9F90EBC11670F68F00501F8C /* btn-next.png */,
+				9F90EBC21670F68F00501F8C /* btn-occupation.png */,
+				9F90EBC31670F68F00501F8C /* btn-prev-hover.png */,
+				9F90EBC41670F68F00501F8C /* btn-prev.png */,
+				9F90EBC51670F68F00501F8C /* btn-privacy-hover.png */,
+				9F90EBC61670F68F00501F8C /* btn-privacy.png */,
+				9F90EBC71670F68F00501F8C /* btn-security-hover.png */,
+				9F90EBC81670F68F00501F8C /* btn-security.png */,
+				9F90EBC91670F68F00501F8C /* btn-select-hover.png */,
+				9F90EBCA1670F68F00501F8C /* btn-select.png */,
+				9F90EBCB1670F68F00501F8C /* btn-start-hover.png */,
+				9F90EBCC1670F68F00501F8C /* btn-start.png */,
+				9F90EBCD1670F68F00501F8C /* btn-terms-hover.png */,
+				9F90EBCE1670F68F00501F8C /* btn-terms-inactive.png */,
+				9F90EBCF1670F68F00501F8C /* btn-terms.png */,
+			);
+			name = buttons;
+			path = "TD Visa Form/buttons";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -541,6 +658,42 @@
 				9F854C8516703CE5009F9E01 /* body-1.png in Resources */,
 				9F854C8616703CE5009F9E01 /* banner-1.png in Resources */,
 				9F854C8B16706F2B009F9E01 /* AdminViewController.xib in Resources */,
+				9F90EBD01670F68F00501F8C /* bg-body.png in Resources */,
+				9F90EBD11670F68F00501F8C /* bg-footer.png in Resources */,
+				9F90EBD21670F68F00501F8C /* bg-input-active.png in Resources */,
+				9F90EBD31670F68F00501F8C /* bg-input.png in Resources */,
+				9F90EBD41670F68F00501F8C /* bg-loading.png in Resources */,
+				9F90EBD51670F68F00501F8C /* btn-accept-hover.png in Resources */,
+				9F90EBD61670F68F00501F8C /* btn-accept-inactive.png in Resources */,
+				9F90EBD71670F68F00501F8C /* btn-accept.png in Resources */,
+				9F90EBD81670F68F00501F8C /* btn-branch-hover.png in Resources */,
+				9F90EBD91670F68F00501F8C /* btn-branch.png in Resources */,
+				9F90EBDA1670F68F00501F8C /* btn-cancel-hover.png in Resources */,
+				9F90EBDB1670F68F00501F8C /* btn-cancel.png in Resources */,
+				9F90EBDC1670F68F00501F8C /* btn-done-hover.png in Resources */,
+				9F90EBDD1670F68F00501F8C /* btn-done.png in Resources */,
+				9F90EBDE1670F68F00501F8C /* btn-edit-hover.png in Resources */,
+				9F90EBDF1670F68F00501F8C /* btn-edit.png in Resources */,
+				9F90EBE01670F68F00501F8C /* btn-legal-hover.png in Resources */,
+				9F90EBE11670F68F00501F8C /* btn-legal.png in Resources */,
+				9F90EBE21670F68F00501F8C /* btn-lock.png in Resources */,
+				9F90EBE31670F68F00501F8C /* btn-next-hover.png in Resources */,
+				9F90EBE41670F68F00501F8C /* btn-next-inactive.png in Resources */,
+				9F90EBE51670F68F00501F8C /* btn-next.png in Resources */,
+				9F90EBE61670F68F00501F8C /* btn-occupation.png in Resources */,
+				9F90EBE71670F68F00501F8C /* btn-prev-hover.png in Resources */,
+				9F90EBE81670F68F00501F8C /* btn-prev.png in Resources */,
+				9F90EBE91670F68F00501F8C /* btn-privacy-hover.png in Resources */,
+				9F90EBEA1670F68F00501F8C /* btn-privacy.png in Resources */,
+				9F90EBEB1670F68F00501F8C /* btn-security-hover.png in Resources */,
+				9F90EBEC1670F68F00501F8C /* btn-security.png in Resources */,
+				9F90EBED1670F68F00501F8C /* btn-select-hover.png in Resources */,
+				9F90EBEE1670F68F00501F8C /* btn-select.png in Resources */,
+				9F90EBEF1670F68F00501F8C /* btn-start-hover.png in Resources */,
+				9F90EBF01670F68F00501F8C /* btn-start.png in Resources */,
+				9F90EBF11670F68F00501F8C /* btn-terms-hover.png in Resources */,
+				9F90EBF21670F68F00501F8C /* btn-terms-inactive.png in Resources */,
+				9F90EBF31670F68F00501F8C /* btn-terms.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

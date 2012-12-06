@@ -273,8 +273,6 @@
             NSLog(@"failed!");
             
             
-           
-            
         }else{
             // we needto collect the email address and log it to a file someplace :-(
         

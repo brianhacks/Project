@@ -35,16 +35,16 @@
     // Do any additional setup after loading the view from its nib.
     
     self.firstScreenShown = YES;
-    
+/*
     
     UIColor *background1 = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"ssaver1.png"]];
    
     self.firstView.backgroundColor = background1;
-   
+    
     UIColor *background2 = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"ssaver2.png"]];
     
     self.secondView.backgroundColor = background2;
-    
+  */  
     
      self.view.frame = CGRectMake(0.0, 0.0, 1024.0, 768.0);
     self.switchViews = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(turnUp:) userInfo:nil repeats:YES];

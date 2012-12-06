@@ -70,7 +70,7 @@
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:nil];
     
-    [[UILabel appearance] setFont:[UIFont fontWithName:@"Frutiger LT Std" size:17.0]];
+    [[UILabel appearance] setFont:[UIFont fontWithName:@"FrutiCn" size:17.0]];
 //    NSError* error = nil;
 //    NSArray* fetchedResult = [context executeFetchRequest:fetchRequest error:&error];
     
