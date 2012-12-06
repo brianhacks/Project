@@ -41,4 +41,11 @@
 - (IBAction)nextStep:(id)sender;
 - (IBAction)previousStep:(id)sender;
 
+- (IBAction)doneFinance:(id)sender;
+
+- (IBAction)doneEmployee:(id)sender;
+
+- (IBAction)doneIncome:(id)sender;
+
+
 @end

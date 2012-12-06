@@ -126,10 +126,13 @@
     UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
     
     UIView *popoverView = [[UIView alloc] init];   //view
-    popoverView.backgroundColor = [UIColor grayColor];
+    popoverView.backgroundColor = [UIColor blackColor];
     
     UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doneButton.frame = CGRectMake(150., 0., 60., 44.);
+    doneButton.frame = CGRectMake(170., 5., 50., 36.);
+   
+    doneButton.titleLabel.textColor = [UIColor whiteColor];
+   
     [doneButton setTitle:@"Done" forState:UIControlStateNormal];
     [doneButton addTarget:self action:@selector(selectGender) forControlEvents:UIControlEventTouchUpInside];
     [popoverView addSubview:doneButton];

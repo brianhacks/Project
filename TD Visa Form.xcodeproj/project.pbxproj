@@ -808,6 +808,7 @@
 		702337CC1652C56800B87249 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TD Visa Form/TD Visa Form-Prefix.pch";
 				INFOPLIST_FILE = "TD Visa Form/TD Visa Form-Info.plist";

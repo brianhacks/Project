@@ -194,18 +194,21 @@
     self.provinceArray = [NSArray new];
     self.provinceArray = @[@"Alberta", @"British Columbia", @"Manitoba", @"New Brunswick", @"Newfoundland & Labrador", @"Nova Scotia", @"Northwest Territories", @"Nunavut", @"Ontario", @"Prince Edward Island", @"Quebec", @"Saskatchewan", @"Yukon"];
     
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(10, 190, 1000, 520)];
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(17, 170, 990, 720)];
+    
+    //145 223 293
+    
     [self.view addSubview:self.accordion];
     
     // Only height is taken into account, so other parameters are just dummy
-    UIButton *header1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
-    header1.backgroundColor = [UIColor blueColor];
+    UIButton *header1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    header1.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     [header1 setTitle:@"First row" forState:UIControlStateNormal];
     
     [self.accordion addHeader:header1 withView:self.financialDetailsView];
     
-    UIButton *header2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
-    header2.backgroundColor = [UIColor blueColor];
+    UIButton *header2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    header2.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     [header2 setTitle:@"Second row" forState:UIControlStateNormal];
     
     UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
@@ -213,12 +216,12 @@
     
     [self.accordion addHeader:header2 withView:self.employerDetailsView];
     
-    UIButton *header3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
-    header3.backgroundColor = [UIColor blueColor];
+    UIButton *header3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    header3.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     [header3 setTitle:@"Third row" forState:UIControlStateNormal];
     
     UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
-    view3.backgroundColor = [UIColor blueColor];
+    view3.backgroundColor = [UIColor whiteColor];
     
     [self.accordion addHeader:header3 withView:self.incomeAndCreditDetailsView];
     
@@ -264,6 +267,22 @@
     [appDelegate backOneView];
     
 }
+
+
+- (IBAction)doneFinance:(id)sender {
+    [self.accordion setSelectedIndex:1];
+}
+
+- (IBAction)doneEmployee:(id)sender {
+     [self.accordion setSelectedIndex:2];
+}
+
+- (IBAction)doneIncome:(id)sender {
+    
+    //close it and highlight the bottom next button
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {

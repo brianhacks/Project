@@ -37,29 +37,29 @@
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
     
-    self.firstBorderView.layer.cornerRadius = 15.0;
+    self.firstBorderView.layer.cornerRadius = 12.0;
     self.firstBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
     self.firstBorderView.layer.backgroundColor = [UIColor colorWithRed:.963 green:.963 blue:.963 alpha:1.0].CGColor;
-    self.firstBorderView.layer.borderWidth = 2.0f;
+    self.firstBorderView.layer.borderWidth = 1.0f;
         
-    self.secondBorderView.layer.cornerRadius = 15.0;
+    self.secondBorderView.layer.cornerRadius = 12.0;
     self.secondBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
     self.secondBorderView.layer.backgroundColor = [UIColor colorWithRed:.963 green:.963 blue:.963 alpha:1.0].CGColor;
-    self.secondBorderView.layer.borderWidth = 2.0f;
+    self.secondBorderView.layer.borderWidth = 1.0f;
     
 
 
-    self.thirdBorderView.layer.cornerRadius = 15.0;
+    self.thirdBorderView.layer.cornerRadius = 12.0;
     self.thirdBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
     self.thirdBorderView.layer.backgroundColor = [UIColor colorWithRed:.963 green:.963 blue:.963 alpha:1.0].CGColor;
-    self.thirdBorderView.layer.borderWidth = 2.0f;
+    self.thirdBorderView.layer.borderWidth = 1.0f;
     
 
 
-    self.fourthBorderView.layer.cornerRadius = 15.0;
+    self.fourthBorderView.layer.cornerRadius = 12.0;
     self.fourthBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
     self.fourthBorderView.layer.backgroundColor = [UIColor colorWithRed:.963 green:.963 blue:.963 alpha:1.0].CGColor;
-    self.fourthBorderView.layer.borderWidth = 2.0f;
+    self.fourthBorderView.layer.borderWidth = 1.0f;
     
     
 
@@ -73,6 +73,7 @@
     
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
+    
     
     datePicker=[[UIDatePicker alloc]init];//Date picker
     datePicker.frame=CGRectMake(0,44,320, 216);
@@ -91,7 +92,7 @@
     popoverContent.view = popoverView;
     self.popoverController1 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController1.delegate = self;
-//    [popoverContent release];
+
     
     [self.popoverController1 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
     [self.popoverController1 presentPopoverFromRect:self.birthDateButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];//tempButton.frame where you need you can put that frame
