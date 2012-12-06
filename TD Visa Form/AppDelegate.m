@@ -57,7 +57,7 @@
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-    //    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
     
     
     
