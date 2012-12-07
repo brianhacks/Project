@@ -18,7 +18,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-@property (nonatomic, assign) NSMutableArray *allBranches;
+
  
 - (IBAction)nextStep:(id)sender;
 - (IBAction)previousStep:(id)sender;

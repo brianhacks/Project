@@ -247,7 +247,6 @@
 								<string key="NSFrameSize">{1024, 172}</string>
 								<reference key="NSSuperview" ref="244524129"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>

@@ -11,8 +11,13 @@
 #import "BankLocation.h"
 
 @implementation PickLocationViewController
+{
+    NSMutableArray *allBranches;
+}
+//@property (nonatomic, assign) NSMutableArray *allBranches;
+
 @synthesize mapView;
-@synthesize allBranches;
+//@synthesize allBranches;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -20,11 +25,12 @@
     if (self) {
         // Custom initialization
     }
+    allBranches = [[NSMutableArray alloc] init ];
     return self;
 }
 
 - (void)viewDidLoad
-{
+{ 
     [super viewDidLoad];
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -65,7 +71,7 @@
     
     NSArray* allBranchesJSON = [json objectForKey:@"branches"]; //2
     
-    NSLog(@"length: %ld", sizeof(allBranchesJSON));
+   // NSLog(@"length: %ld", sizeof(allBranchesJSON));
    
     NSMutableArray* myBranches = [[NSMutableArray alloc] initWithCapacity:sizeof(allBranchesJSON)];
    
@@ -81,7 +87,6 @@
         
         NSNumber *latitude = [branch objectForKey:@"lat"]; 
         NSNumber *longitude = [branch objectForKey:@"lng"]; 
-      
         NSString *branchId = [branch objectForKey:@"branch"];
         NSString *name = [branch objectForKey:@"address"];
         NSString *monday = [branch objectForKey:@"monday"];
@@ -116,19 +121,24 @@
                                                              friday:friday
                                                            saturday:saturday
                                                              sunday:sunday ] ;
-        
-        NSLog(@"TEST");
+        location.name = address;
+        location.address = address;
+        location.title = address;
+        location.subtitle = branchId;
+        location.monday = monday;
+        location.tuesday = tuesday;
+        location.wednesday = wednesday;
+        location.thursday = thursday;
+        location.friday = friday;
+        location.saturday = saturday;
+        location.sunday = sunday;
+        location.coordinate = coordinate;
         [self.mapView addAnnotation:location];
-
-        [self.allBranches addObject:location];
-        
-        
-	}
-   
-    
-       
-    
-    
+        [allBranches addObject:location];
+  	}
+ 
+    BankLocation *l = [allBranches objectAtIndex:0];
+      
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -144,11 +154,11 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
 		
 	}
-    NSLog(@"%@", indexPath);
+ 
     NSUInteger row = [indexPath row];
-    BankLocation *l = [self.allBranches objectAtIndex:row];
-    NSString *name = l.name;
-    cell.textLabel.text = @"Hi";
+    BankLocation *l = [allBranches objectAtIndex:row];
+    NSString *zname = l.address;
+    cell.textLabel.text = zname;
     
     
     
@@ -164,7 +174,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView  numberOfRowsInSection:(NSInteger)section {
     
-    int count =  self.allBranches.count;
+    int count =  allBranches.count;
     return count;
 }
 
@@ -219,12 +229,7 @@
 
 - (void)refresh
 {
-    /*
-    self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(669.0, 62.0, 94., 81)];
-    self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
-    [self.view addSubview:self.sageataImage];
-    */
-    [self.tableView reloadData];
+       [self.tableView reloadData];
     
 }
 
