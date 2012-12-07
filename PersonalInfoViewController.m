@@ -119,8 +119,6 @@
     [appDelegate addInfoToUser:self.currentCity.text andFieldToAddItTo:@"city"];
     [appDelegate addInfoToUser:self.residentialStatusButton.titleLabel.text andFieldToAddItTo:@"resincialStatus"];
     [appDelegate addInfoToUser:self.totalMonthlyHousingCosts.text andFieldToAddItTo:@"monthlyHouseCosts"];
-    
-    
     [appDelegate setNewRootView:appDelegate.financialInfoViewController];
     [appDelegate.financialInfoViewController refresh];
     

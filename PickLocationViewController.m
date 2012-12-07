@@ -8,12 +8,11 @@
 
 #import "PickLocationViewController.h"
 #import "AppDelegate.h"
-
-@interface PickLocationViewController ()
-
-@end
+#import "BankLocation.h"
 
 @implementation PickLocationViewController
+@synthesize mapView;
+@synthesize allBranches;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +26,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    
+    CLLocationCoordinate2D zoomLocation;
+    zoomLocation.latitude = 43.734742;
+    zoomLocation.longitude= -79.343888;
+
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 3*METERS_PER_MILE, 3*METERS_PER_MILE);
+    // 3
+    MKCoordinateRegion adjustedRegion = [mapView regionThatFits:viewRegion];
+    // 4
+    [self.mapView setRegion:adjustedRegion animated:YES];
     // Do any additional setup after loading the view from its nib.
     //parse the JSON
     
@@ -52,28 +63,70 @@
                           options:kNilOptions
                           error:&error];
     
-    NSArray* allBranches = [json objectForKey:@"branches"]; //2
-    NSLog(@"length: %ld", sizeof(allBranches)); 
-    NSDictionary* branch = [allBranches objectAtIndex:0];
-    NSString* address = [branch objectForKey:@"address"]; 
-   NSLog(@"address1: %@", address);
-    //put pin on map
-    for (NSDictionary *branch in allBranches) {
-        NSNumber *latitude = [branch objectForKey:@"lat"]; 
-        NSNumber *longitude = [branch objectForKey:@"lon"]; 
-        NSString *address = [branch objectForKey:@"address"]; ;
+    NSArray* allBranchesJSON = [json objectForKey:@"branches"]; //2
+    
+    NSLog(@"length: %ld", sizeof(allBranchesJSON));
+   
+    NSMutableArray* myBranches = [[NSMutableArray alloc] initWithCapacity:sizeof(allBranchesJSON)];
+   
+    
+    for (id<MKAnnotation> annotation in mapView.annotations) {
+        [mapView removeAnnotation:annotation];
+    }
+    
+    for (NSDictionary *branch in allBranchesJSON) {
         
+         NSString* address = [branch objectForKey:@"address"];
+       
+        
+        NSNumber *latitude = [branch objectForKey:@"lat"]; 
+        NSNumber *longitude = [branch objectForKey:@"lng"]; 
+      
+        NSString *branchId = [branch objectForKey:@"branch"];
+        NSString *name = [branch objectForKey:@"address"];
+        NSString *monday = [branch objectForKey:@"monday"];
+        NSString *tuesday = [branch objectForKey:@"tuesday"];
+        NSString *wednesday = [branch objectForKey:@"wednesday"];
+        NSString *thursday = [branch objectForKey:@"thursday"];
+        NSString *friday = [branch objectForKey:@"friday"];
+        NSString *saturday = [branch objectForKey:@"saturday"];
+        NSString *sunday = [branch objectForKey:@"sunday"];
+        NSString *province = [branch objectForKey:@"province"];
+        NSString *title = [branch objectForKey:@"Branch"];
+        NSString *subTitle = [branch objectForKey:@"address"];
+        
+         NSLog(@"address1: %@", address);
         
         CLLocationCoordinate2D coordinate;
+        
         coordinate.latitude = latitude.doubleValue;
         coordinate.longitude = longitude.doubleValue;
-      //  MyLocation *annotation = [[MyLocation alloc] initWithName:crimeDescription address:address coordinate:coordinate] ;
-        //[_mapView addAnnotation:annotation];
         
-        //[self.tableView ]
+        NSLog(@"first");
+        BankLocation *location = [[BankLocation alloc] initWithName:title
+                                                            address:address
+                                                              title:title
+                                                           subTitle:subTitle
+                                                         coordinate:coordinate
+                                                             branch:branchId
+                                                             monday:monday
+                                                            tuesday:tuesday
+                                                          wednesday:wednesday
+                                                           thursday:thursday
+                                                             friday:friday
+                                                           saturday:saturday
+                                                             sunday:sunday ] ;
+        
+        NSLog(@"TEST");
+        [self.mapView addAnnotation:location];
+
+        [self.allBranches addObject:location];
+        
+        
 	}
    
     
+       
     
     
 }
@@ -91,8 +144,13 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
 		
 	}
+    NSLog(@"%@", indexPath);
+    NSUInteger row = [indexPath row];
+    BankLocation *l = [self.allBranches objectAtIndex:row];
+    NSString *name = l.name;
+    cell.textLabel.text = @"Hi";
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
+    
     
     return cell;
     
@@ -106,8 +164,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView  numberOfRowsInSection:(NSInteger)section {
     
-    return 6;
-    
+    int count =  self.allBranches.count;
+    return count;
 }
 
 
@@ -123,6 +181,41 @@
     [appDelegate backOneView];
     
 }
+
+- (IBAction)tableItemClicked:(id)sender
+{
+
+}
+- (IBAction)mapItemClicked:(id)sender;
+{}
+- (IBAction)itemHighlighted:(id)sender;
+{}
+- (IBAction)searchMap:(id)sender;
+{}
+
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    
+    static NSString *identifier = @"BankLocation";
+    if ([annotation isKindOfClass:[BankLocation class]]) {
+        
+        MKPinAnnotationView *annotationView = (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (annotationView == nil) {
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        } else {
+            annotationView.annotation = annotation;
+        }
+        
+        annotationView.enabled = YES;
+        annotationView.canShowCallout = YES;
+        annotationView.image=[UIImage imageNamed:@"bank.png"];//here we use a nice image instead of the default pins
+        
+        return annotationView;
+    }
+    
+    return nil;
+}
+
 
 - (void)refresh
 {

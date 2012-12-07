@@ -63,6 +63,9 @@
 		9F2B90B5166FA897003DD835 /* banner-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B3166FA897003DD835 /* banner-5.png */; };
 		9F2B90B6166FA897003DD835 /* banner-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B4166FA897003DD835 /* banner-4.png */; };
 		9F2B90B8166FABFE003DD835 /* header-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B7166FABFE003DD835 /* header-5.png */; };
+		9F647AC716719240001E6F3D /* BankLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F647AC616719240001E6F3D /* BankLocation.m */; };
+		9F647AD116723477001E6F3D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F647AD016723477001E6F3D /* AddressBook.framework */; };
+		9F647AD316724948001E6F3D /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F647AD216724948001E6F3D /* bank.png */; };
 		9F854C6A166FE859009F9E01 /* body-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C68166FE859009F9E01 /* body-2.png */; };
 		9F854C6B166FE859009F9E01 /* footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C69166FE859009F9E01 /* footer.png */; };
 		9F854C76166FFA10009F9E01 /* FrutigerLTStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C6D166FFA10009F9E01 /* FrutigerLTStd-Bold.otf */; };
@@ -197,6 +200,10 @@
 		9F2B90B3166FA897003DD835 /* banner-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-5.png"; path = "TD Visa Form/images/banner-5.png"; sourceTree = "<group>"; };
 		9F2B90B4166FA897003DD835 /* banner-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-4.png"; path = "TD Visa Form/images/banner-4.png"; sourceTree = "<group>"; };
 		9F2B90B7166FABFE003DD835 /* header-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header-5.png"; path = "TD Visa Form/images/header-5.png"; sourceTree = "<group>"; };
+		9F647AC516719240001E6F3D /* BankLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankLocation.h; sourceTree = "<group>"; };
+		9F647AC616719240001E6F3D /* BankLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankLocation.m; sourceTree = "<group>"; };
+		9F647AD016723477001E6F3D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		9F647AD216724948001E6F3D /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bank.png; path = "TD Visa Form/images/bank.png"; sourceTree = "<group>"; };
 		9F854C68166FE859009F9E01 /* body-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "body-2.png"; path = "TD Visa Form/images/body-2.png"; sourceTree = "<group>"; };
 		9F854C69166FE859009F9E01 /* footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = footer.png; path = "TD Visa Form/images/footer.png"; sourceTree = "<group>"; };
 		9F854C6D166FFA10009F9E01 /* FrutigerLTStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Bold.otf"; path = "TD Visa Form/FrutigerLTStd-Bold.otf"; sourceTree = "<group>"; };
@@ -258,6 +265,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F647AD116723477001E6F3D /* AddressBook.framework in Frameworks */,
 				70CB8158166410BE0003B225 /* MapKit.framework in Frameworks */,
 				703E132B16597A410043D72A /* QuartzCore.framework in Frameworks */,
 				702337AC1652C56800B87249 /* UIKit.framework in Frameworks */,
@@ -273,6 +281,7 @@
 		7023379C1652C56800B87249 = {
 			isa = PBXGroup;
 			children = (
+				9F647AD016723477001E6F3D /* AddressBook.framework */,
 				9F854C8C16706F31009F9E01 /* admin */,
 				9F90EBAB1670F68F00501F8C /* buttons */,
 				9F2B90A7166F0588003DD835 /* images */,
@@ -463,6 +472,8 @@
 				70CB815216640EA90003B225 /* PickLocationViewController.h */,
 				70CB815316640EA90003B225 /* PickLocationViewController.m */,
 				70CB815416640EA90003B225 /* PickLocationViewController.xib */,
+				9F647AC516719240001E6F3D /* BankLocation.h */,
+				9F647AC616719240001E6F3D /* BankLocation.m */,
 			);
 			name = "Pick Location";
 			sourceTree = "<group>";
@@ -487,6 +498,7 @@
 		9F2B90A7166F0588003DD835 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9F647AD216724948001E6F3D /* bank.png */,
 				9F0C3904166FB812009C8297 /* select.png */,
 				9F854C7F167022F8009F9E01 /* btn-security-down.png */,
 				9F854C80167022F9009F9E01 /* btn-security-normal.png */,
@@ -694,6 +706,7 @@
 				9F90EBF11670F68F00501F8C /* btn-terms-hover.png in Resources */,
 				9F90EBF21670F68F00501F8C /* btn-terms-inactive.png in Resources */,
 				9F90EBF31670F68F00501F8C /* btn-terms.png in Resources */,
+				9F647AD316724948001E6F3D /* bank.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +738,7 @@
 				70CB815516640EA90003B225 /* PickLocationViewController.m in Sources */,
 				70CB8F3D1666933400DC2E70 /* User.m in Sources */,
 				9F854C8A16706F2B009F9E01 /* AdminViewController.m in Sources */,
+				9F647AC716719240001E6F3D /* BankLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

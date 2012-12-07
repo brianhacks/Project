@@ -14,11 +14,18 @@
 @interface PickLocationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) UIImageView* sageataImage;
-@property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, assign) NSMutableArray *allBranches;
+ 
 - (IBAction)nextStep:(id)sender;
 - (IBAction)previousStep:(id)sender;
-
+- (IBAction)tableItemClicked:(id)sender;
+- (IBAction)mapItemClicked:(id)sender;
+- (IBAction)itemHighlighted:(id)sender;
+- (IBAction)searchMap:(id)sender;
 - (void)refresh;
 
 @end
