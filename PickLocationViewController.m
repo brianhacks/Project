@@ -33,8 +33,17 @@
 { 
     [super viewDidLoad];
 }
+
+- (void)refreshMap{
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     
+    [self plotBanks];
+    
+}
+- (void)plotBanks
+{
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 43.734742;
     zoomLocation.longitude= -79.343888;
@@ -183,6 +192,20 @@
 {
 }
 
+/*
+ HAVERSINE DISTANCE COMPUTATION - JAVASCRIPT
+ var R = 6371; // km
+ var dLat = (lat2-lat1).toRad();
+ var dLon = (lon2-lon1).toRad();
+ var lat1 = lat1.toRad();
+ var lat2 = lat2.toRad();
+ 
+ var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+ Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+ var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+ var d = R * c;
+ */
+
 - (IBAction)previousStep:(id)sender
 {
     
@@ -192,16 +215,29 @@
     
 }
 
-- (IBAction)tableItemClicked:(id)sender
+- (IBAction)cancelMapAnnotationClicked:(id)sender
 {
-
+    //close the overlay and destroy
 }
 - (IBAction)mapItemClicked:(id)sender;
-{}
+{
+   //do popupView
+       
+       
+}
 - (IBAction)itemHighlighted:(id)sender;
-{}
+{
+  //map pin to side bar and hgihlight star
+    //also unhighlight other stars
+
+}
 - (IBAction)searchMap:(id)sender;
-{}
+{
+    
+    //can we figure out proximity and resort the list?
+//center the location in the middle
+    //can we only show items that are on the screen?
+}
 
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {

@@ -22,7 +22,7 @@
  
 - (IBAction)nextStep:(id)sender;
 - (IBAction)previousStep:(id)sender;
-- (IBAction)tableItemClicked:(id)sender;
+- (IBAction)cancelMapAnnotationClicked:(id)sender;
 - (IBAction)mapItemClicked:(id)sender;
 - (IBAction)itemHighlighted:(id)sender;
 - (IBAction)searchMap:(id)sender;
