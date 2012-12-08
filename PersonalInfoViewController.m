@@ -16,7 +16,7 @@
 
 @implementation PersonalInfoViewController
 
-@synthesize gender, titleString, languageOfCorespondaceString;
+@synthesize gender, titleString, languageOfCorespondaceString, editFirstView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -174,8 +174,33 @@
 {
 }
 
+#pragma mark
+#pragma mark closeGeneralView
+
 - (IBAction)closeGeneralInfoView:(id)sender
 {
+    for (UILabel *tmpLabel in [self.secondHeaderView subviews]) {
+        [tmpLabel removeFromSuperview];
+    }
+    
+    for (UIButton *tmpButton in [self.secondHeaderView subviews]) {
+        [tmpButton removeFromSuperview];
+    }
+    
+    if (self.secondHeaderView.frame.size.height > 50) {
+      
+        self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height - 50);
+        
+    }
+    
+    self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    firstHeaderTitel.backgroundColor = [UIColor clearColor];
+    firstHeaderTitel.textColor = [UIColor whiteColor];
+    firstHeaderTitel.text = @"Current Home Address";
+    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.secondHeaderView addSubview:firstHeaderTitel];
     
     //validate the fields here!
     bool isValid = true;
@@ -205,10 +230,10 @@
         self.lastName.backgroundColor = [UIColor whiteColor];
     }
     
-    NSString *str=@"^\\+(?:[0-9] ?){6,14}[0-9]$";
-    NSPredicate *no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",str];
+//    NSString *str=@"^\\+(?:[0-9] ?){6,14}[0-9]$";
+//    NSPredicate *no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",str];
   
-    if(self.primaryPhoneNumber.text.length < 1 || [no evaluateWithObject:self.primaryPhoneNumber.text]==NO){
+    if(self.primaryPhoneNumber.text.length < 1){
         isValid=false;
         //mark field as invalid
         self.primaryPhoneNumber.backgroundColor = [UIColor yellowColor];
@@ -224,24 +249,27 @@
         self.selectGenderButton.backgroundColor = [UIColor whiteColor];
         
     }
-    
-    if(self.sinNumber.text.length > 9 ){
-        //mark field as invalid
-        self.sinNumber.backgroundColor = [UIColor yellowColor];
-    }else{
-        self.sinNumber.backgroundColor = [UIColor whiteColor];
-        
-    }
-    NSString *email_regex_str=@".+@.+\\.[A-Za-z]{2}[A-Za-z]*";
-    NSPredicate *email_no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",email_regex_str];
 
-    if(self.emailAddress.text.length > 0 && [email_no evaluateWithObject:self.emailAddress.text]==NO){
-        //mark field as invalid
-        self.emailAddress.backgroundColor = [UIColor yellowColor];
-    }else{
-        self.emailAddress.backgroundColor = [UIColor whiteColor];
-        
-    }
+    //sin is optional
+//    if(self.sinNumber.text.length > 9 ){
+//        //mark field as invalid
+//        self.sinNumber.backgroundColor = [UIColor yellowColor];
+//    }else{
+//        self.sinNumber.backgroundColor = [UIColor whiteColor];
+//        
+//    }
+    
+    //mail is optional
+//    NSString *email_regex_str=@".+@.+\\.[A-Za-z]{2}[A-Za-z]*";
+//    NSPredicate *email_no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",email_regex_str];
+//
+//    if(self.emailAddress.text.length > 0 && [email_no evaluateWithObject:self.emailAddress.text]==NO){
+//        //mark field as invalid
+//        self.emailAddress.backgroundColor = [UIColor yellowColor];
+//    }else{
+//        self.emailAddress.backgroundColor = [UIColor whiteColor];
+//        
+//    }
 
     
     
@@ -256,13 +284,90 @@
     //TODO need to modify accordion to replace panel with infopanel and hide header.
     [self.accordion setSelectedIndex:1];
     
+    [self changeFirstHeaderHeightAndAddInfo];
+    
+    
+    
 }
 
+- (void)changeFirstHeaderHeightAndAddInfo
+{
+    self.firstHeaderView.frame = CGRectMake(self.firstHeaderView.frame.origin.x, self.firstHeaderView.frame.origin.y, self.firstHeaderView.frame.size.width, self.firstHeaderView.frame.size.height + 50);
+    self.firstHeaderView.backgroundColor = [UIColor whiteColor];
+    
+    for (UILabel *tmpLabel in [self.firstHeaderView subviews]) {
+        tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    }
+    
+    self.editFirstView = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.editFirstView.frame = CGRectMake(910., 5., 50., 30.);
+    [self.editFirstView setTitle:@"Edit" forState:UIControlStateNormal];
+    [self.editFirstView addTarget:self action:@selector(editFirstViewAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.firstHeaderView addSubview:self.editFirstView];
+    
+    UILabel* userName = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 200., 30.)];
+    userName.textColor = [UIColor blackColor];
+    userName.font = [UIFont fontWithName:@"Helvetica" size:16];
+    userName.backgroundColor = [UIColor clearColor];
+    userName.text = [NSString stringWithFormat:@"%@ %@",self.firstName.text, self.lastName.text];
+    [self.firstHeaderView addSubview:userName];
+    
+    UILabel* phoneNumber = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 200., 30.)];
+    phoneNumber.textColor = [UIColor blackColor];
+    phoneNumber.font = [UIFont fontWithName:@"Helvetica" size:16];
+    phoneNumber.backgroundColor = [UIColor clearColor];
+    phoneNumber.text = [NSString stringWithFormat:@"%@",self.primaryPhoneNumber.text];
+    [self.firstHeaderView addSubview:phoneNumber];
+    
+    UILabel* email = [[UILabel alloc] initWithFrame:CGRectMake(290., 63., 200., 30.)];
+    email.textColor = [UIColor blackColor];
+    email.font = [UIFont fontWithName:@"Helvetica" size:16];
+    email.backgroundColor = [UIColor clearColor];
+    email.text = [NSString stringWithFormat:@"%@",self.emailAddress.text];
+    [self.firstHeaderView addSubview:email];
+    
+    UILabel* genderLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 3., 100., 30.)];
+    genderLabel.textColor = [UIColor blackColor];
+    genderLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    genderLabel.backgroundColor = [UIColor clearColor];
+    genderLabel.text = [NSString stringWithFormat:@"%@",self.gender];
+    [self.firstHeaderView addSubview:genderLabel];
+    
+    UILabel* preferedLanguage = [[UILabel alloc] initWithFrame:CGRectMake(590., 33., 100., 30.)];
+    preferedLanguage.textColor = [UIColor blackColor];
+    preferedLanguage.font = [UIFont fontWithName:@"Helvetica" size:16];
+    preferedLanguage.backgroundColor = [UIColor clearColor];
+    preferedLanguage.text = [NSString stringWithFormat:@"%@",self.selectLanguageOfCorespondace.titleLabel.text];
+    [self.firstHeaderView addSubview:preferedLanguage];
+}
+
+- (void)editFirstViewAction:(id)sender
+{
+    self.firstHeaderView.frame = CGRectMake(self.firstHeaderView.frame.origin.x, self.firstHeaderView.frame.origin.y, self.firstHeaderView.frame.size.width, self.firstHeaderView.frame.size.height - 50);
+    self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    
+    for (UILabel *tmpLabel in [self.firstHeaderView subviews]) {
+        [tmpLabel removeFromSuperview];
+    }
+    
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    firstHeaderTitel.backgroundColor = [UIColor clearColor];
+    firstHeaderTitel.textColor = [UIColor whiteColor];
+    firstHeaderTitel.text = @"General Info";
+    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.firstHeaderView addSubview:firstHeaderTitel];
+    
+    [self.accordion setSelectedIndex:0];
+}
+
+
+#pragma mark
+#pragma mark closeAddressView
 - (IBAction)closeAddressView:(id)sender;
 {
     bool isValid=true;
     
-    if(self.streetAddress.text.length < 1 || self.streetAddress.text.length >30 )
+    if(self.streetAddress.text.length < 1)
     {
         isValid=false;
         //mark field as invalid
@@ -271,7 +376,7 @@
         self.streetAddress.backgroundColor = [UIColor whiteColor];
         
     }
-    if(self.currentCity.text.length < 1 || self.currentCity.text.length > 30 )
+    if(self.currentCity.text.length < 1)
     {
         isValid=false;
         //mark field as invalid
@@ -281,16 +386,17 @@
         
     }
     if([self.provinceButton.titleLabel.text isEqualToString:@"Province"]){
-    
+        isValid = false;
+        
+        self.provinceButton.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.provinceButton.backgroundColor = [UIColor whiteColor];
     }
     
-    //^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}$
     
     NSString *zip_regex_str=@"^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}$";
     NSPredicate *zip_no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",zip_regex_str];
-    
-
-    
+        
     if(self.postalCode.text.length < 1 || [zip_no evaluateWithObject:self.postalCode.text])
     {
         self.postalCode.backgroundColor = [UIColor yellowColor];
@@ -311,13 +417,11 @@
     
     int totalCosts = [self.totalMonthlyHousingCosts.text intValue];
     
-    if(self.totalMonthlyHousingCosts.text.length>12 ||
-       !(totalCosts==0 &&
-         [ self.residentialStatusButton.titleLabel.text  isEqualToString:@"Live with Parents/Relatives"  ]
+    if(!(totalCosts == 0 && [ self.residentialStatusButton.titleLabel.text  isEqualToString:@"Live with Parents/Relatives"  ]
          )
        )
     {
-        isValid=false;
+//        isValid=false;
         
     }
     
@@ -332,11 +436,75 @@
     }
     [self.accordion setSelectedIndex:3];
     
+     [self changeSecondHeaderHeightAndAddInfo];
+    
     
 }
 
+- (void)changeSecondHeaderHeightAndAddInfo
+{
+    
+    self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height + 50);
+    self.secondHeaderView.backgroundColor = [UIColor whiteColor];
+    
+    for (UILabel *tmpLabel in [self.secondHeaderView subviews]) {
+        tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    }
+    
+    self.editSecondView = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.editSecondView.frame = CGRectMake(910., 5., 50., 30.);
+    [self.editSecondView setTitle:@"Edit" forState:UIControlStateNormal];
+    [self.editSecondView addTarget:self action:@selector(editSecondViewAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.secondHeaderView addSubview:self.editSecondView];
+    
+    UILabel* address = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 200., 50.)];
+    address.textColor = [UIColor blackColor];
+    address.backgroundColor = [UIColor blackColor];
+    address.font = [UIFont fontWithName:@"Helvetica" size:16];
+    address.numberOfLines = 0;
+    address.backgroundColor = [UIColor clearColor];
+    address.text = [NSString stringWithFormat:@"%@ %@ %@",self.streetAddress.text, self.currentCity.text, self.provinceButton.titleLabel.text];
+    [self.secondHeaderView addSubview:address];
+    
+    UILabel* residentialStatusLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 3., 200., 30.)];
+    residentialStatusLabel.textColor = [UIColor blackColor];
+    residentialStatusLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    residentialStatusLabel.backgroundColor = [UIColor clearColor];
+    residentialStatusLabel.text = [NSString stringWithFormat:@"Residential Status: %@",self.residentialStatusButton.titleLabel.text];
+    [self.secondHeaderView addSubview:residentialStatusLabel];
+    
+    UILabel* totalMonthlyCostsLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 33., 200., 50.)];
+    totalMonthlyCostsLabel.textColor = [UIColor blackColor];
+    totalMonthlyCostsLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    totalMonthlyCostsLabel.backgroundColor = [UIColor clearColor];
+    totalMonthlyCostsLabel.numberOfLines = 0;
+    totalMonthlyCostsLabel.text = [NSString stringWithFormat:@"Total monthly housing costs: %@",self.totalMonthlyHousingCosts.text];
+    [self.secondHeaderView addSubview:totalMonthlyCostsLabel];
+    
+   }
+
+- (void)editSecondViewAction:(id)sender
+{
+    self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height - 50);
+    self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    
+    for (UILabel *tmpLabel in [self.secondHeaderView subviews]) {
+        [tmpLabel removeFromSuperview];
+    }
+    
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    firstHeaderTitel.backgroundColor = [UIColor clearColor];
+    firstHeaderTitel.textColor = [UIColor whiteColor];
+    firstHeaderTitel.text = @"Current Home Address";
+    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.secondHeaderView addSubview:firstHeaderTitel];
+    
+    [self.accordion setSelectedIndex:1];
+}
 
 
+#pragma mark
+#pragma mark viewDidLoad
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -368,23 +536,42 @@
     [self.view addSubview:self.accordion];
     
     // Only height is taken into account, so other parameters are just dummy
-    UIButton *header1= [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    header1.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    [header1 setTitle:@"General Information" forState:UIControlStateNormal];
-    header1.titleLabel.textAlignment = NSTextAlignmentLeft;
-    self.doneGeneralInfo = header1;
+    self.firstHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
-    [self.accordion addHeader:self.doneGeneralInfo withView:self.generalInfoView];
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    firstHeaderTitel.backgroundColor = [UIColor clearColor];
+    firstHeaderTitel.textColor = [UIColor whiteColor];
+    firstHeaderTitel.text = @"General Info";
+    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.firstHeaderView addSubview:firstHeaderTitel];
     
-    UIButton *header2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    header2.backgroundColor = [UIColor  colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    [header2 setTitle:@"Current Home Address" forState:UIControlStateNormal];
+//    self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+//    [header1 setTitle:@"General Information" forState:UIControlStateNormal];
+//    header1.titleLabel.textAlignment = NSTextAlignmentLeft;
+//    self.doneGeneralInfo = header1;
+    
+    [self.accordion addHeader:self.firstHeaderView withView:self.generalInfoView];
+    
+//    UIButton *header2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+//    header2.backgroundColor = [UIColor  colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+//    [header2 setTitle:@"Current Home Address" forState:UIControlStateNormal];
+
+    self.secondHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    
+    UILabel* secondHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    secondHeaderTitel.backgroundColor = [UIColor clearColor];
+    secondHeaderTitel.textColor = [UIColor whiteColor];
+    secondHeaderTitel.text = @"Current Home Address";
+    secondHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.secondHeaderView addSubview:secondHeaderTitel];
     
     UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 400)];
     view2.backgroundColor = [UIColor whiteColor];
     
     //need to figure out how to alternate the color of white and green
-    [self.accordion addHeader:header2 withView:self.currentHomeAddressView];
+    [self.accordion addHeader:self.secondHeaderView withView:self.currentHomeAddressView];
     
     [self.accordion setNeedsLayout];
     

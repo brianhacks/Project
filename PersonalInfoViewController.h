@@ -12,6 +12,10 @@
 @interface PersonalInfoViewController : UIViewController <UIPopoverControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
 
+@property (strong, nonatomic) IBOutlet UIView *secondHeaderView;
+@property (strong, nonatomic) UIButton* editFirstView;
+@property (strong, nonatomic) UIButton* editSecondView;
+@property (strong, nonatomic) IBOutlet UIView *firstHeaderView;
 @property (strong, nonatomic) IBOutlet UITextField *sinNumber;
 @property (strong, nonatomic) IBOutlet UITextField *currentCity;
 
@@ -27,7 +31,7 @@
 @property (strong, nonatomic) UIPickerView *residentialStatusPicker;
 @property (strong, nonatomic) IBOutlet UIButton *provinceButton;
 @property (strong, nonatomic) IBOutlet UIButton *residentialStatusButton;
-- (IBAction)selectResidentialStatus:(id)sender;
+
 
 
 @property (strong, nonatomic) NSString* gender;
@@ -68,6 +72,7 @@
 - (IBAction)selectLanguageOfCorrespondace:(id)sender;
 - (IBAction)closeGeneralInfoView:(id)sender;
 - (IBAction)closeAddressView:(id)sender;
+- (IBAction)selectResidentialStatus:(id)sender;
 
 
 @end

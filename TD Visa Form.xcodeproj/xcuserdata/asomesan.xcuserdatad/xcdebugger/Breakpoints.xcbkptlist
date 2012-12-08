@@ -52,7 +52,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "107"
          endingLineNumber = "107"
-         landmarkName = "-selectProvince:"
+         landmarkName = "-nextStep:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -65,20 +65,33 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "54"
          endingLineNumber = "54"
-         landmarkName = "-didReceiveMemoryWarning"
+         landmarkName = "-selectResidentialStatus:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "AccordionView.m"
-         timestampString = "376518494.589842"
+         filePath = "PersonalInfoViewController.m"
+         timestampString = "376662183.811165"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "57"
-         endingLineNumber = "57"
-         landmarkName = "-addHeader:withView:"
+         startingLineNumber = "180"
+         endingLineNumber = "180"
+         landmarkName = "-closeGeneralInfoView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PersonalInfoViewController.m"
+         timestampString = "376673212.882795"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "543"
+         endingLineNumber = "543"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
