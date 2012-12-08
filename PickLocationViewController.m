@@ -26,6 +26,7 @@
         // Custom initialization
     }
     allBranches = [[NSMutableArray alloc] init ];
+    
     return self;
 }
 
@@ -147,6 +148,7 @@
   	}
  
     BankLocation *l = [allBranches objectAtIndex:0];
+  
       
 }
 
@@ -169,8 +171,6 @@
     NSString *zname = l.address;
     cell.textLabel.text = zname;
     
-    
-    
     return cell;
     
 }
@@ -192,19 +192,16 @@
 {
 }
 
-/*
- HAVERSINE DISTANCE COMPUTATION - JAVASCRIPT
- var R = 6371; // km
- var dLat = (lat2-lat1).toRad();
- var dLon = (lon2-lon1).toRad();
- var lat1 = lat1.toRad();
- var lat2 = lat2.toRad();
- 
- var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
- Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
- var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
- var d = R * c;
- */
+ //HAVERSINE DISTANCE COMPUTATION - JAVASCRIPT
+    int R = 6371; // km
+   // double lat1rad = DEG2RAD(lat1);
+    //double lat2rad = DEG2RAD(lat2);
+    // apply the spherical law of cosines to our latitudes and longitudes, and set the result appropriately
+    // 6378.1 is the approximate radius of the earth in kilometres
+   //  acos(sin(lat1rad) * sin(lat2rad) + cos(lat1rad) * cos(lat2rad) * cos(deg2rad(lon2) - deg2rad(lon1))) * 6378.1);
+
+  
+    
 
 - (IBAction)previousStep:(id)sender
 {
@@ -240,8 +237,8 @@
 }
 
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    
+- (MKAnnotationView *)mapView:(MKMapView *)zmapView viewForAnnotation:(id <MKAnnotation>)annotation {
+    NSLog(@"ANNOTATE!");
     static NSString *identifier = @"BankLocation";
     if ([annotation isKindOfClass:[BankLocation class]]) {
         
@@ -274,5 +271,43 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+/*
+- (void)setAnnotation:(id <MKAnnotation>)annotation {
+    [super setAnnotation:annotation];
+    [self prepareFrameSize];
+    [self prepareOffset];
+    [self setNeedsDisplay];
+}
+
+- (void)prepareFrameSize {
+    CGRect frame = self.frame;
+    CGFloat height =    self.contentHeight +
+    CalloutMapAnnotationViewContentHeightBuffer +
+    CalloutMapAnnotationViewBottomShadowBufferSize -
+    self.offsetFromParent.y;
+    
+    frame.size = CGSizeMake(self.mapView.frame.size.width, height);
+    self.frame = frame;
+}
+
+- (void)prepareOffset {
+    CGPoint parentOrigin = [self.mapView
+                            convertPoint:self.parentAnnotationView.frame.origin
+                            fromView:self.parentAnnotationView.superview];
+    
+    CGFloat xOffset =   (self.mapView.frame.size.width / 2) -(parentOrigin.x + self.offsetFromParent.x);
+    
+    //Add half our height plus half of the height of the annotation we are tied to so that our bottom lines up to its top
+    //Then take into account its offset and the extra space needed for our drop shadow
+    CGFloat yOffset = -(self.frame.size.height / 2 +
+                        self.parentAnnotationView.frame.size.height / 2) +
+    self.offsetFromParent.y +
+    CalloutMapAnnotationViewBottomShadowBufferSize;
+    
+    self.centerOffset = CGPointMake(xOffset, yOffset);
+}
+
+*/
 
 @end

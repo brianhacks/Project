@@ -11,7 +11,7 @@
 
 #define METERS_PER_MILE 1609.344
 
-@interface PickLocationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface PickLocationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
 
 @property (strong, nonatomic) UIImageView* sageataImage;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;

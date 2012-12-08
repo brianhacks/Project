@@ -439,6 +439,14 @@
 					<int key="connectionID">97</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="627487424"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">115</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">previousStep:</string>
 						<reference key="source" ref="388192513"/>
@@ -597,7 +605,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">114</int>
+			<int key="maxID">115</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -605,14 +613,18 @@
 					<string key="className">PickLocationViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="cancelMapAnnotationClicked:">id</string>
 						<string key="itemHighlighted:">id</string>
 						<string key="mapItemClicked:">id</string>
 						<string key="nextStep:">id</string>
 						<string key="previousStep:">id</string>
 						<string key="searchMap:">id</string>
-						<string key="tableItemClicked:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="cancelMapAnnotationClicked:">
+							<string key="name">cancelMapAnnotationClicked:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="itemHighlighted:">
 							<string key="name">itemHighlighted:</string>
 							<string key="candidateClassName">id</string>
@@ -631,10 +643,6 @@
 						</object>
 						<object class="IBActionInfo" key="searchMap:">
 							<string key="name">searchMap:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="tableItemClicked:">
-							<string key="name">tableItemClicked:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

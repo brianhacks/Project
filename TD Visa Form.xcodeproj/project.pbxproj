@@ -119,6 +119,8 @@
 		9F90EBF11670F68F00501F8C /* btn-terms-hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBCD1670F68F00501F8C /* btn-terms-hover.png */; };
 		9F90EBF21670F68F00501F8C /* btn-terms-inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBCE1670F68F00501F8C /* btn-terms-inactive.png */; };
 		9F90EBF31670F68F00501F8C /* btn-terms.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBCF1670F68F00501F8C /* btn-terms.png */; };
+		9FBDBB661672B95800BE04E6 /* ThankYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDBB641672B95800BE04E6 /* ThankYouViewController.m */; };
+		9FBDBB671672B95800BE04E6 /* ThankYouViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBDBB651672B95800BE04E6 /* ThankYouViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -258,6 +260,9 @@
 		9F90EBCD1670F68F00501F8C /* btn-terms-hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-terms-hover.png"; sourceTree = "<group>"; };
 		9F90EBCE1670F68F00501F8C /* btn-terms-inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-terms-inactive.png"; sourceTree = "<group>"; };
 		9F90EBCF1670F68F00501F8C /* btn-terms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-terms.png"; sourceTree = "<group>"; };
+		9FBDBB631672B95800BE04E6 /* ThankYouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThankYouViewController.h; sourceTree = "<group>"; };
+		9FBDBB641672B95800BE04E6 /* ThankYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThankYouViewController.m; sourceTree = "<group>"; };
+		9FBDBB651672B95800BE04E6 /* ThankYouViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThankYouViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +286,7 @@
 		7023379C1652C56800B87249 = {
 			isa = PBXGroup;
 			children = (
+				9FBDBB691672B96F00BE04E6 /* ThankYou */,
 				9F647AD016723477001E6F3D /* AddressBook.framework */,
 				9F854C8C16706F31009F9E01 /* admin */,
 				9F90EBAB1670F68F00501F8C /* buttons */,
@@ -573,6 +579,16 @@
 			path = "TD Visa Form/buttons";
 			sourceTree = "<group>";
 		};
+		9FBDBB691672B96F00BE04E6 /* ThankYou */ = {
+			isa = PBXGroup;
+			children = (
+				9FBDBB631672B95800BE04E6 /* ThankYouViewController.h */,
+				9FBDBB641672B95800BE04E6 /* ThankYouViewController.m */,
+				9FBDBB651672B95800BE04E6 /* ThankYouViewController.xib */,
+			);
+			name = ThankYou;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -707,6 +723,7 @@
 				9F90EBF21670F68F00501F8C /* btn-terms-inactive.png in Resources */,
 				9F90EBF31670F68F00501F8C /* btn-terms.png in Resources */,
 				9F647AD316724948001E6F3D /* bank.png in Resources */,
+				9FBDBB671672B95800BE04E6 /* ThankYouViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,6 +756,7 @@
 				70CB8F3D1666933400DC2E70 /* User.m in Sources */,
 				9F854C8A16706F2B009F9E01 /* AdminViewController.m in Sources */,
 				9F647AC716719240001E6F3D /* BankLocation.m in Sources */,
+				9FBDBB661672B95800BE04E6 /* ThankYouViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
