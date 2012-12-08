@@ -35,11 +35,30 @@
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
     
-    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doneButton.frame = CGRectMake(150., 0., 60., 44.);
-    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton addTarget:self action:@selector(chooseTitle) forControlEvents:UIControlEventTouchUpInside];
-    [popoverView addSubview:doneButton];
+//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    doneButton.frame = CGRectMake(150., 0., 60., 44.);
+//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+//    [doneButton addTarget:self action:@selector(chooseTitle) forControlEvents:UIControlEventTouchUpInside];
+//    [popoverView addSubview:doneButton];
+
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 220.0, 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(chooseTitle)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
     
     self.titlePicker = [[UIPickerView alloc]init];//Date picker
     self.titlePicker.frame = CGRectMake(0,44,220, 116);
@@ -51,9 +70,9 @@
     popoverContent.view = popoverView;
     self.popoverController2 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController2.delegate = self;
-    
-    [self.popoverController2 setPopoverContentSize:CGSizeMake(220, 220) animated:NO];
-    [self.popoverController2 presentPopoverFromRect:CGRectMake(30.0, 220.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+
+    [self.popoverController2 setPopoverContentSize:CGSizeMake(220, 200) animated:NO];
+    [self.popoverController2 presentPopoverFromRect:CGRectMake(15.0, 220.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
 }
 
@@ -133,11 +152,30 @@
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
     
-    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doneButton.frame = CGRectMake(150., 0., 60., 44.);
-    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton addTarget:self action:@selector(selectGender) forControlEvents:UIControlEventTouchUpInside];
-    [popoverView addSubview:doneButton];
+//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    doneButton.frame = CGRectMake(150., 0., 60., 44.);
+//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+//    [doneButton addTarget:self action:@selector(selectGender) forControlEvents:UIControlEventTouchUpInside];
+//    [popoverView addSubview:doneButton];
+
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 220.0, 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(selectGender)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
     
     self.genderPicker = [[UIPickerView alloc]init];//Date picker
     self.genderPicker.frame = CGRectMake(0,44,220, 116);
@@ -150,8 +188,8 @@
     self.popoverController1 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController1.delegate = self;
     
-    [self.popoverController1 setPopoverContentSize:CGSizeMake(220, 264) animated:NO];
-    [self.popoverController1 presentPopoverFromRect:CGRectMake(550.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popoverController1 setPopoverContentSize:CGSizeMake(220, 204) animated:NO];
+    [self.popoverController1 presentPopoverFromRect:CGRectMake(545.0, 220.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
 }
 
@@ -299,9 +337,11 @@
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     }
     
-    self.editFirstView = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.editFirstView.frame = CGRectMake(910., 5., 50., 30.);
+    self.editFirstView = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.editFirstView.frame = CGRectMake(910., 5., 81., 42.);
     [self.editFirstView setTitle:@"Edit" forState:UIControlStateNormal];
+    [self.editFirstView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateNormal];
+    [self.editFirstView setImage:[UIImage imageNamed:@"btn-edit-hover.png"] forState:UIControlStateHighlighted];
     [self.editFirstView addTarget:self action:@selector(editFirstViewAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.firstHeaderView addSubview:self.editFirstView];
     
@@ -451,9 +491,11 @@
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     }
     
-    self.editSecondView = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.editSecondView.frame = CGRectMake(910., 5., 50., 30.);
+    self.editSecondView = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.editSecondView.frame = CGRectMake(910., 5., 81., 42.);
     [self.editSecondView setTitle:@"Edit" forState:UIControlStateNormal];
+    [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateNormal];
+    [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit-hover.png"] forState:UIControlStateHighlighted];
     [self.editSecondView addTarget:self action:@selector(editSecondViewAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.secondHeaderView addSubview:self.editSecondView];
     
@@ -596,11 +638,30 @@
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
     
-    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doneButton.frame = CGRectMake(150., 0., 60., 44.);
-    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton addTarget:self action:@selector(chooseLanguage:) forControlEvents:UIControlEventTouchUpInside];
-    [popoverView addSubview:doneButton];
+//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    doneButton.frame = CGRectMake(150., 0., 60., 44.);
+//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+//    [doneButton addTarget:self action:@selector(chooseLanguage:) forControlEvents:UIControlEventTouchUpInside];
+//    [popoverView addSubview:doneButton];
+    
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 220.0, 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(chooseLanguage:)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
     
     self.languageOfCorespondacePicker = [[UIPickerView alloc]init];//Date picker
     self.languageOfCorespondacePicker.frame = CGRectMake(0,44,220, 116);
@@ -614,7 +675,7 @@
     self.popoverController3.delegate = self;
     
     [self.popoverController3 setPopoverContentSize:CGSizeMake(220, 194) animated:NO];
-    [self.popoverController3 presentPopoverFromRect:CGRectMake(780.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popoverController3 presentPopoverFromRect:CGRectMake(660.0, 220.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
     
 }
 
@@ -635,11 +696,30 @@
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
     
-    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doneButton.frame = CGRectMake(200., 0., 60., 44.);
-    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton addTarget:self action:@selector(chooseProvince) forControlEvents:UIControlEventTouchUpInside];
-    [popoverView addSubview:doneButton];
+//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    doneButton.frame = CGRectMake(200., 0., 60., 44.);
+//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+//    [doneButton addTarget:self action:@selector(chooseProvince) forControlEvents:UIControlEventTouchUpInside];
+//    [popoverView addSubview:doneButton];
+
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 320.0, 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(chooseProvince)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
     
     self.statesPicker = [[UIPickerView alloc]init];//Date picker
     self.statesPicker.frame = CGRectMake(0,44,320, 216);
@@ -651,8 +731,8 @@
     popoverContent.view = popoverView;
     self.popoverController4 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController4.delegate = self;
-    [self.popoverController4 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
-    [self.popoverController4 presentPopoverFromRect:CGRectMake(360.0, 270.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popoverController4 setPopoverContentSize:CGSizeMake(320, 260) animated:NO];
+    [self.popoverController4 presentPopoverFromRect:CGRectMake(420.0, 340.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
 }
 
@@ -732,11 +812,31 @@
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
     
-    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doneButton.frame = CGRectMake(200., 0., 60., 44.);
-    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton addTarget:self action:@selector(chooseResidentialStatus) forControlEvents:UIControlEventTouchUpInside];
-    [popoverView addSubview:doneButton];
+//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    doneButton.frame = CGRectMake(200., 0., 60., 44.);
+//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+//    [doneButton addTarget:self action:@selector(chooseResidentialStatus) forControlEvents:UIControlEventTouchUpInside];
+//    [popoverView addSubview:doneButton];
+    
+    
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 320.0, 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(chooseResidentialStatus)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
     
     self.residentialStatusPicker = [[UIPickerView alloc]init];//Date picker
     self.residentialStatusPicker.frame = CGRectMake(0,44,320, 216);
@@ -748,8 +848,41 @@
     popoverContent.view = popoverView;
     self.popoverController5 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController5.delegate = self;
-    [self.popoverController5 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
-    [self.popoverController5 presentPopoverFromRect:CGRectMake(770.0, 220.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popoverController5 setPopoverContentSize:CGSizeMake(320, 260) animated:NO];
+    [self.popoverController5 presentPopoverFromRect:CGRectMake(740.0, 305.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+    
+}
+
+- (IBAction)showPrivacy:(id)sender
+{
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    appDelegate.modalViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    
+    [self presentViewController:appDelegate.modalViewController animated:YES completion:^{}];
+    [appDelegate.modalViewController whichModalToPresent:@"privacy"];
+    
+}
+
+- (IBAction)showLegal:(id)sender
+{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    appDelegate.modalViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:appDelegate.modalViewController animated:YES completion:^{}];
+    [appDelegate.modalViewController whichModalToPresent:@"legal"];
+    
+}
+
+- (IBAction)showSecurity:(id)sender
+{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    appDelegate.modalViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:appDelegate.modalViewController animated:YES completion:^{}];
+    [appDelegate.modalViewController whichModalToPresent:@"security"];
     
 }
 

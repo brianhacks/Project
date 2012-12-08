@@ -11,9 +11,19 @@
 
 @interface FinancialInfoViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *employerCity;
+@property (strong, nonatomic) UIScrollView* accordionViewScrollView;
 
-- (IBAction)selectOccupation:(id)sender;
+@property (strong, nonatomic) IBOutlet UIView *thirdHeaderView;
+@property (strong, nonatomic) IBOutlet UIView *secondHeaderView;
+@property (strong, nonatomic) IBOutlet UIView *firstHeaderView;
+
+@property (strong, nonatomic) UIButton* editFirstView;
+@property (strong, nonatomic) UIButton* editSecondView;
+@property (strong, nonatomic) UIButton* editThirdView;
+
+@property (strong, nonatomic) IBOutlet UITextField *employerCityTextField;
+
+@property (strong, nonatomic) IBOutlet UITextField *employerCity;
 @property (strong, nonatomic) IBOutlet UIButton *occupationButton;
 @property (strong, nonatomic) NSArray* occupationArray;
 @property (strong, nonatomic) UIPickerView *occupationPicker;
@@ -45,13 +55,17 @@
 @property (strong, nonatomic) IBOutlet UITextField *employerAreaCode;
 @property (strong, nonatomic) IBOutlet UITextField *employerWorkPhoneNumber;
 @property (strong, nonatomic) IBOutlet UITextField *employerExt;
+@property (strong, nonatomic) IBOutlet UIButton *closeFinancialDetails;
 
 - (void)refresh;
 - (IBAction)nextStep:(id)sender;
 - (IBAction)previousStep:(id)sender;
-@property (strong, nonatomic) IBOutlet UIButton *closeFinancialDetails;
 - (IBAction)closeEmployerDetails:(id)sender;
 - (IBAction)closeFinancialDetails:(id)sender;
 - (IBAction)closeIncomeAndCreditLimitDetails:(id)sender;
+- (IBAction)selectOccupation:(id)sender;
+- (IBAction)showPrivacy:(id)sender;
+- (IBAction)showLegal:(id)sender;
+- (IBAction)showSecurity:(id)sender;
 
 @end

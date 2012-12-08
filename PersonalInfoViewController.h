@@ -13,9 +13,10 @@
 
 
 @property (strong, nonatomic) IBOutlet UIView *secondHeaderView;
+@property (strong, nonatomic) IBOutlet UIView *firstHeaderView;
 @property (strong, nonatomic) UIButton* editFirstView;
 @property (strong, nonatomic) UIButton* editSecondView;
-@property (strong, nonatomic) IBOutlet UIView *firstHeaderView;
+
 @property (strong, nonatomic) IBOutlet UITextField *sinNumber;
 @property (strong, nonatomic) IBOutlet UITextField *currentCity;
 
@@ -73,6 +74,9 @@
 - (IBAction)closeGeneralInfoView:(id)sender;
 - (IBAction)closeAddressView:(id)sender;
 - (IBAction)selectResidentialStatus:(id)sender;
+- (IBAction)showPrivacy:(id)sender;
+- (IBAction)showLegal:(id)sender;
+- (IBAction)showSecurity:(id)sender;
 
 
 @end
