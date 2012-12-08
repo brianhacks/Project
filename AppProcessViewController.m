@@ -64,6 +64,7 @@
     
     appDelegate.modalViewController.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:appDelegate.modalViewController animated:YES completion:^{}];
+    [appDelegate.modalViewController whichModalToPresent:@"security"];
 }
 
 - (IBAction)legalPressed:(id)sender
@@ -72,6 +73,7 @@
     
     appDelegate.modalViewController.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:appDelegate.modalViewController animated:YES completion:^{}];
+    [appDelegate.modalViewController whichModalToPresent:@"legal"];
     
 }
 
@@ -80,7 +82,9 @@
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
     appDelegate.modalViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    
     [self presentViewController:appDelegate.modalViewController animated:YES completion:^{}];
+    [appDelegate.modalViewController whichModalToPresent:@"privacy"];
     
 }
 

@@ -37,6 +37,8 @@
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
     
+    
+    
     self.firstBorderView.layer.cornerRadius = 12.0;
     self.firstBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
     self.firstBorderView.layer.backgroundColor = [UIColor colorWithRed:.963 green:.963 blue:.963 alpha:1.0].CGColor;
@@ -62,7 +64,8 @@
     self.fourthBorderView.layer.borderWidth = 1.0f;
     
     
-
+    [self.nextSteptButton setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
+    self.nextSteptButton.enabled = NO;
     
 }
 
@@ -72,8 +75,26 @@
     UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
     
     UIView *popoverView = [[UIView alloc] init];   //view
-    popoverView.backgroundColor = [UIColor grayColor];
+    popoverView.backgroundColor = [UIColor blackColor];
     
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 320.0, 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(closePopover)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
     
     datePicker=[[UIDatePicker alloc]init];//Date picker
     datePicker.frame=CGRectMake(0,44,320, 216);
@@ -87,7 +108,7 @@
     chooseDateButton2.frame = CGRectMake(250., 0., 60., 44.);
     [chooseDateButton2 setTitle:@"Done" forState:UIControlStateNormal];
     [chooseDateButton2 addTarget:self action:@selector(closePopover) forControlEvents:UIControlEventTouchUpInside];
-    [popoverView addSubview:chooseDateButton2];
+//    [popoverView addSubview:chooseDateButton2];
     
     popoverContent.view = popoverView;
     self.popoverController1 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
@@ -124,6 +145,34 @@
 
 - (void)result:(id)sender
 {
+    
+    NSDate* now = [NSDate date];
+    
+    NSLog(@"%f",[datePicker.date timeIntervalSinceDate:now]);
+    
+    NSTimeInterval theTimeInterval = [datePicker.date timeIntervalSinceDate:now];
+    
+    NSCalendar *sysCalendar = [NSCalendar currentCalendar];
+    
+    NSDate *date1 = [[NSDate alloc] init];
+    NSDate *date2 = [[NSDate alloc] initWithTimeInterval:theTimeInterval sinceDate:date1];
+    
+    unsigned int unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit;
+    
+    NSDateComponents *breakdownInfo = [sysCalendar components:unitFlags fromDate:date1  toDate:date2  options:0];
+    
+    NSLog(@"Break down: %dyears", [breakdownInfo year]);
+    
+    if ([breakdownInfo year] >= -18) {
+        
+        [self.nextSteptButton setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
+        self.nextSteptButton.enabled = NO;
+        
+    }else{
+        
+        [self.nextSteptButton setImage:[UIImage imageNamed:@"btn-next.png"] forState:UIControlStateNormal];
+        self.nextSteptButton.enabled = YES;
+    }
     
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
@@ -254,6 +303,39 @@
     
     [appDelegate backOneView];
 
+    
+}
+
+- (IBAction)showPrivacy:(id)sender
+{
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    appDelegate.modalViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    
+    [self presentViewController:appDelegate.modalViewController animated:YES completion:^{}];
+    [appDelegate.modalViewController whichModalToPresent:@"privacy"];
+    
+}
+
+- (IBAction)showLegal:(id)sender
+{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    appDelegate.modalViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:appDelegate.modalViewController animated:YES completion:^{}];
+    [appDelegate.modalViewController whichModalToPresent:@"legal"];
+    
+}
+
+- (IBAction)showSecurity:(id)sender
+{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    appDelegate.modalViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:appDelegate.modalViewController animated:YES completion:^{}];
+    [appDelegate.modalViewController whichModalToPresent:@"security"];
     
 }
 

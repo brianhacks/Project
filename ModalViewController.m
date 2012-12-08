@@ -27,7 +27,29 @@
 
 - (void)whichModalToPresent:(NSString *)modalName
 {
+    NSString *urlAddress;
+    if ([modalName isEqualToString:@"privacy"]) {
     
+        urlAddress = @"http://www.td.com/privacyandsecurity/privacycommitment/index.jsp";
+    
+    }else if([modalName isEqualToString:@"security"]){
+        
+        urlAddress = @"http://www.td.com/privacyandsecurity/index.jsp";
+        
+    }else if([modalName isEqualToString:@"legal"]){
+        
+        urlAddress = @"http://www.td.com/legal/index_inc.jsp";
+        
+    }
+    
+    //Create a URL object.
+    NSURL *url = [NSURL URLWithString:urlAddress];
+    
+    //URL Requst Object
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    
+    //Load the request in the UIWebView.
+    [self.webView loadRequest:requestObj];
     
 }
 
@@ -42,16 +64,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSString *urlAddress = @"http://www.google.com";
-    
-    //Create a URL object.
-    NSURL *url = [NSURL URLWithString:urlAddress];
-    
-    //URL Requst Object
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    
-    //Load the request in the UIWebView.
-    [self.webView loadRequest:requestObj];
+
     
 }
 

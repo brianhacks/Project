@@ -27,6 +27,9 @@
     return self;
 }
 
+#pragma mark
+#pragma mark select current employment status
+
 - (IBAction)selectResidentialStatus:(id)sender
 {
     UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
@@ -34,11 +37,30 @@
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
     
-    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doneButton.frame = CGRectMake(200., 0., 60., 44.);
-    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton addTarget:self action:@selector(chooseResidentialStatus) forControlEvents:UIControlEventTouchUpInside];
-    [popoverView addSubview:doneButton];
+//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    doneButton.frame = CGRectMake(200., 0., 60., 44.);
+//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+//    [doneButton addTarget:self action:@selector(chooseResidentialStatus) forControlEvents:UIControlEventTouchUpInside];
+//    [popoverView addSubview:doneButton];
+
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 320.0, 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(chooseResidentialStatus)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
     
     self.employmentStatusPicker = [[UIPickerView alloc]init];//Date picker
     self.employmentStatusPicker.frame = CGRectMake(0,44,320, 216);
@@ -50,9 +72,8 @@
     popoverContent.view = popoverView;
     self.popoverController1 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController1.delegate = self;
-    [self.popoverController1 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
-    //    [self.popoverController1 presentPopoverFromRect:CGRectMake(170.0, 200.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-    [self.popoverController1 presentPopoverFromRect:CGRectMake(80.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popoverController1 setPopoverContentSize:CGSizeMake(320., 260.) animated:NO];
+    [self.popoverController1 presentPopoverFromRect:CGRectMake(160.0, 200.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
     
 }
@@ -159,11 +180,30 @@
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
     
-    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doneButton.frame = CGRectMake(200., 0., 60., 44.);
-    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton addTarget:self action:@selector(chooseProvince) forControlEvents:UIControlEventTouchUpInside];
-    [popoverView addSubview:doneButton];
+//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    doneButton.frame = CGRectMake(200., 0., 60., 44.);
+//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+//    [doneButton addTarget:self action:@selector(chooseProvince) forControlEvents:UIControlEventTouchUpInside];
+//    [popoverView addSubview:doneButton];
+    
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 320., 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(chooseProvince)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
     
     self.statesPicker = [[UIPickerView alloc]init];//Date picker
     self.statesPicker.frame = CGRectMake(0,44,320, 216);
@@ -175,8 +215,8 @@
     popoverContent.view = popoverView;
     self.popoverController2 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController2.delegate = self;
-    [self.popoverController2 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
-    [self.popoverController2 presentPopoverFromRect:CGRectMake(550.0, 290.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popoverController2 setPopoverContentSize:CGSizeMake(320, 260) animated:NO];
+    [self.popoverController2 presentPopoverFromRect:CGRectMake(520.0, 340.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
     
 }
 
@@ -188,6 +228,9 @@
     [self.popoverController2 dismissPopoverAnimated:YES];
     
 }
+
+#pragma mark
+#pragma mark viewDidLoad
 
 - (void)viewDidLoad
 {
@@ -235,40 +278,76 @@
     self.provinceArray = [NSArray new];
     self.provinceArray = @[@"Alberta", @"British Columbia", @"Manitoba", @"New Brunswick", @"Newfoundland & Labrador", @"Nova Scotia", @"Northwest Territories", @"Nunavut", @"Ontario", @"Prince Edward Island", @"Quebec", @"Saskatchewan", @"Yukon"];
     
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(10, 190, 1000, 520)];
-    [self.view addSubview:self.accordion];
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0., 0., 987., 520.)];
+//    [self.view addSubview:self.accordion];
+    
+    self.accordionViewScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(18., 170., 987., 520.)];
+    self.accordionViewScrollView.contentSize = CGSizeMake(987., 800.);
+    [self.view addSubview:self.accordionViewScrollView];
+    [self.accordionViewScrollView addSubview:self.accordion];
     
     // Only height is taken into account, so other parameters are just dummy
     //    UIButton *header1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
     //    header1.backgroundColor = [UIColor blueColor];
     //    [header1 setTitle:@"First row" forState:UIControlStateNormal];
     
-    UIButton *header1= [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    header1.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    [header1 setTitle:@"Financial Details" forState:UIControlStateNormal];
-    header1.titleLabel.textAlignment = NSTextAlignmentLeft;
+//    UIButton *header1= [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+//    header1.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+//    [header1 setTitle:@"Financial Details" forState:UIControlStateNormal];
+//    header1.titleLabel.textAlignment = NSTextAlignmentLeft;
     
-    [self.accordion addHeader:header1 withView:self.financialDetailsView];
+    self.firstHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
-    UIButton *header2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    header2.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    [header2 setTitle:@"Employer's Details" forState:UIControlStateNormal];
-    header2.titleLabel.textAlignment = NSTextAlignmentLeft;
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    firstHeaderTitel.backgroundColor = [UIColor clearColor];
+    firstHeaderTitel.textColor = [UIColor whiteColor];
+    firstHeaderTitel.text = @"Financial Details";
+    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.firstHeaderView addSubview:firstHeaderTitel];
     
-    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
-    view2.backgroundColor = [UIColor blueColor];
+    [self.accordion addHeader:self.firstHeaderView withView:self.financialDetailsView];
     
-    [self.accordion addHeader:header2 withView:self.employerDetailsView];
+//    UIButton *header2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+//    header2.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+//    [header2 setTitle:@"Employer's Details" forState:UIControlStateNormal];
+//    header2.titleLabel.textAlignment = NSTextAlignmentLeft;
+//    
+//    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
+//    view2.backgroundColor = [UIColor blueColor];
+
+    self.secondHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
-    UIButton *header3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    header3.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    [header3 setTitle:@"Income and Credit Limit Details" forState:UIControlStateNormal];
-    header3.titleLabel.textAlignment = NSTextAlignmentLeft;
+    UILabel* secondHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    secondHeaderTitel.backgroundColor = [UIColor clearColor];
+    secondHeaderTitel.textColor = [UIColor whiteColor];
+    secondHeaderTitel.text = @"Employer's Details";
+    secondHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.secondHeaderView addSubview:secondHeaderTitel];
     
-    UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
-    view3.backgroundColor = [UIColor blueColor];
+    [self.accordion addHeader:self.secondHeaderView withView:self.employerDetailsView];
     
-    [self.accordion addHeader:header3 withView:self.incomeAndCreditDetailsView];
+//    UIButton *header3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+//    header3.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+//    [header3 setTitle:@"Income and Credit Limit Details" forState:UIControlStateNormal];
+//    header3.titleLabel.textAlignment = NSTextAlignmentLeft;
+//    
+//    UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
+//    view3.backgroundColor = [UIColor blueColor];
+
+    
+    self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    
+    UILabel* thirdHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 300., 40.)];
+    thirdHeaderTitel.backgroundColor = [UIColor clearColor];
+    thirdHeaderTitel.textColor = [UIColor whiteColor];
+    thirdHeaderTitel.text = @"Income and Credit Limit Details";
+    thirdHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.thirdHeaderView addSubview:thirdHeaderTitel];
+    
+    [self.accordion addHeader:self.thirdHeaderView withView:self.incomeAndCreditDetailsView];
     
     [self.accordion setNeedsLayout];
     
@@ -388,6 +467,15 @@
         
         
         
+    }else if(textField == self.employerCityTextField){
+        
+        int length = [textField.text length] ;
+        if (length >= MAXLENGTHFORCURRENTCITY && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:MAXLENGTHFORCURRENTCITY];
+            return NO;
+        }
+        return YES;
+        
     }
     
     return YES;
@@ -401,11 +489,31 @@
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
     
-    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    doneButton.frame = CGRectMake(400., 0., 60., 44.);
-    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton addTarget:self action:@selector(chooseOccupation) forControlEvents:UIControlEventTouchUpInside];
-    [popoverView addSubview:doneButton];
+//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    doneButton.frame = CGRectMake(400., 0., 60., 44.);
+//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+//    [doneButton addTarget:self action:@selector(chooseOccupation) forControlEvents:UIControlEventTouchUpInside];
+//    [popoverView addSubview:doneButton];
+
+    
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 480., 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(chooseOccupation)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
     
     self.occupationPicker = [[UIPickerView alloc]init];//Date picker
     self.occupationPicker.frame = CGRectMake(0,44,480, 216);
@@ -417,8 +525,41 @@
     popoverContent.view = popoverView;
     self.popoverController3 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController3.delegate = self;
-    [self.popoverController3 setPopoverContentSize:CGSizeMake(480, 264) animated:NO];
-    [self.popoverController3 presentPopoverFromRect:CGRectMake(400.0, 190.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popoverController3 setPopoverContentSize:CGSizeMake(480, 260) animated:NO];
+    [self.popoverController3 presentPopoverFromRect:CGRectMake(450.0, 208.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    
+}
+
+- (IBAction)showPrivacy:(id)sender
+{
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    appDelegate.modalViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    
+    [self presentViewController:appDelegate.modalViewController animated:YES completion:^{}];
+    [appDelegate.modalViewController whichModalToPresent:@"privacy"];
+    
+}
+
+- (IBAction)showLegal:(id)sender
+{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    appDelegate.modalViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:appDelegate.modalViewController animated:YES completion:^{}];
+    [appDelegate.modalViewController whichModalToPresent:@"legal"];
+    
+}
+
+- (IBAction)showSecurity:(id)sender
+{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    appDelegate.modalViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:appDelegate.modalViewController animated:YES completion:^{}];
+    [appDelegate.modalViewController whichModalToPresent:@"security"];
     
 }
 
@@ -438,8 +579,35 @@
     
 }
 
+#pragma mark
+#pragma mark closeFinancialDetails
+
 - (IBAction)closeFinancialDetails:(id)sender
 {
+    
+    for (UILabel *tmpLabel in [self.secondHeaderView subviews]) {
+        [tmpLabel removeFromSuperview];
+    }
+    
+    for (UIButton *tmpButton in [self.secondHeaderView subviews]) {
+        [tmpButton removeFromSuperview];
+    }
+    
+    if (self.secondHeaderView.frame.size.height > 50) {
+        
+        self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height - 50);
+        
+    }
+    
+    self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    firstHeaderTitel.backgroundColor = [UIColor clearColor];
+    firstHeaderTitel.textColor = [UIColor whiteColor];
+    firstHeaderTitel.text = @"Employer's Details";
+    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.secondHeaderView addSubview:firstHeaderTitel];
+    
     //validate the fields here!
     bool isValid = true;
     
@@ -470,7 +638,64 @@
     //TODO need to modify accordion to replace panel with infopanel and hide header.
     [self.accordion setSelectedIndex:1];
     
+    [self changeFirstHeaderHeightAndAddInfo];
+    
 }
+
+- (void)changeFirstHeaderHeightAndAddInfo
+{
+    self.firstHeaderView.frame = CGRectMake(self.firstHeaderView.frame.origin.x, self.firstHeaderView.frame.origin.y, self.firstHeaderView.frame.size.width, self.firstHeaderView.frame.size.height + 50);
+    self.firstHeaderView.backgroundColor = [UIColor whiteColor];
+    
+    for (UILabel *tmpLabel in [self.firstHeaderView subviews]) {
+        tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    }
+    
+    self.editFirstView = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.editFirstView.frame = CGRectMake(910., 5., 81., 42.);
+    [self.editFirstView setTitle:@"Edit" forState:UIControlStateNormal];
+    [self.editFirstView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateNormal];
+    [self.editFirstView setImage:[UIImage imageNamed:@"btn-edit-hover.png"] forState:UIControlStateHighlighted];
+    [self.editFirstView addTarget:self action:@selector(editFirstViewAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.firstHeaderView addSubview:self.editFirstView];
+    
+    UILabel* employmentStatus = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 500., 30.)];
+    employmentStatus.textColor = [UIColor blackColor];
+    employmentStatus.font = [UIFont fontWithName:@"Helvetica" size:16];
+    employmentStatus.backgroundColor = [UIColor clearColor];
+    employmentStatus.text = [NSString stringWithFormat:@"Employment Status: %@",self.employmentStatus.titleLabel.text];
+    [self.firstHeaderView addSubview:employmentStatus];
+    
+    UILabel* currentOccupation = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 500., 30.)];
+    currentOccupation.textColor = [UIColor blackColor];
+    currentOccupation.font = [UIFont fontWithName:@"Helvetica" size:16];
+    currentOccupation.backgroundColor = [UIColor clearColor];
+    currentOccupation.text = [NSString stringWithFormat:@"Current Occupation: %@",self.occupationButton.titleLabel.text];
+    [self.firstHeaderView addSubview:currentOccupation];
+    
+}
+
+- (void)editFirstViewAction:(id)sender
+{
+    self.firstHeaderView.frame = CGRectMake(self.firstHeaderView.frame.origin.x, self.firstHeaderView.frame.origin.y, self.firstHeaderView.frame.size.width, self.firstHeaderView.frame.size.height - 50);
+    self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    
+    for (UILabel *tmpLabel in [self.firstHeaderView subviews]) {
+        [tmpLabel removeFromSuperview];
+    }
+    
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    firstHeaderTitel.backgroundColor = [UIColor clearColor];
+    firstHeaderTitel.textColor = [UIColor whiteColor];
+    firstHeaderTitel.text = @"Financial Details";
+    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.firstHeaderView addSubview:firstHeaderTitel];
+    
+    [self.accordion setSelectedIndex:0];
+}
+
+#pragma mark
+#pragma mark closeEmployerDetails
 
 - (IBAction)closeEmployerDetails:(id)sender
 {
@@ -485,6 +710,17 @@
     }else{
         self.employerName.backgroundColor = [UIColor whiteColor];
     }
+    
+    if(self.employerCityTextField.text.length < 1)
+    {
+        isValid=false;
+        //mark field as invalid
+        self.employerCityTextField.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.employerCityTextField.backgroundColor = [UIColor whiteColor];
+        
+    }
+    
     //
     if(self.employerStreetAddress.text.length < 1){
         isValid=false;
@@ -513,14 +749,142 @@
     //TODO need to modify accordion to replace panel with infopanel and hide header.
     [self.accordion setSelectedIndex:2];
     
+    [self changeSecondHeaderHeightAndAddInfo];
+    
 }
 
+- (void)changeSecondHeaderHeightAndAddInfo
+{
+    self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height + 50);
+    self.secondHeaderView.backgroundColor = [UIColor whiteColor];
+    
+    for (UILabel *tmpLabel in [self.secondHeaderView subviews]) {
+        tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    }
+    
+    self.editSecondView = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.editSecondView.frame = CGRectMake(910., 5., 81., 42.);
+    [self.editSecondView setTitle:@"Edit" forState:UIControlStateNormal];
+    [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateNormal];
+    [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit-hover.png"] forState:UIControlStateHighlighted];
+    [self.editSecondView addTarget:self action:@selector(editSecondViewAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.secondHeaderView addSubview:self.editSecondView];
+    
+    UILabel* employerName = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 300., 30.)];
+    employerName.textColor = [UIColor blackColor];
+    employerName.font = [UIFont fontWithName:@"Helvetica" size:16];
+    employerName.backgroundColor = [UIColor clearColor];
+    employerName.numberOfLines = 0;
+    employerName.text = [NSString stringWithFormat:@"Employment Name: %@",self.employerName.text];
+    [self.secondHeaderView addSubview:employerName];
+    
+    UILabel* startDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 300., 30.)];
+    startDateLabel.textColor = [UIColor blackColor];
+    startDateLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    startDateLabel.backgroundColor = [UIColor clearColor];
+    startDateLabel.numberOfLines = 0;
+    startDateLabel.text = [NSString stringWithFormat:@"Start date:"];
+    [self.secondHeaderView addSubview:startDateLabel];
+    
+    UILabel* employerStreetAddressLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 3., 400., 30.)];
+    employerStreetAddressLabel.textColor = [UIColor blackColor];
+    employerStreetAddressLabel.numberOfLines = 0;
+    employerStreetAddressLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    employerStreetAddressLabel.backgroundColor = [UIColor clearColor];
+    employerStreetAddressLabel.text = [NSString stringWithFormat:@"%@",self.employerStreetAddress.text];
+    [self.secondHeaderView addSubview:employerStreetAddressLabel];
+    
+}
 
+- (void)editSecondViewAction:(id)sender
+{
+    self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height - 50);
+    self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    
+    for (UILabel *tmpLabel in [self.secondHeaderView subviews]) {
+        [tmpLabel removeFromSuperview];
+    }
+    
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    firstHeaderTitel.backgroundColor = [UIColor clearColor];
+    firstHeaderTitel.textColor = [UIColor whiteColor];
+    firstHeaderTitel.text = @"Employer's Details";
+    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.secondHeaderView addSubview:firstHeaderTitel];
+    
+    [self.accordion setSelectedIndex:1];
+}
+
+#pragma mark
+#pragma mark closeIncomeAndCreditLimitDetails
 
 - (IBAction)closeIncomeAndCreditLimitDetails:(id)sender
 {
     
     [self.accordion setSelectedIndex:3];
+    [self changeThirdHeaderHeightAndAddInfo];
     
+}
+
+- (void)changeThirdHeaderHeightAndAddInfo
+{
+    self.thirdHeaderView.frame = CGRectMake(self.thirdHeaderView.frame.origin.x, self.thirdHeaderView.frame.origin.y, self.thirdHeaderView.frame.size.width, self.thirdHeaderView.frame.size.height + 50);
+    self.thirdHeaderView.backgroundColor = [UIColor whiteColor];
+    
+    for (UILabel *tmpLabel in [self.thirdHeaderView subviews]) {
+        tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    }
+    
+    self.editThirdView = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.editThirdView.frame = CGRectMake(910., 5., 81., 42.);
+    [self.editThirdView setTitle:@"Edit" forState:UIControlStateNormal];
+    [self.editThirdView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateNormal];
+    [self.editThirdView setImage:[UIImage imageNamed:@"btn-edit-hover.png"] forState:UIControlStateHighlighted];
+    [self.editThirdView addTarget:self action:@selector(editThirdViewAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.thirdHeaderView addSubview:self.editThirdView];
+    
+    UILabel* employerName = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 300., 30.)];
+    employerName.textColor = [UIColor blackColor];
+    employerName.font = [UIFont fontWithName:@"Helvetica" size:16];
+    employerName.backgroundColor = [UIColor clearColor];
+    employerName.numberOfLines = 0;
+    employerName.text = [NSString stringWithFormat:@"Employment Name: %@",self.employerName.text];
+    [self.thirdHeaderView addSubview:employerName];
+    
+    UILabel* startDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 300., 30.)];
+    startDateLabel.textColor = [UIColor blackColor];
+    startDateLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    startDateLabel.backgroundColor = [UIColor clearColor];
+    startDateLabel.numberOfLines = 0;
+    startDateLabel.text = [NSString stringWithFormat:@"Start date:"];
+    [self.thirdHeaderView addSubview:startDateLabel];
+    
+    UILabel* employerStreetAddressLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 3., 400., 30.)];
+    employerStreetAddressLabel.textColor = [UIColor blackColor];
+    employerStreetAddressLabel.numberOfLines = 0;
+    employerStreetAddressLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    employerStreetAddressLabel.backgroundColor = [UIColor clearColor];
+    employerStreetAddressLabel.text = [NSString stringWithFormat:@"%@",self.employerStreetAddress.text];
+    [self.thirdHeaderView addSubview:employerStreetAddressLabel];
+    
+}
+
+- (void)editThirdViewAction:(id)sender
+{
+    self.thirdHeaderView.frame = CGRectMake(self.thirdHeaderView.frame.origin.x, self.thirdHeaderView.frame.origin.y, self.thirdHeaderView.frame.size.width, self.thirdHeaderView.frame.size.height - 50);
+    self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    
+    for (UILabel *tmpLabel in [self.thirdHeaderView subviews]) {
+        [tmpLabel removeFromSuperview];
+    }
+    
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    firstHeaderTitel.backgroundColor = [UIColor clearColor];
+    firstHeaderTitel.textColor = [UIColor whiteColor];
+    firstHeaderTitel.text = @"Income and Credit Limit Details";
+    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.thirdHeaderView addSubview:firstHeaderTitel];
+    
+    [self.accordion setSelectedIndex:2];
 }
 @end

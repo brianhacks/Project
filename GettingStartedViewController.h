@@ -24,12 +24,17 @@
 @property (strong, nonatomic) IBOutlet UIView *secondBorderView;
 @property (strong, nonatomic) IBOutlet UIView *thirdBorderView;
 @property (strong, nonatomic) IBOutlet UIView *fourthBorderView;
+@property (strong, nonatomic) IBOutlet UIButton *nextSteptButton;
 
 - (IBAction)areYouACanadianResidentSwitch:(id)sender;
 - (IBAction)bankruptcySwitch:(id)sender;
 - (IBAction)existingTDCanadaCustomer:(id)sender;
 - (IBAction)nextStep:(id)sender;
 - (IBAction)previousStep:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *showPrivacy;
+- (IBAction)showPrivacy:(id)sender;
+- (IBAction)showLegal:(id)sender;
+- (IBAction)showSecurity:(id)sender;
 
 
 
