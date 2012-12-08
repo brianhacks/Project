@@ -16,6 +16,7 @@
 #import "FinancialInfoViewController.h"
 #import "PickLocationViewController.h"
 #import "AdminViewController.h"
+#import "ThankYouViewController.h"
 #import "User.h"
 
 @interface AppDelegate ()
