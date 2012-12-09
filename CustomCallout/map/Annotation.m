@@ -13,6 +13,8 @@
 @synthesize annotationView = _annotationView;
 @synthesize content        = _content;
 @synthesize distance        = _distance;
+@synthesize selected        = _selected;
+
 
 
 /** Set coordinate and add itself to the mapview. */
@@ -59,6 +61,7 @@
         self.mapView = nil;
         self.annotationView = nil;
         self.distance = 0;
+        self.selected = false;
     }
     return self;
 }

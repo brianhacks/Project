@@ -56,13 +56,27 @@
     //enable the next button
     NSString *key = @"BranchId";
     NSDictionary *dictionary = [notification userInfo];
-    NSString *stringValueToUse = [dictionary valueForKey:key];
+    NSString *branch = [dictionary valueForKey:key];
     //find the row based on the branch id
+    [self markBranchAsSelected:branch];
  //   self.tableView scrollToRowAtIndexPath:<#(NSIndexPath *)#> atScrollPosition:<#(UITableViewScrollPosition)#> animated:true
     
     
     
 }
+-(void)markBranchAsSelected:(NSString*)branchId{
+    for(Annotation *branch in allBranches){
+        NSString *tbranch = [branch.content.values objectForKey:@"branch"];
+        if([tbranch isEqualToString:branchId]){
+            branch.selected = true;
+        }else{
+            branch.selected = false;
+            
+        }
+
+    }
+}
+
 /*
  Currently does nothing.
  */
@@ -71,6 +85,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    
+    // get the users home address
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
     //geocode the default based on the users home addresss
     
@@ -84,15 +101,15 @@
 }
 - (void)recenterMap{
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(homeLoc, 3*METERS_PER_MILE, 3*METERS_PER_MILE);
-    // 3
     MKCoordinateRegion adjustedRegion = [mapView regionThatFits:viewRegion];
-    // 4
     [self.mapView setRegion:adjustedRegion animated:YES];
-    // Do any additional setup after loading the view from its nib.
-    //parse the JSON
+    //drop a pin there
+    //and remove other pins
+    HomeLocation *annot = [[HomeLocation alloc] initWithLocation:homeLoc];
+   // annot.coordinate = homeLoc;
     
-    // 1
-
+    [self.mapView addAnnotation:annot];
+    
 }
 
 - (void)plotBanks
@@ -255,6 +272,11 @@
     NSString *distanceText = [NSString stringWithFormat:@"%.2f km", distance/0.62];
     cell.detailTextLabel.text = distanceText ;
     
+    //image
+    if(l.selected == true){
+        cell.imageView.image = [UIImage imageNamed:@"bank.png"];
+    }
+    
     
     
       
@@ -394,22 +416,22 @@
    
     // if this is a custom annotation
     if ([annotation conformsToProtocol:@protocol(AnnotationProtocol)]) {
-        NSLog(@"1");
+       
         // delegate the implementation to it
         return [((NSObject<AnnotationProtocol>*)annotation) annotationViewInMap:mapView];
         
     } else {
-         NSLog(@"0");
+        NSLog(@"=====Unorthodox=====");
         // else, return a standard annotation view
-        static NSString *viewId = @"MKPinAnnotationView";
-        MKAnnotationView *view = (MKPinAnnotationView*) [self.mapView dequeueReusableAnnotationViewWithIdentifier:viewId];
+        static NSString *viewId = @"HOMEVIEW";
+        MKPinAnnotationView *view = (MKPinAnnotationView*) [self.mapView dequeueReusableAnnotationViewWithIdentifier:viewId];
         if (view == nil) {
             view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:viewId];
         }
         view.enabled = YES;
         view.canShowCallout = YES;
-
-        
+        view.pinColor =MKPinAnnotationColorPurple;
+     //   NSLog(@"Annotation => %", annotation.coordinate. );
         return view;
     }
 }

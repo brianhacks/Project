@@ -16,6 +16,8 @@
 @property (nonatomic,retain) MKMapView* mapView;
 @property (nonatomic,retain) Content* content;
 @property (nonatomic,assign) double distance;
+@property (nonatomic,assign) bool selected;
+
 -(id) initWithContent:(Content*)content;
 
 @end
