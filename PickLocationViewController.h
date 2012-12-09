@@ -13,6 +13,7 @@
 #import "AnnotationView.h"
 #import "AnnotationViewProtocol.h"
 #import "AnnotationProtocol.h"
+#import "MyCalloutView.h"
 
 
 #define METERS_PER_MILE 1609.344
@@ -22,7 +23,7 @@
 @property (strong, nonatomic) UIImageView* sageataImage;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property ( nonatomic, retain) IBOutlet UITableView *tableView;
 
 
  

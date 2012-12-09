@@ -33,6 +33,8 @@
 - (void)viewDidLoad
 { 
     [super viewDidLoad];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.view.backgroundColor = background;
 }
 
 - (void)refreshMap{
@@ -45,9 +47,14 @@
 }
 - (void)plotBanks
 {
+    
+    
+    //get the users address or search term
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 43.734742;
     zoomLocation.longitude= -79.343888;
+    
+    //dont forget to compute the distances between top one and each pin
 
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 3*METERS_PER_MILE, 3*METERS_PER_MILE);
     // 3
@@ -118,6 +125,35 @@
         coordinate.longitude = longitude.doubleValue;
         
         NSLog(@"first");
+        
+        Content *content = [Content new];
+        content.iconURL = [[NSBundle mainBundle] URLForResource:@"bank" withExtension:@"png"];
+        content.calloutView = [MyCalloutView class];
+        content.coordinate = coordinate;
+        content.values = [NSDictionary dictionaryWithObjectsAndKeys:subTitle,@"title",
+                                                            address,@"address",
+                                                              title,@"title",
+                                                           subTitle,@"subTitle",
+                                                         coordinate,@"coordinate",
+                                                             branch,@"branchId",
+                                                             monday,@"monday",
+                                                            tuesday,@"tuesday",
+                                                          wednesday,@"wednesday",
+                                                           thursday,@"thursday",
+                                                             friday,@"friday",
+                                                           saturday,@"saturday",
+                                                             sunday,@"sunday",
+                          nil];
+        //TODO - add distance from coordinates
+        
+        
+        Annotation *anno = [[Annotation alloc] initWithContent:content];
+        
+       
+        anno.mapView = mapView;
+
+        /*
+        
         BankLocation *location = [[BankLocation alloc] initWithName:title
                                                             address:address
                                                               title:title
@@ -146,20 +182,16 @@
         
         location.coordinate = coordinate;
        
-        
-        /*
-        content.calloutView = [MyCalloutView class];
-        content.coordinate = coord;
-        content.values = [NSDictionary dictionaryWithObjectsAndKeys:@"Booo!",@"title", nil];
-       */
+        */
+             
         
         
-        
-        [self.mapView addAnnotation:location];
-        [allBranches addObject:location];
+        //[self.mapView addAnnotation:location];
+        [allBranches addObject:anno];
   	}
+    [self.mapView addAnnotations:allBranches];
  
-    BankLocation *l = [allBranches objectAtIndex:0];
+  
   
       
 }
@@ -179,8 +211,8 @@
 	}
  
     NSUInteger row = [indexPath row];
-    BankLocation *l = [allBranches objectAtIndex:row];
-    NSString *zname = l.address;
+    Annotation *l = [allBranches objectAtIndex:row];
+    NSString *zname = [l.content.values objectForKey:@"title"];
     cell.textLabel.text = zname;
     
     return cell;
@@ -248,7 +280,7 @@
     //can we only show items that are on the screen?
 }
 
-
+/*
 - (MKAnnotationView *)mapView:(MKMapView *)zmapView viewForAnnotation:(id <MKAnnotation>)annotation {
     NSLog(@"ANNOTATE!");
     static NSString *identifier = @"BankLocation";
@@ -276,7 +308,7 @@
     
     return nil;
 }
-
+*/
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
  
 }
@@ -293,6 +325,64 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)mapView:(MKMapView *)aMapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+   
+    // delegate the implementation to the annotation view
+    if ([view conformsToProtocol:@protocol(AnnotationViewProtocol)]) {
+        NSLog(@"%@ conforms", NSStringFromClass([view class]));
+        [((NSObject<AnnotationViewProtocol>*)view) didSelectAnnotationViewInMap:mapView];
+    } else {
+        NSLog(@"%@ DOES NOT conform", NSStringFromClass([view class]));
+    }
+}
+
+
+/**
+ * Delegates the DESELECTION to the view implementation.
+ */
+- (void)mapView:(MKMapView *)aMapView didDeselectAnnotationView:(MKAnnotationView *)view
+{
+    // delegate the implementation to the annotation view
+    if ([view conformsToProtocol:@protocol(AnnotationViewProtocol)]) {
+        [((NSObject<AnnotationViewProtocol>*)view) didDeselectAnnotationViewInMap:mapView];
+    }
+}
+
+
+/**
+ * Delegates CREATION of the view to the annotation.
+ *
+ * If the annotation doesn't conform to AnnotationProtocol,
+ * a standard MKPinAnnotationView is returned.
+ */
+- (MKAnnotationView *)mapView:(MKMapView *)aMapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+   
+    // if this is a custom annotation
+    if ([annotation conformsToProtocol:@protocol(AnnotationProtocol)]) {
+        NSLog(@"1");
+        // delegate the implementation to it
+        return [((NSObject<AnnotationProtocol>*)annotation) annotationViewInMap:mapView];
+        
+    } else {
+         NSLog(@"0");
+        // else, return a standard annotation view
+        static NSString *viewId = @"MKPinAnnotationView";
+        MKAnnotationView *view = (MKPinAnnotationView*) [self.mapView dequeueReusableAnnotationViewWithIdentifier:viewId];
+        if (view == nil) {
+            view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:viewId];
+        }
+        view.enabled = YES;
+        view.canShowCallout = YES;
+
+        
+        return view;
+    }
+}
+
+
 
 
 
