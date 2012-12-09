@@ -11,6 +11,8 @@
 
 @interface GettingStartedViewController : UIViewController <UIPopoverControllerDelegate>
 
+@property (nonatomic, strong) NSDate* selectedPickerDate;
+
 @property (strong, nonatomic) UIImageView* sageataImage;
 @property (strong, nonatomic) IBOutlet DCRoundSwitch *lakjsd;
 @property (strong, nonatomic) IBOutlet UIButton *birthDateButton;

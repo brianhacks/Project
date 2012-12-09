@@ -11,6 +11,7 @@
 
 @interface PersonalInfoViewController : UIViewController <UIPopoverControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UIButton *nextStepButton;
 
 @property (strong, nonatomic) IBOutlet UIView *secondHeaderView;
 @property (strong, nonatomic) IBOutlet UIView *firstHeaderView;
@@ -62,6 +63,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *streetAddress;
 @property (strong, nonatomic) IBOutlet UITextField *postalCode;
 @property (strong, nonatomic) IBOutlet UITextField *totalMonthlyHousingCosts;
+@property (readwrite, nonatomic) BOOL firstViewClosed;
 
 - (IBAction)selectProvince:(id)sender;
 - (IBAction)selectLanguageOfCorespondance:(id)sender;
