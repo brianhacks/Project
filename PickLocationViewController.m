@@ -58,22 +58,28 @@
     NSDictionary *dictionary = [notification userInfo];
     NSString *branch = [dictionary valueForKey:key];
     //find the row based on the branch id
+    NSLog(@"Chose %@", branch);
+    
     [self markBranchAsSelected:branch];
+    [self sortAnnotations];
+    [self.tableView reloadData];
  //   self.tableView scrollToRowAtIndexPath:<#(NSIndexPath *)#> atScrollPosition:<#(UITableViewScrollPosition)#> animated:true
     
     
     
 }
 -(void)markBranchAsSelected:(NSString*)branchId{
-    for(Annotation *branch in allBranches){
-        NSString *tbranch = [branch.content.values objectForKey:@"branch"];
+    int count = allBranches.count;
+    for (int j=0; j<count; j++)  // use <= instead of + 1, it's more intuitive
+    {
+        Annotation *branch = [allBranches objectAtIndex:j];
+        NSString *tbranch = [branch.content.values objectForKey:@"branchid"];
         if([tbranch isEqualToString:branchId]){
             branch.selected = true;
         }else{
             branch.selected = false;
-            
         }
-
+        [allBranches replaceObjectAtIndex:j withObject:branch];
     }
 }
 
@@ -168,7 +174,7 @@
         NSString *title = [branch objectForKey:@"Branch"];
         NSString *subTitle = [branch objectForKey:@"address"];
         
-         NSLog(@"address1: %@", address);
+         NSLog(@"bid: %@", branchId);
         
         CLLocationCoordinate2D coordinate;
         
@@ -183,6 +189,7 @@
         content.coordinate = coordinate;
         content.values = [NSDictionary dictionaryWithObjectsAndKeys:subTitle,@"title",
                                                             address,@"address",
+                                                            branchId,@"branchid",
                                                               title,@"title",
                                                            subTitle,@"subTitle",
                                                          coordinate,@"coordinate",
@@ -273,8 +280,11 @@
     cell.detailTextLabel.text = distanceText ;
     
     //image
+    NSLog(@"Check cell selected value -> %d", l.selected);
     if(l.selected == true){
         cell.imageView.image = [UIImage imageNamed:@"bank.png"];
+        cell.textLabel.text = @"ARGOFUCKYOURSELF";
+        NSLog(@"found selected");
     }
     
     

@@ -26,7 +26,10 @@
 
 - (id)initWithAnnotation:(CalloutAnnotation*)annotation {
     self = [super initWithAnnotation:annotation];
-    self.title.text = [annotation.content.values objectForKey:@"title"];
+    
+    NSString *title = [annotation.content.values objectForKey:@"branchid"];
+    NSLog(@"-------%@",title);
+    self.title.text = title;
     
     //set all the other stuff here
     
@@ -38,7 +41,6 @@
 
 - (IBAction)chooseBank:(id)sender {
     //start function
-    NSLog(@"%@", self.title.text);
     NSString *notificationName = MAP_NOTIFIER_KEY;
     
     NSString *key = @"BranchId";
@@ -53,7 +55,7 @@
 
 - (void)setAnnotation:(CalloutAnnotation *)annotation
 {
-    self.title.text = [annotation.content.values objectForKey:@"title"];
+    self.title.text = [annotation.content.values objectForKey:@"branchid"];
     
     [super setAnnotation:annotation];
 }
