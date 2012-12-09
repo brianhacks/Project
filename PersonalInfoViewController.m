@@ -323,7 +323,7 @@
     [self.accordion setSelectedIndex:1];
     
     [self changeFirstHeaderHeightAndAddInfo];
-    
+    self.firstViewClosed = YES;
     
     
 }
@@ -398,6 +398,7 @@
     [self.firstHeaderView addSubview:firstHeaderTitel];
     
     [self.accordion setSelectedIndex:0];
+    self.firstViewClosed = NO;
 }
 
 
@@ -551,6 +552,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [self.nextStepButton setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
+    self.nextStepButton.enabled = NO;
     
     [self.selectLanguageOfCorespondace setTitle:@"English" forState:UIControlStateNormal];
     
@@ -743,6 +747,12 @@
     [self.provinceButton setTitle:[NSString stringWithFormat:@"%@",[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
     [self.popoverController4 dismissPopoverAnimated:YES];
     
+    if (self.firstViewClosed) {
+        if (self.streetAddress.text.length > 1 && self.postalCode.text.length && self.currentCity.text.length && ![self.provinceButton.titleLabel.text isEqualToString:@"Province"] && ![self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"] && self.totalMonthlyHousingCosts.text.length > 1) {
+            self.nextStepButton.enabled = YES;
+        }
+    }
+    
 }
 
 
@@ -892,12 +902,25 @@
     [self.residentialStatusButton setTitle:[NSString stringWithFormat:@"%@",[self.residentialStatusArray objectAtIndex:[self.residentialStatusPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
     [self.popoverController5 dismissPopoverAnimated:YES];
     
+    if (self.firstViewClosed) {
+        if (self.streetAddress.text.length > 1 && self.postalCode.text.length && self.currentCity.text.length && ![self.provinceButton.titleLabel.text isEqualToString:@"Province"] && ![self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"] && self.totalMonthlyHousingCosts.text.length > 1) {
+            self.nextStepButton.enabled = YES;
+        }
+    }
+    
 }
 
 
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    
+    if (self.firstViewClosed) {
+        if (self.streetAddress.text.length > 1 && self.postalCode.text.length && self.currentCity.text.length && ![self.provinceButton.titleLabel.text isEqualToString:@"Province"] && ![self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"] && self.totalMonthlyHousingCosts.text.length > 1) {
+            self.nextStepButton.enabled = YES;
+        }
+    }
+    
     if (textField == self.firstName || textField == self.lastName ) {
         
         int length = [textField.text length] ;
