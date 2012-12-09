@@ -15,6 +15,9 @@
  */
 @interface MapUtil : NSObject
 
++(double)CalculateDistance:(double)nLat1 nLon1:(double)nLon1 nLat2:(double)nLat2 nlon2:(double)nLon2 ;
+
+
 +(MKCoordinateRegion) regionForAnnotations:(NSArray*) annotations;
 
 +(NSArray*) createAnnotationsForRegion:(MKCoordinateRegion) region

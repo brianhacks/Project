@@ -15,7 +15,7 @@
 @property (nonatomic,retain) AnnotationView *annotationView;
 @property (nonatomic,retain) MKMapView* mapView;
 @property (nonatomic,retain) Content* content;
-
+@property (nonatomic,assign) double distance;
 -(id) initWithContent:(Content*)content;
 
 @end

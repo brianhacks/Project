@@ -54,6 +54,9 @@
 		9F0C3905166FB812009C8297 /* select.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C3904166FB812009C8297 /* select.png */; };
 		9F0C3907166FB9DB009C8297 /* banner-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C3906166FB9DB009C8297 /* banner-2.png */; };
 		9F0C3909166FC98F009C8297 /* Frutiger in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C3908166FC98F009C8297 /* Frutiger */; };
+		9F11097B1674E459007E5952 /* mappopover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1109781674E459007E5952 /* mappopover.png */; };
+		9F11097C1674E459007E5952 /* body-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1109791674E459007E5952 /* body-5.png */; };
+		9F11097D1674E459007E5952 /* bank-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F11097A1674E459007E5952 /* bank-selected.png */; };
 		9F2B90A1166EEF80003DD835 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90A0166EEF80003DD835 /* background.png */; };
 		9F2B90A5166F057A003DD835 /* ssaver2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90A3166F057A003DD835 /* ssaver2.png */; };
 		9F2B90A6166F057A003DD835 /* ssaver1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90A4166F057A003DD835 /* ssaver1.png */; };
@@ -204,6 +207,9 @@
 		9F0C3904166FB812009C8297 /* select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = select.png; path = "TD Visa Form/images/select.png"; sourceTree = "<group>"; };
 		9F0C3906166FB9DB009C8297 /* banner-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-2.png"; path = "TD Visa Form/images/banner-2.png"; sourceTree = "<group>"; };
 		9F0C3908166FC98F009C8297 /* Frutiger */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Frutiger; sourceTree = "<group>"; };
+		9F1109781674E459007E5952 /* mappopover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mappopover.png; path = "TD Visa Form/images/mappopover.png"; sourceTree = "<group>"; };
+		9F1109791674E459007E5952 /* body-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "body-5.png"; path = "TD Visa Form/images/body-5.png"; sourceTree = "<group>"; };
+		9F11097A1674E459007E5952 /* bank-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bank-selected.png"; path = "TD Visa Form/images/bank-selected.png"; sourceTree = "<group>"; };
 		9F2B90A0166EEF80003DD835 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "TD Visa Form/background.png"; sourceTree = "<group>"; };
 		9F2B90A3166F057A003DD835 /* ssaver2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ssaver2.png; path = "TD Visa Form/ssaver2.png"; sourceTree = "<group>"; };
 		9F2B90A4166F057A003DD835 /* ssaver1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ssaver1.png; path = "TD Visa Form/ssaver1.png"; sourceTree = "<group>"; };
@@ -540,6 +546,9 @@
 		9F2B90A7166F0588003DD835 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9F1109781674E459007E5952 /* mappopover.png */,
+				9F1109791674E459007E5952 /* body-5.png */,
+				9F11097A1674E459007E5952 /* bank-selected.png */,
 				9F647AD216724948001E6F3D /* bank.png */,
 				9F0C3904166FB812009C8297 /* select.png */,
 				9F854C7F167022F8009F9E01 /* btn-security-down.png */,
@@ -804,6 +813,9 @@
 				9FBDBCCE167432EC00BE04E6 /* CalloutView.xib in Resources */,
 				9FBDBCD51674342800BE04E6 /* MyCalloutView.xib in Resources */,
 				9FBDBCD9167478F900BE04E6 /* PickLocationViewController.xib in Resources */,
+				9F11097B1674E459007E5952 /* mappopover.png in Resources */,
+				9F11097C1674E459007E5952 /* body-5.png in Resources */,
+				9F11097D1674E459007E5952 /* bank-selected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

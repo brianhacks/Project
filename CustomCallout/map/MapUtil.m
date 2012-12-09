@@ -7,6 +7,37 @@
 @implementation MapUtil
 
 
+CGFloat DegreesToRadians(CGFloat degrees)
+{
+    return degrees * M_PI / 180;
+};
+
+CGFloat RadiansToDegrees(CGFloat radians)
+{
+    return radians * 180 / M_PI;
+};
+
++(double)CalculateDistance:(double)nLat1 nLon1:(double)nLon1 nLat2:(double)nLat2 nlon2:(double)nLon2
+{
+    double nRadius = 6371; // Earth's radius in Kilometers
+    // Get the difference between our two points
+    // then convert the difference into radians
+    
+    double nDLat = DegreesToRadians(nLat2 - nLat1);
+    double nDLon = DegreesToRadians(nLon2 - nLon1);
+    
+    // Here is the new line
+    nLat1 =  DegreesToRadians(nLat1);
+    nLat2 =  DegreesToRadians(nLat2);
+    
+    double nA = pow ( sin(nDLat/2), 2 ) + cos(nLat1) * cos(nLat2) * pow ( sin(nDLon/2), 2 );
+    
+    double nC = 2 * atan2( sqrt(nA), sqrt( 1 - nA ));
+    double nD = nRadius * nC;
+    
+    return nD; // Return our calculated distance
+}
+
 /** 
  * Attempts to return a region covering all the annotations in the given array.
  * The region has the minimum size to cover the annotations, so zooming may result.

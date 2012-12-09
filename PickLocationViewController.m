@@ -13,6 +13,8 @@
 @implementation PickLocationViewController
 {
     NSMutableArray *allBranches;
+    CLLocationCoordinate2D homeLoc;
+    
 }
 //@property (nonatomic, assign) NSMutableArray *allBranches;
 
@@ -42,6 +44,11 @@
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(useNotificationWithString:) name:notificationName  object:nil];
     
 }
+/*
+ 
+ Receives message from the callout set up using MyCallOutView.  This gets around adding myCalloutView as a delegate, which could potentially be done soon wiht more time but this should work.
+ 
+ */
 
 - (void)useNotificationWithString:(NSNotification*)notification{
     //select the item  - change the icon
@@ -56,6 +63,9 @@
     
     
 }
+/*
+ Currently does nothing.
+ */
 
 - (void)refreshMap{
 }
@@ -64,23 +74,22 @@
     
     //geocode the default based on the users home addresss
     
-    CLLocationCoordinate2D zoomLocation;
-    zoomLocation.latitude = 43.734742;
-    zoomLocation.longitude= -79.343888;
-
+   // CLLocationCoordinate2D zoomLocation;
+    homeLoc.latitude = 43.734742;
+    homeLoc.longitude= -79.343888;
     
-    [self plotBanks:zoomLocation];
+    
+    [self plotBanks];
     
 }
-- (void)plotBanks:(CLLocationCoordinate2D)zoomLocation
+- (void)plotBanks
 {
     
-    
-    //get the users address or search term
+       //get the users address or search term
     
     //dont forget to compute the distances between top one and each pin
 
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 3*METERS_PER_MILE, 3*METERS_PER_MILE);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(homeLoc, 3*METERS_PER_MILE, 3*METERS_PER_MILE);
     // 3
     MKCoordinateRegion adjustedRegion = [mapView regionThatFits:viewRegion];
     // 4
@@ -168,12 +177,18 @@
                                                            saturday,@"saturday",
                                                              sunday,@"sunday",
                           nil];
-        //TODO - add distance from coordinates
+        //compute ditances
+        double bankLat = coordinate.latitude;
+        double bankLon = coordinate.longitude;
+        double homeLat = homeLoc.latitude;
+        double homeLon = homeLoc.longitude;
+        
+        double distance = [MapUtil CalculateDistance:bankLat nLon1:bankLon nLat2:homeLat nlon2:homeLon ];
         
         
         Annotation *anno = [[Annotation alloc] initWithContent:content];
         
-       
+        anno.distance = distance;
         anno.mapView = mapView;
 
        
@@ -205,12 +220,15 @@
     Annotation *l = [allBranches objectAtIndex:row];
     NSString *zname = [l.content.values objectForKey:@"title"];
     cell.textLabel.text = zname;
-    cell.detailTextLabel.text = @"2 km";
+    
+
+    double distance = l.distance;
+    NSString *distanceText = [NSString stringWithFormat:@"%.2f km", distance/0.62];
+    cell.detailTextLabel.text = distanceText ;
     
     
-    UIImage *theImage = [ ]  UIImage imageNamed:@"background.png"];
-    cell.imageView.image = theImage;
     
+      
     return cell;
     
 }
@@ -233,17 +251,6 @@
     
     
 }
-
- //HAVERSINE DISTANCE COMPUTATION - JAVASCRIPT
-    int R = 6371; // km
-   // double lat1rad = DEG2RAD(lat1);
-    //double lat2rad = DEG2RAD(lat2);
-    // apply the spherical law of cosines to our latitudes and longitudes, and set the result appropriately
-    // 6378.1 is the approximate radius of the earth in kilometres
-   //  acos(sin(lat1rad) * sin(lat2rad) + cos(lat1rad) * cos(lat2rad) * cos(deg2rad(lon2) - deg2rad(lon1))) * 6378.1);
-
-  
-    
 
 - (IBAction)previousStep:(id)sender
 {
@@ -285,7 +292,9 @@
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
             CLLocation *location = placemark.location;
             CLLocationCoordinate2D coordinate = location.coordinate;
-            [self plotBanks:coordinate];
+            self->homeLoc = location.coordinate;
+            [self plotBanks];
+            
         } else {
             UIAlertView* alerView = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Your address could not be found." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles:nil];
             [alerView show];
@@ -371,30 +380,6 @@
         return view;
     }
 }
-
-
-- (MKAnnotationView*)annotationViewInMap:(MKMapView *)aMapView;
-{
-    //Class calloutViewClass = self.content.calloutView;
-    
-    // dequeue or create a MKAnnotationView
-    
-    /*f (self.calloutView==nil) {
-        NSString *identifier = NSStringFromClass(calloutViewClass);
-        self.calloutView = (BaseCalloutView*)[aMapView dequeueReusableAnnotationViewWithIdentifier:identifier] ;
-        if (self.calloutView==nil)
-            self.calloutView = [[calloutViewClass alloc] initWithAnnotation:self];
-    } else {
-        self.calloutView.annotation = self;
-    }
-    */
-   
-  //  myCalloutView.parentAnnotationView = self.parentAnnotationView;
-    
-    return myCalloutView;
-}
-
-
 
 
 

@@ -8,6 +8,9 @@
 @interface MyCalloutView : CalloutView
 
 @property (nonatomic, retain) IBOutlet UILabel* title;
+@property (strong, nonatomic) IBOutlet UIButton *chooseBankButton;
+
+
 - (IBAction) handleTouch:(id)sender;
 - (id) initWithAnnotation:(CalloutAnnotation*)annotation;
 - (IBAction)chooseBank:(id)sender;

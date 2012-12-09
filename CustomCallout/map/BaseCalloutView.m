@@ -217,7 +217,8 @@
 	CGPathCloseSubpath(path);
 	
 	//Fill Callout Bubble & Add Shadow
-	color = [[UIColor blackColor] colorWithAlphaComponent:.6];
+	//color = [[UIColor blackColor] colorWithAlphaComponent:1];
+   color = [UIColor colorWithRed:0.07 green:0.11 blue:0.188 alpha:0.8];
 	[color setFill];
 	CGContextAddPath(context, path);
 	CGContextSaveGState(context);

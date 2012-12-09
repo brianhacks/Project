@@ -12,6 +12,13 @@
 - (IBAction)closePopup:(id)sender {
 }
 
+
+    
+       
+ 
+    
+
+
 -(IBAction) handleTouch:(id)sender {
     NSLog(@"touch %@", sender);
 }
@@ -22,6 +29,10 @@
     self.title.text = [annotation.content.values objectForKey:@"title"];
     
     //set all the other stuff here
+    
+    
+
+    
     return self;
 }
 
