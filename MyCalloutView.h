@@ -8,8 +8,8 @@
 @interface MyCalloutView : CalloutView
 
 @property (nonatomic, retain) IBOutlet UILabel* title;
-
--(IBAction) handleTouch:(id)sender;
+- (IBAction) handleTouch:(id)sender;
 - (id) initWithAnnotation:(CalloutAnnotation*)annotation;
-
+- (IBAction)chooseBank:(id)sender;
+- (void)Register_Notification:(NSString*)branch;
 @end

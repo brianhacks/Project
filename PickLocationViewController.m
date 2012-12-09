@@ -8,7 +8,7 @@
 
 #import "PickLocationViewController.h"
 #import "AppDelegate.h"
-#import "BankLocation.h"
+
 
 @implementation PickLocationViewController
 {
@@ -16,7 +16,7 @@
 }
 //@property (nonatomic, assign) NSMutableArray *allBranches;
 
-@synthesize mapView;
+@synthesize mapView, myCalloutView, tableView;
 //@synthesize allBranches;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,6 +35,26 @@
     [super viewDidLoad];
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
+   
+     
+    NSString *notificationName = MAP_NOTIFIER_KEY ;
+    
+   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(useNotificationWithString:) name:notificationName  object:nil];
+    
+}
+
+- (void)useNotificationWithString:(NSNotification*)notification{
+    //select the item  - change the icon
+    //mark the table entry and scroll to it
+    //enable the next button
+    NSString *key = @"BranchId";
+    NSDictionary *dictionary = [notification userInfo];
+    NSString *stringValueToUse = [dictionary valueForKey:key];
+    //find the row based on the branch id
+ //   self.tableView scrollToRowAtIndexPath:<#(NSIndexPath *)#> atScrollPosition:<#(UITableViewScrollPosition)#> animated:true
+    
+    
+    
 }
 
 - (void)refreshMap{
@@ -42,17 +62,21 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     
-    [self plotBanks];
+    //geocode the default based on the users home addresss
+    
+    CLLocationCoordinate2D zoomLocation;
+    zoomLocation.latitude = 43.734742;
+    zoomLocation.longitude= -79.343888;
+
+    
+    [self plotBanks:zoomLocation];
     
 }
-- (void)plotBanks
+- (void)plotBanks:(CLLocationCoordinate2D)zoomLocation
 {
     
     
     //get the users address or search term
-    CLLocationCoordinate2D zoomLocation;
-    zoomLocation.latitude = 43.734742;
-    zoomLocation.longitude= -79.343888;
     
     //dont forget to compute the distances between top one and each pin
 
@@ -128,7 +152,7 @@
         
         Content *content = [Content new];
         content.iconURL = [[NSBundle mainBundle] URLForResource:@"bank" withExtension:@"png"];
-        content.calloutView = [MyCalloutView class];
+        content.calloutView  = [MyCalloutView class];
         content.coordinate = coordinate;
         content.values = [NSDictionary dictionaryWithObjectsAndKeys:subTitle,@"title",
                                                             address,@"address",
@@ -152,40 +176,7 @@
        
         anno.mapView = mapView;
 
-        /*
-        
-        BankLocation *location = [[BankLocation alloc] initWithName:title
-                                                            address:address
-                                                              title:title
-                                                           subTitle:subTitle
-                                                         coordinate:coordinate
-                                                             branch:branchId
-                                                             monday:monday
-                                                            tuesday:tuesday
-                                                          wednesday:wednesday
-                                                           thursday:thursday
-                                                             friday:friday
-                                                           saturday:saturday
-                                                             sunday:sunday ] ;
-        location.name = address;
-        location.address = address;
-        location.title = address;
-        location.subtitle = branchId;
-        location.monday = monday;
-        location.tuesday = tuesday;
-        location.wednesday = wednesday;
-        location.thursday = thursday;
-        location.friday = friday;
-        location.saturday = saturday;
-        location.sunday = sunday;
-        
-        
-        location.coordinate = coordinate;
        
-        */
-             
-        
-        
         //[self.mapView addAnnotation:location];
         [allBranches addObject:anno];
   	}
@@ -205,15 +196,20 @@
 
 	if(cell == nil) {
 		
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
         cell.accessoryType = UITableViewCellAccessoryNone;
-		
-	}
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
  
     NSUInteger row = [indexPath row];
     Annotation *l = [allBranches objectAtIndex:row];
     NSString *zname = [l.content.values objectForKey:@"title"];
     cell.textLabel.text = zname;
+    cell.detailTextLabel.text = @"2 km";
+    
+    
+    UIImage *theImage = [ ]  UIImage imageNamed:@"background.png"];
+    cell.imageView.image = theImage;
     
     return cell;
     
@@ -234,6 +230,8 @@
 
 - (IBAction)nextStep:(id)sender
 {
+    
+    
 }
 
  //HAVERSINE DISTANCE COMPUTATION - JAVASCRIPT
@@ -272,43 +270,35 @@
     //also unhighlight other stars
 
 }
-- (IBAction)searchMap:(id)sender;
-{
+
+- (IBAction)search:(id)sender {
+
     
-    //can we figure out proximity and resort the list?
+    //geocode the default based on the users home addresss
+    NSString *query = self.query.text;
+    
+   // [MapUtil geocode:query];
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
+        if ([placemarks count] > 0) {
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            CLLocation *location = placemark.location;
+            CLLocationCoordinate2D coordinate = location.coordinate;
+            [self plotBanks:coordinate];
+        } else {
+            UIAlertView* alerView = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Your address could not be found." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles:nil];
+            [alerView show];
+        
+        }}];
+    
+    
+       //can we figure out proximity and resort the list?
 //center the location in the middle
     //can we only show items that are on the screen?
 }
 
-/*
-- (MKAnnotationView *)mapView:(MKMapView *)zmapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    NSLog(@"ANNOTATE!");
-    static NSString *identifier = @"BankLocation";
-    if ([annotation isKindOfClass:[BankLocation class]]) {
-        
-        MKPinAnnotationView *annotationView = (MKPinAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-        if (annotationView == nil) {
-            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-        } else {
-            annotationView.annotation = annotation;
-        }
-        
-        annotationView.enabled = YES;
-        annotationView.canShowCallout = YES;
-        
-       
-        annotationView.image=[UIImage imageNamed:@"bank.png"];//here we use a nice image instead of the default pins
-        UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        
-        annotationView.rightCalloutAccessoryView = rightButton;
-      
-        
-        return annotationView;
-    }
-    
-    return nil;
-}
-*/
+
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
  
 }
@@ -380,6 +370,28 @@
         
         return view;
     }
+}
+
+
+- (MKAnnotationView*)annotationViewInMap:(MKMapView *)aMapView;
+{
+    //Class calloutViewClass = self.content.calloutView;
+    
+    // dequeue or create a MKAnnotationView
+    
+    /*f (self.calloutView==nil) {
+        NSString *identifier = NSStringFromClass(calloutViewClass);
+        self.calloutView = (BaseCalloutView*)[aMapView dequeueReusableAnnotationViewWithIdentifier:identifier] ;
+        if (self.calloutView==nil)
+            self.calloutView = [[calloutViewClass alloc] initWithAnnotation:self];
+    } else {
+        self.calloutView.annotation = self;
+    }
+    */
+   
+  //  myCalloutView.parentAnnotationView = self.parentAnnotationView;
+    
+    return myCalloutView;
 }
 
 

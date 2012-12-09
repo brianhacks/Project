@@ -43,10 +43,10 @@
 					<object class="IBUILabel" id="176413340">
 						<reference key="NSNextResponder" ref="553676939"/>
 						<int key="NSvFlags">293</int>
-						<string key="NSFrame">{{98, 0}, {87, 31}}</string>
+						<string key="NSFrame">{{98, 8}, {87, 31}}</string>
 						<reference key="NSSuperview" ref="553676939"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="965826165"/>
+						<reference key="NSNextKeyView" ref="766431575"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -73,7 +73,7 @@
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
-					<object class="IBUIButton" id="965826165">
+					<object class="IBUIButton" id="32471659">
 						<reference key="NSNextResponder" ref="553676939"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{25, 161}, {261, 44}}</string>
@@ -108,12 +108,13 @@
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
-					<object class="IBUILabel" id="366486460">
+					<object class="IBUILabel" id="766431575">
 						<reference key="NSNextResponder" ref="553676939"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{9, 35}, {68, 21}}</string>
+						<string key="NSFrame">{{20, 53}, {68, 21}}</string>
 						<reference key="NSSuperview" ref="553676939"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="32471659"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -170,6 +171,15 @@
 					</object>
 					<int key="connectionID">12</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">chooseBank:</string>
+						<reference key="source" ref="32471659"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">22</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -198,9 +208,9 @@
 						<reference key="object" ref="553676939"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="32471659"/>
 							<reference ref="176413340"/>
-							<reference ref="366486460"/>
-							<reference ref="965826165"/>
+							<reference ref="766431575"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -211,12 +221,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">17</int>
-						<reference key="object" ref="965826165"/>
+						<reference key="object" ref="32471659"/>
 						<reference key="parent" ref="553676939"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">18</int>
-						<reference key="object" ref="366486460"/>
+						<reference key="object" ref="766431575"/>
 						<reference key="parent" ref="553676939"/>
 					</object>
 				</object>
@@ -258,7 +268,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">19</int>
+			<int key="maxID">22</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -313,14 +323,42 @@
 					<string key="className">MyCalloutView</string>
 					<string key="superclassName">CalloutView</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">handleTouch:</string>
-						<string key="NS.object.0">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>chooseBank:</string>
+							<string>closePopup:</string>
+							<string>handleTouch:</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">handleTouch:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">handleTouch:</string>
-							<string key="candidateClassName">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>chooseBank:</string>
+							<string>closePopup:</string>
+							<string>handleTouch:</string>
+						</object>
+						<object class="NSArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">chooseBank:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">closePopup:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">handleTouch:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">

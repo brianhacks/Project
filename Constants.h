@@ -20,6 +20,7 @@
 #define MAXLENGTHFORGROSSANUALINCOME 12
 
 #define GMAP_ANNOTATION_SELECTED @"selected"
+#define MAP_NOTIFIER_KEY @"branchNotifier"
 
 #endif
 

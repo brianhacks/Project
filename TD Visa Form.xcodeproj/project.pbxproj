@@ -48,7 +48,6 @@
 		70CB814F1664003C0003B225 /* FinancialInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CB814D1664003C0003B225 /* FinancialInfoViewController.m */; };
 		70CB81501664003C0003B225 /* FinancialInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70CB814E1664003C0003B225 /* FinancialInfoViewController.xib */; };
 		70CB815516640EA90003B225 /* PickLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CB815316640EA90003B225 /* PickLocationViewController.m */; };
-		70CB815616640EA90003B225 /* PickLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70CB815416640EA90003B225 /* PickLocationViewController.xib */; };
 		70CB8158166410BE0003B225 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CB8157166410BE0003B225 /* MapKit.framework */; };
 		70CB8F3D1666933400DC2E70 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 70CB8F3C1666933400DC2E70 /* User.m */; };
 		9F0C3903166FB582009C8297 /* passcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C3902166FB582009C8297 /* passcode.png */; };
@@ -63,7 +62,6 @@
 		9F2B90B5166FA897003DD835 /* banner-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B3166FA897003DD835 /* banner-5.png */; };
 		9F2B90B6166FA897003DD835 /* banner-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B4166FA897003DD835 /* banner-4.png */; };
 		9F2B90B8166FABFE003DD835 /* header-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B7166FABFE003DD835 /* header-5.png */; };
-		9F647AC716719240001E6F3D /* BankLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F647AC616719240001E6F3D /* BankLocation.m */; };
 		9F647AD116723477001E6F3D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F647AD016723477001E6F3D /* AddressBook.framework */; };
 		9F647AD316724948001E6F3D /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F647AD216724948001E6F3D /* bank.png */; };
 		9F854C6A166FE859009F9E01 /* body-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C68166FE859009F9E01 /* body-2.png */; };
@@ -133,6 +131,7 @@
 		9FBDBCD41674342800BE04E6 /* MyCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDBCD21674342800BE04E6 /* MyCalloutView.m */; };
 		9FBDBCD51674342800BE04E6 /* MyCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBDBCD31674342800BE04E6 /* MyCalloutView.xib */; };
 		9FBDBCD7167437C100BE04E6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FBDBCD6167437C100BE04E6 /* CoreLocation.framework */; };
+		9FBDBCD9167478F900BE04E6 /* PickLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBDBCD8167478F800BE04E6 /* PickLocationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -198,7 +197,6 @@
 		70CB814E1664003C0003B225 /* FinancialInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinancialInfoViewController.xib; sourceTree = "<group>"; };
 		70CB815216640EA90003B225 /* PickLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickLocationViewController.h; sourceTree = "<group>"; };
 		70CB815316640EA90003B225 /* PickLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickLocationViewController.m; sourceTree = "<group>"; };
-		70CB815416640EA90003B225 /* PickLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickLocationViewController.xib; sourceTree = "<group>"; };
 		70CB8157166410BE0003B225 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		70CB8F3B1666933400DC2E70 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		70CB8F3C1666933400DC2E70 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -214,8 +212,6 @@
 		9F2B90B3166FA897003DD835 /* banner-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-5.png"; path = "TD Visa Form/images/banner-5.png"; sourceTree = "<group>"; };
 		9F2B90B4166FA897003DD835 /* banner-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-4.png"; path = "TD Visa Form/images/banner-4.png"; sourceTree = "<group>"; };
 		9F2B90B7166FABFE003DD835 /* header-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header-5.png"; path = "TD Visa Form/images/header-5.png"; sourceTree = "<group>"; };
-		9F647AC516719240001E6F3D /* BankLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankLocation.h; sourceTree = "<group>"; };
-		9F647AC616719240001E6F3D /* BankLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankLocation.m; sourceTree = "<group>"; };
 		9F647AD016723477001E6F3D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		9F647AD216724948001E6F3D /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bank.png; path = "TD Visa Form/images/bank.png"; sourceTree = "<group>"; };
 		9F854C68166FE859009F9E01 /* body-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "body-2.png"; path = "TD Visa Form/images/body-2.png"; sourceTree = "<group>"; };
@@ -298,6 +294,7 @@
 		9FBDBCD21674342800BE04E6 /* MyCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MyCalloutView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		9FBDBCD31674342800BE04E6 /* MyCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCalloutView.xib; sourceTree = "<group>"; };
 		9FBDBCD6167437C100BE04E6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9FBDBCD8167478F800BE04E6 /* PickLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickLocationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,7 +319,6 @@
 		7023379C1652C56800B87249 = {
 			isa = PBXGroup;
 			children = (
-				9FBDBCD6167437C100BE04E6 /* CoreLocation.framework */,
 				9FBDBB691672B96F00BE04E6 /* ThankYou */,
 				9F854C8C16706F31009F9E01 /* admin */,
 				9F90EBAB1670F68F00501F8C /* buttons */,
@@ -357,6 +353,7 @@
 		702337AA1652C56800B87249 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9FBDBCD6167437C100BE04E6 /* CoreLocation.framework */,
 				9FBDBCB2167432EC00BE04E6 /* CustomCallout */,
 				9F647AD016723477001E6F3D /* AddressBook.framework */,
 				70CB8157166410BE0003B225 /* MapKit.framework */,
@@ -518,9 +515,7 @@
 				9FBDBCD31674342800BE04E6 /* MyCalloutView.xib */,
 				70CB815216640EA90003B225 /* PickLocationViewController.h */,
 				70CB815316640EA90003B225 /* PickLocationViewController.m */,
-				70CB815416640EA90003B225 /* PickLocationViewController.xib */,
-				9F647AC516719240001E6F3D /* BankLocation.h */,
-				9F647AC616719240001E6F3D /* BankLocation.m */,
+				9FBDBCD8167478F800BE04E6 /* PickLocationViewController.xib */,
 			);
 			name = "Pick Location";
 			sourceTree = "<group>";
@@ -740,7 +735,6 @@
 				703E13171659744C0043D72A /* GettingStartedViewController.xib in Resources */,
 				709BABD51662BD5B00F852CD /* PersonalInfoViewController.xib in Resources */,
 				70CB81501664003C0003B225 /* FinancialInfoViewController.xib in Resources */,
-				70CB815616640EA90003B225 /* PickLocationViewController.xib in Resources */,
 				9F2B90A1166EEF80003DD835 /* background.png in Resources */,
 				9F2B90A5166F057A003DD835 /* ssaver2.png in Resources */,
 				9F2B90A6166F057A003DD835 /* ssaver1.png in Resources */,
@@ -809,6 +803,7 @@
 				9FBDBB671672B95800BE04E6 /* ThankYouViewController.xib in Resources */,
 				9FBDBCCE167432EC00BE04E6 /* CalloutView.xib in Resources */,
 				9FBDBCD51674342800BE04E6 /* MyCalloutView.xib in Resources */,
+				9FBDBCD9167478F900BE04E6 /* PickLocationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,7 +835,6 @@
 				70CB815516640EA90003B225 /* PickLocationViewController.m in Sources */,
 				70CB8F3D1666933400DC2E70 /* User.m in Sources */,
 				9F854C8A16706F2B009F9E01 /* AdminViewController.m in Sources */,
-				9F647AC716719240001E6F3D /* BankLocation.m in Sources */,
 				9FBDBB661672B95800BE04E6 /* ThankYouViewController.m in Sources */,
 				9FBDBCC8167432EC00BE04E6 /* Logger.m in Sources */,
 				9FBDBCC9167432EC00BE04E6 /* Annotation.m in Sources */,

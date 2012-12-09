@@ -9,6 +9,9 @@
 @synthesize title = _title;
 
 
+- (IBAction)closePopup:(id)sender {
+}
+
 -(IBAction) handleTouch:(id)sender {
     NSLog(@"touch %@", sender);
 }
@@ -22,13 +25,27 @@
     return self;
 }
 
+- (IBAction)chooseBank:(id)sender {
+    //start function
+    NSLog(@"%@", self.title.text);
+    NSString *notificationName = MAP_NOTIFIER_KEY;
+    
+    NSString *key = @"BranchId";
+    
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObject:self.title.text forKey:key];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self.title.text userInfo:dictionary];
+   //this is buggy!
+    [self  removeFromSuperview];
+    
+}
+
 - (void)setAnnotation:(CalloutAnnotation *)annotation
 {
     self.title.text = [annotation.content.values objectForKey:@"title"];
+    
     [super setAnnotation:annotation];
 }
-
-#pragma mark - NSObject
 
 
 

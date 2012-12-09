@@ -25,6 +25,8 @@
 
 @property ( nonatomic, retain) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) IBOutlet MyCalloutView *myCalloutView;
+@property (strong, nonatomic) IBOutlet UITextField *query;
 
  
 - (IBAction)nextStep:(id)sender;
@@ -32,7 +34,8 @@
 - (IBAction)cancelMapAnnotationClicked:(id)sender;
 - (IBAction)mapItemClicked:(id)sender;
 - (IBAction)itemHighlighted:(id)sender;
-- (IBAction)searchMap:(id)sender;
+- (IBAction)search:(id)sender;
+- (void)useNotificationWithString:(NSNotification*)notification;
 - (void)refresh;
 
 
