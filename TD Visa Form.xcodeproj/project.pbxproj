@@ -121,6 +121,18 @@
 		9F90EBF31670F68F00501F8C /* btn-terms.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBCF1670F68F00501F8C /* btn-terms.png */; };
 		9FBDBB661672B95800BE04E6 /* ThankYouViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDBB641672B95800BE04E6 /* ThankYouViewController.m */; };
 		9FBDBB671672B95800BE04E6 /* ThankYouViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBDBB651672B95800BE04E6 /* ThankYouViewController.xib */; };
+		9FBDBCC8167432EC00BE04E6 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDBCB5167432EC00BE04E6 /* Logger.m */; };
+		9FBDBCC9167432EC00BE04E6 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDBCB8167432EC00BE04E6 /* Annotation.m */; };
+		9FBDBCCA167432EC00BE04E6 /* AnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDBCBB167432EC00BE04E6 /* AnnotationView.m */; };
+		9FBDBCCB167432EC00BE04E6 /* BaseCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDBCBE167432EC00BE04E6 /* BaseCalloutView.m */; };
+		9FBDBCCC167432EC00BE04E6 /* CalloutAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDBCC0167432EC00BE04E6 /* CalloutAnnotation.m */; };
+		9FBDBCCD167432EC00BE04E6 /* CalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDBCC2167432EC00BE04E6 /* CalloutView.m */; };
+		9FBDBCCE167432EC00BE04E6 /* CalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBDBCC3167432EC00BE04E6 /* CalloutView.xib */; };
+		9FBDBCCF167432EC00BE04E6 /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDBCC5167432EC00BE04E6 /* Content.m */; };
+		9FBDBCD0167432EC00BE04E6 /* MapUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDBCC7167432EC00BE04E6 /* MapUtil.m */; };
+		9FBDBCD41674342800BE04E6 /* MyCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDBCD21674342800BE04E6 /* MyCalloutView.m */; };
+		9FBDBCD51674342800BE04E6 /* MyCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBDBCD31674342800BE04E6 /* MyCalloutView.xib */; };
+		9FBDBCD7167437C100BE04E6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FBDBCD6167437C100BE04E6 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -263,6 +275,29 @@
 		9FBDBB631672B95800BE04E6 /* ThankYouViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThankYouViewController.h; sourceTree = "<group>"; };
 		9FBDBB641672B95800BE04E6 /* ThankYouViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThankYouViewController.m; sourceTree = "<group>"; };
 		9FBDBB651672B95800BE04E6 /* ThankYouViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThankYouViewController.xib; sourceTree = "<group>"; };
+		9FBDBCB4167432EC00BE04E6 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Logger.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		9FBDBCB5167432EC00BE04E6 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
+		9FBDBCB7167432EC00BE04E6 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		9FBDBCB8167432EC00BE04E6 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = Annotation.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		9FBDBCB9167432EC00BE04E6 /* AnnotationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationProtocol.h; sourceTree = "<group>"; };
+		9FBDBCBA167432EC00BE04E6 /* AnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationView.h; sourceTree = "<group>"; };
+		9FBDBCBB167432EC00BE04E6 /* AnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationView.m; sourceTree = "<group>"; };
+		9FBDBCBC167432EC00BE04E6 /* AnnotationViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewProtocol.h; sourceTree = "<group>"; };
+		9FBDBCBD167432EC00BE04E6 /* BaseCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCalloutView.h; sourceTree = "<group>"; };
+		9FBDBCBE167432EC00BE04E6 /* BaseCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCalloutView.m; sourceTree = "<group>"; };
+		9FBDBCBF167432EC00BE04E6 /* CalloutAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutAnnotation.h; sourceTree = "<group>"; };
+		9FBDBCC0167432EC00BE04E6 /* CalloutAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutAnnotation.m; sourceTree = "<group>"; };
+		9FBDBCC1167432EC00BE04E6 /* CalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutView.h; sourceTree = "<group>"; };
+		9FBDBCC2167432EC00BE04E6 /* CalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutView.m; sourceTree = "<group>"; };
+		9FBDBCC3167432EC00BE04E6 /* CalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalloutView.xib; sourceTree = "<group>"; };
+		9FBDBCC4167432EC00BE04E6 /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
+		9FBDBCC5167432EC00BE04E6 /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
+		9FBDBCC6167432EC00BE04E6 /* MapUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapUtil.h; sourceTree = "<group>"; };
+		9FBDBCC7167432EC00BE04E6 /* MapUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MapUtil.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		9FBDBCD11674342800BE04E6 /* MyCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCalloutView.h; sourceTree = "<group>"; };
+		9FBDBCD21674342800BE04E6 /* MyCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MyCalloutView.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		9FBDBCD31674342800BE04E6 /* MyCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCalloutView.xib; sourceTree = "<group>"; };
+		9FBDBCD6167437C100BE04E6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +305,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FBDBCD7167437C100BE04E6 /* CoreLocation.framework in Frameworks */,
 				9F647AD116723477001E6F3D /* AddressBook.framework in Frameworks */,
 				70CB8158166410BE0003B225 /* MapKit.framework in Frameworks */,
 				703E132B16597A410043D72A /* QuartzCore.framework in Frameworks */,
@@ -286,8 +322,8 @@
 		7023379C1652C56800B87249 = {
 			isa = PBXGroup;
 			children = (
+				9FBDBCD6167437C100BE04E6 /* CoreLocation.framework */,
 				9FBDBB691672B96F00BE04E6 /* ThankYou */,
-				9F647AD016723477001E6F3D /* AddressBook.framework */,
 				9F854C8C16706F31009F9E01 /* admin */,
 				9F90EBAB1670F68F00501F8C /* buttons */,
 				9F2B90A7166F0588003DD835 /* images */,
@@ -321,6 +357,8 @@
 		702337AA1652C56800B87249 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9FBDBCB2167432EC00BE04E6 /* CustomCallout */,
+				9F647AD016723477001E6F3D /* AddressBook.framework */,
 				70CB8157166410BE0003B225 /* MapKit.framework */,
 				703E132A16597A410043D72A /* QuartzCore.framework */,
 				702337AB1652C56800B87249 /* UIKit.framework */,
@@ -475,6 +513,9 @@
 		70CB815116640E330003B225 /* Pick Location */ = {
 			isa = PBXGroup;
 			children = (
+				9FBDBCD11674342800BE04E6 /* MyCalloutView.h */,
+				9FBDBCD21674342800BE04E6 /* MyCalloutView.m */,
+				9FBDBCD31674342800BE04E6 /* MyCalloutView.xib */,
 				70CB815216640EA90003B225 /* PickLocationViewController.h */,
 				70CB815316640EA90003B225 /* PickLocationViewController.m */,
 				70CB815416640EA90003B225 /* PickLocationViewController.xib */,
@@ -587,6 +628,48 @@
 				9FBDBB651672B95800BE04E6 /* ThankYouViewController.xib */,
 			);
 			name = ThankYou;
+			sourceTree = "<group>";
+		};
+		9FBDBCB2167432EC00BE04E6 /* CustomCallout */ = {
+			isa = PBXGroup;
+			children = (
+				9FBDBCB3167432EC00BE04E6 /* log */,
+				9FBDBCB6167432EC00BE04E6 /* map */,
+			);
+			path = CustomCallout;
+			sourceTree = "<group>";
+		};
+		9FBDBCB3167432EC00BE04E6 /* log */ = {
+			isa = PBXGroup;
+			children = (
+				9FBDBCB4167432EC00BE04E6 /* Logger.h */,
+				9FBDBCB5167432EC00BE04E6 /* Logger.m */,
+			);
+			path = log;
+			sourceTree = "<group>";
+		};
+		9FBDBCB6167432EC00BE04E6 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				9FBDBCB7167432EC00BE04E6 /* Annotation.h */,
+				9FBDBCB8167432EC00BE04E6 /* Annotation.m */,
+				9FBDBCB9167432EC00BE04E6 /* AnnotationProtocol.h */,
+				9FBDBCBA167432EC00BE04E6 /* AnnotationView.h */,
+				9FBDBCBB167432EC00BE04E6 /* AnnotationView.m */,
+				9FBDBCBC167432EC00BE04E6 /* AnnotationViewProtocol.h */,
+				9FBDBCBD167432EC00BE04E6 /* BaseCalloutView.h */,
+				9FBDBCBE167432EC00BE04E6 /* BaseCalloutView.m */,
+				9FBDBCBF167432EC00BE04E6 /* CalloutAnnotation.h */,
+				9FBDBCC0167432EC00BE04E6 /* CalloutAnnotation.m */,
+				9FBDBCC1167432EC00BE04E6 /* CalloutView.h */,
+				9FBDBCC2167432EC00BE04E6 /* CalloutView.m */,
+				9FBDBCC3167432EC00BE04E6 /* CalloutView.xib */,
+				9FBDBCC4167432EC00BE04E6 /* Content.h */,
+				9FBDBCC5167432EC00BE04E6 /* Content.m */,
+				9FBDBCC6167432EC00BE04E6 /* MapUtil.h */,
+				9FBDBCC7167432EC00BE04E6 /* MapUtil.m */,
+			);
+			path = map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -724,6 +807,8 @@
 				9F90EBF31670F68F00501F8C /* btn-terms.png in Resources */,
 				9F647AD316724948001E6F3D /* bank.png in Resources */,
 				9FBDBB671672B95800BE04E6 /* ThankYouViewController.xib in Resources */,
+				9FBDBCCE167432EC00BE04E6 /* CalloutView.xib in Resources */,
+				9FBDBCD51674342800BE04E6 /* MyCalloutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,6 +842,15 @@
 				9F854C8A16706F2B009F9E01 /* AdminViewController.m in Sources */,
 				9F647AC716719240001E6F3D /* BankLocation.m in Sources */,
 				9FBDBB661672B95800BE04E6 /* ThankYouViewController.m in Sources */,
+				9FBDBCC8167432EC00BE04E6 /* Logger.m in Sources */,
+				9FBDBCC9167432EC00BE04E6 /* Annotation.m in Sources */,
+				9FBDBCCA167432EC00BE04E6 /* AnnotationView.m in Sources */,
+				9FBDBCCB167432EC00BE04E6 /* BaseCalloutView.m in Sources */,
+				9FBDBCCC167432EC00BE04E6 /* CalloutAnnotation.m in Sources */,
+				9FBDBCCD167432EC00BE04E6 /* CalloutView.m in Sources */,
+				9FBDBCCF167432EC00BE04E6 /* Content.m in Sources */,
+				9FBDBCD0167432EC00BE04E6 /* MapUtil.m in Sources */,
+				9FBDBCD41674342800BE04E6 /* MyCalloutView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

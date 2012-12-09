@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "Annotation.h"
+#import "MapUtil.h"
+#import "AnnotationView.h"
+#import "AnnotationViewProtocol.h"
+#import "AnnotationProtocol.h"
+
 
 #define METERS_PER_MILE 1609.344
-
+//#define GMAP_ANNOTATION_SELECTED
 @interface PickLocationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
 
 @property (strong, nonatomic) UIImageView* sageataImage;
@@ -27,5 +33,7 @@
 - (IBAction)itemHighlighted:(id)sender;
 - (IBAction)searchMap:(id)sender;
 - (void)refresh;
+
+
 
 @end

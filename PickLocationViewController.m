@@ -142,7 +142,19 @@
         location.friday = friday;
         location.saturday = saturday;
         location.sunday = sunday;
+        
+        
         location.coordinate = coordinate;
+       
+        
+        /*
+        content.calloutView = [MyCalloutView class];
+        content.coordinate = coord;
+        content.values = [NSDictionary dictionaryWithObjectsAndKeys:@"Booo!",@"title", nil];
+       */
+        
+        
+        
         [self.mapView addAnnotation:location];
         [allBranches addObject:location];
   	}
@@ -251,12 +263,22 @@
         
         annotationView.enabled = YES;
         annotationView.canShowCallout = YES;
+        
+       
         annotationView.image=[UIImage imageNamed:@"bank.png"];//here we use a nice image instead of the default pins
+        UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        
+        annotationView.rightCalloutAccessoryView = rightButton;
+      
         
         return annotationView;
     }
     
     return nil;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+ 
 }
 
 
@@ -272,42 +294,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-- (void)setAnnotation:(id <MKAnnotation>)annotation {
-    [super setAnnotation:annotation];
-    [self prepareFrameSize];
-    [self prepareOffset];
-    [self setNeedsDisplay];
-}
 
-- (void)prepareFrameSize {
-    CGRect frame = self.frame;
-    CGFloat height =    self.contentHeight +
-    CalloutMapAnnotationViewContentHeightBuffer +
-    CalloutMapAnnotationViewBottomShadowBufferSize -
-    self.offsetFromParent.y;
-    
-    frame.size = CGSizeMake(self.mapView.frame.size.width, height);
-    self.frame = frame;
-}
-
-- (void)prepareOffset {
-    CGPoint parentOrigin = [self.mapView
-                            convertPoint:self.parentAnnotationView.frame.origin
-                            fromView:self.parentAnnotationView.superview];
-    
-    CGFloat xOffset =   (self.mapView.frame.size.width / 2) -(parentOrigin.x + self.offsetFromParent.x);
-    
-    //Add half our height plus half of the height of the annotation we are tied to so that our bottom lines up to its top
-    //Then take into account its offset and the extra space needed for our drop shadow
-    CGFloat yOffset = -(self.frame.size.height / 2 +
-                        self.parentAnnotationView.frame.size.height / 2) +
-    self.offsetFromParent.y +
-    CalloutMapAnnotationViewBottomShadowBufferSize;
-    
-    self.centerOffset = CGPointMake(xOffset, yOffset);
-}
-
-*/
 
 @end
