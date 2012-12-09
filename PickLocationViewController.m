@@ -82,13 +82,7 @@
     [self plotBanks];
     
 }
-- (void)plotBanks
-{
-    
-       //get the users address or search term
-    
-    //dont forget to compute the distances between top one and each pin
-
+- (void)recenterMap{
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(homeLoc, 3*METERS_PER_MILE, 3*METERS_PER_MILE);
     // 3
     MKCoordinateRegion adjustedRegion = [mapView regionThatFits:viewRegion];
@@ -98,7 +92,14 @@
     //parse the JSON
     
     // 1
-    
+
+}
+
+- (void)plotBanks
+{
+    [self recenterMap];
+
+       
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
     
@@ -177,17 +178,14 @@
                                                            saturday,@"saturday",
                                                              sunday,@"sunday",
                           nil];
-        //compute ditances
-        double bankLat = coordinate.latitude;
-        double bankLon = coordinate.longitude;
-        double homeLat = homeLoc.latitude;
-        double homeLon = homeLoc.longitude;
-        
-        double distance = [MapUtil CalculateDistance:bankLat nLon1:bankLon nLat2:homeLat nlon2:homeLon ];
-        
-        
+               
         Annotation *anno = [[Annotation alloc] initWithContent:content];
         
+        
+        //compute ditances
+               double distance = [MapUtil CalculateDistance:coordinate.latitude nLon1:coordinate.longitude nLat2:homeLoc.latitude nlon2:homeLoc.longitude ];
+        
+
         anno.distance = distance;
         anno.mapView = mapView;
 
@@ -195,12 +193,43 @@
         //[self.mapView addAnnotation:location];
         [allBranches addObject:anno];
   	}
+    [self sortAnnotations];
+
     [self.mapView addAnnotations:allBranches];
  
   
   
       
 }
+- (void)recomputeDistances{
+    for (Annotation *branch in allBranches){
+        CLLocationCoordinate2D coordinate;
+        coordinate = branch.coordinate;
+        double distance = [MapUtil CalculateDistance:coordinate.latitude nLon1:coordinate.longitude nLat2:homeLoc.latitude nlon2:homeLoc.longitude ];
+        branch.distance = distance;
+    }
+}
+-(void)sortAnnotations{
+    
+    [allBranches sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        
+            Annotation *p1 = (Annotation*)obj1;
+            Annotation *p2 = (Annotation*)obj2;
+            
+            if (p1.distance > p2.distance) {
+                return (NSComparisonResult)NSOrderedDescending;
+            }
+            
+            if (p1.distance < p2.distance) {
+                return (NSComparisonResult)NSOrderedAscending;
+            }
+            return (NSComparisonResult)NSOrderedSame;
+            
+        }];
+
+
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -293,7 +322,11 @@
             CLLocation *location = placemark.location;
             CLLocationCoordinate2D coordinate = location.coordinate;
             self->homeLoc = location.coordinate;
-            [self plotBanks];
+            [self recomputeDistances];
+            [self sortAnnotations];
+            //need to refresh table
+            [self.tableView reloadData];
+            [self recenterMap];
             
         } else {
             UIAlertView* alerView = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Your address could not be found." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles:nil];
