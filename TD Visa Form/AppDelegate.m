@@ -51,14 +51,15 @@
     self.personalInfoViewController = [[PersonalInfoViewController alloc] initWithNibName:@"PersonalInfoViewController" bundle:nil];
     self.financialInfoViewController = [[FinancialInfoViewController alloc] initWithNibName:@"FinancialInfoViewController" bundle:nil];
     self.pickLocationViewController = [[PickLocationViewController alloc] initWithNibName:@"PickLocationViewController" bundle:nil];
+    self.reviewAndSubmitViewController = [[ReviewAndSubmitViewController alloc] initWithNibName:@"ReviewAndSubmitViewController" bundle:nil];
     
     
     
     self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeCreate];
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
-    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.reviewAndSubmitViewController];
     
     
     
@@ -70,7 +71,7 @@
     
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:nil];
+//    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:nil];
     
     [[UILabel appearance] setFont:[UIFont fontWithName:@"FrutiCn" size:17.0]];
     //    NSError* error = nil;

@@ -19,6 +19,7 @@
 #import "PickLocationViewController.h"
 #import "AdminViewController.h"
 #import "ThankYouViewController.h"
+#import "ReviewAndSubmitViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -40,6 +41,7 @@
 @property (nonatomic, strong) PickLocationViewController* pickLocationViewController;
 @property (nonatomic, strong) AdminViewController* adminViewController;
 @property (nonatomic, strong) ThankYouViewController* thankYouViewController;
+@property (nonatomic, strong) ReviewAndSubmitViewController* reviewAndSubmitViewController;
 
 
 @property (nonatomic, strong) UINavigationController *navController;
