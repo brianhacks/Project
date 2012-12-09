@@ -16,7 +16,7 @@
 
 @implementation FinancialInfoViewController
 
-@synthesize textfieldString;
+@synthesize textfieldString, requesteCreditLimitString, requesteCreditLimitArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -93,26 +93,6 @@
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    //    if (pickerView == self.statesPicker) {
-    //
-    //        return [self.provinceArray count];
-    //
-    //    }else if (pickerView == self.titlePicker){
-    //
-    //        return [self.titleArray count];
-    //
-    //    }else if(pickerView == self.languageOfCorespondacePicker){
-    //
-    //        return [self.languageOfCorespondaceArray count];
-    //
-    //    }else if (pickerView == self.genderPicker){
-    //
-    //        return [self.genderArray count];
-    //
-    //    }else{
-    //
-    //        return [self.residentialStatusArray count];
-    //    }
     
     if (pickerView == self.statesPicker) {
         
@@ -122,20 +102,29 @@
         
         return [self.occupationArray count];
         
+    }else if (pickerView == self.requesteCreditLimitPicker){
+        
+        return  100;
+        
     }else{
         return [self.employmentStatusArray count];
     }
     
-    
-    
 }
+
+//- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+//    
+//    if (pickerView == self.requesteCreditLimitPicker) {
+//        
+//         self.requesteCreditLimitString = [NSMutableString stringWithFormat:@"$ %d",[self.requesteCreditLimitPicker selectedRowInComponent:0]];
+//        
+//    }
+//}
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     
     NSString* val1;
-    
-    
     
     if (pickerView == self.statesPicker) {
         
@@ -145,29 +134,43 @@
         
         val1 = [self.occupationArray objectAtIndex:row];
         
+    }else if(pickerView == self.requesteCreditLimitPicker){
+        
+        if (row == 0) {
+        
+            val1 = [NSString stringWithFormat:@"$ %i",100];
+            
+            if ([self.requesteCreditLimitArray containsObject:val1]) {
+                
+            }else{
+            
+                [self.requesteCreditLimitArray addObject:val1];
+                
+            }
+            
+        
+            
+        }else{
+            
+            val1 = [NSString stringWithFormat:@"$ %i",100 * (row + 1)];
+            
+            if ([self.requesteCreditLimitArray containsObject:val1]) {
+                
+            }else{
+                
+                [self.requesteCreditLimitArray addObject:val1];
+                
+            }
+        }
+    
+        
+        
     }else{
         
         val1 = [self.employmentStatusArray objectAtIndex:row];
         
     }
     
-    
-    //    }else if (pickerView == self.titlePicker){
-    //
-    //        val1 = [self.titleArray objectAtIndex:row];
-    //
-    //    }else if(pickerView == self.languageOfCorespondacePicker){
-    //
-    //        val1 = [self.languageOfCorespondaceArray objectAtIndex:row];
-    //
-    //    }else if (pickerView == self.genderPicker){
-    //
-    //        val1 = [self.genderArray objectAtIndex:row];
-    //
-    //    }else{
-    //
-    //        val1 = [self.residentialStatusArray objectAtIndex:row];
-    //    }
     
     return val1;
 }
@@ -229,11 +232,19 @@
     
 }
 
+
+
 #pragma mark
 #pragma mark viewDidLoad
 
 - (void)viewDidLoad
 {
+    
+    [self.bextSteptButton setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
+    self.bextSteptButton.enabled = NO;
+    
+    self.requesteCreditLimitArray = [NSMutableArray new];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
@@ -403,6 +414,13 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    
+    if (self.firstViewClosed && self.secondViewClosed) {
+        
+        if (![self.requestedCreditLimitButton.titleLabel.text isEqualToString:@"Limit"] && self.grossAnualIncomeTextField.text.length > 1 && self.householdIncomeTextField.text.length > 1) {
+            self.bextSteptButton.enabled = YES;
+        }
+    }
     
     string = [string lowercaseString];
     
@@ -640,6 +658,8 @@
     
     [self changeFirstHeaderHeightAndAddInfo];
     
+    self.firstViewClosed = YES;
+    
 }
 
 - (void)changeFirstHeaderHeightAndAddInfo
@@ -750,6 +770,8 @@
     [self.accordion setSelectedIndex:2];
     
     [self changeSecondHeaderHeightAndAddInfo];
+    
+    self.secondViewClosed = YES;
     
 }
 
@@ -887,4 +909,67 @@
     
     [self.accordion setSelectedIndex:2];
 }
+
+#pragma mark
+#pragma mark requesteCreditLimitAction
+
+- (IBAction)requesteCreditLimitAction:(id)sender
+{
+    
+    UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
+    
+    UIView *popoverView = [[UIView alloc] init];   //view
+    popoverView.backgroundColor = [UIColor grayColor];
+    
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 320., 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(selectRequestedCreditLimit)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
+    
+    self.requesteCreditLimitPicker = [[UIPickerView alloc]init];//Date picker
+    self.requesteCreditLimitPicker.frame = CGRectMake(0,44,320, 216);
+    self.requesteCreditLimitPicker.dataSource = self;
+    self.requesteCreditLimitPicker.delegate = self;
+    self.requesteCreditLimitPicker.showsSelectionIndicator = YES;
+    [popoverView addSubview:self.requesteCreditLimitPicker];
+    
+    popoverContent.view = popoverView;
+    self.popoverController4 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+    self.popoverController4.delegate = self;
+    [self.popoverController4 setPopoverContentSize:CGSizeMake(320, 260) animated:NO];
+    [self.popoverController4 presentPopoverFromRect:CGRectMake(390.0, 400.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    
+}
+
+- (void)selectRequestedCreditLimit{
+    
+    
+    
+    [self.requestedCreditLimitButton setTitle:[NSString stringWithFormat:@"%@",[self.requesteCreditLimitArray objectAtIndex:[self.requesteCreditLimitPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+//    [self.requestedCreditLimitButton setTitle:[NSString stringWithFormat:@"%@",self.requesteCreditLimitString] forState:UIControlStateNormal];
+    [self.popoverController4 dismissPopoverAnimated:YES];
+    
+    if (self.firstViewClosed && self.secondViewClosed) {
+        
+        if (![self.requestedCreditLimitButton.titleLabel.text isEqualToString:@"Limit"] && self.grossAnualIncomeTextField.text.length > 1 && self.householdIncomeTextField.text.length > 1) {
+            self.bextSteptButton.enabled = YES;
+        }
+    }
+    
+}
+
 @end

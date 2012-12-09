@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PersonalInfoViewController.m"
-         timestampString = "376683890.480516"
+         timestampString = "376766480.745524"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "585"
-         endingLineNumber = "585"
+         startingLineNumber = "589"
+         endingLineNumber = "589"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>

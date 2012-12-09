@@ -72,6 +72,8 @@
 - (IBAction)showBirthDatePicker:(id)sender
 {
     
+    
+    
     UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
     
     UIView *popoverView = [[UIView alloc] init];   //view
@@ -103,6 +105,14 @@
     [datePicker setTag:10];
     [datePicker addTarget:self action:@selector(result:) forControlEvents:UIControlEventValueChanged];
     [popoverView addSubview:datePicker];
+    
+    if (self.selectedPickerDate == nil) {
+        
+        
+    }else{
+        
+        datePicker.date = self.selectedPickerDate;
+    }
     
     chooseDateButton2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     chooseDateButton2.frame = CGRectMake(250., 0., 60., 44.);
@@ -145,6 +155,8 @@
 
 - (void)result:(id)sender
 {
+    
+    self.selectedPickerDate = datePicker.date;
     
     NSDate* now = [NSDate date];
     
