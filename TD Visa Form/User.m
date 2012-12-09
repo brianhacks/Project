@@ -43,5 +43,6 @@
 @dynamic workPhone;
 @dynamic requestedCreditLimit;
 @dynamic householdIncome;
+@dynamic grossAnualIncome;
 
 @end

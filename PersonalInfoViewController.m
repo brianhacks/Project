@@ -524,7 +524,7 @@
     totalMonthlyCostsLabel.text = [NSString stringWithFormat:@"Total monthly housing costs: %@",self.totalMonthlyHousingCosts.text];
     [self.secondHeaderView addSubview:totalMonthlyCostsLabel];
     
-   }
+}
 
 - (void)editSecondViewAction:(id)sender
 {
