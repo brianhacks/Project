@@ -19,6 +19,7 @@
         <attribute name="employmentStatus" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="grossAnualIncome" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="householdIncome" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="languagOfCorespondace" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
@@ -35,6 +36,6 @@
         <attribute name="workPhone" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="-7344" positionY="189" width="155" height="525"/>
+        <element name="User" positionX="-7344" positionY="189" width="155" height="540"/>
     </elements>
 </model>

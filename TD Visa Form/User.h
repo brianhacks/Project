@@ -44,5 +44,6 @@
 @property (nonatomic, retain) NSString * requestedCreditLimit;
 @property (nonatomic, retain) NSString * householdIncome;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * grossAnualIncome;
 
 @end

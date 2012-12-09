@@ -289,23 +289,13 @@
     self.provinceArray = [NSArray new];
     self.provinceArray = @[@"Alberta", @"British Columbia", @"Manitoba", @"New Brunswick", @"Newfoundland & Labrador", @"Nova Scotia", @"Northwest Territories", @"Nunavut", @"Ontario", @"Prince Edward Island", @"Quebec", @"Saskatchewan", @"Yukon"];
     
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0., 0., 987., 520.)];
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(18., 170., 987., 518.)];
 //    [self.view addSubview:self.accordion];
-    
+
     self.accordionViewScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(18., 170., 987., 520.)];
     self.accordionViewScrollView.contentSize = CGSizeMake(987., 800.);
-    [self.view addSubview:self.accordionViewScrollView];
-    [self.accordionViewScrollView addSubview:self.accordion];
-    
-    // Only height is taken into account, so other parameters are just dummy
-    //    UIButton *header1 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
-    //    header1.backgroundColor = [UIColor blueColor];
-    //    [header1 setTitle:@"First row" forState:UIControlStateNormal];
-    
-//    UIButton *header1= [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-//    header1.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-//    [header1 setTitle:@"Financial Details" forState:UIControlStateNormal];
-//    header1.titleLabel.textAlignment = NSTextAlignmentLeft;
+//    [self.view addSubview:self.accordionViewScrollView];
+    [self.view addSubview:self.accordion];
     
     self.firstHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
@@ -318,14 +308,6 @@
     [self.firstHeaderView addSubview:firstHeaderTitel];
     
     [self.accordion addHeader:self.firstHeaderView withView:self.financialDetailsView];
-    
-//    UIButton *header2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-//    header2.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-//    [header2 setTitle:@"Employer's Details" forState:UIControlStateNormal];
-//    header2.titleLabel.textAlignment = NSTextAlignmentLeft;
-//    
-//    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
-//    view2.backgroundColor = [UIColor blueColor];
 
     self.secondHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
@@ -338,14 +320,6 @@
     [self.secondHeaderView addSubview:secondHeaderTitel];
     
     [self.accordion addHeader:self.secondHeaderView withView:self.employerDetailsView];
-    
-//    UIButton *header3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-//    header3.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-//    [header3 setTitle:@"Income and Credit Limit Details" forState:UIControlStateNormal];
-//    header3.titleLabel.textAlignment = NSTextAlignmentLeft;
-//    
-//    UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 200)];
-//    view3.backgroundColor = [UIColor blueColor];
 
     
     self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
@@ -797,7 +771,7 @@
     employerName.font = [UIFont fontWithName:@"Helvetica" size:16];
     employerName.backgroundColor = [UIColor clearColor];
     employerName.numberOfLines = 0;
-    employerName.text = [NSString stringWithFormat:@"Employment Name: %@",self.employerName.text];
+    employerName.text = [NSString stringWithFormat:@"Requested Credit Limit: %@",self.requestedCreditLimitButton.titleLabel.text];
     [self.secondHeaderView addSubview:employerName];
     
     UILabel* startDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 300., 30.)];
@@ -805,16 +779,8 @@
     startDateLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
     startDateLabel.backgroundColor = [UIColor clearColor];
     startDateLabel.numberOfLines = 0;
-    startDateLabel.text = [NSString stringWithFormat:@"Start date:"];
+    startDateLabel.text = [NSString stringWithFormat:@"Gross Anual Income: %@", self.grossAnualIncomeTextField.text];
     [self.secondHeaderView addSubview:startDateLabel];
-    
-    UILabel* employerStreetAddressLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 3., 400., 30.)];
-    employerStreetAddressLabel.textColor = [UIColor blackColor];
-    employerStreetAddressLabel.numberOfLines = 0;
-    employerStreetAddressLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
-    employerStreetAddressLabel.backgroundColor = [UIColor clearColor];
-    employerStreetAddressLabel.text = [NSString stringWithFormat:@"%@",self.employerStreetAddress.text];
-    [self.secondHeaderView addSubview:employerStreetAddressLabel];
     
 }
 

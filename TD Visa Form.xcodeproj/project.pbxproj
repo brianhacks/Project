@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		701CFB8016750F7E00031999 /* ReviewAndSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 701CFB7E16750F7E00031999 /* ReviewAndSubmitViewController.m */; };
+		701CFB8116750F7E00031999 /* ReviewAndSubmitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 701CFB7F16750F7E00031999 /* ReviewAndSubmitViewController.xib */; };
 		702337AC1652C56800B87249 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702337AB1652C56800B87249 /* UIKit.framework */; };
 		702337AE1652C56800B87249 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702337AD1652C56800B87249 /* Foundation.framework */; };
 		702337B01652C56800B87249 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702337AF1652C56800B87249 /* CoreGraphics.framework */; };
@@ -138,6 +140,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		701CFB7D16750F7E00031999 /* ReviewAndSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewAndSubmitViewController.h; sourceTree = "<group>"; };
+		701CFB7E16750F7E00031999 /* ReviewAndSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewAndSubmitViewController.m; sourceTree = "<group>"; };
+		701CFB7F16750F7E00031999 /* ReviewAndSubmitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewAndSubmitViewController.xib; sourceTree = "<group>"; };
 		702337A71652C56800B87249 /* TD Visa Form.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TD Visa Form.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		702337AB1652C56800B87249 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		702337AD1652C56800B87249 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -322,9 +327,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		701CFB7B16750F6700031999 /* Review and submit */ = {
+			isa = PBXGroup;
+			children = (
+				701CFB7D16750F7E00031999 /* ReviewAndSubmitViewController.h */,
+				701CFB7E16750F7E00031999 /* ReviewAndSubmitViewController.m */,
+				701CFB7F16750F7E00031999 /* ReviewAndSubmitViewController.xib */,
+			);
+			name = "Review and submit";
+			sourceTree = "<group>";
+		};
 		7023379C1652C56800B87249 = {
 			isa = PBXGroup;
 			children = (
+				701CFB7B16750F6700031999 /* Review and submit */,
 				9FBDBB691672B96F00BE04E6 /* ThankYou */,
 				9F854C8C16706F31009F9E01 /* admin */,
 				9F90EBAB1670F68F00501F8C /* buttons */,
@@ -816,6 +832,7 @@
 				9F11097B1674E459007E5952 /* mappopover.png in Resources */,
 				9F11097C1674E459007E5952 /* body-5.png in Resources */,
 				9F11097D1674E459007E5952 /* bank-selected.png in Resources */,
+				701CFB8116750F7E00031999 /* ReviewAndSubmitViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,6 +874,7 @@
 				9FBDBCCF167432EC00BE04E6 /* Content.m in Sources */,
 				9FBDBCD0167432EC00BE04E6 /* MapUtil.m in Sources */,
 				9FBDBCD41674342800BE04E6 /* MyCalloutView.m in Sources */,
+				701CFB8016750F7E00031999 /* ReviewAndSubmitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
