@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CorePlot-CocoaTouch.h"
+@interface AdminViewController : UIViewController <CPTPlotDataSource, UIActionSheetDelegate>
+{
+    CPTXYGraph *graph;
+}
+- (IBAction)clearUserData:(id)sender;
+- (IBAction)exportData:(id)sender;
 
-@interface AdminViewController : UIViewController
+-(void)initPlot;
+-(void)configureHost;
+-(void)configureGraph;
+-(void)configureChart;
+-(void)configureLegend;
 
 @end
+

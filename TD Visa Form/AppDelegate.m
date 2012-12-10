@@ -58,8 +58,8 @@
     self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeCreate];
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-    self.navController = [[UINavigationController alloc] initWithRootViewController:self.reviewAndSubmitViewController];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.reviewAndSubmitViewController];
     
     
     
@@ -81,9 +81,9 @@
     //for debug mode only
     self.window.rootViewController = self.navController;
     
-    
-//    self.window.rootViewController = self.firstScreenSaverViewController;
-     self.window.rootViewController = self.pickLocationViewController;
+  //   self.window.rootViewController = self.adminViewController;
+   self.window.rootViewController = self.firstScreenSaverViewController;
+//     self.window.rootViewController = self.pickLocationViewController;
     
     
     [self.window makeKeyAndVisible];
