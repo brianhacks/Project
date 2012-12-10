@@ -92,6 +92,8 @@
     return YES;
 }
 
+
+
 - (void)addInfoToUser:(id)info andFieldToAddItTo:(NSString *)_field
 {
     
@@ -131,6 +133,47 @@
     [fetchRequest setEntity:entity];
     
 }
+
+//MTK
+- (User*)getUser
+{
+    
+    User* userInfo = nil;
+    
+    NSManagedObjectContext* context = [self managedObjectContext];
+    
+    NSFetchRequest* request = [NSFetchRequest new];
+    //    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"firstName = %@", _firstName];
+    //    [request setPredicate:predicate];
+    
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError* error = nil;
+    NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
+    
+    if ([fetchedResult count] == 0) {
+        
+        return nil;
+        
+    }else{
+        
+        userInfo = [fetchedResult objectAtIndex:0];
+        
+    }
+   // [userInfo setValue:info forKey:field];
+    
+    return userInfo;
+    
+    
+    //NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    //entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    //[fetchRequest setEntity:entity];
+    
+}
+
+//END MTK
+
 
 - (void)addBOOLInfoToUser:(BOOL)info andFieldToAddItTo:(NSString *)_field
 {

@@ -51,7 +51,7 @@
 - (void)closeRootAndLaunchNextPart:(BOOL)isAdmin;
 - (void)setNewRootView:(UIViewController *)controller;
 - (void)backOneView;
-
+- (User*)getUser;
 - (void)addInfoToUser:(id)info andFieldToAddItTo:(NSString *)_field;
 - (void)addBOOLInfoToUser:(BOOL)info andFieldToAddItTo:(NSString *)_field;
 

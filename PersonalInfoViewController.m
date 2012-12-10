@@ -445,6 +445,8 @@
         self.postalCode.backgroundColor = [UIColor whiteColor];
     }
     
+    
+    
     if([self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"])
     {
         isValid=false;
@@ -475,9 +477,28 @@
         
         return;
     }
-    [self.accordion setSelectedIndex:3];
     
-     [self changeSecondHeaderHeightAndAddInfo];
+    //geocode address
+    
+    
+    NSString *query = [NSString stringWithFormat:@"%@ %@ %@", self.streetAddress.text, self.currentCity.text, self.provinceButton.titleLabel.text];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
+        if ([placemarks count] > 0) {
+            
+            self.streetAddress.backgroundColor = [UIColor whiteColor];
+            [self.accordion setSelectedIndex:3];
+            [self changeSecondHeaderHeightAndAddInfo];
+        } else {
+            
+            self.streetAddress.backgroundColor = [UIColor yellowColor];
+            
+        }}];
+
+    
+    
+    
+     
     
     
 }

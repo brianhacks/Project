@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PickLocationViewController.m"
-         timestampString = "376802410.587564"
+         timestampString = "376864095.66185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "313"
-         endingLineNumber = "313"
+         startingLineNumber = "338"
+         endingLineNumber = "338"
          landmarkName = "@implementation PickLocationViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PickLocationViewController.m"
-         timestampString = "376802410.587564"
+         timestampString = "376864095.66185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "314"
-         endingLineNumber = "314"
+         startingLineNumber = "339"
+         endingLineNumber = "339"
          landmarkName = "@implementation PickLocationViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PickLocationViewController.m"
-         timestampString = "376802410.587564"
+         timestampString = "376864095.66185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "292"
-         endingLineNumber = "292"
+         startingLineNumber = "317"
+         endingLineNumber = "317"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PickLocationViewController.m"
-         timestampString = "376802410.587564"
+         timestampString = "376864095.66185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "293"
-         endingLineNumber = "293"
+         startingLineNumber = "318"
+         endingLineNumber = "318"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -125,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PickLocationViewController.m"
-         timestampString = "376802410.587564"
+         timestampString = "376864095.66185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "249"
-         endingLineNumber = "249"
+         startingLineNumber = "274"
+         endingLineNumber = "274"
          landmarkName = "-sortAnnotations"
          landmarkType = "5">
       </FileBreakpoint>
@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PickLocationViewController.m"
-         timestampString = "376802410.587564"
+         timestampString = "376864095.66185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "263"
-         endingLineNumber = "263"
+         startingLineNumber = "288"
+         endingLineNumber = "288"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -151,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PickLocationViewController.m"
-         timestampString = "376802410.587564"
+         timestampString = "376864095.66185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "206"
-         endingLineNumber = "206"
+         startingLineNumber = "231"
+         endingLineNumber = "231"
          landmarkName = "-plotBanks"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PickLocationViewController.m"
-         timestampString = "376802410.587564"
+         timestampString = "376864095.66185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "128"
-         endingLineNumber = "128"
+         startingLineNumber = "153"
+         endingLineNumber = "153"
          landmarkName = "-recenterMap"
          landmarkType = "5">
       </FileBreakpoint>
@@ -190,11 +190,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PickLocationViewController.m"
-         timestampString = "376802410.587564"
+         timestampString = "376864095.66185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "168"
-         endingLineNumber = "168"
+         startingLineNumber = "193"
+         endingLineNumber = "193"
          landmarkName = "-plotBanks"
          landmarkType = "5">
       </FileBreakpoint>
@@ -203,11 +203,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PickLocationViewController.m"
-         timestampString = "376802410.587564"
+         timestampString = "376864095.66185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "181"
-         endingLineNumber = "181"
+         startingLineNumber = "206"
+         endingLineNumber = "206"
          landmarkName = "-plotBanks"
          landmarkType = "5">
       </FileBreakpoint>
@@ -216,11 +216,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PickLocationViewController.m"
-         timestampString = "376802410.587564"
+         timestampString = "376864095.66185"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "199"
-         endingLineNumber = "199"
+         startingLineNumber = "224"
+         endingLineNumber = "224"
          landmarkName = "-plotBanks"
          landmarkType = "5">
       </FileBreakpoint>
@@ -274,6 +274,19 @@
          startingLineNumber = "39"
          endingLineNumber = "39"
          landmarkName = "-initWithAnnotation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PickLocationViewController.m"
+         timestampString = "376856883.572017"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "116"
+         endingLineNumber = "116"
+         landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

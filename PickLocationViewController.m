@@ -113,15 +113,40 @@
     
     // get the users home address
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    
+    User *u = [appDelegate  getUser];//addInfoToUser:self.occupationButton.titleLabel.text andFieldToAddItTo:@"currentOcupation"];
+
+    NSString *address = u.street;
+    NSString *city = u.city;
+    NSString *prov = u.province;
+    NSString *query = [NSString stringWithFormat:@"%@ %@ %@", address, city, prov];
     //geocode the default based on the users home addresss
-    
+  //  appDelegate
    // CLLocationCoordinate2D zoomLocation;
-    homeLoc.latitude = 43.734742;
-    homeLoc.longitude= -79.343888;
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
+        if ([placemarks count] > 0) {
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            CLLocation *location = placemark.location;
+            CLLocationCoordinate2D coordinate = location.coordinate;
+            self->homeLoc = location.coordinate;
+            [self plotBanks];
+                       //need to refresh table
+            [self.tableView reloadData];
+            
+        } else {
+            homeLoc.latitude = 43.734742;
+            homeLoc.longitude= -79.343888;
+            [self plotBanks];
+            [self.tableView reloadData];
+           
+            
+        }}];
     
     
-    [self plotBanks];
+    
+    
+   
     
 }
 - (void)recenterMap{
@@ -350,7 +375,7 @@
     //geocode the default based on the users home addresss
     NSString *query = self.query.text;
     
-   // [MapUtil geocode:query];
+  
     
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
