@@ -11,6 +11,10 @@
 
 @interface FinancialInfoViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UIButton *startDateButton;
+@property (strong, nonatomic) UIDatePicker *startDatePicker;
+@property (strong, nonatomic) UIPopoverController* popoverController5;
+
 
 @property (strong, nonatomic) IBOutlet UIButton *requestedCreditLimitButton;
 @property (strong, nonatomic) IBOutlet UITextField *householdIncomeTextField;
@@ -80,5 +84,6 @@
 - (IBAction)showLegal:(id)sender;
 - (IBAction)showSecurity:(id)sender;
 - (IBAction)requesteCreditLimitAction:(id)sender;
+- (IBAction)chooseStartDate:(id)sender;
 
 @end

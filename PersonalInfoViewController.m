@@ -16,7 +16,7 @@
 
 @implementation PersonalInfoViewController
 
-@synthesize gender, titleString, languageOfCorespondaceString, editFirstView;
+@synthesize gender, titleString, languageOfCorespondaceString, editFirstView, monthsLivedArray, yearsLivedArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -130,7 +130,7 @@
     [appDelegate addInfoToUser:self.primaryPhoneNumber.text andFieldToAddItTo:@"primaryPhone"];
     [appDelegate addInfoToUser:self.emailAddress.text andFieldToAddItTo:@"email"];
     [appDelegate addInfoToUser:self.gender andFieldToAddItTo:@"gender"];
-    [appDelegate addInfoToUser:self.languageOfCorespondaceString andFieldToAddItTo:@"languagOfCorespondace"];
+    [appDelegate addInfoToUser:self.selectLanguageOfCorespondace.titleLabel.text andFieldToAddItTo:@"languagOfCorespondace"];
     [appDelegate addInfoToUser:self.sinNumber.text andFieldToAddItTo:@"sin"];
     [appDelegate addInfoToUser:self.streetAddress.text andFieldToAddItTo:@"street"];
     [appDelegate addInfoToUser:self.postalCode.text andFieldToAddItTo:@"postalCode"];
@@ -138,6 +138,8 @@
     [appDelegate addInfoToUser:self.currentCity.text andFieldToAddItTo:@"city"];
     [appDelegate addInfoToUser:self.residentialStatusButton.titleLabel.text andFieldToAddItTo:@"resincialStatus"];
     [appDelegate addInfoToUser:self.totalMonthlyHousingCosts.text andFieldToAddItTo:@"monthlyHouseCosts"];
+    [appDelegate addInfoToUser:self.provinceButton.titleLabel.text andFieldToAddItTo:@"province"];
+    
     [appDelegate setNewRootView:appDelegate.financialInfoViewController];
     [appDelegate.financialInfoViewController refresh];
     
@@ -434,6 +436,14 @@
         self.provinceButton.backgroundColor = [UIColor whiteColor];
     }
     
+    if([self.timeLivedAtCurrentAddress.titleLabel.text isEqualToString:@"Years & Months"]){
+        isValid = false;
+        
+        self.timeLivedAtCurrentAddress.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.timeLivedAtCurrentAddress.backgroundColor = [UIColor whiteColor];
+    }
+    
     
     NSString *zip_regex_str=@"^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}$";
     NSPredicate *zip_no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",zip_regex_str];
@@ -573,6 +583,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.monthsLivedArray = [NSArray new];
+    self.monthsLivedArray = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12"];
+    
+    self.yearsLivedArray = [NSArray new];
+    self.yearsLivedArray = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30", @"31", @"32", @"33", @"34", @"35", @"36", @"37", @"38", @"39", @"40"];
     
     [self.nextStepButton setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
     self.nextStepButton.enabled = NO;
@@ -769,7 +785,7 @@
     [self.popoverController4 dismissPopoverAnimated:YES];
     
     if (self.firstViewClosed) {
-        if (self.streetAddress.text.length > 1 && self.postalCode.text.length && self.currentCity.text.length && ![self.provinceButton.titleLabel.text isEqualToString:@"Province"] && ![self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"] && self.totalMonthlyHousingCosts.text.length > 1) {
+        if (self.streetAddress.text.length > 1 && self.postalCode.text.length && self.currentCity.text.length && ![self.provinceButton.titleLabel.text isEqualToString:@"Province"] && ![self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"] && self.totalMonthlyHousingCosts.text.length > 1 && ![self.timeLivedAtCurrentAddress.titleLabel.text isEqualToString:@"Years & Months"]) {
             self.nextStepButton.enabled = YES;
         }
     }
@@ -779,7 +795,14 @@
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 1;
+    if (pickerView == self.timeLivedAtCurrentAddressPicker) {
+        return 2;
+    }else{
+    
+        return 1;
+        
+    }
+    
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
@@ -800,6 +823,21 @@
         
         return [self.genderArray count];
         
+    }else if(pickerView == self.timeLivedAtCurrentAddressPicker){
+        
+        if (component == 0) {
+            
+            return [self.yearsLivedArray count];
+        }else if(component == 1){
+            
+            return [self.monthsLivedArray count];
+        }else{
+            
+            return 100;
+        }
+        
+    
+        
     }else{
         
         return [self.residentialStatusArray count];
@@ -811,6 +849,7 @@
 {
     
     NSString* val1;
+    NSString* val2;
     
     if (pickerView == self.statesPicker) {
         
@@ -827,6 +866,18 @@
     }else if (pickerView == self.genderPicker){
         
         val1 = [self.genderArray objectAtIndex:row];
+        
+    }else if(pickerView == self.timeLivedAtCurrentAddressPicker){
+        
+        if (component == 0) {
+            
+            val1 = [self.yearsLivedArray objectAtIndex:row];
+            
+        }else if (component == 1){
+            
+             val1 = [self.monthsLivedArray objectAtIndex:row];
+        }
+        
         
     }else{
         
@@ -924,7 +975,7 @@
     [self.popoverController5 dismissPopoverAnimated:YES];
     
     if (self.firstViewClosed) {
-        if (self.streetAddress.text.length > 1 && self.postalCode.text.length && self.currentCity.text.length && ![self.provinceButton.titleLabel.text isEqualToString:@"Province"] && ![self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"] && self.totalMonthlyHousingCosts.text.length > 1) {
+        if (self.streetAddress.text.length > 1 && self.postalCode.text.length && self.currentCity.text.length && ![self.provinceButton.titleLabel.text isEqualToString:@"Province"] && ![self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"] && self.totalMonthlyHousingCosts.text.length > 1 && ![self.timeLivedAtCurrentAddress.titleLabel.text isEqualToString:@"Years & Months"]) {
             self.nextStepButton.enabled = YES;
         }
     }
@@ -937,7 +988,7 @@
 {
     
     if (self.firstViewClosed) {
-        if (self.streetAddress.text.length > 1 && self.postalCode.text.length && self.currentCity.text.length && ![self.provinceButton.titleLabel.text isEqualToString:@"Province"] && ![self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"] && self.totalMonthlyHousingCosts.text.length > 1) {
+        if (self.streetAddress.text.length > 1 && self.postalCode.text.length && self.currentCity.text.length && ![self.provinceButton.titleLabel.text isEqualToString:@"Province"] && ![self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"] && self.totalMonthlyHousingCosts.text.length > 1 && ![self.timeLivedAtCurrentAddress.titleLabel.text isEqualToString:@"Years & Months"]) {
             self.nextStepButton.enabled = YES;
         }
     }
@@ -991,5 +1042,105 @@
     
     return YES;
 }
+
+- (IBAction)choseHowLongYouLivedAtCurrentAddress:(id)sender
+{
+    
+    UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
+    
+    UIView *popoverView = [[UIView alloc] init];   //view
+//    popoverView.backgroundColor = [UIColor grayColor];
+    popoverView.backgroundColor = [UIColor blackColor];
+    
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 220.0, 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(chooseTime:)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
+    
+    UILabel* monthsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0., 60., 60., 20.)];
+    monthsLabel.text = @"Years";
+    monthsLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
+    monthsLabel.backgroundColor = [UIColor clearColor];
+    monthsLabel.textColor = [UIColor whiteColor];
+    [popoverView addSubview:monthsLabel];
+    
+    monthsLabel = [[UILabel alloc] initWithFrame:CGRectMake(120., 60., 60., 20.)];
+    monthsLabel.text = @"Months";
+    monthsLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
+    monthsLabel.backgroundColor = [UIColor clearColor];
+    monthsLabel.textColor = [UIColor whiteColor];
+    [popoverView addSubview:monthsLabel];
+    
+    self.timeLivedAtCurrentAddressPicker = [[UIPickerView alloc]init];//Date picker
+    self.timeLivedAtCurrentAddressPicker.frame = CGRectMake(0,84,220, 116);
+    self.timeLivedAtCurrentAddressPicker.dataSource = self;
+    self.timeLivedAtCurrentAddressPicker.delegate = self;
+    self.timeLivedAtCurrentAddressPicker.showsSelectionIndicator = YES;
+    [popoverView addSubview:self.timeLivedAtCurrentAddressPicker];
+    
+    popoverContent.view = popoverView;
+    self.popoverController5 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+    self.popoverController5.delegate = self;
+
+    [self.popoverController5 setPopoverContentSize:CGSizeMake(220, 214) animated:NO];
+    [self.popoverController5 presentPopoverFromRect:CGRectMake(220.0, 365.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    
+}
+
+- (void)chooseTime:(id)sender
+{
+    
+    [self.timeLivedAtCurrentAddress setTitle:[NSString stringWithFormat:@"%@ year(s) %@ month(s)",[self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]], [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:1]]] forState:UIControlStateNormal];
+    [self.popoverController5 dismissPopoverAnimated:YES];
+    
+    NSString* years = [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]];
+//    int months = [self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]]
+    
+    if ([years integerValue] <= 2) {
+        
+        NSLog(@"display the other view");
+        // Only height is taken into account, so other parameters are just dummy
+        self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+        self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+        
+        UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+        firstHeaderTitel.backgroundColor = [UIColor clearColor];
+        firstHeaderTitel.textColor = [UIColor whiteColor];
+        firstHeaderTitel.text = @"Previous Home Address";
+        firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+        [self.thirdHeaderView addSubview:firstHeaderTitel];
+        
+        [self.accordion addHeader:self.thirdHeaderView withView:self.formalHomeAddress];
+        
+        [self.accordion setSelectedIndex:2];
+        
+    }else{
+        
+        if (self.firstViewClosed) {
+            if (self.streetAddress.text.length > 1 && self.postalCode.text.length && self.currentCity.text.length && ![self.provinceButton.titleLabel.text isEqualToString:@"Province"] && ![self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"] && self.totalMonthlyHousingCosts.text.length > 1 && ![self.timeLivedAtCurrentAddress.titleLabel.text isEqualToString:@"Years & Months"]) {
+                self.nextStepButton.enabled = YES;
+            }
+        }
+        
+    }
+    
+    
+    
+}
+
 
 @end

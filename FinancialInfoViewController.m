@@ -148,8 +148,6 @@
                 
             }
             
-        
-            
         }else{
             
             val1 = [NSString stringWithFormat:@"$ %i",100 * (row + 1)];
@@ -163,8 +161,6 @@
             }
         }
     
-        
-        
     }else{
         
         val1 = [self.employmentStatusArray objectAtIndex:row];
@@ -359,12 +355,15 @@
     
     [appDelegate addInfoToUser:self.occupationButton.titleLabel.text andFieldToAddItTo:@"currentOcupation"];
     [appDelegate addInfoToUser:self.employmentStatus.titleLabel.text andFieldToAddItTo:@"employmentStatus"];
-    //    [appDelegate addInfoToUser:self.employerCity.text andFieldToAddItTo:@"employerCity"];
-    [appDelegate addInfoToUser:self.employerName.text andFieldToAddItTo:@"employerName"];
-    [appDelegate addInfoToUser:self.employerStreetAddress.text andFieldToAddItTo:@"employerStreetAddress"];
+    
     [appDelegate addInfoToUser:self.employerAreaCode.text andFieldToAddItTo:@"employerAreaCode"];
     [appDelegate addInfoToUser:self.employerWorkPhoneNumber.text andFieldToAddItTo:@"workPhone"];
-    //    [appDelegate addInfoToUser:self.employerExt.text andFieldToAddItTo:@"street"];
+    [appDelegate addInfoToUser:self.employerStreetAddress.text andFieldToAddItTo:@"employerStreetAddress"];
+    [appDelegate addInfoToUser:self.provinceButton.titleLabel.text andFieldToAddItTo:@"employerProvince"];
+    [appDelegate addInfoToUser:self.employerCity.text andFieldToAddItTo:@"employerCity"];
+    [appDelegate addInfoToUser:self.employerName.text andFieldToAddItTo:@"employerName"];
+    [appDelegate addInfoToUser:self.grossAnualIncomeTextField.text andFieldToAddItTo:@"grossAnualIncome"];
+    [appDelegate addInfoToUser:self.requestedCreditLimitButton.titleLabel.text andFieldToAddItTo:@"requestedCreditLimit"];
     
     [appDelegate setNewRootView:appDelegate.pickLocationViewController];
     [appDelegate.pickLocationViewController refresh];
@@ -480,12 +479,6 @@
     
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
-    
-//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    doneButton.frame = CGRectMake(400., 0., 60., 44.);
-//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-//    [doneButton addTarget:self action:@selector(chooseOccupation) forControlEvents:UIControlEventTouchUpInside];
-//    [popoverView addSubview:doneButton];
 
     
     UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 480., 44.0)];
@@ -771,7 +764,7 @@
     employerName.font = [UIFont fontWithName:@"Helvetica" size:16];
     employerName.backgroundColor = [UIColor clearColor];
     employerName.numberOfLines = 0;
-    employerName.text = [NSString stringWithFormat:@"Requested Credit Limit: %@",self.requestedCreditLimitButton.titleLabel.text];
+    employerName.text = [NSString stringWithFormat:@"Employment Name: %@",self.employerName.text];
     [self.secondHeaderView addSubview:employerName];
     
     UILabel* startDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 300., 30.)];
@@ -779,8 +772,18 @@
     startDateLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
     startDateLabel.backgroundColor = [UIColor clearColor];
     startDateLabel.numberOfLines = 0;
-    startDateLabel.text = [NSString stringWithFormat:@"Gross Anual Income: %@", self.grossAnualIncomeTextField.text];
+    startDateLabel.text = [NSString stringWithFormat:@"Start date:"];
     [self.secondHeaderView addSubview:startDateLabel];
+    
+    UILabel* employerStreetAddressLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 3., 400., 30.)];
+    employerStreetAddressLabel.textColor = [UIColor blackColor];
+    employerStreetAddressLabel.numberOfLines = 0;
+    employerStreetAddressLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    employerStreetAddressLabel.backgroundColor = [UIColor clearColor];
+    employerStreetAddressLabel.text = [NSString stringWithFormat:@"%@",self.employerStreetAddress.text];
+    [self.secondHeaderView addSubview:employerStreetAddressLabel];
+    
+    
     
 }
 
@@ -836,7 +839,7 @@
     employerName.font = [UIFont fontWithName:@"Helvetica" size:16];
     employerName.backgroundColor = [UIColor clearColor];
     employerName.numberOfLines = 0;
-    employerName.text = [NSString stringWithFormat:@"Employment Name: %@",self.employerName.text];
+    employerName.text = [NSString stringWithFormat:@"Requested Credit Limit: %@",self.requestedCreditLimitButton.titleLabel.text];
     [self.thirdHeaderView addSubview:employerName];
     
     UILabel* startDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 300., 30.)];
@@ -844,16 +847,8 @@
     startDateLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
     startDateLabel.backgroundColor = [UIColor clearColor];
     startDateLabel.numberOfLines = 0;
-    startDateLabel.text = [NSString stringWithFormat:@"Start date:"];
+    startDateLabel.text = [NSString stringWithFormat:@"Gross Anual Income: %@", self.grossAnualIncomeTextField.text];
     [self.thirdHeaderView addSubview:startDateLabel];
-    
-    UILabel* employerStreetAddressLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 3., 400., 30.)];
-    employerStreetAddressLabel.textColor = [UIColor blackColor];
-    employerStreetAddressLabel.numberOfLines = 0;
-    employerStreetAddressLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
-    employerStreetAddressLabel.backgroundColor = [UIColor clearColor];
-    employerStreetAddressLabel.text = [NSString stringWithFormat:@"%@",self.employerStreetAddress.text];
-    [self.thirdHeaderView addSubview:employerStreetAddressLabel];
     
 }
 
@@ -937,5 +932,95 @@
     }
     
 }
+
+- (IBAction)chooseStartDate:(id)sender
+{
+    
+    UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
+    
+    UIView *popoverView = [[UIView alloc] init];   //view
+    popoverView.backgroundColor = [UIColor grayColor];
+    
+    
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 320., 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(selectStartDate)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
+    
+    self.startDatePicker = [[UIDatePicker alloc]init];//Date picker
+    self.startDatePicker.frame = CGRectMake(0,44,320, 216);
+    self.startDatePicker.datePickerMode = UIDatePickerModeDate;
+    [self.startDatePicker setTag:10];
+    [self.startDatePicker addTarget:self action:@selector(result:) forControlEvents:UIControlEventValueChanged];
+    [popoverView addSubview:self.startDatePicker];
+    
+    popoverContent.view = popoverView;
+    self.popoverController5 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+    self.popoverController5.delegate = self;
+    [self.popoverController5 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
+    [self.popoverController5 presentPopoverFromRect:CGRectMake(180., 160., 320., 264.) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];//tempButton.frame where you need you can put that frame
+    
+}
+
+- (void)selectStartDate
+{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+	df.dateStyle = NSDateFormatterMediumStyle;
+	NSLog(@"%@",self.startDatePicker.date);
+    NSDateFormatter *formatter;
+    NSString        *dateString;
+    
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM dd, yyyy"];
+    
+    dateString = [formatter stringFromDate:self.startDatePicker.date];
+    [self.startDateButton setTitle:dateString forState:UIControlStateNormal];
+    [appDelegate addInfoToUser:self.startDatePicker.date andFieldToAddItTo:@"startDateForWork"];
+    
+    [self.popoverController5 dismissPopoverAnimated:YES];
+}
+
+- (void)result:(id)sender
+{
+    
+    
+    NSDate* now = [NSDate date];
+    
+    NSLog(@"%f",[self.startDatePicker.date timeIntervalSinceDate:now]);
+    
+    NSTimeInterval theTimeInterval = [self.startDatePicker.date timeIntervalSinceDate:now];
+    
+    NSCalendar *sysCalendar = [NSCalendar currentCalendar];
+    
+    NSDate *date1 = [[NSDate alloc] init];
+    NSDate *date2 = [[NSDate alloc] initWithTimeInterval:theTimeInterval sinceDate:date1];
+    
+    unsigned int unitFlags = NSHourCalendarUnit | NSMinuteCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit;
+    
+    NSDateComponents *breakdownInfo = [sysCalendar components:unitFlags fromDate:date1  toDate:date2  options:0];
+    
+    NSLog(@"Break down: %dyears", [breakdownInfo year]);
+    
+    
+}
+
 
 @end

@@ -40,6 +40,35 @@
 @property (strong, nonatomic) UIButton *editForthView;
 @property (strong, nonatomic) UIButton *editFifthView;
 
+
+@property (strong, nonatomic) IBOutlet UIButton *titleButton;
+@property (strong, nonatomic) IBOutlet UITextField *firstNameTextfield;
+@property (strong, nonatomic) IBOutlet UITextField *lastnameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *primaryPhonenumberTextField;
+@property (strong, nonatomic) IBOutlet UIButton *genderButton;
+@property (strong, nonatomic) IBOutlet UIButton *languageOfCorespondaceButton;
+
+@property (strong, nonatomic) IBOutlet UITextField *currentHomeAddress;
+@property (strong, nonatomic) IBOutlet UITextField *postalCode;
+@property (strong, nonatomic) IBOutlet UIButton *provinceButton;
+@property (strong, nonatomic) IBOutlet UITextField *cityTextfield;
+@property (strong, nonatomic) IBOutlet UIButton *yearsAndMontsButton;
+@property (strong, nonatomic) IBOutlet UIButton *residentialStatusButton;
+@property (strong, nonatomic) IBOutlet UITextField *totalMontlyCostsTextfield;
+
+@property (strong, nonatomic) IBOutlet UIButton *currentEmploymentStatus;
+@property (strong, nonatomic) IBOutlet UIButton *currentOccupation;
+
+@property (strong, nonatomic) IBOutlet UITextField *employerNametextField;
+@property (strong, nonatomic) IBOutlet UIButton *employmentStatDate;
+@property (strong, nonatomic) IBOutlet UITextField *employerStreetAddress;
+@property (strong, nonatomic) IBOutlet UIButton *employerProvince;
+@property (strong, nonatomic) IBOutlet UITextField *employerCity;
+
+@property (strong, nonatomic) IBOutlet UIButton *creditLimitButton;
+@property (strong, nonatomic) IBOutlet UITextField *grossAnualIncome;
+@property (strong, nonatomic) IBOutlet UITextField *householdIncome;
+
 - (IBAction)closeGeneralInfo:(id)sender;
 - (IBAction)closeCurrentAddress:(id)sender;
 - (IBAction)closeFInancialDetails:(id)sender;

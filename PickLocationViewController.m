@@ -56,7 +56,7 @@
     NSString *notificationName = MAP_NOTIFIER_KEY ;
     
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(useNotificationWithString:) name:notificationName  object:nil];
-     self.nextStep.enabled = NO;
+     self.nextStep.enabled = YES;
 }
 /*
  
@@ -98,7 +98,7 @@
     if(enableNextButton){
         self.nextStep.enabled = YES;
     }else{
-        self.nextStep.enabled = NO;
+        self.nextStep.enabled = YES;
     }
 }
 
@@ -339,7 +339,9 @@
 
 - (IBAction)nextStep:(id)sender
 {
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
+    [appDelegate setNewRootView:appDelegate.reviewAndSubmitViewController];
     
 }
 

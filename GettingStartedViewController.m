@@ -101,7 +101,6 @@
     datePicker=[[UIDatePicker alloc]init];//Date picker
     datePicker.frame=CGRectMake(0,44,320, 216);
     datePicker.datePickerMode = UIDatePickerModeDate;
-//    [datePicker setMinuteInterval:5];
     [datePicker setTag:10];
     [datePicker addTarget:self action:@selector(result:) forControlEvents:UIControlEventValueChanged];
     [popoverView addSubview:datePicker];

@@ -52,6 +52,7 @@
     self.financialInfoViewController = [[FinancialInfoViewController alloc] initWithNibName:@"FinancialInfoViewController" bundle:nil];
     self.pickLocationViewController = [[PickLocationViewController alloc] initWithNibName:@"PickLocationViewController" bundle:nil];
     self.reviewAndSubmitViewController = [[ReviewAndSubmitViewController alloc] initWithNibName:@"ReviewAndSubmitViewController" bundle:nil];
+    self.thankYouViewController = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
     
     
     
@@ -59,7 +60,7 @@
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.reviewAndSubmitViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
     
     
     
@@ -82,8 +83,8 @@
     self.window.rootViewController = self.navController;
     
   //   self.window.rootViewController = self.adminViewController;
-  // self.window.rootViewController = self.firstScreenSaverViewController;
-     self.window.rootViewController = self.pickLocationViewController;
+    self.window.rootViewController = self.firstScreenSaverViewController;
+//     self.window.rootViewController = self.pickLocationViewController;
     
     
     [self.window makeKeyAndVisible];
