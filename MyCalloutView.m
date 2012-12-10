@@ -19,6 +19,11 @@
     
 
 
+- (IBAction)cancelBank:(id)sender {
+    
+    [self  removeFromSuperview];
+}
+
 -(IBAction) handleTouch:(id)sender {
     NSLog(@"touch %@", sender);
 }
@@ -56,7 +61,8 @@
 - (void)setAnnotation:(CalloutAnnotation *)annotation
 {
     self.title.text = [annotation.content.values objectForKey:@"branchid"];
-    
+    self.address.text = [annotation.content.values objectForKey:@"address"];
+    self.city.text = [[NSString stringWithFormat:@"%@ %@", [annotation.content.values objectForKey:@"city"], [annotation.content.values objectForKey:@"prov"]]capitalizedString];;
     [super setAnnotation:annotation];
 }
 

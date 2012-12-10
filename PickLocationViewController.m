@@ -9,11 +9,24 @@
 #import "PickLocationViewController.h"
 #import "AppDelegate.h"
 
+/*
+ 
+ TODO
+ new icons
+ fix close window reclick bug
+ replace image for next button
+ test next button
+ remove old currentlocation pins
+ scroll map list
+ figure out days of week
+ 
+ */
 
 @implementation PickLocationViewController
 {
     NSMutableArray *allBranches;
     CLLocationCoordinate2D homeLoc;
+    NSString *activeBranchId;
     
 }
 //@property (nonatomic, assign) NSMutableArray *allBranches;
@@ -35,6 +48,7 @@
 - (void)viewDidLoad
 { 
     [super viewDidLoad];
+    activeBranchId = @"0";
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
    
@@ -42,7 +56,7 @@
     NSString *notificationName = MAP_NOTIFIER_KEY ;
     
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(useNotificationWithString:) name:notificationName  object:nil];
-    
+     self.nextStep.enabled = NO;
 }
 /*
  
@@ -51,35 +65,40 @@
  */
 
 - (void)useNotificationWithString:(NSNotification*)notification{
-    //select the item  - change the icon
     //mark the table entry and scroll to it
     //enable the next button
     NSString *key = @"BranchId";
     NSDictionary *dictionary = [notification userInfo];
     NSString *branch = [dictionary valueForKey:key];
-    //find the row based on the branch id
-    NSLog(@"Chose %@", branch);
-    
-    [self markBranchAsSelected:branch];
-    [self sortAnnotations];
+    activeBranchId=branch;
     [self.tableView reloadData];
  //   self.tableView scrollToRowAtIndexPath:<#(NSIndexPath *)#> atScrollPosition:<#(UITableViewScrollPosition)#> animated:true
     
     
     
 }
+
+/* unused - bad performance and bad design */
 -(void)markBranchAsSelected:(NSString*)branchId{
     int count = allBranches.count;
+    bool enableNextButton = false;
     for (int j=0; j<count; j++)  // use <= instead of + 1, it's more intuitive
     {
         Annotation *branch = [allBranches objectAtIndex:j];
         NSString *tbranch = [branch.content.values objectForKey:@"branchid"];
         if([tbranch isEqualToString:branchId]){
             branch.selected = true;
+            enableNextButton = true;
         }else{
             branch.selected = false;
         }
         [allBranches replaceObjectAtIndex:j withObject:branch];
+        
+    }
+    if(enableNextButton){
+        self.nextStep.enabled = YES;
+    }else{
+        self.nextStep.enabled = NO;
     }
 }
 
@@ -120,34 +139,18 @@
 
 - (void)plotBanks
 {
-    [self recenterMap];
-
-       
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
-    
-    
     MKCoordinateRegion mapRegion = [self.mapView region];
-    CLLocationCoordinate2D centerLocation = mapRegion.center;
-    
-    // 2
     NSString *jsonFile = [[NSBundle mainBundle] pathForResource:@"branches" ofType:@"json"];
- 
-    
     NSError *error = nil; // This so that we can access the error if something goes wrong
-   
     NSData *jsonData = [NSData dataWithContentsOfFile:jsonFile options:NSDataReadingMappedIfSafe error:&error];
-    
     NSDictionary* json = [NSJSONSerialization
                           JSONObjectWithData:jsonData 
                           options:kNilOptions
                           error:&error];
     
     NSArray* allBranchesJSON = [json objectForKey:@"branches"]; //2
-    
-   // NSLog(@"length: %ld", sizeof(allBranchesJSON));
-   
-    NSMutableArray* myBranches = [[NSMutableArray alloc] initWithCapacity:sizeof(allBranchesJSON)];
    
     
     for (id<MKAnnotation> annotation in mapView.annotations) {
@@ -160,9 +163,10 @@
        
         
         NSNumber *latitude = [branch objectForKey:@"lat"]; 
-        NSNumber *longitude = [branch objectForKey:@"lng"]; 
+        NSNumber *longitude = [branch objectForKey:@"lon"]; 
         NSString *branchId = [branch objectForKey:@"branch"];
-        NSString *name = [branch objectForKey:@"address"];
+        NSString *city = [branch objectForKey:@"city"];
+        NSString *prov= [branch objectForKey:@"prov"];
         NSString *monday = [branch objectForKey:@"monday"];
         NSString *tuesday = [branch objectForKey:@"tuesday"];
         NSString *wednesday = [branch objectForKey:@"wednesday"];
@@ -170,7 +174,6 @@
         NSString *friday = [branch objectForKey:@"friday"];
         NSString *saturday = [branch objectForKey:@"saturday"];
         NSString *sunday = [branch objectForKey:@"sunday"];
-        NSString *province = [branch objectForKey:@"province"];
         NSString *title = [branch objectForKey:@"Branch"];
         NSString *subTitle = [branch objectForKey:@"address"];
         
@@ -189,6 +192,8 @@
         content.coordinate = coordinate;
         content.values = [NSDictionary dictionaryWithObjectsAndKeys:subTitle,@"title",
                                                             address,@"address",
+                                                                city,@"city",
+                                                                prov,@"prov",
                                                             branchId,@"branchid",
                                                               title,@"title",
                                                            subTitle,@"subTitle",
@@ -207,20 +212,18 @@
         
         
         //compute ditances
-               double distance = [MapUtil CalculateDistance:coordinate.latitude nLon1:coordinate.longitude nLat2:homeLoc.latitude nlon2:homeLoc.longitude ];
-        
+        double distance = [MapUtil CalculateDistance:coordinate.latitude nLon1:coordinate.longitude nLat2:homeLoc.latitude nlon2:homeLoc.longitude ];
+        NSLog(@"%f", homeLoc.latitude);
 
         anno.distance = distance;
         anno.mapView = mapView;
 
-       
-        //[self.mapView addAnnotation:location];
         [allBranches addObject:anno];
   	}
     [self sortAnnotations];
 
     [self.mapView addAnnotations:allBranches];
- 
+    [self recenterMap];
   
   
       
@@ -271,8 +274,11 @@
  
     NSUInteger row = [indexPath row];
     Annotation *l = [allBranches objectAtIndex:row];
-    NSString *zname = [l.content.values objectForKey:@"title"];
-    cell.textLabel.text = zname;
+    NSString *zname = [l.content.values objectForKey:@"address"];
+    NSString *zcity= [l.content.values objectForKey:@"city"];
+    NSString *zprov= [l.content.values objectForKey:@"prov"];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@", zname, zcity, zprov];
     
 
     double distance = l.distance;
@@ -280,16 +286,15 @@
     cell.detailTextLabel.text = distanceText ;
     
     //image
-    NSLog(@"Check cell selected value -> %d", l.selected);
-    if(l.selected == true){
+    NSString *branchId = [l.content.values objectForKey:@"branchid"];
+    if([branchId isEqualToString:activeBranchId]){
         cell.imageView.image = [UIImage imageNamed:@"bank.png"];
         cell.textLabel.text = @"ARGOFUCKYOURSELF";
-        NSLog(@"found selected");
+       
+    }else{
+        cell.imageView.image = nil;
     }
-    
-    
-    
-      
+       
     return cell;
     
 }
@@ -431,8 +436,7 @@
         return [((NSObject<AnnotationProtocol>*)annotation) annotationViewInMap:mapView];
         
     } else {
-        NSLog(@"=====Unorthodox=====");
-        // else, return a standard annotation view
+        
         static NSString *viewId = @"HOMEVIEW";
         MKPinAnnotationView *view = (MKPinAnnotationView*) [self.mapView dequeueReusableAnnotationViewWithIdentifier:viewId];
         if (view == nil) {
@@ -441,7 +445,7 @@
         view.enabled = YES;
         view.canShowCallout = YES;
         view.pinColor =MKPinAnnotationColorPurple;
-     //   NSLog(@"Annotation => %", annotation.coordinate. );
+    
         return view;
     }
 }

@@ -31,6 +31,7 @@
 
 @property (strong, nonatomic) IBOutlet MyCalloutView *myCalloutView;
 @property (strong, nonatomic) IBOutlet UITextField *query;
+@property (strong, nonatomic) IBOutlet UIButton *nextStep;
 
  
 - (IBAction)nextStep:(id)sender;

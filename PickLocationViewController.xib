@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1536</int>
-		<string key="IBDocument.SystemVersion">11G63</string>
+		<string key="IBDocument.SystemVersion">12C60</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
-		<string key="IBDocument.AppKitVersion">1138.51</string>
-		<string key="IBDocument.HIToolboxVersion">569.00</string>
+		<string key="IBDocument.AppKitVersion">1187.34</string>
+		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">1930</string>
@@ -377,7 +377,7 @@
 					<object class="IBUITableView" id="208304538">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{20, 214}, {299, 488}}</string>
+						<string key="NSFrame">{{20, 214}, {299, 474}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="627487424"/>
@@ -395,7 +395,7 @@
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC45ODY2OTcxNTQ1IDAuOTkyMTMwNjUxMiAxAA</bytes>
 						</object>
-						<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
+						<int key="IBUISectionIndexMinimumDisplayRowCount">1000</int>
 						<float key="IBUIRowHeight">44</float>
 						<float key="IBUISectionHeaderHeight">22</float>
 						<float key="IBUISectionFooterHeight">22</float>
@@ -453,6 +453,14 @@
 						<reference key="destination" ref="1014321123"/>
 					</object>
 					<int key="connectionID">116</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">nextStep</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="989089343"/>
+					</object>
+					<int key="connectionID">134</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -653,7 +661,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">133</int>
+			<int key="maxID">134</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -707,17 +715,17 @@
 					<string key="className">MyCalloutView</string>
 					<string key="superclassName">CalloutView</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="cancelBank:">id</string>
 						<string key="chooseBank:">id</string>
-						<string key="closePopup:">id</string>
 						<string key="handleTouch:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="chooseBank:">
-							<string key="name">chooseBank:</string>
+						<object class="IBActionInfo" key="cancelBank:">
+							<string key="name">cancelBank:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="closePopup:">
-							<string key="name">closePopup:</string>
+						<object class="IBActionInfo" key="chooseBank:">
+							<string key="name">chooseBank:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="handleTouch:">
@@ -726,13 +734,23 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="address">UILabel</string>
 						<string key="chooseBankButton">UIButton</string>
+						<string key="city">UILabel</string>
 						<string key="title">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="address">
+							<string key="name">address</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="chooseBankButton">
 							<string key="name">chooseBankButton</string>
 							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="city">
+							<string key="name">city</string>
+							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="title">
 							<string key="name">title</string>

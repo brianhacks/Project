@@ -136,6 +136,8 @@
 		9FBDBCD7167437C100BE04E6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FBDBCD6167437C100BE04E6 /* CoreLocation.framework */; };
 		9FBDBCD9167478F900BE04E6 /* PickLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBDBCD8167478F800BE04E6 /* PickLocationViewController.xib */; };
 		9FE0887D16751A5B00428F5E /* HomeLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE0887C16751A5B00428F5E /* HomeLocation.m */; };
+		9FE0888116756D2B00428F5E /* ReviewAndSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE0887F16756D2A00428F5E /* ReviewAndSubmitViewController.m */; };
+		9FE0888216756D2B00428F5E /* ReviewAndSubmitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE0888016756D2A00428F5E /* ReviewAndSubmitViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -304,6 +306,9 @@
 		9FBDBCD8167478F800BE04E6 /* PickLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickLocationViewController.xib; sourceTree = "<group>"; };
 		9FE0887B16751A5B00428F5E /* HomeLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeLocation.h; sourceTree = "<group>"; };
 		9FE0887C16751A5B00428F5E /* HomeLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeLocation.m; sourceTree = "<group>"; };
+		9FE0887E16756D2A00428F5E /* ReviewAndSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewAndSubmitViewController.h; sourceTree = "<group>"; };
+		9FE0887F16756D2A00428F5E /* ReviewAndSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewAndSubmitViewController.m; sourceTree = "<group>"; };
+		9FE0888016756D2A00428F5E /* ReviewAndSubmitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewAndSubmitViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +333,9 @@
 		7023379C1652C56800B87249 = {
 			isa = PBXGroup;
 			children = (
+				9FE0887E16756D2A00428F5E /* ReviewAndSubmitViewController.h */,
+				9FE0887F16756D2A00428F5E /* ReviewAndSubmitViewController.m */,
+				9FE0888016756D2A00428F5E /* ReviewAndSubmitViewController.xib */,
 				9FBDBB691672B96F00BE04E6 /* ThankYou */,
 				9F854C8C16706F31009F9E01 /* admin */,
 				9F90EBAB1670F68F00501F8C /* buttons */,
@@ -821,6 +829,7 @@
 				9F11097B1674E459007E5952 /* mappopover.png in Resources */,
 				9F11097C1674E459007E5952 /* body-5.png in Resources */,
 				9F11097D1674E459007E5952 /* bank-selected.png in Resources */,
+				9FE0888216756D2B00428F5E /* ReviewAndSubmitViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,6 +872,7 @@
 				9FBDBCD0167432EC00BE04E6 /* MapUtil.m in Sources */,
 				9FBDBCD41674342800BE04E6 /* MyCalloutView.m in Sources */,
 				9FE0887D16751A5B00428F5E /* HomeLocation.m in Sources */,
+				9FE0888116756D2B00428F5E /* ReviewAndSubmitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

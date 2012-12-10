@@ -9,6 +9,10 @@
 
 @property (nonatomic, retain) IBOutlet UILabel* title;
 @property (strong, nonatomic) IBOutlet UIButton *chooseBankButton;
+@property (strong, nonatomic) IBOutlet UILabel *address;
+@property (strong, nonatomic) IBOutlet UILabel *city;
+
+- (IBAction)cancelBank:(id)sender;
 
 
 - (IBAction) handleTouch:(id)sender;
