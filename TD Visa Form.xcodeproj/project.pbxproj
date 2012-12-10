@@ -84,6 +84,11 @@
 		9F854C8616703CE5009F9E01 /* banner-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C8416703CE5009F9E01 /* banner-1.png */; };
 		9F854C8A16706F2B009F9E01 /* AdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F854C8816706F2B009F9E01 /* AdminViewController.m */; };
 		9F854C8B16706F2B009F9E01 /* AdminViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C8916706F2B009F9E01 /* AdminViewController.xib */; };
+		9F8F226A1675CC6A004364D2 /* thankyou-body.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F8F22651675CC6A004364D2 /* thankyou-body.png */; };
+		9F8F226B1675CC6A004364D2 /* banner-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F8F22661675CC6A004364D2 /* banner-6.png */; };
+		9F8F226C1675CC6A004364D2 /* bottom-curve.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F8F22671675CC6A004364D2 /* bottom-curve.png */; };
+		9F8F226D1675CC6A004364D2 /* left-shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F8F22681675CC6A004364D2 /* left-shadow.png */; };
+		9F8F226E1675CC6A004364D2 /* right-shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F8F22691675CC6A004364D2 /* right-shadow.png */; };
 		9F90EBD01670F68F00501F8C /* bg-body.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBAC1670F68F00501F8C /* bg-body.png */; };
 		9F90EBD11670F68F00501F8C /* bg-footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBAD1670F68F00501F8C /* bg-footer.png */; };
 		9F90EBD21670F68F00501F8C /* bg-input-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F90EBAE1670F68F00501F8C /* bg-input-active.png */; };
@@ -243,6 +248,11 @@
 		9F854C8716706F2B009F9E01 /* AdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminViewController.h; sourceTree = "<group>"; };
 		9F854C8816706F2B009F9E01 /* AdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminViewController.m; sourceTree = "<group>"; };
 		9F854C8916706F2B009F9E01 /* AdminViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdminViewController.xib; sourceTree = "<group>"; };
+		9F8F22651675CC6A004364D2 /* thankyou-body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "thankyou-body.png"; path = "TD Visa Form/images/thankyou-body.png"; sourceTree = "<group>"; };
+		9F8F22661675CC6A004364D2 /* banner-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-6.png"; path = "TD Visa Form/images/banner-6.png"; sourceTree = "<group>"; };
+		9F8F22671675CC6A004364D2 /* bottom-curve.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-curve.png"; path = "TD Visa Form/images/bottom-curve.png"; sourceTree = "<group>"; };
+		9F8F22681675CC6A004364D2 /* left-shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "left-shadow.png"; path = "TD Visa Form/images/left-shadow.png"; sourceTree = "<group>"; };
+		9F8F22691675CC6A004364D2 /* right-shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "right-shadow.png"; path = "TD Visa Form/images/right-shadow.png"; sourceTree = "<group>"; };
 		9F90EBAC1670F68F00501F8C /* bg-body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-body.png"; sourceTree = "<group>"; };
 		9F90EBAD1670F68F00501F8C /* bg-footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-footer.png"; sourceTree = "<group>"; };
 		9F90EBAE1670F68F00501F8C /* bg-input-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-input-active.png"; sourceTree = "<group>"; };
@@ -641,6 +651,11 @@
 		9F2B90A7166F0588003DD835 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9F8F22651675CC6A004364D2 /* thankyou-body.png */,
+				9F8F22661675CC6A004364D2 /* banner-6.png */,
+				9F8F22671675CC6A004364D2 /* bottom-curve.png */,
+				9F8F22681675CC6A004364D2 /* left-shadow.png */,
+				9F8F22691675CC6A004364D2 /* right-shadow.png */,
 				9F1109781674E459007E5952 /* mappopover.png */,
 				9F1109791674E459007E5952 /* body-5.png */,
 				9F11097A1674E459007E5952 /* bank-selected.png */,
@@ -994,6 +1009,11 @@
 				9F11097D1674E459007E5952 /* bank-selected.png in Resources */,
 				9FE0888216756D2B00428F5E /* ReviewAndSubmitViewController.xib in Resources */,
 				9FF89E75167596180084D3A0 /* login.json in Resources */,
+				9F8F226A1675CC6A004364D2 /* thankyou-body.png in Resources */,
+				9F8F226B1675CC6A004364D2 /* banner-6.png in Resources */,
+				9F8F226C1675CC6A004364D2 /* bottom-curve.png in Resources */,
+				9F8F226D1675CC6A004364D2 /* left-shadow.png in Resources */,
+				9F8F226E1675CC6A004364D2 /* right-shadow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

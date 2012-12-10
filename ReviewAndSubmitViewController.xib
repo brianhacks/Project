@@ -42,7 +42,7 @@
 					<object class="IBUIImageView" id="407646997">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{-6, 0}, {1024, 172}}</string>
+						<string key="NSFrameSize">{1024, 172}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -50,7 +50,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">banner-2.png</string>
+							<string key="NSResourceName">banner-6.png</string>
 						</object>
 					</object>
 					<object class="IBUIView" id="411125220">
@@ -2435,7 +2435,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="banner-2.png">{2047, 340}</string>
+			<string key="banner-6.png">{2048, 337}</string>
 			<string key="btn-done.png">{168, 84}</string>
 			<string key="btn-next-hover.png">{192, 78}</string>
 			<string key="btn-next.png">{192, 78}</string>

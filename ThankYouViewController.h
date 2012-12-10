@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ThankYouViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *referenceNum;
 
 @end
