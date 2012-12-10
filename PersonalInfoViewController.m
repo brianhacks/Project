@@ -614,8 +614,8 @@
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
     
-    
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(17, 170, 990, 420)];
+    //MTK - make sure it fits int he shoadows
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(18, 170, 988, 420)];
     [self.view addSubview:self.accordion];
     
     // Only height is taken into account, so other parameters are just dummy

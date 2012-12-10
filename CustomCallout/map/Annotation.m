@@ -20,7 +20,7 @@
 /** Set coordinate and add itself to the mapview. */
 - (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate
 {
-    NSLog(@"\nOld: %f %f New: %f %f", _coordinate.latitude, _coordinate.longitude, newCoordinate.latitude, newCoordinate.longitude);
+ //   NSLog(@"\nOld: %f %f New: %f %f", _coordinate.latitude, _coordinate.longitude, newCoordinate.latitude, newCoordinate.longitude);
     _coordinate = newCoordinate;
     
     // not sure why or when this happens...

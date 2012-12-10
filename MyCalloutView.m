@@ -33,7 +33,7 @@
     self = [super initWithAnnotation:annotation];
     
     NSString *title = [annotation.content.values objectForKey:@"branchid"];
-    NSLog(@"-------%@",title);
+   
     self.title.text = title;
     
     //set all the other stuff here

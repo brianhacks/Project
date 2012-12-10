@@ -184,10 +184,8 @@
     
     for (NSDictionary *branch in allBranchesJSON) {
         
-         NSString* address = [branch objectForKey:@"address"];
-       
-        
-        NSNumber *latitude = [branch objectForKey:@"lat"]; 
+        NSString* address = [branch objectForKey:@"address"];
+        NSNumber *latitude = [branch objectForKey:@"lat"];
         NSNumber *longitude = [branch objectForKey:@"lon"]; 
         NSString *branchId = [branch objectForKey:@"branch"];
         NSString *city = [branch objectForKey:@"city"];
@@ -202,15 +200,9 @@
         NSString *title = [branch objectForKey:@"Branch"];
         NSString *subTitle = [branch objectForKey:@"address"];
         
-         NSLog(@"bid: %@", branchId);
-        
         CLLocationCoordinate2D coordinate;
-        
         coordinate.latitude = latitude.doubleValue;
         coordinate.longitude = longitude.doubleValue;
-        
-        NSLog(@"first");
-        
         Content *content = [Content new];
         content.iconURL = [[NSBundle mainBundle] URLForResource:@"bank" withExtension:@"png"];
         content.calloutView  = [MyCalloutView class];
@@ -238,8 +230,6 @@
         
         //compute ditances
         double distance = [MapUtil CalculateDistance:coordinate.latitude nLon1:coordinate.longitude nLat2:homeLoc.latitude nlon2:homeLoc.longitude ];
-        NSLog(@"%f", homeLoc.latitude);
-
         anno.distance = distance;
         anno.mapView = mapView;
 
@@ -249,8 +239,6 @@
 
     [self.mapView addAnnotations:allBranches];
     [self recenterMap];
-  
-  
       
 }
 - (void)recomputeDistances{
@@ -314,7 +302,7 @@
     NSString *branchId = [l.content.values objectForKey:@"branchid"];
     if([branchId isEqualToString:activeBranchId]){
         cell.imageView.image = [UIImage imageNamed:@"bank.png"];
-        cell.textLabel.text = @"ARGOFUCKYOURSELF";
+       // cell.textLabel.text = @"ARGOFUCKYOURSELF";
        
     }else{
         cell.imageView.image = nil;
@@ -427,10 +415,10 @@
    
     // delegate the implementation to the annotation view
     if ([view conformsToProtocol:@protocol(AnnotationViewProtocol)]) {
-        NSLog(@"%@ conforms", NSStringFromClass([view class]));
+       // NSLog(@"%@ conforms", NSStringFromClass([view class]));
         [((NSObject<AnnotationViewProtocol>*)view) didSelectAnnotationViewInMap:mapView];
     } else {
-        NSLog(@"%@ DOES NOT conform", NSStringFromClass([view class]));
+    //    NSLog(@"%@ DOES NOT conform", NSStringFromClass([view class]));
     }
 }
 
