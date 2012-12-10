@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "AccordionView.h"
+#import "CDatePickerViewEx.h"
 
 @interface PersonalInfoViewController : UIViewController <UIPopoverControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UIView *thirdHeaderView;
+@property (strong, nonatomic) IBOutlet UIView *formalHomeAddress;
+
+@property (strong, nonatomic) IBOutlet UIButton *timeLivedAtCurrentAddress;
+@property (strong, nonatomic) UIPopoverController* popoverController6;
+@property (strong, nonatomic) UIPickerView *timeLivedAtCurrentAddressPicker;
+@property (strong, nonatomic) NSArray* monthsLivedArray;
+@property (strong, nonatomic) NSArray* yearsLivedArray;
+
 
 @property (strong, nonatomic) IBOutlet UIButton *nextStepButton;
 
@@ -79,6 +89,7 @@
 - (IBAction)showPrivacy:(id)sender;
 - (IBAction)showLegal:(id)sender;
 - (IBAction)showSecurity:(id)sender;
+- (IBAction)choseHowLongYouLivedAtCurrentAddress:(id)sender;
 
 
 @end

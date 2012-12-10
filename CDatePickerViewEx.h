@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CDatePickerViewEx : UIPickerView
+@interface CDatePickerViewEx : UIPickerView <UIPickerViewDelegate, UIPickerViewDataSource>
+
+@property (nonatomic, strong, readonly) NSDate *date;
+-(void)selectToday;
 
 @end

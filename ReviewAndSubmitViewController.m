@@ -28,6 +28,9 @@
 - (void)viewDidLoad
 {
     
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.view.backgroundColor = background;
+    
     self.userInfo = nil;
     
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
@@ -55,12 +58,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(12, 172, 988, 520)];
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(19, 172, 988, 520)];
     [self.view addSubview:self.accordion];
     
     // Only height is taken into account, so other parameters are just dummy
     self.firstVIew = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.firstVIew.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    self.firstVIew.backgroundColor = background;
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
@@ -133,7 +136,8 @@
 - (void)changeFirstHeaderHeightAndAddInfo
 {
     self.firstVIew.frame = CGRectMake(self.firstVIew.frame.origin.x, self.firstVIew.frame.origin.y, self.firstVIew.frame.size.width, self.firstVIew.frame.size.height + 50);
-    self.firstVIew.backgroundColor = [UIColor colorWithRed:1. green:0. blue:0. alpha:0.3];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.firstVIew.backgroundColor = background;
     
     for (UILabel *tmpLabel in [self.firstVIew subviews]) {
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
@@ -190,7 +194,8 @@
 - (void)changeSecondHeaderHeightAndAddInfo
 {
     self.secondView.frame = CGRectMake(self.secondView.frame.origin.x, self.secondView.frame.origin.y, self.secondView.frame.size.width, self.secondView.frame.size.height + 50);
-    self.secondView.backgroundColor = [UIColor colorWithRed:0. green:1. blue:0. alpha:0.3];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.secondView.backgroundColor = background;
     
     for (UILabel *tmpLabel in [self.secondView subviews]) {
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
@@ -237,10 +242,19 @@
 - (void)changeThirdHeaderHeightAndAddInfo
 {
     self.firstHeaderView.frame = CGRectMake(self.firstHeaderView.frame.origin.x, self.firstHeaderView.frame.origin.y, self.firstHeaderView.frame.size.width, self.firstHeaderView.frame.size.height + 50);
-    self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0. green:0. blue:1. alpha:0.3];
+    
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.firstHeaderView.backgroundColor = background;
     
     for (UILabel *tmpLabel in [self.firstHeaderView subviews]) {
-        tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+        
+        if ([tmpLabel isKindOfClass:[UILabel class]]) {
+        
+            tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+            
+        }
+        
+        
     }
     
     self.editThirdView = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -273,7 +287,8 @@
 - (void)changeForthHeaderHeightAndAddInfo
 {
     self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height + 50);
-    self.secondHeaderView.backgroundColor = [UIColor colorWithRed:1. green:0. blue:0. alpha:0.3];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.secondHeaderView.backgroundColor = background;
     
     for (UILabel *tmpLabel in [self.secondHeaderView subviews]) {
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
@@ -319,7 +334,8 @@
 - (void)changeFifthHeaderHeightAndAddInfo
 {
     self.thirdHeaderView.frame = CGRectMake(self.thirdHeaderView.frame.origin.x, self.thirdHeaderView.frame.origin.y, self.thirdHeaderView.frame.size.width, self.thirdHeaderView.frame.size.height + 50);
-    self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0. green:1. blue:0. alpha:0.3];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.thirdHeaderView.backgroundColor = background;
     
     for (UILabel *tmpLabel in [self.thirdHeaderView subviews]) {
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
@@ -364,6 +380,14 @@
 - (void)editFirstViewAction:(id)sender
 {
    
+    self.firstNameTextfield.text = self.userInfo.firstName;
+    self.lastnameTextField.text = self.userInfo.lastName;
+    self.primaryPhonenumberTextField.text = self.userInfo.primaryPhone;
+    self.titleButton.titleLabel.text = self.userInfo.title;
+    self.genderButton.titleLabel.text = self.userInfo.gender;
+    self.languageOfCorespondaceButton.titleLabel.text = self.userInfo.languagOfCorespondace;
+
+    
     [self.accordion setSelectedIndex:0];
     
     self.editFirstView.enabled = NO;
@@ -389,7 +413,7 @@
         self.firstVIew.frame = CGRectMake(self.firstVIew.frame.origin.x, self.firstVIew.frame.origin.y, self.firstVIew.frame.size.width, self.firstVIew.frame.size.height + 50);
         
     }
-    
+//    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.firstVIew.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
@@ -406,6 +430,26 @@
 
 - (void)editSecondViewAction:(id)sender
 {
+    
+    self.currentHomeAddress.text = self.userInfo.street;
+    self.postalCode.text = self.userInfo.postalCode;
+    self.cityTextfield.text = self.userInfo.city;
+    self.provinceButton.titleLabel.text = self.userInfo.province;
+    self.residentialStatusButton.titleLabel.text = self.userInfo.resincialStatus;
+    self.totalMontlyCostsTextfield.text = self.userInfo.monthlyHouseCosts;
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+	df.dateStyle = NSDateFormatterMediumStyle;
+	NSLog(@"%@",self.userInfo.addressYearsAndMonths);
+    NSDateFormatter *formatter;
+    NSString        *dateString;
+    
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM dd, yyyy"];
+    
+    dateString = [formatter stringFromDate:self.userInfo.addressYearsAndMonths];
+    
+    self.yearsAndMontsButton.titleLabel.text = dateString;
     
     self.editFirstView.enabled = NO;
     self.editSecondView.enabled = NO;
@@ -431,7 +475,7 @@
         self.secondView.frame = CGRectMake(self.secondView.frame.origin.x, self.secondView.frame.origin.y, self.secondView.frame.size.width, self.secondView.frame.size.height + 50);
         
     }
-    
+//    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.secondView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
@@ -449,6 +493,9 @@
 
 - (void)editThirdViewAction:(id)sender
 {
+    
+    self.currentOccupation.titleLabel.text = self.userInfo.currentOcupation;
+    self.currentEmploymentStatus.titleLabel.text = self.userInfo.employmentStatus;
     
     self.editFirstView.enabled = NO;
     self.editSecondView.enabled = NO;
@@ -475,6 +522,7 @@
         
     }
     
+//    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
@@ -491,6 +539,27 @@
 
 - (void)editForthViewAction:(id)sender
 {
+    
+    self.employerNametextField.text = self.userInfo.employerName;
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+	df.dateStyle = NSDateFormatterMediumStyle;
+	NSLog(@"%@",self.userInfo.addressYearsAndMonths);
+    NSDateFormatter *formatter;
+    NSString        *dateString;
+    
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM dd, yyyy"];
+    
+    dateString = [formatter stringFromDate:self.userInfo.startDateForWork];
+    
+    self.employmentStatDate.titleLabel.text = dateString;
+    self.employerStreetAddress.text = self.userInfo.employerStreetAddress;
+    self.employerProvince.titleLabel.text = self.userInfo.employerProvince;
+    self.employerCity.text = self.userInfo.employerCity;
+    
+    
+    
     
     self.editFirstView.enabled = NO;
     self.editSecondView.enabled = NO;
@@ -517,6 +586,7 @@
         
     }
     
+//    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
@@ -533,6 +603,11 @@
 
 - (void)editFifthViewAction:(id)sender
 {
+    
+    self.creditLimitButton.titleLabel.text = self.userInfo.requestedCreditLimit;
+    self.grossAnualIncome.text = self.userInfo.grossAnualIncome;
+    self.householdIncome.text = self.userInfo.householdIncome;
+    
     self.editFirstView.enabled = NO;
     self.editSecondView.enabled = NO;
     self.editThirdView.enabled = NO;
@@ -558,7 +633,8 @@
         
     }
     
-    self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+//    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
@@ -584,7 +660,8 @@
     self.editForthView.enabled = YES;
     self.editFifthView.enabled = YES;
     self.firstViewOpen = NO;
-    self.firstVIew.backgroundColor = [UIColor colorWithRed:1. green:0. blue:0. alpha:0.3];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.firstVIew.backgroundColor = background;
     
     [self changeFirstHeaderHeightAndAddInfo];
     
@@ -600,7 +677,8 @@
     self.editForthView.enabled = YES;
     self.editFifthView.enabled = YES;
     self.secondViewOpen = NO;
-    self.secondView.backgroundColor = [UIColor colorWithRed:0. green:1. blue:0. alpha:0.3];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.secondView.backgroundColor = background;
     
     [self changeSecondHeaderHeightAndAddInfo];
     
@@ -617,7 +695,8 @@
     self.editForthView.enabled = YES;
     self.editFifthView.enabled = YES;
     self.thirdViewOpen = NO;
-    self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0. green:0. blue:1. alpha:0.3];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.firstHeaderView.backgroundColor = background;
     
     [self changeThirdHeaderHeightAndAddInfo];
     
@@ -634,9 +713,10 @@
     self.editForthView.enabled = YES;
     self.editFifthView.enabled = YES;
     self.forthViewOpen = NO;
-    self.secondHeaderView.backgroundColor = [UIColor colorWithRed:1. green:0. blue:0. alpha:0.3];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.secondHeaderView.backgroundColor = background;
     
-    [self changeThirdHeaderHeightAndAddInfo];
+    [self changeForthHeaderHeightAndAddInfo];
     
     [self.accordion setSelectedIndex:10];
     [self.accordion setNeedsDisplay];
@@ -651,9 +731,10 @@
     self.editForthView.enabled = YES;
     self.editFifthView.enabled = YES;
     self.fifthViewOpen = NO;
-    self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0. green:1. blue:0. alpha:0.3];
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.thirdHeaderView.backgroundColor = background;
     
-    [self changeThirdHeaderHeightAndAddInfo];
+    [self changeFifthHeaderHeightAndAddInfo];
     
     [self.accordion setSelectedIndex:10];
     [self.accordion setNeedsDisplay];
