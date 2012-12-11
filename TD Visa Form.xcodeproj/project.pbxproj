@@ -57,6 +57,7 @@
 		9F0C3909166FC98F009C8297 /* Frutiger in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C3908166FC98F009C8297 /* Frutiger */; };
 		9F0CE3841676C35B00117F1D /* banner-3b.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0CE3821676C35B00117F1D /* banner-3b.png */; };
 		9F0CE3851676C35B00117F1D /* banner-3a.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0CE3831676C35B00117F1D /* banner-3a.png */; };
+		9F0CE3AB1676E3A700117F1D /* AdminGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0CE3AA1676E3A700117F1D /* AdminGraph.m */; };
 		9F11097B1674E459007E5952 /* mappopover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1109781674E459007E5952 /* mappopover.png */; };
 		9F11097C1674E459007E5952 /* body-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1109791674E459007E5952 /* body-5.png */; };
 		9F11097D1674E459007E5952 /* bank-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F11097A1674E459007E5952 /* bank-selected.png */; };
@@ -225,6 +226,8 @@
 		9F0C3908166FC98F009C8297 /* Frutiger */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Frutiger; sourceTree = "<group>"; };
 		9F0CE3821676C35B00117F1D /* banner-3b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-3b.png"; path = "images/banner-3b.png"; sourceTree = "<group>"; };
 		9F0CE3831676C35B00117F1D /* banner-3a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-3a.png"; path = "images/banner-3a.png"; sourceTree = "<group>"; };
+		9F0CE3A91676E3A700117F1D /* AdminGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminGraph.h; sourceTree = "<group>"; };
+		9F0CE3AA1676E3A700117F1D /* AdminGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminGraph.m; sourceTree = "<group>"; };
 		9F1109781674E459007E5952 /* mappopover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mappopover.png; path = "TD Visa Form/images/mappopover.png"; sourceTree = "<group>"; };
 		9F1109791674E459007E5952 /* body-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "body-5.png"; path = "TD Visa Form/images/body-5.png"; sourceTree = "<group>"; };
 		9F11097A1674E459007E5952 /* bank-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bank-selected.png"; path = "TD Visa Form/images/bank-selected.png"; sourceTree = "<group>"; };
@@ -702,6 +705,8 @@
 				9F854C8716706F2B009F9E01 /* AdminViewController.h */,
 				9F854C8816706F2B009F9E01 /* AdminViewController.m */,
 				9F854C8916706F2B009F9E01 /* AdminViewController.xib */,
+				9F0CE3A91676E3A700117F1D /* AdminGraph.h */,
+				9F0CE3AA1676E3A700117F1D /* AdminGraph.m */,
 			);
 			name = admin;
 			sourceTree = "<group>";
@@ -1077,6 +1082,7 @@
 				9FE0888116756D2B00428F5E /* ReviewAndSubmitViewController.m in Sources */,
 				707DFA3916765D770079FA72 /* CDatePickerViewEx.m in Sources */,
 				9FBFF2FF1676A3BF0002B701 /* Log.m in Sources */,
+				9F0CE3AB1676E3A700117F1D /* AdminGraph.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

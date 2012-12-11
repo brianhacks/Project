@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "CorePlot-CocoaTouch.h"
-@interface AdminViewController : UIViewController <CPTPlotDataSource, UIActionSheetDelegate>
-{
-    CPTXYGraph *graph;
+#import "AdminGraph.h"
+
+@interface AdminViewController : UIViewController {
+    IBOutlet CPTGraphHostingView *_graphHostingView;
+    AdminGraph *_scatterPlot;
 }
+
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, retain) AdminGraph *scatterPlot;
+
 - (IBAction)clearUserData:(id)sender;
 - (IBAction)exportData:(id)sender;
-
--(void)initPlot;
--(void)configureHost;
--(void)configureGraph;
--(void)configureChart;
--(void)configureLegend;
 
 @end
 

@@ -7,18 +7,16 @@
 //
 
 #import "AdminViewController.h"
-
-@interface AdminViewController ()
-
-@property (nonatomic, strong) CPTGraphHostingView *hostView;
-@property (nonatomic, strong) CPTTheme *selectedTheme;
+#import "sqlite3.h"
+#import "Log.h"
+#import "AppDelegate.h"
+@interface AdminViewController (){
+}
 
 @end
 
 @implementation AdminViewController
-
-@synthesize hostView = hostView_;
-@synthesize selectedTheme = selectedTheme_;
+@synthesize managedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,14 +27,64 @@
     return self;
 }
 
+/*
+TO DO
+ 
+1. Export Reports to device - make sure all data is wiped from dir before export
+2. Fix graph to have normal coordinate labels
+
+ 
+*/
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self initPlot]; 
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Log" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"hour", @"count", nil];
+    for (NSManagedObject *info in fetchedObjects) {
+        NSLog(@"Name: %@", [info valueForKey:@"createdAt"]);
+        NSString *key = [info valueForKey:@"createdAt"];
+        
+        NSString *s_count = [[NSString alloc] init];
+        int count;
+        //Refactor me
+        if ([data objectForKey:key]) {
+            NSLog(@"There's an object set for key @\"b\"!");
+            NSString *currentCount = [data valueForKey:key];
+            int count = [currentCount intValue];
+            count++;
+        } else {
+            NSLog(@"No object set for key @\"b\"");
+            count = 1;
+            
+        }
+       [data setObject:[NSString stringWithFormat:@"%d", count] forKey:key];
+        
+    }
+   
+    NSMutableArray *gData = [NSMutableArray array];
+    for (NSString *key in data){
+        id value = [data objectForKey:key];
+        int y = [value intValue];
+        int x = [key intValue];
+        NSLog(@"----%d", x);
+
+        [gData addObject:[NSValue valueWithCGPoint:CGPointMake(x, y)]];
+    }
+      
+    self.scatterPlot = [[AdminGraph alloc] initWithHostingView:_graphHostingView andData:gData];
+    [self.scatterPlot initialisePlot];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +94,38 @@
 }
 - (IBAction)clearUserData:(id)sender {
 //empty the database after an ok cancel prompt
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete all the records? This cannot be undone." message:@"Confirm Delete" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"DELETE",nil];
+    [alert show];
     
+}
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+        if (buttonIndex == 0) {
+            NSLog(@"Cancel Tapped.");
+        }
+        else if (buttonIndex == 1) {
+    
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+            NSManagedObjectContext *context = [appDelegate managedObjectContext];
+            NSError *error;
+            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+            NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"User" inManagedObjectContext:context];
+    
+            [fetchRequest setEntity:entity];
+            NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+            for (NSManagedObject *obj in fetchedObjects) {
+                NSLog(@"found a record to delete!");
+                [context deleteObject:obj];
+              
+                
+            }
+            if(![context save:&error])
+            {
+                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            }
+        
+        }
 }
 
 - (IBAction)exportData:(id)sender {
@@ -57,106 +136,8 @@
 }
 
 
-#pragma mark - Chart behavior
-
--(void)initPlot {
-    [self configureHost];
-    [self configureGraph];
-    [self configureChart];
-    [self configureLegend];
-}
-
--(void)configureHost {
-    CGRect parentRect = self.view.bounds;
-    //CGSize toolbarSize = self.toolbar.bounds.size;
-    parentRect = CGRectMake(parentRect.origin.x + 300,
-                            (parentRect.origin.y + 100 ),
-                            parentRect.size.width -300,
-                            (parentRect.size.height -100 ));
-    // 2 - Create host view
-    self.hostView = [(CPTGraphHostingView *) [CPTGraphHostingView alloc] initWithFrame:parentRect];
-    self.hostView.allowPinchScaling = NO;
-    [self.view addSubview:self.hostView];
-}
-
--(void)configureGraph {
-   
-    // 1 - Create and initialize graph
-    CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
-    self.hostView.hostedGraph = graph;
-    graph.paddingLeft = 0.0f;
-    graph.paddingTop = 0.0f;
-    graph.paddingRight = 0.0f;
-    graph.paddingBottom = 0.0f;
-    graph.axisSet = nil;
-    // 2 - Set up text style
-    CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
-    
-    textStyle.color = [CPTColor grayColor];
-    textStyle.fontName = @"Helvetica-Bold";
-    textStyle.fontSize = 16.0f;
-    // 3 - Configure title
-    NSString *title = @"Device Traffic";
-    
-    graph.title = title;
-    
-    graph.titleTextStyle = textStyle;
-   
-    graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
-    graph.titleDisplacement = CGPointMake(0.0f, -12.0f);
-      
-    // 4 - Set theme
-    self.selectedTheme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
-    [graph applyTheme:self.selectedTheme];
-   
-}
-
--(void)configureChart {
-    // 1 - Get reference to graph
-    CPTGraph *graph = self.hostView.hostedGraph;
-    // 2 - Create chart
-    CPTPieChart *pieChart = [[CPTPieChart alloc] init];
-    pieChart.dataSource = self;
-    pieChart.delegate = self;
-    pieChart.pieRadius = (self.hostView.bounds.size.height * 0.7) / 2;
-    pieChart.identifier = graph.title;
-    pieChart.startAngle = M_PI_4;
-    pieChart.sliceDirection = CPTPieDirectionClockwise;
-    // 3 - Create gradient
-    CPTGradient *overlayGradient = [[CPTGradient alloc] init];
-    overlayGradient.gradientType = CPTGradientTypeRadial;
-    overlayGradient = [overlayGradient addColorStop:[[CPTColor blackColor] colorWithAlphaComponent:0.0] atPosition:0.9];
-    overlayGradient = [overlayGradient addColorStop:[[CPTColor blackColor] colorWithAlphaComponent:0.4] atPosition:1.0];
-    pieChart.overlayFill = [CPTFill fillWithGradient:overlayGradient];
-    // 4 - Add chart to graph    
-    [graph addPlot:pieChart];
-    
-}
-
--(void)configureLegend {
-}
 
 
 
-#pragma mark - CPTPlotDataSource methods
--(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
-    return 0;
-}
-
--(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
-    return 0;
-}
-
--(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index {
-    return nil;
-}
-
--(NSString *)legendTitleForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)index {
-    return @"Stuff";
-}
-
-#pragma mark - UIActionSheetDelegate methods
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-}
 
 @end
