@@ -167,7 +167,7 @@
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
     MKCoordinateRegion mapRegion = [self.mapView region];
-    NSString *jsonFile = [[NSBundle mainBundle] pathForResource:@"branches" ofType:@"json"];
+    NSString *jsonFile = [[NSBundle mainBundle] pathForResource:@"branches_prod" ofType:@"json"];
     NSError *error = nil; // This so that we can access the error if something goes wrong
     NSData *jsonData = [NSData dataWithContentsOfFile:jsonFile options:NSDataReadingMappedIfSafe error:&error];
     NSDictionary* json = [NSJSONSerialization
@@ -182,14 +182,21 @@
         [mapView removeAnnotation:annotation];
     }
     
+    /*
+     TransitNum":"0040","Address":"1213 OXFORD ST W","City":"LONDON","Postal":"N6H1V8","Province":"ON","Mon":"8:00-8:00","Tue":"8:00-8:00","wed":"8:00-8:00","Thu":"8:00-8:00","Fri":"8:00-8:00","Sat":"8:00-4:00","Sun":"CLOSED","Record Type":"(519)471-5500","undefined":"B","lat":42.9748529,"lon":-81.324202}
+     */
+    
     for (NSDictionary *branch in allBranchesJSON) {
-        
+       
         NSString* address = [branch objectForKey:@"address"];
+       
         NSNumber *latitude = [branch objectForKey:@"lat"];
         NSNumber *longitude = [branch objectForKey:@"lon"]; 
-        NSString *branchId = [branch objectForKey:@"branch"];
+        NSString *branchId = [branch objectForKey:@"TransitNum"];
         NSString *city = [branch objectForKey:@"city"];
         NSString *prov= [branch objectForKey:@"prov"];
+        NSString *postal= [branch objectForKey:@"postal"];
+        
         NSString *monday = [branch objectForKey:@"monday"];
         NSString *tuesday = [branch objectForKey:@"tuesday"];
         NSString *wednesday = [branch objectForKey:@"wednesday"];
@@ -197,9 +204,8 @@
         NSString *friday = [branch objectForKey:@"friday"];
         NSString *saturday = [branch objectForKey:@"saturday"];
         NSString *sunday = [branch objectForKey:@"sunday"];
-        NSString *title = [branch objectForKey:@"Branch"];
-        NSString *subTitle = [branch objectForKey:@"address"];
-        
+        NSString *title = [branch objectForKey:@"Transit"];
+       
         CLLocationCoordinate2D coordinate;
         coordinate.latitude = latitude.doubleValue;
         coordinate.longitude = longitude.doubleValue;
@@ -207,15 +213,14 @@
         content.iconURL = [[NSBundle mainBundle] URLForResource:@"bank" withExtension:@"png"];
         content.calloutView  = [MyCalloutView class];
         content.coordinate = coordinate;
-        content.values = [NSDictionary dictionaryWithObjectsAndKeys:subTitle,@"title",
-                                                            address,@"address",
+        content.values = [NSDictionary dictionaryWithObjectsAndKeys:address,@"address",
                                                                 city,@"city",
                                                                 prov,@"prov",
+                                                             postal,@"postal",
                                                             branchId,@"branchid",
                                                               title,@"title",
-                                                           subTitle,@"subTitle",
-                                                         coordinate,@"coordinate",
-                                                             branch,@"branchId",
+                                                        coordinate,@"coordinate",
+                                                            branchId,@"branchId",
                                                              monday,@"monday",
                                                             tuesday,@"tuesday",
                                                           wednesday,@"wednesday",
@@ -266,8 +271,6 @@
             return (NSComparisonResult)NSOrderedSame;
             
         }];
-
-
 }
 
 
@@ -328,7 +331,7 @@
 - (IBAction)nextStep:(id)sender
 {
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    
+    [appDelegate addInfoToUser:activeBranchId andFieldToAddItTo:@"branchNumber"];
     [appDelegate setNewRootView:appDelegate.reviewAndSubmitViewController];
     
 }

@@ -13,6 +13,7 @@
 @interface User : NSManagedObject
 
 @property (nonatomic, retain) NSString * card;
+@property (nonatomic, retain) NSString * bankNumber;
 @property (nonatomic, retain) NSDate * birthDate;
 @property (nonatomic, retain) NSNumber * bankrupcy;
 @property (nonatomic, retain) NSNumber * canadianResident;

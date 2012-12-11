@@ -80,7 +80,7 @@
     //for debug mode only
     self.window.rootViewController = self.navController;
     
-     self.window.rootViewController = self.thankYouViewController;
+     self.window.rootViewController = self.pickLocationViewController;
   //  self.window.rootViewController = self.firstScreenSaverViewController;
     // self.window.rootViewController = self.personalInfoViewController;
     

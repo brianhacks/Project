@@ -13,6 +13,7 @@
 
 @dynamic title;
 @dynamic card;
+@dynamic bankNumber;
 @dynamic birthDate;
 @dynamic bankrupcy;
 @dynamic canadianResident;
