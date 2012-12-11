@@ -55,6 +55,8 @@
 		9F0C3905166FB812009C8297 /* select.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C3904166FB812009C8297 /* select.png */; };
 		9F0C3907166FB9DB009C8297 /* banner-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C3906166FB9DB009C8297 /* banner-2.png */; };
 		9F0C3909166FC98F009C8297 /* Frutiger in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C3908166FC98F009C8297 /* Frutiger */; };
+		9F0CE3841676C35B00117F1D /* banner-3b.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0CE3821676C35B00117F1D /* banner-3b.png */; };
+		9F0CE3851676C35B00117F1D /* banner-3a.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0CE3831676C35B00117F1D /* banner-3a.png */; };
 		9F11097B1674E459007E5952 /* mappopover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1109781674E459007E5952 /* mappopover.png */; };
 		9F11097C1674E459007E5952 /* body-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1109791674E459007E5952 /* body-5.png */; };
 		9F11097D1674E459007E5952 /* bank-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F11097A1674E459007E5952 /* bank-selected.png */; };
@@ -141,6 +143,7 @@
 		9FBDBCD51674342800BE04E6 /* MyCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBDBCD31674342800BE04E6 /* MyCalloutView.xib */; };
 		9FBDBCD7167437C100BE04E6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FBDBCD6167437C100BE04E6 /* CoreLocation.framework */; };
 		9FBDBCD9167478F900BE04E6 /* PickLocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBDBCD8167478F800BE04E6 /* PickLocationViewController.xib */; };
+		9FBFF2FF1676A3BF0002B701 /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBFF2FE1676A3BF0002B701 /* Log.m */; };
 		9FE0887D16751A5B00428F5E /* HomeLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE0887C16751A5B00428F5E /* HomeLocation.m */; };
 		9FE0888116756D2B00428F5E /* ReviewAndSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE0887F16756D2A00428F5E /* ReviewAndSubmitViewController.m */; };
 		9FE0888216756D2B00428F5E /* ReviewAndSubmitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE0888016756D2A00428F5E /* ReviewAndSubmitViewController.xib */; };
@@ -220,6 +223,8 @@
 		9F0C3904166FB812009C8297 /* select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = select.png; path = "TD Visa Form/images/select.png"; sourceTree = "<group>"; };
 		9F0C3906166FB9DB009C8297 /* banner-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-2.png"; path = "TD Visa Form/images/banner-2.png"; sourceTree = "<group>"; };
 		9F0C3908166FC98F009C8297 /* Frutiger */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Frutiger; sourceTree = "<group>"; };
+		9F0CE3821676C35B00117F1D /* banner-3b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-3b.png"; path = "images/banner-3b.png"; sourceTree = "<group>"; };
+		9F0CE3831676C35B00117F1D /* banner-3a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-3a.png"; path = "images/banner-3a.png"; sourceTree = "<group>"; };
 		9F1109781674E459007E5952 /* mappopover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mappopover.png; path = "TD Visa Form/images/mappopover.png"; sourceTree = "<group>"; };
 		9F1109791674E459007E5952 /* body-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "body-5.png"; path = "TD Visa Form/images/body-5.png"; sourceTree = "<group>"; };
 		9F11097A1674E459007E5952 /* bank-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bank-selected.png"; path = "TD Visa Form/images/bank-selected.png"; sourceTree = "<group>"; };
@@ -319,6 +324,8 @@
 		9FBDBCD31674342800BE04E6 /* MyCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCalloutView.xib; sourceTree = "<group>"; };
 		9FBDBCD6167437C100BE04E6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9FBDBCD8167478F800BE04E6 /* PickLocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickLocationViewController.xib; sourceTree = "<group>"; };
+		9FBFF2FD1676A3BF0002B701 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
+		9FBFF2FE1676A3BF0002B701 /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Log.m; sourceTree = "<group>"; };
 		9FE0887B16751A5B00428F5E /* HomeLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeLocation.h; sourceTree = "<group>"; };
 		9FE0887C16751A5B00428F5E /* HomeLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeLocation.m; sourceTree = "<group>"; };
 		9FE0887E16756D2A00428F5E /* ReviewAndSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewAndSubmitViewController.h; sourceTree = "<group>"; };
@@ -485,6 +492,10 @@
 				702337BC1652C56800B87249 /* AppDelegate.h */,
 				702337BD1652C56800B87249 /* AppDelegate.m */,
 				702337C51652C56800B87249 /* TD_Visa_Form.xcdatamodeld */,
+				9F0CE3821676C35B00117F1D /* banner-3b.png */,
+				9F0CE3831676C35B00117F1D /* banner-3a.png */,
+				9FBFF2FD1676A3BF0002B701 /* Log.h */,
+				9FBFF2FE1676A3BF0002B701 /* Log.m */,
 				70CB8F3B1666933400DC2E70 /* User.h */,
 				70CB8F3C1666933400DC2E70 /* User.m */,
 				702337B41652C56800B87249 /* Supporting Files */,
@@ -1019,6 +1030,8 @@
 				9F8F226C1675CC6A004364D2 /* bottom-curve.png in Resources */,
 				9F8F226D1675CC6A004364D2 /* left-shadow.png in Resources */,
 				9F8F226E1675CC6A004364D2 /* right-shadow.png in Resources */,
+				9F0CE3841676C35B00117F1D /* banner-3b.png in Resources */,
+				9F0CE3851676C35B00117F1D /* banner-3a.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1063,6 +1076,7 @@
 				9FE0887D16751A5B00428F5E /* HomeLocation.m in Sources */,
 				9FE0888116756D2B00428F5E /* ReviewAndSubmitViewController.m in Sources */,
 				707DFA3916765D770079FA72 /* CDatePickerViewEx.m in Sources */,
+				9FBFF2FF1676A3BF0002B701 /* Log.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

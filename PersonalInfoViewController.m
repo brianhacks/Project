@@ -615,7 +615,7 @@
     self.view.backgroundColor = background;
     
     //MTK - make sure it fits int he shoadows
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(18, 170, 988, 420)];
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(18, 170, 987, 420)];
     [self.view addSubview:self.accordion];
     
     // Only height is taken into account, so other parameters are just dummy

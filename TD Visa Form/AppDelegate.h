@@ -52,6 +52,7 @@
 - (void)setNewRootView:(UIViewController *)controller;
 - (void)backOneView;
 - (User*)getUser;
+- (void)addEntryToLog;
 - (void)addInfoToUser:(id)info andFieldToAddItTo:(NSString *)_field;
 - (void)addBOOLInfoToUser:(BOOL)info andFieldToAddItTo:(NSString *)_field;
 

@@ -18,6 +18,7 @@
 #import "AdminViewController.h"
 #import "ThankYouViewController.h"
 #import "User.h"
+#import "Log.h"
 
 @interface AppDelegate ()
 
@@ -31,10 +32,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    
-    
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -53,25 +50,26 @@
     self.pickLocationViewController = [[PickLocationViewController alloc] initWithNibName:@"PickLocationViewController" bundle:nil];
     self.reviewAndSubmitViewController = [[ReviewAndSubmitViewController alloc] initWithNibName:@"ReviewAndSubmitViewController" bundle:nil];
     self.thankYouViewController = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
-    
-    
-    
     self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeCreate];
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
 //    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
     
-    
-    
     [self.navController setNavigationBarHidden:YES animated:YES];
     
     NSManagedObjectContext* context = [self managedObjectContext];
-    
+    NSManagedObjectContext* context2 = [self managedObjectContext];
     NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
     
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
+    
+    NSEntityDescription* log = [NSEntityDescription entityForName:@"Log" inManagedObjectContext:context2];
+    [fetchRequest setEntity:log];
+    
+    
+    
 //    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:nil];
     
  //   [[UILabel appearance] setFont:[UIFont fontWithName:@"FrutiCn" size:17.0]];
@@ -83,8 +81,8 @@
     self.window.rootViewController = self.navController;
     
   //   self.window.rootViewController = self.adminViewController;
-   // self.window.rootViewController = self.firstScreenSaverViewController;
-     self.window.rootViewController = self.personalInfoViewController;
+    self.window.rootViewController = self.firstScreenSaverViewController;
+    // self.window.rootViewController = self.personalInfoViewController;
     
     
     [self.window makeKeyAndVisible];
@@ -92,6 +90,35 @@
     
     return YES;
 }
+
+- (void)addEntryToLog
+{
+    
+    Log *logInfo = nil;
+    
+    NSManagedObjectContext* context = [self managedObjectContext];
+    
+        logInfo = [[Log alloc] initWithEntity:[NSEntityDescription entityForName:@"Log" inManagedObjectContext:[self managedObjectContext]] insertIntoManagedObjectContext:[self managedObjectContext]];
+    NSDate *theDate  = [[NSDate date] init];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:theDate];
+    NSString *hour =  [NSString stringWithFormat:@"%d", [components hour] ];
+    
+    
+    [logInfo setCreatedAt:hour]; 
+   
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Log" inManagedObjectContext:context];
+    NSError* error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+    NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    entity = [NSEntityDescription entityForName:@"Log" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+}
+
 
 
 

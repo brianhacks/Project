@@ -196,6 +196,7 @@
 								<string key="NSFrame">{{919, 14}, {105, 46}}</string>
 								<reference key="NSSuperview" ref="182119811"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -355,6 +356,7 @@
 						<string key="NSFrame">{{908, 114}, {82, 44}}</string>
 						<reference key="NSSuperview" ref="439640075"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -501,6 +503,7 @@
 						<string key="NSFrame">{{866, 151}, {79, 43}}</string>
 						<reference key="NSSuperview" ref="115148061"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -740,6 +743,7 @@
 						<string key="NSFrame">{{904, 237}, {75, 44}}</string>
 						<reference key="NSSuperview" ref="481431553"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="227975922"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -780,7 +784,7 @@
 					<object class="IBUILabel" id="700263147">
 						<reference key="NSNextResponder" ref="481431553"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 89}, {171, 30}}</string>
+						<string key="NSFrame">{{25, 89}, {171, 30}}</string>
 						<reference key="NSSuperview" ref="481431553"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="438366699"/>
@@ -848,7 +852,7 @@
 							<object class="IBUILabel" id="232326221">
 								<reference key="NSNextResponder" ref="529300147"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 20}, {376, 107}}</string>
+								<string key="NSFrame">{{23, 20}, {376, 107}}</string>
 								<reference key="NSSuperview" ref="529300147"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="535480172"/>
@@ -869,7 +873,7 @@
 								<double key="preferredMaxLayoutWidth">376</double>
 							</object>
 						</array>
-						<string key="NSFrame">{{20, 126}, {416, 147}}</string>
+						<string key="NSFrame">{{24, 126}, {416, 147}}</string>
 						<reference key="NSSuperview" ref="481431553"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="232326221"/>
@@ -996,8 +1000,23 @@
 						<reference key="IBUIFontDescription" ref="466476269"/>
 						<reference key="IBUIFont" ref="248554062"/>
 					</object>
+					<object class="IBUIImageView" id="227975922">
+						<reference key="NSNextResponder" ref="481431553"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{0, 289}, {1024, 46}}</string>
+						<reference key="NSSuperview" ref="481431553"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">bottom-curve.png</string>
+						</object>
+					</object>
 				</array>
-				<string key="NSFrameSize">{990, 293}</string>
+				<string key="NSFrameSize">{1024, 313}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="1021853919"/>
@@ -1504,6 +1523,7 @@
 							<reference ref="438366699"/>
 							<reference ref="239392647"/>
 							<reference ref="1061405541"/>
+							<reference ref="227975922"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Income and Credit Limit Details</string>
@@ -1657,6 +1677,11 @@
 						<reference key="object" ref="1061405541"/>
 						<reference key="parent" ref="481431553"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">197</int>
+						<reference key="object" ref="227975922"/>
+						<reference key="parent" ref="481431553"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -1696,6 +1721,7 @@
 				<string key="186.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="187.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="192.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="197.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="80.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="81.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -1718,7 +1744,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">196</int>
+			<int key="maxID">197</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1734,8 +1760,6 @@
 						<string key="previousStep:">id</string>
 						<string key="requesteCreditLimitAction:">id</string>
 						<string key="selectOccupation:">id</string>
-						<string key="selectProvince:">id</string>
-						<string key="selectResidentialStatus:">id</string>
 						<string key="showLegal:">id</string>
 						<string key="showPrivacy:">id</string>
 						<string key="showSecurity:">id</string>
@@ -1771,14 +1795,6 @@
 						</object>
 						<object class="IBActionInfo" key="selectOccupation:">
 							<string key="name">selectOccupation:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectProvince:">
-							<string key="name">selectProvince:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectResidentialStatus:">
-							<string key="name">selectResidentialStatus:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showLegal:">
@@ -1941,6 +1957,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="banner-4.png">{2047, 344}</string>
+			<string key="bottom-curve.png">{2048, 92}</string>
 			<string key="btn-done.png">{168, 84}</string>
 			<string key="btn-legal-hover.png">{129, 73}</string>
 			<string key="btn-legal.png">{129, 73}</string>

@@ -7,7 +7,7 @@
 //
 
 #import "ThankYouViewController.h"
-
+#import "AppDelegate.h";
 @interface ThankYouViewController ()
 
 @end
@@ -26,7 +26,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    int min = 1000000; //Get the current text from your minimum and maximum textfields.
+    int max = 9999999;
+    
+    int randNum = rand()%(max-min)+min; //create the random number.
+    
+    NSString *num = [NSString stringWithFormat:@"%d", randNum]; //Make the number into a string.
+    
+    [self.referenceNum setText:num];
+    
+    
     // Do any additional setup after loading the view from its nib.
+    //GENERATE AND SAVE THE REF NUM
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [appDelegate addInfoToUser:num andFieldToAddItTo:@"referenceNumber"];
+    
+   
 }
 
 - (void)didReceiveMemoryWarning
