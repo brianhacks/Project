@@ -11,6 +11,7 @@
 #import "CDatePickerViewEx.h"
 
 @interface PersonalInfoViewController : UIViewController <UIPopoverControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+
 @property (strong, nonatomic) IBOutlet UIView *thirdHeaderView;
 @property (strong, nonatomic) IBOutlet UIView *formalHomeAddress;
 

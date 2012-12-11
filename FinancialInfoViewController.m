@@ -36,12 +36,6 @@
     
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
-    
-//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    doneButton.frame = CGRectMake(200., 0., 60., 44.);
-//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-//    [doneButton addTarget:self action:@selector(chooseResidentialStatus) forControlEvents:UIControlEventTouchUpInside];
-//    [popoverView addSubview:doneButton];
 
     UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 320.0, 44.0)];
     toolbar.barStyle = UIBarStyleBlack;
