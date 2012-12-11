@@ -210,7 +210,7 @@
 		70A2528C16557E6B00049612 /* SelectThisCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectThisCardViewController.h; sourceTree = "<group>"; };
 		70A2528D16557E6B00049612 /* SelectThisCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectThisCardViewController.m; sourceTree = "<group>"; };
 		70A2528E16557E6B00049612 /* SelectThisCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectThisCardViewController.xib; sourceTree = "<group>"; };
-		70A252911655803B00049612 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		70A252911655803B00049612 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
 		70A252961655831E00049612 /* sageata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sageata.png; path = "TD Visa Form/sageata.png"; sourceTree = "<group>"; };
 		70CB814C1664003C0003B225 /* FinancialInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinancialInfoViewController.h; sourceTree = "<group>"; };
 		70CB814D1664003C0003B225 /* FinancialInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinancialInfoViewController.m; sourceTree = "<group>"; };
@@ -435,29 +435,23 @@
 		7023379C1652C56800B87249 = {
 			isa = PBXGroup;
 			children = (
-				707DFA3716765D770079FA72 /* CDatePickerViewEx.h */,
-				707DFA3816765D770079FA72 /* CDatePickerViewEx.m */,
-				9FE0887E16756D2A00428F5E /* ReviewAndSubmitViewController.h */,
-				9FE0887F16756D2A00428F5E /* ReviewAndSubmitViewController.m */,
-				9FE0888016756D2A00428F5E /* ReviewAndSubmitViewController.xib */,
-				9FBDBB691672B96F00BE04E6 /* ThankYou */,
-				9F854C8C16706F31009F9E01 /* admin */,
 				9F90EBAB1670F68F00501F8C /* buttons */,
+				9F0C390A166FC996009C8297 /* Fonts */,
 				9F2B90A7166F0588003DD835 /* images */,
-				70A252911655803B00049612 /* Constants.h */,
+				70A25286165577F700049612 /* Modals */,
+				9F854C8C16706F31009F9E01 /* admin */,
+				9FBDBB691672B96F00BE04E6 /* ThankYou */,
+				9F9CB22B1677156F00550686 /* ReviewAndSubmit */,
 				70CB815116640E330003B225 /* Pick Location */,
 				70CB814A166400240003B225 /* Financial Information */,
 				705C2C051663F8D200D5205D /* Personal Info */,
-				703E131D165979BE0043D72A /* DCRoundSwitch */,
-				9F0C390A166FC996009C8297 /* Fonts */,
 				703E1312165974380043D72A /* Getting Started */,
-				70A25286165577F700049612 /* Modals */,
 				70A252801655751C00049612 /* Application process */,
-				70A2527A16555F4900049612 /* Procces User */,
 				702337D81652D1AB00B87249 /* RootViewController */,
 				702337CD1652C59100B87249 /* Screen saver controllers */,
 				703E1318165975430043D72A /* Resources */,
 				702337B31652C56800B87249 /* TD Visa Form */,
+				70A2527A16555F4900049612 /* Procces User */,
 				702337AA1652C56800B87249 /* Frameworks */,
 				702337A81652C56800B87249 /* Products */,
 			);
@@ -474,6 +468,7 @@
 		702337AA1652C56800B87249 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				703E131D165979BE0043D72A /* DCRoundSwitch */,
 				9FF89E77167599B80084D3A0 /* libCorePlot-CocoaTouch.a */,
 				9FF89E78167599B80084D3A0 /* CorePlotHeaders */,
 				9FBDBCD6167437C100BE04E6 /* CoreLocation.framework */,
@@ -492,6 +487,7 @@
 		702337B31652C56800B87249 /* TD Visa Form */ = {
 			isa = PBXGroup;
 			children = (
+				70A252911655803B00049612 /* Constants.h */,
 				702337BC1652C56800B87249 /* AppDelegate.h */,
 				702337BD1652C56800B87249 /* AppDelegate.m */,
 				702337C51652C56800B87249 /* TD_Visa_Form.xcdatamodeld */,
@@ -753,6 +749,18 @@
 			);
 			name = buttons;
 			path = "TD Visa Form/buttons";
+			sourceTree = "<group>";
+		};
+		9F9CB22B1677156F00550686 /* ReviewAndSubmit */ = {
+			isa = PBXGroup;
+			children = (
+				707DFA3716765D770079FA72 /* CDatePickerViewEx.h */,
+				707DFA3816765D770079FA72 /* CDatePickerViewEx.m */,
+				9FE0887E16756D2A00428F5E /* ReviewAndSubmitViewController.h */,
+				9FE0887F16756D2A00428F5E /* ReviewAndSubmitViewController.m */,
+				9FE0888016756D2A00428F5E /* ReviewAndSubmitViewController.xib */,
+			);
+			name = ReviewAndSubmit;
 			sourceTree = "<group>";
 		};
 		9FBDBB691672B96F00BE04E6 /* ThankYou */ = {

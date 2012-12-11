@@ -30,7 +30,7 @@
     int min = 1000000; //Get the current text from your minimum and maximum textfields.
     int max = 9999999;
     
-    int randNum = rand()%(max-min)+min; //create the random number.
+    int randNum = (arc4random() % (max-min)) + min;//rand()%(max-min)+min; //create the random number.
     
     NSString *num = [NSString stringWithFormat:@"%d", randNum]; //Make the number into a string.
     
