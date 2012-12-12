@@ -186,7 +186,7 @@
 {
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
-    MKCoordinateRegion mapRegion = [self.mapView region];
+//    MKCoordinateRegion mapRegion = [self.mapView region];
     NSString *jsonFile = [[NSBundle mainBundle] pathForResource:@"branches_prod" ofType:@"json"];
     NSError *error = nil; // This so that we can access the error if something goes wrong
     NSData *jsonData = [NSData dataWithContentsOfFile:jsonFile options:NSDataReadingMappedIfSafe error:&error];
@@ -395,7 +395,7 @@
         if ([placemarks count] > 0) {
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
             CLLocation *location = placemark.location;
-            CLLocationCoordinate2D coordinate = location.coordinate;
+//            CLLocationCoordinate2D coordinate = location.coordinate;
             self->homeLoc = location.coordinate;
             [self recomputeDistances];
             [self sortAnnotations];

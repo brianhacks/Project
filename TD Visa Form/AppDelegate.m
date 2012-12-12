@@ -27,10 +27,13 @@
 
 @implementation AppDelegate
 
+#define maxIdleTime 1100.0
+
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
+@synthesize idleTimer;
+@synthesize sessionTimeoutAlert;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -56,8 +59,8 @@
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
 //    self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
     
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
     
     [self.navController setNavigationBarHidden:YES animated:YES];
     
@@ -71,7 +74,7 @@
     NSEntityDescription* log = [NSEntityDescription entityForName:@"Log" inManagedObjectContext:context2];
     [fetchRequest setEntity:log];
     
-    
+    self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
     
 //    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:nil];
     
@@ -91,6 +94,7 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
     
     [self.navController.view addGestureRecognizer:singleTap];
+    [singleTap setCancelsTouchesInView:NO];
     
     
     [self.window makeKeyAndVisible];
@@ -108,12 +112,80 @@
     return YES;
 }
 
+-(void)idleTimerExceeded{
+    
+    if (self.navController.visibleViewController == self.appProcessViewController) {
+        
+        [self.idleTimer invalidate];
+        self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
+        
+    }else{
+        self.sessionTimeoutAlert= [[UIAlertView alloc] initWithTitle:@"Info" message:@"Your session has timed out.  Information Only" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [self.sessionTimeoutAlert show];
+    }
+    
+    
+    
+    
+}
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    
+    NSLog(@"User hit Ok.");
+    
+    if (alertView == self.sessionTimeoutAlert) {
+        
+        //reset fetch entity
+        //return to some other view controller
+        
+        AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        
+        NSManagedObjectContext* context = [appDelegate managedObjectContext];
+        
+        NSFetchRequest* request = [NSFetchRequest new];
+        
+        NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+        [request setEntity:entity];
+        
+        NSError* error = nil;
+        NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
+        
+        for (NSManagedObject * users in fetchedResult) {
+            [context deleteObject:users];
+        }
+        
+        
+        NSError *saveError = nil;
+        [context save:&saveError];
+        
+        
+        [self.idleTimer invalidate];
+        self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
+        
+        
+        
+        
+        [self.navController popToRootViewControllerAnimated:YES];
+        
+    }
+    
+    
+    
+    
+}
+
+-(void)resetIdleTimer{
+    
+    [self.idleTimer invalidate];
+    self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
+    
+    
+    
+}
+
 - (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture
 {
     
-    self.mainViewController = self.navController.visibleViewController;
-    
-    [self.mainViewController resetIdleTimer];
+    [self resetIdleTimer];
     
 }
 

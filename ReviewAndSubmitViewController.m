@@ -963,7 +963,7 @@
 {
     
     NSString* val1;
-    NSString* val2;
+//    NSString* val2;
     
     if (pickerView == self.statesPicker) {
         

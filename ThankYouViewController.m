@@ -7,7 +7,7 @@
 //
 
 #import "ThankYouViewController.h"
-#import "AppDelegate.h";
+#import "AppDelegate.h"
 @interface ThankYouViewController ()
 
 @end

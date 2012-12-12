@@ -63,7 +63,7 @@
     
     popoverContent.view = popoverView;
     self.popoverController2 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
-//    self.popoverController2.delegate = self;
+    self.popoverController2.delegate = self;
     
     [self.popoverController2 setPopoverContentSize:CGSizeMake(220, 200) animated:NO];
     [self.popoverController2 presentPopoverFromRect:CGRectMake(15.0, 220.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
@@ -75,7 +75,7 @@
     
     self.titleString = [NSString stringWithFormat:@"%@",[self.titleArray objectAtIndex:[self.titlePicker selectedRowInComponent:0]]];
     [self.selectTitelButton setTitle:[NSString stringWithFormat:@"%@",self.titleString] forState:UIControlStateNormal];
-//    [self.popoverController2 dismissPopoverAnimated:YES];
+    [self.popoverController2 dismissPopoverAnimated:YES];
     
 }
 
@@ -576,7 +576,29 @@
     [self.accordion setSelectedIndex:1];
 }
 
-
+- (void)viewWillDisappear:(BOOL)animated{
+    
+//    [self.selectTitelButton setTitle:@"Title" forState:UIControlStateNormal];
+//    self.firstName.text = @"";
+//    self.lastName.text = @"";
+//    self.areaCode.text = @"";
+//    self.primaryPhoneNumber.text = @"";
+//    self.emailAddress.text = @"";
+//    [self.selectGenderButton setTitle:@"Gender" forState:UIControlStateNormal];
+//    [self.selectLanguageOfCorespondace setTitle:@"Language of Correspondance" forState:UIControlStateNormal];
+//    self.sinNumber.text = @"";
+//    self.streetAddress.text = @"";
+//    self.postalCode.text = @"";
+//    self.totalMonthlyHousingCosts.text = @"";
+//    self.currentCity.text = @"";
+//    [self.residentialStatusButton setTitle:@"Choose" forState:UIControlStateNormal];
+//    self.totalMonthlyHousingCosts.text = @"";
+//    [self.provinceButton setTitle:@"Province" forState:UIControlStateNormal];
+//    
+//    [self.accordion setSelectedIndex:0];
+//    [self.accordion setNeedsLayout];
+    
+}
 
 
 #pragma mark
@@ -845,7 +867,7 @@
 {
     
     NSString* val1;
-    NSString* val2;
+//    NSString* val2;
     
     if (pickerView == self.statesPicker) {
         

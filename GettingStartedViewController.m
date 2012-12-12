@@ -152,6 +152,11 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    
+//    [self.birthDateButton setTitle:@"Birth Date" forState:UIControlStateNormal];
+}
+
 - (void)result:(id)sender
 {
     

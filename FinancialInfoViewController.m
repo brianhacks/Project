@@ -339,6 +339,35 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    
+//    [self.employmentStatus setTitle:@"Current Employment Status" forState:UIControlStateNormal];
+//    
+//    self.employerAreaCode.text = @"";
+//    self.employerWorkPhoneNumber.text = @"";
+//    self.employerStreetAddress.text = @"";
+//    self.provinceButton.titleLabel.text = @"";
+//    self.employerCity.text = @"";
+//    self.employerName.text = @"";
+//    self.grossAnualIncomeTextField.text = @"";
+//    [self.requestedCreditLimitButton setTitle:@"Limit" forState:UIControlStateNormal];
+//    self.otherOccupationTextField.text = @"";
+//    [self.industryButton setTitle:@"Industry" forState:UIControlStateNormal];
+//    self.specifyOtherOcupationtextField.text = @"";
+//    [self.curretOccupationButton setTitle:@"Occupation" forState:UIControlStateNormal];
+//    
+//    [self.accordion setSelectedIndex:0];
+//    
+//    [self.bextSteptButton setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
+//    self.bextSteptButton.enabled = NO;
+    
+    
+    
+#warning tomorrow
+    //tomorrow think how to delete the data from the view
+    //if I do it here when users go back to the previous scree the data will be gone, so this is not a good idea
+    
+}
 
 
 #pragma mark
