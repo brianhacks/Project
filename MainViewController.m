@@ -7,7 +7,6 @@
 //
 
 #import "MainViewController.h"
-#import "AppDelegate.h"
 
 @interface MainViewController ()
 
@@ -15,7 +14,7 @@
 
 @implementation MainViewController
 
-#define maxIdleTime 60.0
+#define maxIdleTime 1100.0
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -88,26 +87,6 @@
     
     //reset fetch entity
     //return to some other view controller
-    
-//    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-//    
-//    NSManagedObjectContext* context = [appDelegate managedObjectContext];
-//    
-//    NSFetchRequest* request = [NSFetchRequest new];
-//    
-//    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
-//    [request setEntity:entity];
-//    
-//    NSError* error = nil;
-//    NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
-//    
-//    for (NSManagedObject * users in fetchedResult) {
-//        [context deleteObject:users];
-//    }
-//    
-//    
-//    NSError *saveError = nil;
-//    [context save:&saveError];
     
     [self.idleTimer invalidate];
     self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];

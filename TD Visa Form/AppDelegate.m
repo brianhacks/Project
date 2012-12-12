@@ -86,7 +86,7 @@
 
 //     self.window.rootViewController = self.thankYouViewController;
     self.window.rootViewController = self.firstScreenSaverViewController;
-//   self.window.rootViewController = self.reviewAndSubmitViewController;
+
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
     
