@@ -100,20 +100,67 @@
         
         return  100;
         
+    }else if (pickerView == self.selectCurrentOcupationPicker){
+        
+        if ([[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] isEqualToString:@"Accounting/Finance/Insurance"]) {
+            
+            return [self.accountingFinanceInsurance count];
+            
+        }else if ([[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] isEqualToString:@"Installation/Maintenance/Repair"]){
+            
+            return [self.installationMaintenanceRepair count];
+            
+        }else if ([[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] isEqualToString:@"IT/Software Development"]){
+         
+            return [self.ITSoftwareDevelopment count];
+            
+        }else if ([[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] isEqualToString:@"Legal"]){
+            
+            return [self.legal count];
+            
+        }else if ([[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] isEqualToString:@"Administrative/Clarical"]){
+            
+            return [self.administrativeClerical count];
+            
+        }else if ([[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] isEqualToString:@"Logistics/Transportation"]){
+            
+            return [self.logisticsTransportation count];
+            
+        }else if ([[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] isEqualToString:@"Banking/Real Estate/Mortgage Professionals"]){
+            
+            return [self.bankingRealEstateMortgageProfessionals count];
+            
+        }else if ([[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] isEqualToString:@"Biotech/R&D/Science"]){
+            
+            return [self.biotechRDScience count];
+            
+        }else if ([[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] isEqualToString:@"Manufacturing/Production/Operations"]){
+            
+            return [self.manufacturingProductionOperations count];
+            
+        }else if ([[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] isEqualToString:@"Building Construction/Skilled Trades"]){
+            
+            return [self.marketingProduct count];
+            
+        }else if ([[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] isEqualToString:@"Marketing/Product"]){
+            
+            return [self.marketingProduct count];
+            
+        }else if ([[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] isEqualToString:@"Business/Strategic Management"]){
+            
+            return [self.businessStrategicManagement count];
+            
+        }else {
+            
+            return 100;
+            
+        }
+        
     }else{
         return [self.employmentStatusArray count];
     }
     
 }
-
-//- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-//    
-//    if (pickerView == self.requesteCreditLimitPicker) {
-//        
-//         self.requesteCreditLimitString = [NSMutableString stringWithFormat:@"$ %d",[self.requesteCreditLimitPicker selectedRowInComponent:0]];
-//        
-//    }
-//}
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
@@ -155,6 +202,76 @@
             }
         }
     
+    }else if(pickerView == self.selectCurrentOcupationPicker){
+        
+        NSLog(@"%@",self.industryButton.titleLabel.text);
+        
+        if ([self.industryButton.titleLabel.text isEqualToString:@"Accounting/Finance/Insurance"]) {
+            
+//            return [self.accountingFinanceInsurance count];
+            val1 = [self.accountingFinanceInsurance objectAtIndex:row];
+            
+        }else if ([self.industryButton.titleLabel.text isEqualToString:@"Installation/Maintenance/Repair"]){
+            
+//            return [self.installationMaintenanceRepair count];
+            val1 = [self.installationMaintenanceRepair objectAtIndex:row];
+            
+        }else if ([self.industryButton.titleLabel.text isEqualToString:@"IT/Software Development"]){
+            
+//            return [self.ITSoftwareDevelopment count];
+            val1 = [self.ITSoftwareDevelopment objectAtIndex:row];
+            
+        }else if ([self.industryButton.titleLabel.text isEqualToString:@"Legal"]){
+            
+//            return [self.legal count];
+            val1 = [self.legal objectAtIndex:row];
+            
+        }else if ([self.industryButton.titleLabel.text isEqualToString:@"Administrative/Clarical"]){
+            
+//            return [self.administrativeClerical count];
+            val1 = [self.administrativeClerical objectAtIndex:row];
+            
+        }else if ([self.industryButton.titleLabel.text isEqualToString:@"Logistics/Transportation"]){
+            
+//            return [self.logisticsTransportation count];
+            val1 = [self.logisticsTransportation objectAtIndex:row];
+            
+        }else if ([self.industryButton.titleLabel.text isEqualToString:@"Banking/Real Estate/Mortgage Professionals"]){
+            
+//            return [self.bankingRealEstateMortgageProfessionals count];
+            val1 = [self.bankingRealEstateMortgageProfessionals objectAtIndex:row];
+            
+        }else if ([self.industryButton.titleLabel.text isEqualToString:@"Biotech/R&D/Science"]){
+            
+//            return [self.biotechRDScience count];
+            val1 = [self.biotechRDScience objectAtIndex:row];
+            
+        }else if ([self.industryButton.titleLabel.text isEqualToString:@"Manufacturing/Production/Operations"]){
+            
+//            return [self.manufacturingProductionOperations count];
+            val1 = [self.manufacturingProductionOperations objectAtIndex:row];
+            
+        }else if ([self.industryButton.titleLabel.text isEqualToString:@"Building Construction/Skilled Trades"]){
+            
+//            return [self.buildingConstructionSkilledTrades count];
+            val1 = [self.buildingConstructionSkilledTrades objectAtIndex:row];
+            
+        }else if ([self.industryButton.titleLabel.text isEqualToString:@"Marketing/Product"]){
+            
+//            return [self.marketingProduct count];
+            val1 = [self.marketingProduct objectAtIndex:row];
+            
+        }else if ([self.industryButton.titleLabel.text isEqualToString:@"Business/Strategic Management"]){
+            
+//            return [self.businessStrategicManagement count];
+            val1 = [self.businessStrategicManagement objectAtIndex:row];
+            
+        }else {
+            
+            return @"";
+            
+        }
+        
     }else{
         
         val1 = [self.employmentStatusArray objectAtIndex:row];
@@ -272,6 +389,206 @@
     @"Security/Protective Services",
     @"Trades"];
     
+    self.accountingFinanceInsurance = [NSArray new];
+    self.accountingFinanceInsurance = @[@"Accountant",
+    @"Accounting Consultant",
+    @"Accounts Payable/Receivable",
+    @"Actuarial Analysis",
+    @"Auditor",
+    @"Bookkeeping",
+    @"Claims Review and Adjusting",
+    @"Collections",
+    @"Corporate Accounting",
+    @"Corporate Finance",
+    @"Credit Review/Analysis",
+    @"Financial Advisor",
+    @"Financial Analysis/Research/Reporting",
+    @"Financial Control",
+    @"Financial Planning/Advising",
+    @"Financial Products Sales/Brokerage",
+    @"Financial Manager",
+    @"Fund Accounting",
+    @"Other: Accounting/Finance",
+    @"Loans Officer",
+    @"Mortgage Broker",
+    @"Investment Management",
+    @"Investment Analyst",
+    @"Investement Banker",
+    @"Investment Broker",
+    @"Insurance Broker",
+    @"Investment Consultant",
+    @"Policy Underwriting",
+    @"Real Estate Appraisal",
+    @"Real Estate Leasing/Acquisition",
+    @"Risk Management/Compliance",
+    @"Securities Analysis/Research",
+    @"Tax Accounting",
+    @"Tax Assessment and Collections"];
+    
+    self.installationMaintenanceRepair = [NSArray new];
+    self.installationMaintenanceRepair = @[@"Compu/Electr/Telecom Instl/Maint/Rep",
+    @"Electrician",
+    @"Equipment Install/Maintain/Repair",
+    @"Facilities Management/Maintenance",
+    @"Other: Installation/Maintenance/Repair",
+    @"HVAC",
+    @"Janitorial & Cleaning",
+    @"Landscaping",
+    @"Locksmith",
+    @"Oil Rig & Pipeline Install/Maintain/Repair",
+    @"Painter",
+    @"Plumbing/Pipefitting",
+    @"Vehicle Repair and Maintenance",
+    @"Wire and Cable Install/Maintain/Repair"];
+    
+    self.ITSoftwareDevelopment = [NSArray new];
+    self.ITSoftwareDevelopment = @[@"Computer/Network Security",
+    @"Database Development/Administration",
+    @"Desktop Service and Support",
+    @"Enterprise S/W Implement. & Consult.",
+    @"Other: IT/Software Development",
+    @"IT Project Management",
+    @"Information Technology Specialist",
+    @"Network and Server Administration",
+    @"Software/System Architecture",
+    @"Software/Web Development",
+    @"Systems Analysis - IT",
+    @"IT-Telecom Admin/Management",
+    @"Usability/Information Architecture",
+    @"Web/UI/UX Design"];
+    
+    
+    self.legal = [NSArray new];
+    self.legal = @[
+    @"Attorney",
+    @"Contracts Administration",
+    @"Other: Legal",
+    @"Labor & Employment Law",
+    @"Legal Specialist",
+    @"Paralegal & Legal Secretary",
+    @"Patent/IP Law",
+    @"Real Estate Law",
+    @"Regulatory/Compliance Law",
+    @"Tax Law"];
+    
+    
+    self.administrativeClerical = [NSArray new];
+    self.administrativeClerical = @[@"Administrative Assistant",
+    @"Administrative Support",
+    @"Claims Processing",
+    @"Data Entry/Order Processing",
+    @"Executive Support",
+    @"Filing/Records Management",
+    @"Other: Administrative/Clerical",
+    @"Office Management",
+    @"Property Management",
+    @"Reception/Switchboard",
+    @"Secretary/Executive Assistant",
+    @"Transcription"];
+    
+    self.logisticsTransportation = [NSArray new];
+    self.logisticsTransportation = @[@"Car, Van and Bus Driving",
+    @"Cargo and Baggage Handling",
+    @"Cost Estimating",
+    @"Equipment/Forklift/Crane Operation",
+    @"Other: Logistics/Transportation",
+    @"Hazardous Materials Handling",
+    @"Import/Export Administration",
+    @"Inventory Planning and Management",
+    @"Mail Carrier",
+    @"Merchandise Planning and Buying",
+    @"Messenger/Courier",
+    @"Piloting: Air and Marine",
+    @"Purchasing",
+    @"Shipping and Receiving/Warehousing",
+    @"Supplier Management/Vendor Management",
+    @"Train or Rail Operator",
+    @"Travel Consultant",
+    @"Truck Driving",
+    @"Vehicle Dispatch, Routing and Scheduling"];
+    
+    self.bankingRealEstateMortgageProfessionals = [NSArray new];
+    self.bankingRealEstateMortgageProfessionals = @[@"Bank Teller",
+    @"Bank Managers",
+    @"Credit Manager",
+    @"Economist",
+    @"Escrow Officer/Manager",
+    @"Loan Officer/Originator",
+    @"Mortgage Broker",
+    @"Real Estate Agent",
+    @"Real Estate Appraisal",
+    @"Real Estate Broker",
+    @"Real Estate Law",
+    @"Store/Branch Management",
+    @"Title Officer/Closer",
+    @"Underwriter"];
+    
+    self.biotechRDScience = [NSArray new];
+    self.biotechRDScience = @[@"Biological/Chemical Research",
+    @"Clinical Research",
+    @"Environmental/Geological Test & Analysis",
+    @"Other: R&D/Science",
+    @"Materials/Physical Research",
+    @"Mathematical/Statistical Research",
+    @"New Product R&D",
+    @"Pharmaceutical Research"];
+    
+    self.manufacturingProductionOperations = [NSArray new];
+    self.manufacturingProductionOperations = @[@"Agricultural Specialist",
+    @"Assembly/Assembly Line",
+    @"Audio/Video Broadcast & Postproduction",
+    @"Equipment Operations",
+    @"Other: Production/Operations",
+    @"Hazardous Materials Handling",
+    @"Laundry and Dry-Cleaning Operations",
+    @"Layout, Prepress, Printing & Binding Ops",
+    @"Machining/CNC",
+    @"Metal Fabrication and Welding",
+    @"Moldmaking/Casting",
+    @"Operations/Plant Management",
+    @"Production/Operations Planning",
+    @"Scientific/Technical Production",
+    @"Sewing and Tailoring",
+    @"Operations-Telecom Admin/Management",
+    @"Waste Pick-up and Removal"];
+    
+    
+    self.buildingConstructionSkilledTrades = [NSArray new];
+    self.buildingConstructionSkilledTrades = @[@"CAD/Drafting",
+    @"Carpentry/Framing",
+    @"Concrete and Masonry",
+    @"Electrician",
+    @"Firefighter",
+    @"Flooring/Tiling/Painting/Wallpapering",
+    @"Other: Construction/Skilled Trades",
+    @"Heavy Equipment Operation",
+    @"HVAC",
+    @"Lansdscaper",
+    @"Ironwork/Metal Fabrication",
+    @"Plumbing/Pipefitting",
+    @"Roofing",
+    @"Sheetrock/Plastering",
+    @"Site Superintendent",
+    @"Surveying"];
+    
+    
+    self.marketingProduct = [NSArray new];
+    self.marketingProduct = @[@"Brand/Product Marketing",
+    @"Copy Writing/Editing",
+    @"Direct Marketing (CRM)",
+    @"Events/Promotional Marketing",
+    @"Other: Marketing/Product",
+    @"Investor and Public/Media Relations",
+    @"Market Research",
+    @"Marketing Communications",
+    @"Marketing Production/Traffic",
+    @"Media Planning and Buying",
+    @"Product Management",
+    @"Pubic Relations Specialist",
+    @"Telemarketing"];
+    self.businessStrategicManagement = [NSArray new];
+    self.businessStrategicManagement = @[@"Business Analysis/Research"];
+    
     self.employmentStatusArray = [NSArray new];
     self.employmentStatusArray = @[@"Employed Full Time", @"Employed Part Time", @"Self-employed", @"Unemployed", @"Retired"];
     
@@ -347,7 +664,7 @@
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
     
-    [appDelegate addInfoToUser:self.occupationButton.titleLabel.text andFieldToAddItTo:@"currentOcupation"];
+    
     [appDelegate addInfoToUser:self.employmentStatus.titleLabel.text andFieldToAddItTo:@"employmentStatus"];
     
     [appDelegate addInfoToUser:self.employerAreaCode.text andFieldToAddItTo:@"employerAreaCode"];
@@ -358,6 +675,24 @@
     [appDelegate addInfoToUser:self.employerName.text andFieldToAddItTo:@"employerName"];
     [appDelegate addInfoToUser:self.grossAnualIncomeTextField.text andFieldToAddItTo:@"grossAnualIncome"];
     [appDelegate addInfoToUser:self.requestedCreditLimitButton.titleLabel.text andFieldToAddItTo:@"requestedCreditLimit"];
+    
+    if (self.otherOccupationSelected) {
+        
+        [appDelegate addInfoToUser:self.otherOccupationTextField.text andFieldToAddItTo:@"currentIndustry"];
+        
+    }else{
+        
+        [appDelegate addInfoToUser:self.industryButton.titleLabel.text andFieldToAddItTo:@"currentIndustry"];
+    }
+    
+    if (self.otherOccupationSelected2) {
+        
+        [appDelegate addInfoToUser:self.specifyOtherOcupationtextField.text andFieldToAddItTo:@"currentOcupation"];
+        
+    }else{
+        
+        [appDelegate addInfoToUser:self.curretOccupationButton.titleLabel.text andFieldToAddItTo:@"currentOcupation"];
+    }
     
     [appDelegate setNewRootView:appDelegate.pickLocationViewController];
     [appDelegate.pickLocationViewController refresh];
@@ -509,6 +844,26 @@
     
 }
 
+- (void)chooseOccupation
+{
+    if ([[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] isEqualToString:@"Other"]) {
+        
+        self.otherOccupationTextField.hidden = NO;
+        self.otherOccupationSelected = YES;
+        
+    }else{
+        
+        self.otherOccupationTextField.hidden = YES;
+        self.otherOccupationSelected = NO;
+    }
+    
+    [self.industryButton setTitle:[NSString stringWithFormat:@"%@",[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+    [self.popoverController3 dismissPopoverAnimated:YES];
+    
+//    [self.curretOccupationButton setTitle:[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] forState:UIControlStateNormal];
+    
+}
+
 - (IBAction)showPrivacy:(id)sender
 {
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
@@ -542,21 +897,7 @@
     
 }
 
-- (void)chooseOccupation
-{
-    if ([[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]] isEqualToString:@"Other"]) {
-        
-        self.otherOccupationTextField.hidden = NO;
-        
-    }else{
-        
-        self.otherOccupationTextField.hidden = YES;
-    }
-    
-    [self.occupationButton setTitle:[NSString stringWithFormat:@"%@",[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
-    [self.popoverController3 dismissPopoverAnimated:YES];
-    
-}
+
 
 #pragma mark
 #pragma mark closeFinancialDetails
@@ -590,12 +931,12 @@
     //validate the fields here!
     bool isValid = true;
     
-    if([self.occupationButton.titleLabel.text isEqualToString:@"Occupation"]){
+    if([self.industryButton.titleLabel.text isEqualToString:@"Industry"]){
         isValid=false;
         //mark field as invalid
-        self.occupationButton.backgroundColor = [UIColor yellowColor];
+        self.industryButton.backgroundColor = [UIColor yellowColor];
     }else{
-        self.occupationButton.backgroundColor = [UIColor whiteColor];
+        self.industryButton.backgroundColor = [UIColor whiteColor];
     }
     //
     if([self.employmentStatus.titleLabel.text isEqualToString:@"Current Employment Status"]){
@@ -651,7 +992,7 @@
     currentOccupation.textColor = [UIColor blackColor];
     currentOccupation.font = [UIFont fontWithName:@"Helvetica" size:16];
     currentOccupation.backgroundColor = [UIColor clearColor];
-    currentOccupation.text = [NSString stringWithFormat:@"Current Occupation: %@",self.occupationButton.titleLabel.text];
+    currentOccupation.text = [NSString stringWithFormat:@"Current Occupation: %@",self.industryButton.titleLabel.text];
     [self.firstHeaderView addSubview:currentOccupation];
     
 }
@@ -1016,5 +1357,130 @@
     
 }
 
+
+- (IBAction)selectCurrentOccupation:(id)sender
+{
+    
+    UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
+    
+    UIView *popoverView = [[UIView alloc] init];   //view
+    popoverView.backgroundColor = [UIColor grayColor];
+    
+    
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 480., 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(chooseCurrentOccupation)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
+    
+    self.selectCurrentOcupationPicker = [[UIPickerView alloc]init];//Date picker
+    self.selectCurrentOcupationPicker.frame = CGRectMake(0,44,480., 216);
+    self.selectCurrentOcupationPicker.dataSource = self;
+    self.selectCurrentOcupationPicker.delegate = self;
+    self.selectCurrentOcupationPicker.showsSelectionIndicator = YES;
+    [popoverView addSubview:self.selectCurrentOcupationPicker];
+    
+    popoverContent.view = popoverView;
+    self.popoverController6 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+    self.popoverController6.delegate = self;
+    [self.popoverController6 setPopoverContentSize:CGSizeMake(480., 260) animated:NO];
+    [self.popoverController6 presentPopoverFromRect:CGRectMake(650.0, 208.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+    
+}
+
+- (void)chooseCurrentOccupation{
+    
+    if ([self.industryButton.titleLabel.text isEqualToString:@"Industry"]) {
+        return;
+    }
+    
+    NSString* current = [NSString stringWithFormat:@"%@",[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]]];
+    NSArray* array2 = [NSArray new];
+    
+    
+    if ([current isEqualToString:@"Accounting/Finance/Insurance"]) {
+        
+        array2 = self.accountingFinanceInsurance;
+        
+    }else if([current isEqualToString:@"Installation/Maintenance/Repair"]){
+        
+        array2 = self.installationMaintenanceRepair;
+        
+    }else if([current isEqualToString:@"IT/Software Development"]){
+        
+        array2 = self.ITSoftwareDevelopment;
+        
+    }else if([current isEqualToString:@"Legal"]){
+        
+        array2 = self.legal;
+        
+    }else if([current isEqualToString:@"Administrative/Clarical"]){
+        
+        array2 = self.administrativeClerical;
+        
+    }else if([current isEqualToString:@"Logistics/Transportation"]){
+        
+        array2 = self.logisticsTransportation;
+        
+    }else if([current isEqualToString:@"Banking/Real Estate/Mortgage Professionals"]){
+        
+        array2 = self.bankingRealEstateMortgageProfessionals;
+        
+    }else if([current isEqualToString:@"Biotech/R&D/Science"]){
+        
+        array2 = self.biotechRDScience;
+        
+    }else if([current isEqualToString:@"Manufacturing/Production/Operations"]){
+        
+        array2 = self.manufacturingProductionOperations;
+        
+    }else if([current isEqualToString:@"Building Construction/Skilled Trades"]){
+        
+        array2 = self.buildingConstructionSkilledTrades;
+        
+    }else if([current isEqualToString:@"Marketing/Product"]){
+        
+        array2 = self.marketingProduct;
+        
+    }else if([current isEqualToString:@"Business/Strategic Management"]){
+        
+        array2 = self.businessStrategicManagement;
+        
+    }
+    
+    NSString* otherString = [NSString stringWithFormat:@"%@",[array2 objectAtIndex:[self.selectCurrentOcupationPicker selectedRowInComponent:0]]];
+    
+    [otherString lowercaseString];
+    
+    if ([otherString rangeOfString:@"Other"].location == NSNotFound) {
+        self.specifyOtherOcupationtextField.hidden = NO;
+        self.otherOccupationSelected2 = YES;
+        
+    } else {
+        self.specifyOtherOcupationtextField.hidden = YES;
+        self.otherOccupationSelected2 = NO;
+        
+        
+    }
+    
+    [self.curretOccupationButton setTitle:[NSString stringWithFormat:@"%@",[array2 objectAtIndex:[self.selectCurrentOcupationPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+    [self.popoverController6 dismissPopoverAnimated:YES];
+    
+    
+    
+}
 
 @end

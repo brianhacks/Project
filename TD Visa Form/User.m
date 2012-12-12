@@ -45,5 +45,6 @@
 @dynamic requestedCreditLimit;
 @dynamic householdIncome;
 @dynamic grossAnualIncome;
+@dynamic currentIndustry;
 
 @end

@@ -26,8 +26,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Frutiger</string>
-		<string>Fruticn</string>
+		<string>FrutigerLTStd-Bold.otf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
