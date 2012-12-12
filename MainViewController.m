@@ -67,7 +67,8 @@
     }else{
     
         [self.idleTimer invalidate];
-        [self.idleTimer fire];
+        self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
+//        [self.idleTimer fire];
         
     }
     
@@ -86,6 +87,9 @@
     
     //reset fetch entity
     //return to some other view controller
+    
+    [self.idleTimer invalidate];
+    self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
     
     
 }

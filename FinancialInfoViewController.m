@@ -1408,6 +1408,7 @@
 - (void)chooseCurrentOccupation{
     
     if ([self.industryButton.titleLabel.text isEqualToString:@"Industry"]) {
+        [self.popoverController6 dismissPopoverAnimated:YES];
         return;
     }
     
@@ -1470,13 +1471,14 @@
     [otherString lowercaseString];
     
     if ([otherString rangeOfString:@"Other"].location == NSNotFound) {
-        self.specifyOtherOcupationtextField.hidden = NO;
-        self.otherOccupationSelected2 = YES;
-        
-    } else {
         self.specifyOtherOcupationtextField.hidden = YES;
         self.otherOccupationSelected2 = NO;
         
+        
+    } else {
+        
+        self.specifyOtherOcupationtextField.hidden = NO;
+        self.otherOccupationSelected2 = YES;
         
     }
     
