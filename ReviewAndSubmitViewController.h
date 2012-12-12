@@ -10,7 +10,7 @@
 #import "AccordionView.h"
 #import "User.h"
 
-@interface ReviewAndSubmitViewController : UIViewController
+@interface ReviewAndSubmitViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate>
 
 
 @property (strong, nonatomic) User* userInfo;
@@ -69,10 +69,45 @@
 @property (strong, nonatomic) IBOutlet UITextField *grossAnualIncome;
 @property (strong, nonatomic) IBOutlet UITextField *householdIncome;
 
+
+//general info
+@property (strong, nonatomic) UIPopoverController* popoverController1;
+@property (strong, nonatomic) UIPopoverController* popoverController2;
+@property (strong, nonatomic) UIPopoverController* popoverController3;
+@property (strong, nonatomic) UIPopoverController* popoverController4;
+@property (strong, nonatomic) UIPopoverController* popoverController5;
+@property (strong, nonatomic) IBOutlet UIButton *selectGenderButton;
+@property (strong, nonatomic) NSArray* genderArray;
+@property (strong, nonatomic) UIPickerView *genderPicker;
+
+@property (strong, nonatomic) NSArray* monthsLivedArray;
+@property (strong, nonatomic) NSArray* yearsLivedArray;
+@property (strong, nonatomic) NSArray* provinceArray;
+@property (strong, nonatomic) NSArray* titleArray;
+@property (strong, nonatomic) NSArray* languageOfCorespondaceArray;
+@property (strong, nonatomic) NSArray* residentialStatusArray;
+@property (strong, nonatomic) NSArray* occupationArray;
+@property (strong, nonatomic) NSArray* employmentStatusArray;
+@property (strong, nonatomic) NSMutableArray *requesteCreditLimitArray;
+
+@property (strong, nonatomic) IBOutlet UIPickerView *statesPicker;
+@property (strong, nonatomic) UIPickerView *titlePicker;
+@property (strong, nonatomic) UIPickerView *languageOfCorespondacePicker;
+@property (strong, nonatomic) UIPickerView *residentialStatusPicker;
+@property (strong, nonatomic) UIPickerView *timeLivedAtCurrentAddressPicker;
+@property (strong, nonatomic) UIPickerView *requesteCreditLimitPicker;
+@property (strong, nonatomic) UIPickerView *occupationPicker;
+@property (strong, nonatomic) UIPickerView *employmentStatusPicker;
+@property (strong, nonatomic) UIDatePicker *startDatePicker;
+
+
+
 - (IBAction)closeGeneralInfo:(id)sender;
 - (IBAction)closeCurrentAddress:(id)sender;
 - (IBAction)closeFInancialDetails:(id)sender;
 - (IBAction)closeEmployerDetails:(id)sender;
 - (IBAction)closeIncomeAndCredit:(id)sender;
+
+- (IBAction)selectGender:(id)sender;
 
 @end

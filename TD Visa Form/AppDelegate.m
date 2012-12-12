@@ -54,7 +54,7 @@
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.reviewAndSubmitViewController];
     
     [self.navController setNavigationBarHidden:YES animated:YES];
     
@@ -80,8 +80,9 @@
     //for debug mode only
     self.window.rootViewController = self.navController;
     
-     self.window.rootViewController = self.pickLocationViewController;
-  //  self.window.rootViewController = self.firstScreenSaverViewController;
+
+     self.window.rootViewController = self.thankYouViewController;
+//    self.window.rootViewController = self.firstScreenSaverViewController;
     // self.window.rootViewController = self.personalInfoViewController;
     
     

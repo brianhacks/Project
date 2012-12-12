@@ -615,7 +615,7 @@
     self.view.backgroundColor = background;
     
     //MTK - make sure it fits int he shoadows
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(18, 170, 987, 420)];
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(18, 170, 989, 420)];
     [self.view addSubview:self.accordion];
     
     // Only height is taken into account, so other parameters are just dummy
@@ -628,17 +628,7 @@
     firstHeaderTitel.text = @"General Info";
     firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
     [self.firstHeaderView addSubview:firstHeaderTitel];
-    
-//    self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-//    [header1 setTitle:@"General Information" forState:UIControlStateNormal];
-//    header1.titleLabel.textAlignment = NSTextAlignmentLeft;
-//    self.doneGeneralInfo = header1;
-    
     [self.accordion addHeader:self.firstHeaderView withView:self.generalInfoView];
-    
-//    UIButton *header2 = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-//    header2.backgroundColor = [UIColor  colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-//    [header2 setTitle:@"Current Home Address" forState:UIControlStateNormal];
 
     self.secondHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
@@ -652,6 +642,10 @@
     
     UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 400)];
     view2.backgroundColor = [UIColor whiteColor];
+    
+    UIImageView* bottomCurve = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 243.0, 1024., 46.)];
+    bottomCurve.image = [UIImage imageNamed:@"bottom-curve.png"];
+//    [self.accordion addSubview:bottomCurve];
     
     //need to figure out how to alternate the color of white and green
     [self.accordion addHeader:self.secondHeaderView withView:self.currentHomeAddressView];
