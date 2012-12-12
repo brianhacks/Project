@@ -71,14 +71,8 @@
     NSDictionary *dictionary = [notification userInfo];
     NSString *branch = [dictionary valueForKey:key];
     activeBranchId=branch;
-    //change pin
     [self markBranchAsSelected:branch];
-    
-
     [self.tableView reloadData];
- //   self.tableView scrollToRowAtIndexPath:<#(NSIndexPath *)#> atScrollPosition:<#(UITableViewScrollPosition)#> animated:true
-    
-    
     
 }
 
@@ -92,31 +86,18 @@
         
         //check to make sure its not the "curent location" pin
         if([branch respondsToSelector:@selector(setSelected:)]) {
-           
-             //NSLog(@"%d", branch.selected);
-             NSString *tbranch = [branch.content.values objectForKey:@"branchid"];
+           NSString *tbranch = [branch.content.values objectForKey:@"branchid"];
              if([tbranch isEqualToString:branchId]){
-                 //[self.mapView removeAnnotation:branch];
                  [branch setSelected:true];
-                
-               //  branch.content.iconURL = [[NSBundle mainBundle] URLForResource:@"bank-selected" withExtension:@"png"];
                  branch.annotationView.image = [UIImage imageNamed:@"bank-selected.png"];
                  enableNextButton = true;
-                // [self.mapView addAnnotation:branch];
-               //  [self.mapView reloadInputViews];
+               
              }else{
                  if(branch.selected){
-                     //[self.mapView removeAnnotation:branch];
                     [branch setSelected:false];
                      branch.annotationView.image = [UIImage imageNamed:@"bank.png"];
-
-                    // branch.content.iconURL = [[NSBundle mainBundle] URLForResource:@"bank" withExtension:@"png"];
-                     
-
-                    // [self.mapView addAnnotation:branch];
-                
+ 
                  }
-                // [branch setSelected:false];
              }
     
          }else{
