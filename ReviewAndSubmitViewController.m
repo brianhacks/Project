@@ -886,9 +886,9 @@
         
         NSLog(@"move to next part of the app");
       ;
-        [appDelegate setNewRootView:appDelegate.thankYouViewController];
-        [appDelegate.thankYouViewController refresh];
-       
+       // [appDelegate setNewRootView:appDelegate.thankYouViewController];
+        //[appDelegate.thankYouViewController refresh];
+        [appDelegate.rootViewController.navigationController pushViewController:appDelegate.thankYouViewController animated:YES];
     }
     
 }
