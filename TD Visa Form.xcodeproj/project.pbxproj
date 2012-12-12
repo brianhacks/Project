@@ -153,6 +153,8 @@
 		9FF89E75167596180084D3A0 /* login.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FF89E74167596180084D3A0 /* login.json */; };
 		9FF89EC3167599B80084D3A0 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FF89E77167599B80084D3A0 /* libCorePlot-CocoaTouch.a */; };
 		9FFB47C216784DA6005E50F4 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFB47C116784DA6005E50F4 /* MainViewController.m */; };
+		9FFB47D616786D40005E50F4 /* FinalAcceptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FFB47D416786D40005E50F4 /* FinalAcceptViewController.m */; };
+		9FFB47D716786D40005E50F4 /* FinalAcceptViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FFB47D516786D40005E50F4 /* FinalAcceptViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -417,6 +419,9 @@
 		9FF89EC2167599B80084D3A0 /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
 		9FFB47C016784DA6005E50F4 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = ../MainViewController.h; sourceTree = "<group>"; };
 		9FFB47C116784DA6005E50F4 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = ../MainViewController.m; sourceTree = "<group>"; };
+		9FFB47D316786D40005E50F4 /* FinalAcceptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinalAcceptViewController.h; sourceTree = "<group>"; };
+		9FFB47D416786D40005E50F4 /* FinalAcceptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinalAcceptViewController.m; sourceTree = "<group>"; };
+		9FFB47D516786D40005E50F4 /* FinalAcceptViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FinalAcceptViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -770,6 +775,9 @@
 				9FE0887E16756D2A00428F5E /* ReviewAndSubmitViewController.h */,
 				9FE0887F16756D2A00428F5E /* ReviewAndSubmitViewController.m */,
 				9FE0888016756D2A00428F5E /* ReviewAndSubmitViewController.xib */,
+				9FFB47D316786D40005E50F4 /* FinalAcceptViewController.h */,
+				9FFB47D416786D40005E50F4 /* FinalAcceptViewController.m */,
+				9FFB47D516786D40005E50F4 /* FinalAcceptViewController.xib */,
 			);
 			name = ReviewAndSubmit;
 			sourceTree = "<group>";
@@ -1058,6 +1066,7 @@
 				9F0CE3851676C35B00117F1D /* banner-3a.png in Resources */,
 				9F9CB23616778BDD00550686 /* branches_prod.json in Resources */,
 				9FA72F141677ED1300DBA6A0 /* bank-list-selected.png in Resources */,
+				9FFB47D716786D40005E50F4 /* FinalAcceptViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1105,6 +1114,7 @@
 				9FBFF2FF1676A3BF0002B701 /* Log.m in Sources */,
 				9F0CE3AB1676E3A700117F1D /* AdminGraph.m in Sources */,
 				9FFB47C216784DA6005E50F4 /* MainViewController.m in Sources */,
+				9FFB47D616786D40005E50F4 /* FinalAcceptViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

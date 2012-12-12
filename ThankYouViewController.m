@@ -22,7 +22,9 @@
     }
     return self;
 }
-
+-(void)refresh{
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

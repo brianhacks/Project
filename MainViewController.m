@@ -60,7 +60,7 @@
 }
 
 -(void)idleTimerExceeded{
-    UIAlertView* alerView = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Your session has timed out." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView* alerView = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Your session has timed out.  Information Only" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alerView show];
     
     }

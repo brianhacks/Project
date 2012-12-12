@@ -10,5 +10,5 @@
 
 @interface ThankYouViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *referenceNum;
-
+-(void)refresh;
 @end

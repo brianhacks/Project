@@ -9,9 +9,10 @@
 #import "ReviewAndSubmitViewController.h"
 #import "AppDelegate.h"
 #import "User.h"
+#import "FinalAcceptViewController.h"
 
 @interface ReviewAndSubmitViewController ()
-
+@property (nonatomic, strong) FinalAcceptViewController * finalAcceptViewController;
 @end
 
 @implementation ReviewAndSubmitViewController
@@ -857,6 +858,38 @@
     
     [self.accordion setSelectedIndex:10];
     [self.accordion setNeedsDisplay];
+    
+}
+
+- (IBAction)nextStep:(id)sender {
+    
+    if (self.finalAcceptViewController == nil) {
+        self.finalAcceptViewController = [[FinalAcceptViewController alloc] initWithNibName:@"FinalAcceptViewController" bundle:nil];
+    }
+    
+    self.finalAcceptViewController.delegate = self;
+    self.finalAcceptViewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:self.finalAcceptViewController animated:YES completion:^{}];
+    
+}
+
+
+- (void)chooseCard:(FinalAcceptViewController *)controller andButton:(NSString *)string
+{
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    if ([string isEqualToString:@"cancel"]) {
+        
+        NSLog(@"back to cards");
+        
+    }else{
+        
+        NSLog(@"move to next part of the app");
+      ;
+        [appDelegate setNewRootView:appDelegate.thankYouViewController];
+        [appDelegate.thankYouViewController refresh];
+       
+    }
     
 }
 

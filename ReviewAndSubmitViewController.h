@@ -10,8 +10,9 @@
 #import "AccordionView.h"
 #import "User.h"
 #import "MainViewController.h"
+#import "SelectThisCardViewController.h"
 
-@interface ReviewAndSubmitViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate>
+@interface ReviewAndSubmitViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, SelectThisCardViewControllerDelegate>
 
 
 @property (strong, nonatomic) User* userInfo;
@@ -108,6 +109,7 @@
 - (IBAction)closeFInancialDetails:(id)sender;
 - (IBAction)closeEmployerDetails:(id)sender;
 - (IBAction)closeIncomeAndCredit:(id)sender;
+- (IBAction)nextStep:(id)sender;
 
 - (IBAction)selectGender:(id)sender;
 
