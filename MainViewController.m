@@ -14,7 +14,7 @@
 
 @implementation MainViewController
 
-#define maxIdleTime 10.0
+#define maxIdleTime 1100.0
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
