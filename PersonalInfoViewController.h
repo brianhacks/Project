@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "AccordionView.h"
 #import "CDatePickerViewEx.h"
+#import "MainViewController.h"
 
-@interface PersonalInfoViewController : UIViewController <UIPopoverControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+@interface PersonalInfoViewController : MainViewController <UIPopoverControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *thirdHeaderView;
 @property (strong, nonatomic) IBOutlet UIView *formalHomeAddress;

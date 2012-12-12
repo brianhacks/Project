@@ -21,7 +21,10 @@
 #import "ThankYouViewController.h"
 #import "ReviewAndSubmitViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>{
+    NSTimer *idleTimer;
+
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -55,5 +58,6 @@
 - (void)addEntryToLog;
 - (void)addInfoToUser:(id)info andFieldToAddItTo:(NSString *)_field;
 - (void)addBOOLInfoToUser:(BOOL)info andFieldToAddItTo:(NSString *)_field;
+
 
 @end

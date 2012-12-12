@@ -10,13 +10,13 @@
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface GettingStartedViewController ()
+@interface GettingStartedViewController()
+   
 
 @end
 
 
 @implementation GettingStartedViewController
-
 @synthesize datePicker;
 @synthesize chooseDateButton2;
 
@@ -36,7 +36,7 @@
     // Do any additional setup after loading the view from its nib.
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
-    
+   
     
     
     self.firstBorderView.layer.cornerRadius = 12.0;
@@ -364,5 +364,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
 
 @end

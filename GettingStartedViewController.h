@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "DCRoundSwitch.h"
+#import "MainViewController.h"
 
-@interface GettingStartedViewController : UIViewController <UIPopoverControllerDelegate>
+@interface GettingStartedViewController : MainViewController <UIPopoverControllerDelegate>
 
 @property (nonatomic, strong) NSDate* selectedPickerDate;
 

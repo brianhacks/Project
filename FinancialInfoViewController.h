@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AccordionView.h"
+#import "MainViewController.h"
 
-@interface FinancialInfoViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
+@interface FinancialInfoViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *startDateButton;
 @property (strong, nonatomic) UIDatePicker *startDatePicker;

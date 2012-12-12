@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "AccordionView.h"
 #import "User.h"
+#import "MainViewController.h"
 
-@interface ReviewAndSubmitViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate>
+@interface ReviewAndSubmitViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate>
 
 
 @property (strong, nonatomic) User* userInfo;

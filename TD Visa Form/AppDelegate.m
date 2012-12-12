@@ -20,15 +20,17 @@
 #import "User.h"
 #import "Log.h"
 
-@interface AppDelegate ()
-
+@interface AppDelegate()
 @end
+
+
 
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -81,9 +83,9 @@
     self.window.rootViewController = self.navController;
     
 
-     self.window.rootViewController = self.thankYouViewController;
-//    self.window.rootViewController = self.firstScreenSaverViewController;
-    // self.window.rootViewController = self.personalInfoViewController;
+//     self.window.rootViewController = self.thankYouViewController;
+    self.window.rootViewController = self.firstScreenSaverViewController;
+  //   self.window.rootViewController = self.personalInfoViewController;
     
     
     [self.window makeKeyAndVisible];
@@ -91,6 +93,7 @@
     
     return YES;
 }
+
 
 - (void)addEntryToLog
 {

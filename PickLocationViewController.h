@@ -15,6 +15,7 @@
 #import "AnnotationProtocol.h"
 #import "MyCalloutView.h"
 #import "HomeLocation.h"
+#import "MainViewController.h"
 
  
 
@@ -22,7 +23,7 @@
 //#define GMAP_ANNOTATION_SELECTED
 
 
-@interface PickLocationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
+@interface PickLocationViewController : MainViewController <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
 
 @property (strong, nonatomic) UIImageView* sageataImage;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;

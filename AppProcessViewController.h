@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SelectThisCardViewController.h"
+#import "MainViewController.h"
 
 
-@interface AppProcessViewController : UIViewController <SelectThisCardViewControllerDelegate>
+@interface AppProcessViewController : MainViewController <SelectThisCardViewControllerDelegate>
 
 //@property (nonatomic, weak) id <AppProcessViewControllerDelegate> delegate;
 
