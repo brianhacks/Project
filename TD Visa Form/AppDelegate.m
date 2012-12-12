@@ -84,8 +84,8 @@
     
 
 //     self.window.rootViewController = self.thankYouViewController;
-   // self.window.rootViewController = self.firstScreenSaverViewController;
-   self.window.rootViewController = self.personalInfoViewController;
+    self.window.rootViewController = self.firstScreenSaverViewController;
+   //self.window.rootViewController = self.personalInfoViewController;
     
     
     [self.window makeKeyAndVisible];
