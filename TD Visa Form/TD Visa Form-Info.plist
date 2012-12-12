@@ -27,7 +27,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Frutiger</string>
-		<string>Fruticn</string>
+		<string>FrutiCn</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
