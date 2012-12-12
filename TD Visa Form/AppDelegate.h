@@ -29,6 +29,10 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic, strong) NSTimer *idleTimer;
+@property (nonatomic, strong) UIAlertView* sessionTimeoutAlert;
+
+
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
