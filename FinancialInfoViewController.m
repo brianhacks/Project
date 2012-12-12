@@ -614,9 +614,11 @@
         return;
     }
     
-    //TODO need to modify accordion to replace panel with infopanel and hide header.
-    [self.accordion setSelectedIndex:1];
     
+    
+    [self.accordion setSelectedIndex:1];
+    UIImage *image2 = [[UIImage alloc] initWithContentsOfFile:@"banner-4a.png"];
+    [self.financeHeader setImage:image2];
     [self changeFirstHeaderHeightAndAddInfo];
     
     self.firstViewClosed = YES;

@@ -300,7 +300,6 @@
 						<string key="NSFrame">{{1005, 170}, {19, 537}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<float key="IBUIAlpha">0.30000001192092896</float>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -588,7 +587,6 @@
 						<string key="NSFrame">{{911, 123}, {80, 45}}</string>
 						<reference key="NSSuperview" ref="604534149"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -988,7 +986,6 @@
 						<string key="NSFrame">{{903, 228}, {80, 45}}</string>
 						<reference key="NSSuperview" ref="417850041"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -1223,7 +1220,6 @@
 						<string key="NSFrame">{{904, 229}, {80, 45}}</string>
 						<reference key="NSSuperview" ref="686583828"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -1274,7 +1270,6 @@
 						<string key="NSFrame">{{20, 20}, {206, 21}}</string>
 						<reference key="NSSuperview" ref="311647859"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -1307,7 +1302,6 @@
 				<string key="NSFrameSize">{1000, 300}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
@@ -1321,7 +1315,6 @@
 				<string key="NSFrameSize">{1000, 300}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
@@ -1539,6 +1532,14 @@
 						<reference key="destination" ref="686583828"/>
 					</object>
 					<int key="connectionID">214</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">personalHeader</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="1005419795"/>
+					</object>
+					<int key="connectionID">245</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -2202,13 +2203,21 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">244</int>
+			<int key="maxID">245</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
-					<string key="className">PersonalInfoViewController</string>
+					<string key="className">MainViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/MainViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">PersonalInfoViewController</string>
+					<string key="superclassName">MainViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="choseHowLongYouLivedAtCurrentAddress:">id</string>
 						<string key="closeAddressView:">id</string>
@@ -2295,6 +2304,7 @@
 						<string key="generalInfoView">UIView</string>
 						<string key="lastName">UITextField</string>
 						<string key="nextStepButton">UIButton</string>
+						<string key="personalHeader">UIImageView</string>
 						<string key="postalCode">UITextField</string>
 						<string key="primaryPhoneNumber">UITextField</string>
 						<string key="provinceButton">UIButton</string>
@@ -2354,6 +2364,10 @@
 						<object class="IBToOneOutletInfo" key="nextStepButton">
 							<string key="name">nextStepButton</string>
 							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="personalHeader">
+							<string key="name">personalHeader</string>
+							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="postalCode">
 							<string key="name">postalCode</string>

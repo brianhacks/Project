@@ -323,7 +323,9 @@
     
     //TODO need to modify accordion to replace panel with infopanel and hide header.
     [self.accordion setSelectedIndex:1];
-    
+    UIImage *image2 = [UIImage imageNamed:@"banner-3a.png"];
+
+    [self.personalHeader setImage:image2];
     [self changeFirstHeaderHeightAndAddInfo];
     self.firstViewClosed = YES;
     
@@ -496,6 +498,10 @@
     [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
         if ([placemarks count] > 0) {
             
+            
+            UIImage *image2 = [UIImage imageNamed:@"banner-3b.png"];
+            [self.personalHeader setImage:image2];
+
             self.streetAddress.backgroundColor = [UIColor whiteColor];
             [self.accordion setSelectedIndex:3];
             [self changeSecondHeaderHeightAndAddInfo];

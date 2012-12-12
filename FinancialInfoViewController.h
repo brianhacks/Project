@@ -16,6 +16,7 @@
 @property (strong, nonatomic) UIDatePicker *startDatePicker;
 @property (strong, nonatomic) UIPopoverController* popoverController5;
 
+@property (strong, nonatomic) IBOutlet UIImageView *financeHeader;
 
 @property (strong, nonatomic) IBOutlet UIButton *requestedCreditLimitButton;
 @property (strong, nonatomic) IBOutlet UITextField *householdIncomeTextField;

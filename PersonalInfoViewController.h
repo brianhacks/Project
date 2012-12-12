@@ -21,6 +21,7 @@
 @property (strong, nonatomic) UIPickerView *timeLivedAtCurrentAddressPicker;
 @property (strong, nonatomic) NSArray* monthsLivedArray;
 @property (strong, nonatomic) NSArray* yearsLivedArray;
+@property (strong, nonatomic) IBOutlet UIImageView *personalHeader;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *nextStepButton;

@@ -226,7 +226,6 @@
 								<string key="NSFrame">{{919, 14}, {105, 46}}</string>
 								<reference key="NSSuperview" ref="182119811"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -386,7 +385,6 @@
 						<string key="NSFrame">{{908, 114}, {82, 44}}</string>
 						<reference key="NSSuperview" ref="439640075"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -533,7 +531,6 @@
 						<string key="NSFrame">{{866, 151}, {79, 43}}</string>
 						<reference key="NSSuperview" ref="115148061"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -814,7 +811,7 @@
 					<object class="IBUILabel" id="700263147">
 						<reference key="NSNextResponder" ref="481431553"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 89}, {171, 30}}</string>
+						<string key="NSFrame">{{19, 88}, {171, 30}}</string>
 						<reference key="NSSuperview" ref="481431553"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="438366699"/>
@@ -828,7 +825,12 @@
 						<reference key="IBUITextColor" ref="947287022"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
-						<reference key="IBUIFontDescription" ref="290642085"/>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<string key="name">Helvetica</string>
+							<string key="family">Helvetica</string>
+							<int key="traits">0</int>
+							<double key="pointSize">17</double>
+						</object>
 						<reference key="IBUIFont" ref="157375793"/>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
@@ -915,7 +917,7 @@
 						<string key="NSFrame">{{719, 89}, {178, 30}}</string>
 						<reference key="NSSuperview" ref="481431553"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="22356049"/>
+						<reference key="NSNextKeyView" ref="897873257"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -965,7 +967,6 @@
 						<string key="NSFrame">{{0, 289}, {1024, 46}}</string>
 						<reference key="NSSuperview" ref="481431553"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -974,13 +975,13 @@
 							<string key="NSResourceName">bottom-curve.png</string>
 						</object>
 					</object>
-					<object class="IBUIImageView" id="22356049">
+					<object class="IBUIImageView" id="897873257">
 						<reference key="NSNextResponder" ref="481431553"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{19, 138}, {374, 96}}</string>
 						<reference key="NSSuperview" ref="481431553"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="95522272"/>
+						<reference key="NSNextKeyView" ref="299044621"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -989,7 +990,7 @@
 							<string key="NSResourceName">finance-info1.jpg</string>
 						</object>
 					</object>
-					<object class="IBUIImageView" id="95522272">
+					<object class="IBUIImageView" id="299044621">
 						<reference key="NSNextResponder" ref="481431553"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{531, 139}, {377, 84}}</string>
@@ -1239,6 +1240,14 @@
 						<reference key="destination" ref="193839089"/>
 					</object>
 					<int key="connectionID">195</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">financeHeader</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="642375882"/>
+					</object>
+					<int key="connectionID">202</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1505,7 +1514,6 @@
 						<reference key="object" ref="481431553"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="1021853919"/>
-							<reference ref="700263147"/>
 							<reference ref="224029972"/>
 							<reference ref="932343683"/>
 							<reference ref="243539458"/>
@@ -1513,8 +1521,9 @@
 							<reference ref="239392647"/>
 							<reference ref="1061405541"/>
 							<reference ref="227975922"/>
-							<reference ref="22356049"/>
-							<reference ref="95522272"/>
+							<reference ref="897873257"/>
+							<reference ref="299044621"/>
+							<reference ref="700263147"/>
 						</array>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Income and Credit Limit Details</string>
@@ -1659,12 +1668,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">200</int>
-						<reference key="object" ref="22356049"/>
+						<reference key="object" ref="897873257"/>
 						<reference key="parent" ref="481431553"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">201</int>
-						<reference key="object" ref="95522272"/>
+						<reference key="object" ref="299044621"/>
 						<reference key="parent" ref="481431553"/>
 					</object>
 				</array>
@@ -1729,7 +1738,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">201</int>
+			<int key="maxID">202</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1745,6 +1754,8 @@
 						<string key="previousStep:">id</string>
 						<string key="requesteCreditLimitAction:">id</string>
 						<string key="selectOccupation:">id</string>
+						<string key="selectProvince:">id</string>
+						<string key="selectResidentialStatus:">id</string>
 						<string key="showLegal:">id</string>
 						<string key="showPrivacy:">id</string>
 						<string key="showSecurity:">id</string>
@@ -1780,6 +1791,14 @@
 						</object>
 						<object class="IBActionInfo" key="selectOccupation:">
 							<string key="name">selectOccupation:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="selectProvince:">
+							<string key="name">selectProvince:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="selectResidentialStatus:">
+							<string key="name">selectResidentialStatus:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showLegal:">
@@ -1949,7 +1968,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="banner-4.png">{2047, 344}</string>
+			<string key="banner-4.png">{2047, 340}</string>
 			<string key="bottom-curve.png">{2048, 92}</string>
 			<string key="btn-done.png">{168, 84}</string>
 			<string key="btn-legal-hover.png">{129, 73}</string>
