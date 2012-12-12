@@ -71,6 +71,10 @@
     NSDictionary *dictionary = [notification userInfo];
     NSString *branch = [dictionary valueForKey:key];
     activeBranchId=branch;
+    //change pin
+    [self markBranchAsSelected:branch];
+    
+
     [self.tableView reloadData];
  //   self.tableView scrollToRowAtIndexPath:<#(NSIndexPath *)#> atScrollPosition:<#(UITableViewScrollPosition)#> animated:true
     
@@ -78,22 +82,46 @@
     
 }
 
-/* unused - bad performance and bad design */
+/* we have to do it this way which sucks, this whole thing is hacky */
 -(void)markBranchAsSelected:(NSString*)branchId{
-    int count = allBranches.count;
+    int count = mapView.annotations.count;
     bool enableNextButton = false;
-    for (int j=0; j<count; j++)  // use <= instead of + 1, it's more intuitive
+    for (int j=0; j<count-1; j++)  // use <= instead of + 1, it's more intuitive
     {
-        Annotation *branch = [allBranches objectAtIndex:j];
-        NSString *tbranch = [branch.content.values objectForKey:@"branchid"];
-        if([tbranch isEqualToString:branchId]){
-            branch.selected = true;
-            enableNextButton = true;
-        }else{
-            branch.selected = false;
-        }
-        [allBranches replaceObjectAtIndex:j withObject:branch];
+        Annotation *branch = [mapView.annotations objectAtIndex:j];
         
+        //check to make sure its not the "curent location" pin
+        if([branch respondsToSelector:@selector(setSelected:)]) {
+           
+             //NSLog(@"%d", branch.selected);
+             NSString *tbranch = [branch.content.values objectForKey:@"branchid"];
+             if([tbranch isEqualToString:branchId]){
+                 //[self.mapView removeAnnotation:branch];
+                 [branch setSelected:true];
+                
+               //  branch.content.iconURL = [[NSBundle mainBundle] URLForResource:@"bank-selected" withExtension:@"png"];
+                 branch.annotationView.image = [UIImage imageNamed:@"bank-selected.png"];
+                 enableNextButton = true;
+                // [self.mapView addAnnotation:branch];
+               //  [self.mapView reloadInputViews];
+             }else{
+                 if(branch.selected){
+                     //[self.mapView removeAnnotation:branch];
+                    [branch setSelected:false];
+                     branch.annotationView.image = [UIImage imageNamed:@"bank.png"];
+
+                    // branch.content.iconURL = [[NSBundle mainBundle] URLForResource:@"bank" withExtension:@"png"];
+                     
+
+                    // [self.mapView addAnnotation:branch];
+                
+                 }
+                // [branch setSelected:false];
+             }
+    
+         }else{
+             NSLog(@"found the home pin");
+         }
     }
     if(enableNextButton){
         self.nextStep.enabled = YES;
@@ -182,17 +210,13 @@
         [mapView removeAnnotation:annotation];
     }
     
-    /*
-     TransitNum":"0040","Address":"1213 OXFORD ST W","City":"LONDON","Postal":"N6H1V8","Province":"ON","Mon":"8:00-8:00","Tue":"8:00-8:00","wed":"8:00-8:00","Thu":"8:00-8:00","Fri":"8:00-8:00","Sat":"8:00-4:00","Sun":"CLOSED","Record Type":"(519)471-5500","undefined":"B","lat":42.9748529,"lon":-81.324202}
-     */
-    
     for (NSDictionary *branch in allBranchesJSON) {
        
         NSString* address = [branch objectForKey:@"address"];
        
         NSNumber *latitude = [branch objectForKey:@"lat"];
         NSNumber *longitude = [branch objectForKey:@"lon"]; 
-        NSString *branchId = [branch objectForKey:@"TransitNum"];
+        NSString *branchId = [branch objectForKey:@"Transit"];
         NSString *city = [branch objectForKey:@"city"];
         NSString *prov= [branch objectForKey:@"prov"];
         NSString *postal= [branch objectForKey:@"postal"];
@@ -213,14 +237,14 @@
         content.iconURL = [[NSBundle mainBundle] URLForResource:@"bank" withExtension:@"png"];
         content.calloutView  = [MyCalloutView class];
         content.coordinate = coordinate;
+        
         content.values = [NSDictionary dictionaryWithObjectsAndKeys:address,@"address",
                                                                 city,@"city",
                                                                 prov,@"prov",
                                                              postal,@"postal",
                                                             branchId,@"branchid",
                                                               title,@"title",
-                                                        coordinate,@"coordinate",
-                                                            branchId,@"branchId",
+                                                        //coordinate,@"coordinate",
                                                              monday,@"monday",
                                                             tuesday,@"tuesday",
                                                           wednesday,@"wednesday",
@@ -237,6 +261,7 @@
         double distance = [MapUtil CalculateDistance:coordinate.latitude nLon1:coordinate.longitude nLat2:homeLoc.latitude nlon2:homeLoc.longitude ];
         anno.distance = distance;
         anno.mapView = mapView;
+        anno.selected = false;
 
         [allBranches addObject:anno];
   	}
@@ -294,7 +319,7 @@
     NSString *zcity= [l.content.values objectForKey:@"city"];
     NSString *zprov= [l.content.values objectForKey:@"prov"];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@ %@", zname, zcity, zprov];
+    cell.textLabel.text = [[NSString stringWithFormat:@"%@ %@ %@", zname, zcity, zprov] capitalizedString];
     
 
     double distance = l.distance;
@@ -304,7 +329,7 @@
     //image
     NSString *branchId = [l.content.values objectForKey:@"branchid"];
     if([branchId isEqualToString:activeBranchId]){
-        cell.imageView.image = [UIImage imageNamed:@"bank.png"];
+        cell.imageView.image = [UIImage imageNamed:@"bank-list-selected.png"];
        // cell.textLabel.text = @"ARGOFUCKYOURSELF";
        
     }else{
@@ -331,8 +356,11 @@
 - (IBAction)nextStep:(id)sender
 {
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    [appDelegate addInfoToUser:activeBranchId andFieldToAddItTo:@"branchNumber"];
+    [appDelegate addInfoToUser:activeBranchId andFieldToAddItTo:@"bankNumber"];
+    
     [appDelegate setNewRootView:appDelegate.reviewAndSubmitViewController];
+   // [appDelegate.reviewAndSubmitViewController refresh];
+
     
 }
 

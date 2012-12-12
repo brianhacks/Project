@@ -32,7 +32,7 @@
 - (id)initWithAnnotation:(CalloutAnnotation*)annotation {
     self = [super initWithAnnotation:annotation];
     
-    NSString *title = [annotation.content.values objectForKey:@"branchid"];
+    NSString *title = [annotation.content.values objectForKey:@"branchId"];
    
     self.title.text = title;
     
