@@ -128,6 +128,7 @@
     NSString *city = u.city;
     NSString *prov = u.province;
     NSString *query = [NSString stringWithFormat:@"%@ %@ %@", address, city, prov];
+//    NSString *query = [NSString stringWithFormat:@"London, Oxford Street 20"];
     //geocode the default based on the users home addresss
   //  appDelegate
    // CLLocationCoordinate2D zoomLocation;
@@ -137,8 +138,18 @@
         if ([placemarks count] > 0) {
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
             CLLocation *location = placemark.location;
-            CLLocationCoordinate2D coordinate = location.coordinate;
-            self->homeLoc = location.coordinate;
+//            CLLocationCoordinate2D coordinate = location.coordinate;
+            homeLoc = location.coordinate;
+            
+            MKCoordinateRegion region;
+            MKCoordinateSpan span;
+            span.latitudeDelta=0.1;
+            span.longitudeDelta=0.1;
+            region.span=span;
+            region.center = location.coordinate;
+            
+            [self.mapView setRegion:region animated:TRUE];
+            
             [self plotBanks];
                        //need to refresh table
             [self.tableView reloadData];

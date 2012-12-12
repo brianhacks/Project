@@ -35,12 +35,6 @@
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
     
-//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    doneButton.frame = CGRectMake(150., 0., 60., 44.);
-//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-//    [doneButton addTarget:self action:@selector(chooseTitle) forControlEvents:UIControlEventTouchUpInside];
-//    [popoverView addSubview:doneButton];
-
     UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 220.0, 44.0)];
     toolbar.barStyle = UIBarStyleBlack;
     
@@ -69,8 +63,8 @@
     
     popoverContent.view = popoverView;
     self.popoverController2 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
-    self.popoverController2.delegate = self;
-
+//    self.popoverController2.delegate = self;
+    
     [self.popoverController2 setPopoverContentSize:CGSizeMake(220, 200) animated:NO];
     [self.popoverController2 presentPopoverFromRect:CGRectMake(15.0, 220.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
@@ -81,7 +75,7 @@
     
     self.titleString = [NSString stringWithFormat:@"%@",[self.titleArray objectAtIndex:[self.titlePicker selectedRowInComponent:0]]];
     [self.selectTitelButton setTitle:[NSString stringWithFormat:@"%@",self.titleString] forState:UIControlStateNormal];
-    [self.popoverController2 dismissPopoverAnimated:YES];
+//    [self.popoverController2 dismissPopoverAnimated:YES];
     
 }
 
@@ -154,12 +148,12 @@
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
     
-//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    doneButton.frame = CGRectMake(150., 0., 60., 44.);
-//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-//    [doneButton addTarget:self action:@selector(selectGender) forControlEvents:UIControlEventTouchUpInside];
-//    [popoverView addSubview:doneButton];
-
+    //    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    //    doneButton.frame = CGRectMake(150., 0., 60., 44.);
+    //    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    //    [doneButton addTarget:self action:@selector(selectGender) forControlEvents:UIControlEventTouchUpInside];
+    //    [popoverView addSubview:doneButton];
+    
     UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 220.0, 44.0)];
     toolbar.barStyle = UIBarStyleBlack;
     
@@ -228,7 +222,7 @@
     }
     
     if (self.secondHeaderView.frame.size.height > 50) {
-      
+        
         self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height - 50);
         
     }
@@ -270,9 +264,9 @@
         self.lastName.backgroundColor = [UIColor whiteColor];
     }
     
-//    NSString *str=@"^\\+(?:[0-9] ?){6,14}[0-9]$";
-//    NSPredicate *no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",str];
-  
+    //    NSString *str=@"^\\+(?:[0-9] ?){6,14}[0-9]$";
+    //    NSPredicate *no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",str];
+    
     if(self.primaryPhoneNumber.text.length < 1){
         isValid=false;
         //mark field as invalid
@@ -289,28 +283,28 @@
         self.selectGenderButton.backgroundColor = [UIColor whiteColor];
         
     }
-
+    
     //sin is optional
-//    if(self.sinNumber.text.length > 9 ){
-//        //mark field as invalid
-//        self.sinNumber.backgroundColor = [UIColor yellowColor];
-//    }else{
-//        self.sinNumber.backgroundColor = [UIColor whiteColor];
-//        
-//    }
+    //    if(self.sinNumber.text.length > 9 ){
+    //        //mark field as invalid
+    //        self.sinNumber.backgroundColor = [UIColor yellowColor];
+    //    }else{
+    //        self.sinNumber.backgroundColor = [UIColor whiteColor];
+    //
+    //    }
     
     //mail is optional
-//    NSString *email_regex_str=@".+@.+\\.[A-Za-z]{2}[A-Za-z]*";
-//    NSPredicate *email_no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",email_regex_str];
-//
-//    if(self.emailAddress.text.length > 0 && [email_no evaluateWithObject:self.emailAddress.text]==NO){
-//        //mark field as invalid
-//        self.emailAddress.backgroundColor = [UIColor yellowColor];
-//    }else{
-//        self.emailAddress.backgroundColor = [UIColor whiteColor];
-//        
-//    }
-
+    //    NSString *email_regex_str=@".+@.+\\.[A-Za-z]{2}[A-Za-z]*";
+    //    NSPredicate *email_no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",email_regex_str];
+    //
+    //    if(self.emailAddress.text.length > 0 && [email_no evaluateWithObject:self.emailAddress.text]==NO){
+    //        //mark field as invalid
+    //        self.emailAddress.backgroundColor = [UIColor yellowColor];
+    //    }else{
+    //        self.emailAddress.backgroundColor = [UIColor whiteColor];
+    //
+    //    }
+    
     
     
     if(isValid==false){
@@ -449,7 +443,7 @@
     
     NSString *zip_regex_str=@"^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}$";
     NSPredicate *zip_no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",zip_regex_str];
-        
+    
     if(self.postalCode.text.length < 1 || [zip_no evaluateWithObject:self.postalCode.text])
     {
         self.postalCode.backgroundColor = [UIColor yellowColor];
@@ -465,10 +459,10 @@
         
     }
     /*
-    Minimum – 1, Maximum – 12 characters
-    Rules (1) If Residential Status = Own, Rent, Board Total Monthly Housing Cost is Required and must be >$0.00
-    (2) If Residential Status = Live with Parents/Relatives Total Monthly Housing Cost is NOT Required
-    */
+     Minimum – 1, Maximum – 12 characters
+     Rules (1) If Residential Status = Own, Rent, Board Total Monthly Housing Cost is Required and must be >$0.00
+     (2) If Residential Status = Live with Parents/Relatives Total Monthly Housing Cost is NOT Required
+     */
     
     int totalCosts = [self.totalMonthlyHousingCosts.text intValue];
     
@@ -476,7 +470,7 @@
          )
        )
     {
-//        isValid=false;
+        //        isValid=false;
         
     }
     
@@ -510,11 +504,11 @@
             self.streetAddress.backgroundColor = [UIColor yellowColor];
             
         }}];
-
     
     
     
-     
+    
+    
     
     
 }
@@ -583,6 +577,8 @@
 }
 
 
+
+
 #pragma mark
 #pragma mark viewDidLoad
 - (void)viewDidLoad
@@ -635,7 +631,7 @@
     firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
     [self.firstHeaderView addSubview:firstHeaderTitel];
     [self.accordion addHeader:self.firstHeaderView withView:self.generalInfoView];
-
+    
     self.secondHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
@@ -651,7 +647,7 @@
     
     UIImageView* bottomCurve = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 243.0, 1024., 46.)];
     bottomCurve.image = [UIImage imageNamed:@"bottom-curve.png"];
-//    [self.accordion addSubview:bottomCurve];
+    //    [self.accordion addSubview:bottomCurve];
     
     //need to figure out how to alternate the color of white and green
     [self.accordion addHeader:self.secondHeaderView withView:self.currentHomeAddressView];
@@ -679,11 +675,11 @@
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
     
-//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    doneButton.frame = CGRectMake(150., 0., 60., 44.);
-//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-//    [doneButton addTarget:self action:@selector(chooseLanguage:) forControlEvents:UIControlEventTouchUpInside];
-//    [popoverView addSubview:doneButton];
+    //    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    //    doneButton.frame = CGRectMake(150., 0., 60., 44.);
+    //    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    //    [doneButton addTarget:self action:@selector(chooseLanguage:) forControlEvents:UIControlEventTouchUpInside];
+    //    [popoverView addSubview:doneButton];
     
     UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 220.0, 44.0)];
     toolbar.barStyle = UIBarStyleBlack;
@@ -737,12 +733,12 @@
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
     
-//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    doneButton.frame = CGRectMake(200., 0., 60., 44.);
-//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-//    [doneButton addTarget:self action:@selector(chooseProvince) forControlEvents:UIControlEventTouchUpInside];
-//    [popoverView addSubview:doneButton];
-
+    //    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    //    doneButton.frame = CGRectMake(200., 0., 60., 44.);
+    //    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    //    [doneButton addTarget:self action:@selector(chooseProvince) forControlEvents:UIControlEventTouchUpInside];
+    //    [popoverView addSubview:doneButton];
+    
     UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 320.0, 44.0)];
     toolbar.barStyle = UIBarStyleBlack;
     
@@ -798,7 +794,7 @@
     if (pickerView == self.timeLivedAtCurrentAddressPicker) {
         return 2;
     }else{
-    
+        
         return 1;
         
     }
@@ -836,7 +832,7 @@
             return 100;
         }
         
-    
+        
         
     }else{
         
@@ -875,7 +871,7 @@
             
         }else if (component == 1){
             
-             val1 = [self.monthsLivedArray objectAtIndex:row];
+            val1 = [self.monthsLivedArray objectAtIndex:row];
         }
         
         
@@ -894,11 +890,11 @@
     UIView *popoverView = [[UIView alloc] init];   //view
     popoverView.backgroundColor = [UIColor grayColor];
     
-//    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    doneButton.frame = CGRectMake(200., 0., 60., 44.);
-//    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-//    [doneButton addTarget:self action:@selector(chooseResidentialStatus) forControlEvents:UIControlEventTouchUpInside];
-//    [popoverView addSubview:doneButton];
+    //    UIButton* doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    //    doneButton.frame = CGRectMake(200., 0., 60., 44.);
+    //    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    //    [doneButton addTarget:self action:@selector(chooseResidentialStatus) forControlEvents:UIControlEventTouchUpInside];
+    //    [popoverView addSubview:doneButton];
     
     
     UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 320.0, 44.0)];
@@ -1049,7 +1045,7 @@
     UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
     
     UIView *popoverView = [[UIView alloc] init];   //view
-//    popoverView.backgroundColor = [UIColor grayColor];
+    //    popoverView.backgroundColor = [UIColor grayColor];
     popoverView.backgroundColor = [UIColor blackColor];
     
     UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 220.0, 44.0)];
@@ -1095,7 +1091,7 @@
     popoverContent.view = popoverView;
     self.popoverController5 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController5.delegate = self;
-
+    
     [self.popoverController5 setPopoverContentSize:CGSizeMake(220, 214) animated:NO];
     [self.popoverController5 presentPopoverFromRect:CGRectMake(220.0, 365.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
@@ -1108,7 +1104,7 @@
     [self.popoverController5 dismissPopoverAnimated:YES];
     
     NSString* years = [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]];
-//    int months = [self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]]
+    //    int months = [self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]]
     
     if ([years integerValue] <= 2) {
         
