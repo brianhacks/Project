@@ -931,7 +931,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Adrian Somesan";
 			};
-			buildConfigurationList = 702337A11652C56800B87249 /* Build configuration list for PBXProject "TD Visa Form" */;
+			buildConfigurationList = 702337A11652C56800B87249 /* Build configuration list for PBXProject "TD VISA FORM" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1171,6 +1171,8 @@
 		702337CB1652C56800B87249 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Kantor (P9G34B35Q8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Matthew Kantor (P9G34B35Q8)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TD Visa Form/TD Visa Form-Prefix.pch";
 				INFOPLIST_FILE = "TD Visa Form/TD Visa Form-Info.plist";
@@ -1180,6 +1182,8 @@
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0D366B71-4FC7-4DB6-AB13-D52E2508C964";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0D366B71-4FC7-4DB6-AB13-D52E2508C964";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1187,7 +1191,9 @@
 		702337CC1652C56800B87249 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Matthew Kantor";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Matthew Kantor";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Matthew Kantor";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TD Visa Form/TD Visa Form-Prefix.pch";
 				INFOPLIST_FILE = "TD Visa Form/TD Visa Form-Info.plist";
@@ -1197,6 +1203,9 @@
 				);
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "48B9E328-5621-464C-9B43-61E053DD039F";
+				"PROVISIONING_PROFILE[sdk=*]" = "48B9E328-5621-464C-9B43-61E053DD039F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "48B9E328-5621-464C-9B43-61E053DD039F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1204,7 +1213,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		702337A11652C56800B87249 /* Build configuration list for PBXProject "TD Visa Form" */ = {
+		702337A11652C56800B87249 /* Build configuration list for PBXProject "TD VISA FORM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				702337C81652C56800B87249 /* Debug */,
