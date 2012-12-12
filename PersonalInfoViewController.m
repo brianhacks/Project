@@ -502,6 +502,8 @@
         } else {
             
             self.streetAddress.backgroundColor = [UIColor yellowColor];
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"We could not find your addresss.  Please make sure it was entered correctly." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+            [alert show];
             
         }}];
     

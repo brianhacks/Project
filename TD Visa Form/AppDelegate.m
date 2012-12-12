@@ -57,7 +57,7 @@
 //    self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
     
 //    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
     
     [self.navController setNavigationBarHidden:YES animated:YES];
     
@@ -83,8 +83,7 @@
     //for debug mode only
     self.window.rootViewController = self.navController;
     
-
-//     self.window.rootViewController = self.thankYouViewController;
+//    self.window.rootViewController = self.thankYouViewController;
     self.window.rootViewController = self.firstScreenSaverViewController;
 
     

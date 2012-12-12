@@ -79,8 +79,8 @@
         
         [self.secondView removeFromSuperview];
         [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:2.0];
-        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
+        [UIView setAnimationDuration:5.0];
+        [UIView setAnimationTransition:UIViewAnimationOptionTransitionCrossDissolve forView:self.view cache:YES];
         [UIView commitAnimations];
         [self.view addSubview:self.firstView];
         
@@ -90,8 +90,8 @@
         
         [self.firstView removeFromSuperview];
         [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:2.0];
-        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:YES];
+        [UIView setAnimationDuration:5.0];
+        [UIView setAnimationTransition:UIViewAnimationOptionTransitionCrossDissolve forView:self.view cache:YES];
         [UIView commitAnimations];
         [self.view addSubview:self.secondView];
     }
