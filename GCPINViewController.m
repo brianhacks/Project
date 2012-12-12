@@ -257,7 +257,7 @@
     
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     BOOL isAdmin;
-    
+    NSLog(@"processing");
     if ([password hasPrefix:@"a"])
     {
         isAdmin = YES;

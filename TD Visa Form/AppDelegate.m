@@ -60,7 +60,7 @@
 //    self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+  //  self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
 //    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
 
     
@@ -77,13 +77,6 @@
     [fetchRequest setEntity:log];
     
     self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
-    
-//    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:nil];
-    
- //   [[UILabel appearance] setFont:[UIFont fontWithName:@"FrutiCn" size:17.0]];
-    //    NSError* error = nil;
-    //    NSArray* fetchedResult = [context executeFetchRequest:fetchRequest error:&error];
-    
     
     //for debug mode only
     self.window.rootViewController = self.navController;
