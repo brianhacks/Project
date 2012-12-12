@@ -7,7 +7,7 @@
 @implementation MyCalloutView
 
 @synthesize title = _title;
-
+@synthesize monday, tuesday, wednesday, thursday, friday,saturday,sunday;
 
 - (IBAction)closePopup:(id)sender {
 }
@@ -33,13 +33,22 @@
     self = [super initWithAnnotation:annotation];
     
     NSString *title = [annotation.content.values objectForKey:@"branchId"];
-   
     self.title.text = title;
     
-    //set all the other stuff here
-    
-    
-
+    NSString *monday = [annotation.content.values objectForKey:@"monday"];
+    self.monday.text = monday;
+    NSString *tuesday = [annotation.content.values objectForKey:@"tuesday"];
+    self.tuesday.text = tuesday;
+    NSString *wednesday = [annotation.content.values objectForKey:@"wednesday"];
+    self.wednesday.text = wednesday;
+    NSString *thursday = [annotation.content.values objectForKey:@"thursday"];
+    self.thursday.text = thursday;
+    NSString *friday = [annotation.content.values objectForKey:@"friday"];
+    self.friday.text = friday;
+    NSString *saturday = [annotation.content.values objectForKey:@"saturday"];
+    self.saturday.text = saturday;
+    NSString *sunday = [annotation.content.values objectForKey:@"sunday"];
+    self.sunday.text = sunday;
     
     return self;
 }
@@ -62,7 +71,7 @@
 {
     self.title.text = [annotation.content.values objectForKey:@"branchid"];
     self.address.text = [annotation.content.values objectForKey:@"address"];
-    self.city.text = [[NSString stringWithFormat:@"%@ %@", [annotation.content.values objectForKey:@"city"], [annotation.content.values objectForKey:@"prov"]]capitalizedString];;
+    self.city.text = [[NSString stringWithFormat:@"%@ %@ %@", [annotation.content.values objectForKey:@"city"], [annotation.content.values objectForKey:@"prov"], [annotation.content.values objectForKey:@"postal"]]capitalizedString];;
     [super setAnnotation:annotation];
 }
 

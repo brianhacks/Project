@@ -11,6 +11,14 @@
 @property (strong, nonatomic) IBOutlet UIButton *chooseBankButton;
 @property (strong, nonatomic) IBOutlet UILabel *address;
 @property (strong, nonatomic) IBOutlet UILabel *city;
+@property (strong, nonatomic) IBOutlet UILabel *monday;
+
+@property (strong, nonatomic) IBOutlet UILabel *tuesday;
+@property (strong, nonatomic) IBOutlet UILabel *wednesday;
+@property (strong, nonatomic) IBOutlet UILabel *thursday;
+@property (strong, nonatomic) IBOutlet UILabel *friday;
+@property (strong, nonatomic) IBOutlet UILabel *saturday;
+@property (strong, nonatomic) IBOutlet UILabel *sunday;
 
 - (IBAction)cancelBank:(id)sender;
 

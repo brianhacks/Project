@@ -78,8 +78,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "356"
          endingLineNumber = "356"
-         landmarkName = "-nextStep:"
-         landmarkType = "5">
+         landmarkName = "@implementation PickLocationViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -91,7 +91,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "357"
          endingLineNumber = "357"
-         landmarkName = "-nextStep:"
+         landmarkName = "-cancelMapAnnotationClicked:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -104,8 +104,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "335"
          endingLineNumber = "335"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
-         landmarkType = "5">
+         landmarkName = "@implementation PickLocationViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -117,8 +117,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "336"
          endingLineNumber = "336"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
-         landmarkType = "5">
+         landmarkName = "@implementation PickLocationViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -130,7 +130,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "292"
          endingLineNumber = "292"
-         landmarkName = "-sortAnnotations"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -169,7 +169,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "181"
          endingLineNumber = "181"
-         landmarkName = "-recenterMap"
+         landmarkName = "-plotBanks"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -247,20 +247,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "82"
          endingLineNumber = "82"
-         landmarkName = "-useNotificationWithString:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "MyCalloutView.m"
-         timestampString = "376801174.956157"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "39"
-         endingLineNumber = "39"
-         landmarkName = "-initWithAnnotation:"
+         landmarkName = "-markBranchAsSelected:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -338,8 +325,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "366"
          endingLineNumber = "366"
-         landmarkName = "@implementation PickLocationViewController"
-         landmarkType = "3">
+         landmarkName = "-mapItemClicked:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -351,8 +338,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "78"
          endingLineNumber = "78"
-         landmarkName = "-useNotificationWithString:"
-         landmarkType = "5">
+         landmarkName = "@implementation PickLocationViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -372,11 +359,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MyCalloutView.m"
-         timestampString = "376935754.797176"
+         timestampString = "376975119.570809"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "49"
-         endingLineNumber = "49"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
          landmarkName = "-chooseBank:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -385,11 +372,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MyCalloutView.m"
-         timestampString = "376935756.383273"
+         timestampString = "376975119.570809"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "57"
-         endingLineNumber = "57"
+         startingLineNumber = "66"
+         endingLineNumber = "66"
          landmarkName = "-chooseBank:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -398,11 +385,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "MyCalloutView.m"
-         timestampString = "376935760.245256"
+         timestampString = "376975119.570809"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
+         startingLineNumber = "64"
+         endingLineNumber = "64"
          landmarkName = "-chooseBank:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -442,7 +429,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "257"
          endingLineNumber = "257"
-         landmarkName = "-plotBanks"
+         landmarkName = "-recomputeDistances"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -455,7 +442,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "266"
          endingLineNumber = "266"
-         landmarkName = "-plotBanks"
+         landmarkName = "-sortAnnotations"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -468,7 +455,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "270"
          endingLineNumber = "270"
-         landmarkName = "-plotBanks"
+         landmarkName = "-sortAnnotations"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -494,7 +481,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "123"
          endingLineNumber = "123"
-         landmarkName = "-markBranchAsSelected:"
+         landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
