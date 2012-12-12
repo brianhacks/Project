@@ -346,6 +346,8 @@
 
 - (void)viewDidLoad
 {
+      
+    
     
     [self.bextSteptButton setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
     self.bextSteptButton.enabled = NO;

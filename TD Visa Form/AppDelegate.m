@@ -89,6 +89,7 @@
 //   self.window.rootViewController = self.reviewAndSubmitViewController;
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
+    
     [self.navController.view addGestureRecognizer:singleTap];
     
     
