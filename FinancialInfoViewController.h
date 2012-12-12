@@ -12,6 +12,11 @@
 
 @interface FinancialInfoViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UIButton *curretOccupationButton;
+@property (strong, nonatomic) UIPickerView *selectCurrentOcupationPicker;
+@property (strong, nonatomic) UIPopoverController* popoverController6;
+@property (strong, nonatomic) IBOutlet UITextField *specifyOtherOcupationtextField;
+
 @property (strong, nonatomic) IBOutlet UIButton *startDateButton;
 @property (strong, nonatomic) UIDatePicker *startDatePicker;
 @property (strong, nonatomic) UIPopoverController* popoverController5;
@@ -35,7 +40,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *employerCityTextField;
 
 @property (strong, nonatomic) IBOutlet UITextField *employerCity;
-@property (strong, nonatomic) IBOutlet UIButton *occupationButton;
+@property (strong, nonatomic) IBOutlet UIButton *industryButton;
 @property (strong, nonatomic) NSArray* occupationArray;
 @property (strong, nonatomic) UIPickerView *occupationPicker;
 @property (strong, nonatomic) UIPopoverController* popoverController3;
@@ -73,6 +78,21 @@
 @property (readwrite, nonatomic) BOOL secondViewClosed;
 @property (strong, nonatomic) NSMutableString *requesteCreditLimitString;
 @property (strong, nonatomic) NSMutableArray *requesteCreditLimitArray;
+@property (nonatomic, readwrite) BOOL otherOccupationSelected;
+@property (nonatomic, readwrite) BOOL otherOccupationSelected2;
+
+@property (nonatomic, strong) NSArray* accountingFinanceInsurance;
+@property (nonatomic, strong) NSArray* installationMaintenanceRepair;
+@property (nonatomic, strong) NSArray* ITSoftwareDevelopment;
+@property (nonatomic, strong) NSArray* legal;
+@property (nonatomic, strong) NSArray* administrativeClerical;
+@property (nonatomic, strong) NSArray* logisticsTransportation;
+@property (nonatomic, strong) NSArray* bankingRealEstateMortgageProfessionals;
+@property (nonatomic, strong) NSArray* biotechRDScience;
+@property (nonatomic, strong) NSArray* manufacturingProductionOperations;
+@property (nonatomic, strong) NSArray* buildingConstructionSkilledTrades;
+@property (nonatomic, strong) NSArray* marketingProduct;
+@property (nonatomic, strong) NSArray* businessStrategicManagement;
 
 
 - (void)refresh;
@@ -87,5 +107,6 @@
 - (IBAction)showSecurity:(id)sender;
 - (IBAction)requesteCreditLimitAction:(id)sender;
 - (IBAction)chooseStartDate:(id)sender;
+- (IBAction)selectCurrentOccupation:(id)sender;
 
 @end

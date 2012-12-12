@@ -20,6 +20,7 @@
 #import "AdminViewController.h"
 #import "ThankYouViewController.h"
 #import "ReviewAndSubmitViewController.h"
+#import "MainViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
     NSTimer *idleTimer;
@@ -45,6 +46,7 @@
 @property (nonatomic, strong) AdminViewController* adminViewController;
 @property (nonatomic, strong) ThankYouViewController* thankYouViewController;
 @property (nonatomic, strong) ReviewAndSubmitViewController* reviewAndSubmitViewController;
+@property (nonatomic, strong) MainViewController* mainViewController;
 
 
 @property (nonatomic, strong) UINavigationController *navController;

@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController{
-    NSTimer *idleTimer;
-}
+@interface MainViewController : UIViewController
+
+@property (nonatomic, strong) NSTimer *idleTimer;
+ 
+
+
+-(void)resetIdleTimer;
 
 @end

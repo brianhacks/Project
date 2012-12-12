@@ -54,9 +54,10 @@
     self.thankYouViewController = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
     self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeCreate];
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
+//    self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-    //self.navController = [[UINavigationController alloc] initWithRootViewController:self.reviewAndSubmitViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
     
     [self.navController setNavigationBarHidden:YES animated:YES];
     
@@ -84,8 +85,11 @@
     
 
 //     self.window.rootViewController = self.thankYouViewController;
-    self.window.rootViewController = self.firstScreenSaverViewController;
-   //self.window.rootViewController = self.personalInfoViewController;
+//    self.window.rootViewController = self.firstScreenSaverViewController;
+   self.window.rootViewController = self.reviewAndSubmitViewController;
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
+    [self.navController.view addGestureRecognizer:singleTap];
     
     
     [self.window makeKeyAndVisible];
@@ -101,6 +105,15 @@
     
     
     return YES;
+}
+
+- (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture
+{
+    
+    self.mainViewController = self.navController.visibleViewController;
+    
+    [self.mainViewController resetIdleTimer];
+    
 }
 
 

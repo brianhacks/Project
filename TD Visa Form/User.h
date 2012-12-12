@@ -46,5 +46,6 @@
 @property (nonatomic, retain) NSString * householdIncome;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * grossAnualIncome;
+@property (nonatomic, retain) NSString * currentIndustry;
 
 @end
