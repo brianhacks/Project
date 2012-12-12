@@ -56,8 +56,8 @@
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
 //    self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
     
-    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
     
     [self.navController setNavigationBarHidden:YES animated:YES];
     
@@ -86,7 +86,7 @@
 
 //     self.window.rootViewController = self.thankYouViewController;
     self.window.rootViewController = self.firstScreenSaverViewController;
- //  self.window.rootViewController = self.reviewAndSubmitViewController;
+
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
     [self.navController.view addGestureRecognizer:singleTap];
