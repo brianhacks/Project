@@ -81,8 +81,8 @@
     //for debug mode only
     self.window.rootViewController = self.navController;
     
-    self.window.rootViewController = self.financialInfoViewController;
- //   self.window.rootViewController = self.firstScreenSaverViewController;
+    self.window.rootViewController = self.personalInfoViewController;
+  //  self.window.rootViewController = self.firstScreenSaverViewController;
 
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];

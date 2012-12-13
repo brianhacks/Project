@@ -31,6 +31,11 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="monthlyHouseCosts" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="postalCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="previousAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="previousAddressYearsAndMonths" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="previousCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="previousPostalCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="previousProvince" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="primaryPhone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="primaryPhonePrefix" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="province" optional="YES" attributeType="String" syncable="YES"/>
@@ -45,6 +50,6 @@
     </entity>
     <elements>
         <element name="Log" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="User" positionX="-7344" positionY="189" width="155" height="615"/>
+        <element name="User" positionX="-7344" positionY="189" width="155" height="690"/>
     </elements>
 </model>

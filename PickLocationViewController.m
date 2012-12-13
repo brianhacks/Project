@@ -122,7 +122,7 @@
     
     // get the users home address
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    User *u = [appDelegate  getUser];//addInfoToUser:self.occupationButton.titleLabel.text andFieldToAddItTo:@"currentOcupation"];
+    User *u = [appDelegate  getUser];
 
     NSString *address = u.street;
     NSString *city = u.city;
@@ -163,10 +163,7 @@
             
         }}];
     
-    
-    
-    
-   
+     
     
 }
 - (void)recenterMap{

@@ -413,7 +413,6 @@
     @"Marketing/Production/Operations",
     @"Marketing/Product",
     @"Medical/Health",
-    @"Other",
     @"Project/Program Management",
     @"Quality Assurance/Safety",
     @"Sales/Retail/Business Development",

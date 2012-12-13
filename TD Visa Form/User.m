@@ -22,7 +22,11 @@
 @dynamic areaCode;
 @dynamic primaryPhonePrefix;
 @dynamic primaryPhone;
-
+@dynamic previousAddress;
+@dynamic previousCity;
+@dynamic previousProvince;
+@dynamic previousPostalCode;
+@dynamic previousAddressYearsAndMonths;
 @dynamic email;
 @dynamic gender;
 @dynamic languagOfCorespondace;

@@ -12,6 +12,7 @@
 #import "MainViewController.h"
 
 @interface PersonalInfoViewController : MainViewController <UIPopoverControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UIScrollView *accordionViewScrollView;
 
 @property (strong, nonatomic) IBOutlet UIView *thirdHeaderView;
 @property (strong, nonatomic) IBOutlet UIView *formalHomeAddress;
@@ -22,6 +23,8 @@
 @property (strong, nonatomic) NSArray* monthsLivedArray;
 @property (strong, nonatomic) NSArray* yearsLivedArray;
 @property (strong, nonatomic) IBOutlet UIImageView *personalHeader;
+@property (strong, nonatomic) IBOutlet UIButton *previousResidentialStatusButton;
+@property (strong, nonatomic) IBOutlet UIButton *timeLivedAtPreviousAddressButton;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *nextStepButton;
@@ -78,8 +81,18 @@
 @property (strong, nonatomic) IBOutlet UITextField *streetAddress;
 @property (strong, nonatomic) IBOutlet UITextField *postalCode;
 @property (strong, nonatomic) IBOutlet UITextField *totalMonthlyHousingCosts;
-@property (readwrite, nonatomic) BOOL firstViewClosed;
+- (IBAction)chooseHowLongYouLivedAtPreviousAddress:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UITextField *previousAddress;
+@property (strong, nonatomic) IBOutlet UITextField *previousPostalCode;
+@property (strong, nonatomic) IBOutlet UITextField *previousCity;
+@property (strong, nonatomic) IBOutlet UIButton *previousProvinceButton;
+
+@property (readwrite, nonatomic) BOOL firstViewClosed;
+@property (strong, nonatomic) IBOutlet UIButton *closePreviousAddressView;
+- (IBAction)selectPreviousResidentialStatus:(id)sender;
+
+- (IBAction)selectPreviousProvince:(id)sender;
 - (IBAction)selectProvince:(id)sender;
 - (IBAction)selectLanguageOfCorespondance:(id)sender;
 - (IBAction)titleSelection:(id)sender;

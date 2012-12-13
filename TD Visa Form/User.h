@@ -32,7 +32,15 @@
 @property (nonatomic, retain) NSString * postalCode;
 @property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSString * province;
+@property (nonatomic, retain) NSString * previousAddress;
+@property (nonatomic, retain) NSString * previousCity;
+@property (nonatomic, retain) NSString * previousProvince;
+@property (nonatomic, retain) NSString * previousPostalCode;
+@property (nonatomic, retain) NSDate * previousAddressYearsAndMonths;
+
 @property (nonatomic, retain) NSDate * addressYearsAndMonths;
+
+
 @property (nonatomic, retain) NSString * employerWorkPrefix;
 
 @property (nonatomic, retain) NSString * resincialStatus;

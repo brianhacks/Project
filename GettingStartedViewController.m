@@ -343,7 +343,6 @@
     [appDelegate.modalViewController whichModalToPresent:@"legal"];
     
 }
-
 - (IBAction)showSecurity:(id)sender
 {
     
@@ -354,6 +353,8 @@
     [appDelegate.modalViewController whichModalToPresent:@"security"];
     
 }
+
+
 
 - (void)refresh
 {
