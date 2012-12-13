@@ -19,6 +19,7 @@
 @implementation GettingStartedViewController
 @synthesize datePicker;
 @synthesize chooseDateButton2;
+@synthesize clearUserDataFromTheApp;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,11 +34,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.clearUserDataFromTheApp = NO;
+    
     // Do any additional setup after loading the view from its nib.
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
    
-    
+    self.selectedPickerDate = nil;
     
     self.firstBorderView.layer.cornerRadius = 12.0;
     self.firstBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
@@ -69,11 +73,52 @@
     
 }
 
-- (IBAction)showBirthDatePicker:(id)sender
+- (void)viewWillAppear:(BOOL)animated
 {
     
+    if (self.clearUserDataFromTheApp) {
+        
+        [self.birthDateButton setTitle:@"Birth Date" forState:UIControlStateNormal];
+        
+        UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+        self.view.backgroundColor = background;
+        
+        self.selectedPickerDate = nil;
+        
+        self.firstBorderView.layer.cornerRadius = 12.0;
+        self.firstBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
+        self.firstBorderView.layer.backgroundColor = [UIColor colorWithRed:.963 green:.963 blue:.963 alpha:1.0].CGColor;
+        self.firstBorderView.layer.borderWidth = 1.0f;
+        
+        self.secondBorderView.layer.cornerRadius = 12.0;
+        self.secondBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
+        self.secondBorderView.layer.backgroundColor = [UIColor colorWithRed:.963 green:.963 blue:.963 alpha:1.0].CGColor;
+        self.secondBorderView.layer.borderWidth = 1.0f;
+        
+        
+        
+        self.thirdBorderView.layer.cornerRadius = 12.0;
+        self.thirdBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
+        self.thirdBorderView.layer.backgroundColor = [UIColor colorWithRed:.963 green:.963 blue:.963 alpha:1.0].CGColor;
+        self.thirdBorderView.layer.borderWidth = 1.0f;
+        
+        
+        
+        self.fourthBorderView.layer.cornerRadius = 12.0;
+        self.fourthBorderView.layer.borderColor = [UIColor colorWithRed:.733 green:.733 blue:.733 alpha:1.0].CGColor;//bbbbbb 187x3 / .733
+        self.fourthBorderView.layer.backgroundColor = [UIColor colorWithRed:.963 green:.963 blue:.963 alpha:1.0].CGColor;
+        self.fourthBorderView.layer.borderWidth = 1.0f;
+        
+        
+        [self.nextSteptButton setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
+        self.nextSteptButton.enabled = NO;
+        
+    }
     
-    
+}
+
+- (IBAction)showBirthDatePicker:(id)sender
+{
     UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
     
     UIView *popoverView = [[UIView alloc] init];   //view
@@ -98,7 +143,7 @@
     
     [popoverView addSubview:toolbar];
     
-    datePicker=[[UIDatePicker alloc]init];//Date picker
+    datePicker = [[UIDatePicker alloc]init];//Date picker
     datePicker.frame=CGRectMake(0,44,320, 216);
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker setTag:10];
@@ -360,6 +405,8 @@
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
     [appDelegate startOver];
+    
+    super.clearUserDataFromTheApp = YES;
     
     
 }

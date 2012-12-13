@@ -15,6 +15,8 @@
 
 @implementation MainViewController
 
+@synthesize clearUserDataFromTheApp;
+
 #define maxIdleTime 10.0
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -34,7 +36,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     
 //    NSLog(@"%@",idleTimer.t);
     

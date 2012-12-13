@@ -52,8 +52,9 @@
 @property (nonatomic, strong) ReviewAndSubmitViewController* reviewAndSubmitViewController;
 @property (nonatomic, strong) MainViewController* mainViewController;
 
-
 @property (nonatomic, strong) UINavigationController *navController;
+
+@property (nonatomic, readwrite)BOOL clearUserDataFromTheApp;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

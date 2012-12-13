@@ -893,7 +893,10 @@
       ;
        // [appDelegate setNewRootView:appDelegate.thankYouViewController];
         //[appDelegate.thankYouViewController refresh];
-        [appDelegate.rootViewController.navigationController pushViewController:appDelegate.thankYouViewController animated:YES];
+        
+        [appDelegate setNewRootView:appDelegate.thankYouViewController];
+        
+//        [appDelegate.rootViewController.navigationController pushViewController:appDelegate.thankYouViewController animated:YES];
     }
     
 }

@@ -34,37 +34,19 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize idleTimer;
 @synthesize sessionTimeoutAlert;
+@synthesize clearUserDataFromTheApp;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.clearUserDataFromTheApp = NO;
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopScreenSaverAndAddRootView) name:@"StopScreenSaver" object:nil];
     
-    self.firstScreenSaverViewController = [[FirstScreenSaverViewController alloc] initWithNibName:@"FirstScreenSaverViewController" bundle:nil];
-    self.rootViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
-    self.userFormViewController = [[UserFormViewController alloc] initWithNibName:@"UserFormViewController" bundle:nil];
-    self.rootViewController.delegate = self.userFormViewController;
-    self.appProcessViewController = [[AppProcessViewController alloc] initWithNibName:@"AppProcessViewController" bundle:nil];
-    self.modalViewController = [[ModalViewController alloc] initWithNibName:@"ModalViewController" bundle:nil];
-    self.gettingStartedViewController = [[GettingStartedViewController alloc] initWithNibName:@"GettingStartedViewController" bundle:nil];
-    self.personalInfoViewController = [[PersonalInfoViewController alloc] initWithNibName:@"PersonalInfoViewController" bundle:nil];
-    self.financialInfoViewController = [[FinancialInfoViewController alloc] initWithNibName:@"FinancialInfoViewController" bundle:nil];
-    self.pickLocationViewController = [[PickLocationViewController alloc] initWithNibName:@"PickLocationViewController" bundle:nil];
-    self.reviewAndSubmitViewController = [[ReviewAndSubmitViewController alloc] initWithNibName:@"ReviewAndSubmitViewController" bundle:nil];
-    self.thankYouViewController = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
-    self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeCreate];
-    self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
-//    self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
-    
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-  //  self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-    self.navController = [[UINavigationController alloc] initWithRootViewController:self.personalInfoViewController];
-
-    
-    [self.navController setNavigationBarHidden:YES animated:YES];
+    [self initViewsAndNavController];
     
     NSManagedObjectContext* context = [self managedObjectContext];
     NSManagedObjectContext* context2 = [self managedObjectContext];
@@ -106,11 +88,53 @@
     return YES;
 }
 
+- (void)initViewsAndNavController
+{
+    
+    
+    self.firstScreenSaverViewController = [[FirstScreenSaverViewController alloc] initWithNibName:@"FirstScreenSaverViewController" bundle:nil];
+    self.rootViewController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
+    self.userFormViewController = [[UserFormViewController alloc] initWithNibName:@"UserFormViewController" bundle:nil];
+    self.rootViewController.delegate = self.userFormViewController;
+    self.appProcessViewController = [[AppProcessViewController alloc] initWithNibName:@"AppProcessViewController" bundle:nil];
+    self.modalViewController = [[ModalViewController alloc] initWithNibName:@"ModalViewController" bundle:nil];
+    self.gettingStartedViewController = [[GettingStartedViewController alloc] initWithNibName:@"GettingStartedViewController" bundle:nil];
+    self.personalInfoViewController = [[PersonalInfoViewController alloc] initWithNibName:@"PersonalInfoViewController" bundle:nil];
+    self.financialInfoViewController = [[FinancialInfoViewController alloc] initWithNibName:@"FinancialInfoViewController" bundle:nil];
+    self.pickLocationViewController = [[PickLocationViewController alloc] initWithNibName:@"PickLocationViewController" bundle:nil];
+    self.reviewAndSubmitViewController = [[ReviewAndSubmitViewController alloc] initWithNibName:@"ReviewAndSubmitViewController" bundle:nil];
+    self.thankYouViewController = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
+    self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeCreate];
+    self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
+    
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+    
+    self.window.rootViewController = self.navController;
+    
+    [self.navController setNavigationBarHidden:YES animated:NO];
+    
+}
+
+- (void)popToRoot{
+    
+    [self.navController popToRootViewControllerAnimated:YES];
+    self.clearUserDataFromTheApp = NO;
+}
+
 - (void)startOver{
     
-    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+//    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
-    NSManagedObjectContext* context = [appDelegate managedObjectContext];
+//    NSMutableArray *allViewControllers = [NSMutableArray arrayWithArray: sel.navController.viewControllers];
+//    [allViewControllers removeObjectIdenticalTo: removedViewController];
+//    navigationController.viewControllers = allViewControllers;
+    
+
+    [self initViewsAndNavController];
+    
+    self.clearUserDataFromTheApp = YES;
+    
+    NSManagedObjectContext* context = [self managedObjectContext];
     
     NSFetchRequest* request = [NSFetchRequest new];
     
@@ -128,7 +152,9 @@
     NSError *saveError = nil;
     [context save:&saveError];
     
-    [self.navController popToRootViewControllerAnimated:YES];
+    [self popToRoot];
+    
+    
     
 }
 
@@ -151,16 +177,16 @@
     
     //THIS IS CATCHING EVERY ALERT, WE CANT DO IT THIS WAY
     
-   
-    
     if ([alertView.title isEqualToString:@"Alert"]) {
+        
+        self.clearUserDataFromTheApp = YES;
         
         //reset fetch entity
         //return to some other view controller
         
-        AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+//        AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
         
-        NSManagedObjectContext* context = [appDelegate managedObjectContext];
+        NSManagedObjectContext* context = [self managedObjectContext];
         
         NSFetchRequest* request = [NSFetchRequest new];
         
@@ -183,9 +209,9 @@
         self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
         
         
+        [self initViewsAndNavController];
         
-        
-        [self.navController popToRootViewControllerAnimated:YES];
+        [self popToRoot];
         
     }
     

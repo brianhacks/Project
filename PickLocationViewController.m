@@ -34,6 +34,8 @@
 @synthesize mapView, myCalloutView, tableView;
 //@synthesize allBranches;
 
+@synthesize clearUserDataFromTheApp;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -45,9 +47,15 @@
     return self;
 }
 
+#pragma mark
+#pragma mark viewDidLoad
+
 - (void)viewDidLoad
 { 
     [super viewDidLoad];
+    
+    self.clearUserDataFromTheApp = NO;
+    
     activeBranchId = @"0";
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
@@ -57,6 +65,49 @@
     
    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(useNotificationWithString:) name:notificationName  object:nil];
      self.nextStep.enabled = YES;
+    
+    // get the users home address
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    User *u = [appDelegate  getUser];
+    
+    NSString *address = u.street;
+    NSString *city = u.city;
+    NSString *prov = u.province;
+    NSString *query = [NSString stringWithFormat:@"%@ %@ %@", address, city, prov];
+    //    NSString *query = [NSString stringWithFormat:@"London, Oxford Street 20"];
+    //geocode the default based on the users home addresss
+    //  appDelegate
+    // CLLocationCoordinate2D zoomLocation;
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
+        if ([placemarks count] > 0) {
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            CLLocation *location = placemark.location;
+            //            CLLocationCoordinate2D coordinate = location.coordinate;
+            homeLoc = location.coordinate;
+            
+            MKCoordinateRegion region;
+            MKCoordinateSpan span;
+            span.latitudeDelta=0.1;
+            span.longitudeDelta=0.1;
+            region.span=span;
+            region.center = location.coordinate;
+            
+            [self.mapView setRegion:region animated:TRUE];
+            
+            [self plotBanks];
+            //need to refresh table
+            [self.tableView reloadData];
+            
+        } else {
+            homeLoc.latitude = 43.734742;
+            homeLoc.longitude= -79.343888;
+            [self plotBanks];
+            [self.tableView reloadData];
+            
+            
+        }}];
 }
 /*
  
@@ -118,52 +169,59 @@
 - (void)refreshMap{
 }
 
+
+#pragma mark
+#pragma mark view Will Appear
 - (void)viewWillAppear:(BOOL)animated{
     
-    // get the users home address
-    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    User *u = [appDelegate  getUser];
-
-    NSString *address = u.street;
-    NSString *city = u.city;
-    NSString *prov = u.province;
-    NSString *query = [NSString stringWithFormat:@"%@ %@ %@", address, city, prov];
-//    NSString *query = [NSString stringWithFormat:@"London, Oxford Street 20"];
-    //geocode the default based on the users home addresss
-  //  appDelegate
-   // CLLocationCoordinate2D zoomLocation;
+//    self.clearUserDataFromTheApp = NO;
     
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
-        if ([placemarks count] > 0) {
-            CLPlacemark *placemark = [placemarks objectAtIndex:0];
-            CLLocation *location = placemark.location;
-//            CLLocationCoordinate2D coordinate = location.coordinate;
-            homeLoc = location.coordinate;
-            
-            MKCoordinateRegion region;
-            MKCoordinateSpan span;
-            span.latitudeDelta=0.1;
-            span.longitudeDelta=0.1;
-            region.span=span;
-            region.center = location.coordinate;
-            
-            [self.mapView setRegion:region animated:TRUE];
-            
-            [self plotBanks];
-                       //need to refresh table
-            [self.tableView reloadData];
-            
-        } else {
-            homeLoc.latitude = 43.734742;
-            homeLoc.longitude= -79.343888;
-            [self plotBanks];
-            [self.tableView reloadData];
-           
-            
-        }}];
-    
-     
+    if (self.clearUserDataFromTheApp) {
+        
+        // get the users home address
+        AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        User *u = [appDelegate  getUser];
+        
+        NSString *address = u.street;
+        NSString *city = u.city;
+        NSString *prov = u.province;
+        NSString *query = [NSString stringWithFormat:@"%@ %@ %@", address, city, prov];
+        //    NSString *query = [NSString stringWithFormat:@"London, Oxford Street 20"];
+        //geocode the default based on the users home addresss
+        //  appDelegate
+        // CLLocationCoordinate2D zoomLocation;
+        
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
+            if ([placemarks count] > 0) {
+                CLPlacemark *placemark = [placemarks objectAtIndex:0];
+                CLLocation *location = placemark.location;
+                //            CLLocationCoordinate2D coordinate = location.coordinate;
+                homeLoc = location.coordinate;
+                
+                MKCoordinateRegion region;
+                MKCoordinateSpan span;
+                span.latitudeDelta=0.1;
+                span.longitudeDelta=0.1;
+                region.span=span;
+                region.center = location.coordinate;
+                
+                [self.mapView setRegion:region animated:TRUE];
+                
+                [self plotBanks];
+                //need to refresh table
+                [self.tableView reloadData];
+                
+            } else {
+                homeLoc.latitude = 43.734742;
+                homeLoc.longitude= -79.343888;
+                [self plotBanks];
+                [self.tableView reloadData];
+                
+                
+            }}];
+        
+    }
     
 }
 - (void)recenterMap{
@@ -429,6 +487,8 @@
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
     [appDelegate startOver];
+    
+    self.clearUserDataFromTheApp = YES;
     
 }
 

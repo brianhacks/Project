@@ -29,6 +29,8 @@
 @property (strong, nonatomic) IBOutlet UIView *fourthBorderView;
 @property (strong, nonatomic) IBOutlet UIButton *nextSteptButton;
 
+@property (nonatomic, readwrite)BOOL clearUserDataFromTheApp;
+
 - (IBAction)areYouACanadianResidentSwitch:(id)sender;
 - (IBAction)bankruptcySwitch:(id)sender;
 - (IBAction)existingTDCanadaCustomer:(id)sender;

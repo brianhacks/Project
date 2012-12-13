@@ -11,6 +11,7 @@
 @interface MainViewController : UIViewController
 
 @property (nonatomic, strong) NSTimer *idleTimer;
+@property (nonatomic, readwrite)BOOL clearUserDataFromTheApp;
  
 
 -(void)setFontFamily:(NSString*)fontFamily forView:(UIView*)view andSubViews:(BOOL)isSubViews;
