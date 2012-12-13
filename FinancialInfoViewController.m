@@ -1096,6 +1096,28 @@
         self.provinceButton.backgroundColor = [UIColor whiteColor];
     }
     
+    if(self.employerWorkPrefix.text.length!=3){
+        isValid=false;
+        //mark field as invalid
+        self.employerWorkPrefix.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.employerWorkPrefix.backgroundColor = [UIColor whiteColor];
+    }
+    if(self.employerWorkPhoneNumber.text.length!=4){
+        isValid=false;
+        //mark field as invalid
+        self.employerWorkPhoneNumber.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.employerWorkPhoneNumber.backgroundColor = [UIColor whiteColor];
+    }
+    if(self.employerAreaCode.text.length!=4){
+        isValid=false;
+        //mark field as invalid
+        self.employerAreaCode.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.employerAreaCode.backgroundColor = [UIColor whiteColor];
+    }
+    
     if(isValid==false){
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
         [alert show];
