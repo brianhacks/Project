@@ -95,7 +95,7 @@
     
 }
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    
+    /*
     NSLog(@"User hit Ok.");
     
     //reset fetch entity
@@ -135,7 +135,7 @@
     
     
     [self.navigationController popToRootViewControllerAnimated:YES];
-    
+    */
     
 }
 

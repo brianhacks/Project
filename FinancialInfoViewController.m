@@ -770,7 +770,7 @@
         
         [self.textfieldString insertString:string atIndex:self.textfieldString.length];
         
-        NSLog(@"%@",self.textfieldString);
+       
         
     }
     
@@ -1183,9 +1183,32 @@
 
 - (IBAction)closeIncomeAndCreditLimitDetails:(id)sender
 {
+    bool isValid = true;
+    if([self.grossAnualIncomeTextField.text isEqualToString:@""] &&
+       [self.householdIncomeTextField.text isEqualToString:@""]){
+        isValid=false;
+        //mark field as invalid
+        self.grossAnualIncomeTextField.backgroundColor = [UIColor yellowColor];
+        self.householdIncomeTextField.backgroundColor = [UIColor yellowColor];
+        
+    }else{
+        
+        self.grossAnualIncomeTextField.backgroundColor = [UIColor whiteColor];
+        self.householdIncomeTextField.backgroundColor = [UIColor whiteColor];
+    }
+    
+    
+    if(isValid==false){
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+        [alert show];
+        
+        
+        return;
+    }
     
     [self.accordion setSelectedIndex:3];
     [self changeThirdHeaderHeightAndAddInfo];
+    self.bextSteptButton.enabled = YES;
     
 }
 
