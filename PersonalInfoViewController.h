@@ -108,6 +108,7 @@
 - (IBAction)showLegal:(id)sender;
 - (IBAction)showSecurity:(id)sender;
 - (IBAction)choseHowLongYouLivedAtCurrentAddress:(id)sender;
+- (IBAction)startOver:(id)sender;
 
 
 @end

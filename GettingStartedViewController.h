@@ -38,6 +38,7 @@
 - (IBAction)showPrivacy:(id)sender;
 - (IBAction)showLegal:(id)sender;
 - (IBAction)showSecurity:(id)sender;
+- (IBAction)startOver:(id)sender;
 
 
 

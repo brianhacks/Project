@@ -59,9 +59,9 @@
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
 //    self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
     
-    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
   //  self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.personalInfoViewController];
 
     
     [self.navController setNavigationBarHidden:YES animated:YES];
@@ -95,10 +95,10 @@
     
     NSArray *familyNames = [UIFont familyNames];
     for( NSString *familyName in familyNames ){
-        printf( "Family: %s \n", [familyName UTF8String] );
+//        printf( "Family: %s \n", [familyName UTF8String] );
         NSArray *fontNames = [UIFont fontNamesForFamilyName:familyName];
         for( NSString *fontName in fontNames ){
-            printf( "\tFont: %s \n", [fontName UTF8String] );
+//            printf( "\tFont: %s \n", [fontName UTF8String] );
         }
     } 
     
@@ -106,7 +106,33 @@
     return YES;
 }
 
--(void)idleTimerExceeded{
+- (void)startOver{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    NSManagedObjectContext* context = [appDelegate managedObjectContext];
+    
+    NSFetchRequest* request = [NSFetchRequest new];
+    
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError* error = nil;
+    NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
+    
+    for (NSManagedObject * users in fetchedResult) {
+        [context deleteObject:users];
+    }
+    
+    
+    NSError *saveError = nil;
+    [context save:&saveError];
+    
+    [self.navController popToRootViewControllerAnimated:YES];
+    
+}
+
+- (void)idleTimerExceeded{
     
     if (self.navController.visibleViewController == self.appProcessViewController) {
         
@@ -114,12 +140,9 @@
         self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
         
     }else{
-        self.sessionTimeoutAlert= [[UIAlertView alloc] initWithTitle:@"Info" message:@"Your session has timed out.  Information Only" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        self.sessionTimeoutAlert= [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Your session has timed out.  Information Only" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [self.sessionTimeoutAlert show];
     }
-    
-    
-    
     
 }
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
@@ -128,9 +151,9 @@
     
     //THIS IS CATCHING EVERY ALERT, WE CANT DO IT THIS WAY
     
-   /*
+   
     
-    if (alertView == self.sessionTimeoutAlert) {
+    if ([alertView.title isEqualToString:@"Alert"]) {
         
         //reset fetch entity
         //return to some other view controller
@@ -165,7 +188,7 @@
         [self.navController popToRootViewControllerAnimated:YES];
         
     }
-    */
+    
     
     
     

@@ -113,5 +113,6 @@
 - (IBAction)nextStep:(id)sender;
 
 - (IBAction)selectGender:(id)sender;
+- (IBAction)startOver:(id)sender;
 
 @end

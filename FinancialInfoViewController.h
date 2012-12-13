@@ -111,5 +111,6 @@
 - (IBAction)requesteCreditLimitAction:(id)sender;
 - (IBAction)chooseStartDate:(id)sender;
 - (IBAction)selectCurrentOccupation:(id)sender;
+- (IBAction)startOver:(id)sender;
 
 @end

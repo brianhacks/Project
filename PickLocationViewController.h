@@ -23,7 +23,7 @@
 //#define GMAP_ANNOTATION_SELECTED
 
 
-@interface PickLocationViewController : MainViewController <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
+@interface PickLocationViewController : MainViewController <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) UIImageView* sageataImage;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -43,6 +43,7 @@
 - (IBAction)search:(id)sender;
 - (void)useNotificationWithString:(NSNotification*)notification;
 - (void)refresh;
+- (IBAction)startOver:(id)sender;
 
 
 

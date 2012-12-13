@@ -376,7 +376,23 @@
 - (void)viewDidLoad
 {
       
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(anyMethod:)
+     name:UITextFieldTextDidChangeNotification
+     object:self.employerAreaCode];
     
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(anyMethod:)
+     name:UITextFieldTextDidChangeNotification
+     object:self.employerWorkPrefix];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(anyMethod:)
+     name:UITextFieldTextDidChangeNotification
+     object:self.employerWorkPhoneNumber];
     
     [self.bextSteptButton setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
     self.bextSteptButton.enabled = NO;
@@ -825,6 +841,33 @@
         int length = [textField.text length] ;
         if (length >= MAXLENGTHFORCURRENTCITY && ![string isEqualToString:@""]) {
             textField.text = [textField.text substringToIndex:MAXLENGTHFORCURRENTCITY];
+            return NO;
+        }
+        return YES;
+        
+    }else if(textField == self.employerAreaCode){
+        
+        int length = [textField.text length] ;
+        if (length >= 3 && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:3];
+            return NO;
+        }
+        return YES;
+        
+    }else if(textField == self.employerWorkPrefix){
+        
+        int length = [textField.text length] ;
+        if (length >= 3 && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:3];
+            return NO;
+        }
+        return YES;
+        
+    }else if(textField == self.employerWorkPhoneNumber){
+        
+        int length = [textField.text length] ;
+        if (length >= 4 && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:4];
             return NO;
         }
         return YES;
@@ -1480,6 +1523,15 @@
     self.popoverController6.delegate = self;
     [self.popoverController6 setPopoverContentSize:CGSizeMake(480., 260) animated:NO];
     [self.popoverController6 presentPopoverFromRect:CGRectMake(650.0, 208.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+    
+}
+
+- (IBAction)startOver:(id)sender
+{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    [appDelegate startOver];
     
 }
 

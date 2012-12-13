@@ -379,13 +379,12 @@
 
 }
 
+
 - (IBAction)search:(id)sender {
 
-    
+//    UITextField
     //geocode the default based on the users home addresss
     NSString *query = self.query.text;
-    
-  
     
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
@@ -421,6 +420,15 @@
 - (void)refresh
 {
        [self.tableView reloadData];
+    
+}
+
+- (IBAction)startOver:(id)sender
+{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    [appDelegate startOver];
     
 }
 
@@ -483,6 +491,34 @@
     
         return view;
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    
+    NSString *query = self.query.text;
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
+        if ([placemarks count] > 0) {
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            CLLocation *location = placemark.location;
+            //            CLLocationCoordinate2D coordinate = location.coordinate;
+            self->homeLoc = location.coordinate;
+            [self recomputeDistances];
+            [self sortAnnotations];
+            //need to refresh table
+            [self.tableView reloadData];
+            [self recenterMap];
+            
+        } else {
+            UIAlertView* alerView = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Your address could not be found." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles:nil];
+            [alerView show];
+            
+        }}];
+    
+    return YES;
 }
 
 

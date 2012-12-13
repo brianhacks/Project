@@ -354,6 +354,16 @@
     
 }
 
+- (IBAction)startOver:(id)sender
+{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    [appDelegate startOver];
+    
+    
+}
+
 
 
 - (void)refresh

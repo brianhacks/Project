@@ -32,6 +32,25 @@
 #pragma mark viewDidLoad
 - (void)viewDidLoad
 {
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(anyMethod:)
+     name:UITextFieldTextDidChangeNotification
+     object:self.areaCode];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(anyMethod:)
+     name:UITextFieldTextDidChangeNotification
+     object:self.primaryPhoneNumber];
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(anyMethod:)
+     name:UITextFieldTextDidChangeNotification
+     object:self.primaryPhonePrefix];
+    
     [super viewDidLoad];
     showThirdHeader = false;
     [self setFontFamily:@"FrutiBol" forView:self.view andSubViews:YES];
@@ -552,7 +571,7 @@
     }
     
     
-    NSString *zip_regex_str=@"^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}$";
+    NSString *zip_regex_str=@"^[ABCEGHJKLMNPRSTVXY]{1}\\d{1}[A-Z]{1} *\\d{1}[A-Z]{1}\\d{1}$";
     NSPredicate *zip_no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",zip_regex_str];
     
     if(self.postalCode.text.length < 1 || [zip_no evaluateWithObject:self.postalCode.text])
@@ -678,7 +697,7 @@
     }
     
     
-    NSString *zip_regex_str=@"^[ABCEGHJKLMNPRSTVXY]{1}\d{1}[A-Z]{1} *\d{1}[A-Z]{1}\d{1}$";
+    NSString *zip_regex_str=@"^[ABCEGHJKLMNPRSTVXY]{1}\\d{1}[A-Z]{1} *\\d{1}[A-Z]{1}\\d{1}$";
     NSPredicate *zip_no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",zip_regex_str];
     
     if(self.previousPostalCode.text.length < 1 || [zip_no evaluateWithObject:self.postalCode.text])
@@ -1180,6 +1199,42 @@
     
 }
 
+-(void)anyMethod:(NSNotification*)sender{
+    
+    
+    NSLog(@"%@",sender.object);
+    
+    if ([sender.object isEqual:self.areaCode]) {
+        
+        int length = [self.areaCode.text length];
+        if (length >= 3) {
+            
+            [self.primaryPhonePrefix becomeFirstResponder];
+            
+        }
+        
+    }else if([sender.object isEqual:self.primaryPhonePrefix]){
+        
+
+        int length = [self.primaryPhonePrefix.text length];
+        if (length >= 3) {
+            
+            [self.primaryPhoneNumber becomeFirstResponder];
+            
+        }
+        
+    }else if([sender.object isEqual:self.primaryPhoneNumber]){
+        
+        int length = [self.primaryPhoneNumber.text length];
+        if (length >= 4) {
+            
+            [self.primaryPhoneNumber resignFirstResponder];
+            
+        }
+        
+    }
+    
+}
 
 /* UNUSED */
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -1232,6 +1287,33 @@
         int length = [textField.text length] ;
         if (length >= MAXLENGTHFORTOTALMONTHLYCOSTS && ![string isEqualToString:@""]) {
             textField.text = [textField.text substringToIndex:MAXLENGTHFORTOTALMONTHLYCOSTS];
+            return NO;
+        }
+        return YES;
+        
+    }else if(textField == self.areaCode){
+        
+        int length = [textField.text length] ;
+        if (length >= 3 && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:3];
+            return NO;
+        }
+        return YES;
+        
+    }else if(textField == self.primaryPhonePrefix){
+        
+        int length = [textField.text length] ;
+        if (length >= 3 && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:3];
+            return NO;
+        }
+        return YES;
+        
+    }else if(textField == self.primaryPhoneNumber){
+        
+        int length = [textField.text length] ;
+        if (length >= 4 && ![string isEqualToString:@""]) {
+            textField.text = [textField.text substringToIndex:4];
             return NO;
         }
         return YES;
@@ -1295,6 +1377,14 @@
     
 }
 
+- (IBAction)startOver:(id)sender
+{
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    [appDelegate startOver];
+    
+}
+
 - (void)chooseTime:(id)sender
 {
     
@@ -1339,9 +1429,7 @@
         showThirdHeader = false;
                
     }
-    
-    
-    
+
 }
 -(void)hideThirdHeader{
     if(self.thirdHeaderView)
@@ -1365,6 +1453,29 @@
     
     // [self.accordion setSelectedIndex:2];
 }
+
+#pragma mark
+#pragma mark textfield delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    
+    if (textField == self.areaCode) {
+        
+        [self.primaryPhonePrefix becomeFirstResponder];
+        
+    }else if(textField == self.primaryPhonePrefix){
+        
+        [self.primaryPhoneNumber becomeFirstResponder];
+        
+    }
+    
+
+    return YES;
+}
+
+
+
 
 - (IBAction)chooseHowLongYouLivedAtPreviousAddress:(id)sender {
     
