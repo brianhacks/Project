@@ -98,7 +98,7 @@
         
     }else if (pickerView == self.requesteCreditLimitPicker){
         
-        return  100;
+        return  36;
         
     }else if (pickerView == self.selectCurrentOcupationPicker){
         
@@ -179,7 +179,7 @@
         
         if (row == 0) {
         
-            val1 = [NSString stringWithFormat:@"$ %i",100];
+            val1 = [NSString stringWithFormat:@"$ %i",1500];
             
             if ([self.requesteCreditLimitArray containsObject:val1]) {
                 
@@ -191,7 +191,10 @@
             
         }else{
             
-            val1 = [NSString stringWithFormat:@"$ %i",100 * (row + 1)];
+            NSNumberFormatter * currencyStile = [[NSNumberFormatter alloc] init];
+            [currencyStile setFormatterBehavior:NSNumberFormatterCurrencyStyle];
+        
+            val1 = [NSString stringWithFormat:@"$ %i",1500 + (row * 100)];
             
             if ([self.requesteCreditLimitArray containsObject:val1]) {
                 
@@ -611,7 +614,8 @@
     self.businessStrategicManagement = @[@"Business Analysis/Research"];
     
     self.employmentStatusArray = [NSArray new];
-    self.employmentStatusArray = @[@"Employed Full Time", @"Employed Part Time", @"Self-employed", @"Unemployed", @"Retired"];
+    self.employmentStatusArray = @[@"Employed Full Time", @"Employed Part Time", @"Self-employed", @"Unemployed", @"Retired", @"Student",
+    @"Homemaker"];
     
     
     self.provinceArray = [NSArray new];
@@ -667,7 +671,6 @@
     
     // Set this if you want to allow multiple selection
     [self.accordion setAllowsMultipleSelection:YES];
-    
 }
 
 - (void)refresh
