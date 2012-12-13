@@ -125,6 +125,21 @@
     //need to figure out how to alternate the color of white and green
     [self.accordion addHeader:self.secondHeaderView withView:self.currentHomeAddressView];
     
+    // Only height is taken into account, so other parameters are just dummy
+    self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+    self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    
+    UILabel* firstHeaderTitel2 = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    firstHeaderTitel2.backgroundColor = [UIColor clearColor];
+    firstHeaderTitel2.textColor = [UIColor whiteColor];
+    firstHeaderTitel2.text = @"Previous Home Address";
+    firstHeaderTitel2.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.thirdHeaderView addSubview:firstHeaderTitel2];
+    
+    self.thirdHeaderView.hidden = YES;
+    
+    [self.accordion addHeader:self.thirdHeaderView withView:self.formalHomeAddress];
+    
     [self.accordion setNeedsLayout];
     
     // Set this if you want to allow multiple selection
@@ -654,8 +669,112 @@
             
         }}];
     
+    NSString* years = [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]];
+    //    int months = [self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]]
+    
+    if ([years integerValue] <= 2) {
+        
+        self.thirdHeaderView.hidden = NO;
+        
+        showThirdHeader = true;
+        
+        // this doesnt work so hide it for now
+        
+        NSLog(@"display the other view");
+        
+        
+        
+        
+        for (UILabel *tmpLabel in [self.thirdHeaderView subviews]) {
+            [tmpLabel removeFromSuperview];
+        }
+        
+        for (UIButton *tmpButton in [self.thirdHeaderView subviews]) {
+            [tmpButton removeFromSuperview];
+        }
+        
+        UILabel* firstHeaderTitel2 = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+        firstHeaderTitel2.backgroundColor = [UIColor clearColor];
+        firstHeaderTitel2.textColor = [UIColor whiteColor];
+        firstHeaderTitel2.text = @"Previous Home Address";
+        firstHeaderTitel2.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+        [self.thirdHeaderView addSubview:firstHeaderTitel2];
+        
+        if (self.thirdHeaderView.frame.size.height > 50) {
+            
+            self.thirdHeaderView.frame = CGRectMake(self.thirdHeaderView.frame.origin.x, self.thirdHeaderView.frame.origin.y, self.thirdHeaderView.frame.size.width, self.thirdHeaderView.frame.size.height - 50);
+            
+        }
+        
+        self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+        
+        [self changeSecondHeaderHeightAndAddInfo];
+        
+        [self.accordion setSelectedIndex:2];
+        
+        
+    }else{
+        showThirdHeader = false;
+        
+    }
+    
 }
 
+- (void)changeThirdHeaderHeightAndAddInfo
+{
+    self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height + 50);
+    self.secondHeaderView.backgroundColor = [UIColor whiteColor];
+    
+    for (UILabel *tmpLabel in [self.secondHeaderView subviews]) {
+        tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    }
+    
+    self.editFirstView = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.editFirstView.frame = CGRectMake(910., 5., 81., 42.);
+    [self.editFirstView setTitle:@"Edit" forState:UIControlStateNormal];
+    [self.editFirstView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateNormal];
+    [self.editFirstView setImage:[UIImage imageNamed:@"btn-edit-hover.png"] forState:UIControlStateHighlighted];
+    [self.editFirstView addTarget:self action:@selector(editFirstViewAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.secondHeaderView addSubview:self.editFirstView];
+    
+    UILabel* userName = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 200., 30.)];
+    userName.textColor = [UIColor blackColor];
+    userName.font = [UIFont fontWithName:@"Helvetica" size:16];
+    userName.backgroundColor = [UIColor clearColor];
+    userName.text = [NSString stringWithFormat:@"%@ %@",self.firstName.text, self.lastName.text];
+    [self.secondHeaderView addSubview:userName];
+    
+    UILabel* phoneNumber = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 200., 30.)];
+    phoneNumber.textColor = [UIColor blackColor];
+    phoneNumber.font = [UIFont fontWithName:@"Helvetica" size:16];
+    phoneNumber.backgroundColor = [UIColor clearColor];
+    phoneNumber.text = [NSString stringWithFormat:@"%@-%@",self.primaryPhonePrefix.text,self.primaryPhoneNumber.text];
+    [self.secondHeaderView addSubview:phoneNumber];
+    
+    UILabel* email = [[UILabel alloc] initWithFrame:CGRectMake(290., 63., 200., 30.)];
+    email.textColor = [UIColor blackColor];
+    email.font = [UIFont fontWithName:@"Helvetica" size:16];
+    email.backgroundColor = [UIColor clearColor];
+    email.text = [NSString stringWithFormat:@"%@",self.emailAddress.text];
+    [self.secondHeaderView addSubview:email];
+    
+    UILabel* genderLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 3., 100., 30.)];
+    genderLabel.textColor = [UIColor blackColor];
+    genderLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    genderLabel.backgroundColor = [UIColor clearColor];
+    genderLabel.text = [NSString stringWithFormat:@"%@",self.gender];
+    [self.secondHeaderView addSubview:genderLabel];
+    
+    UILabel* preferedLanguage = [[UILabel alloc] initWithFrame:CGRectMake(590., 33., 100., 30.)];
+    preferedLanguage.textColor = [UIColor blackColor];
+    preferedLanguage.font = [UIFont fontWithName:@"Helvetica" size:16];
+    preferedLanguage.backgroundColor = [UIColor clearColor];
+    preferedLanguage.text = [NSString stringWithFormat:@"%@",self.selectLanguageOfCorespondace.titleLabel.text];
+    [self.secondHeaderView addSubview:preferedLanguage];
+}
+
+#pragma mark
+#pragma mark close previous address
 /* CURRENTLY UNUSED, NEEDS TO WRAP UP PREVIOUS ADDRSSS VIEW WHEN BUTTON IS CLICKED ON*/
 - (IBAction)closePreviousAddressView:(id)sender
 {
@@ -1384,6 +1503,10 @@
     [appDelegate startOver];
     
 }
+
+
+
+    
 
 - (void)chooseTime:(id)sender
 {

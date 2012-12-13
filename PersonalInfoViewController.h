@@ -109,6 +109,7 @@
 - (IBAction)showSecurity:(id)sender;
 - (IBAction)choseHowLongYouLivedAtCurrentAddress:(id)sender;
 - (IBAction)startOver:(id)sender;
+- (IBAction)closePreviousAddress:(id)sender;
 
 
 @end
