@@ -12,6 +12,8 @@
 
 @interface FinancialInfoViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UIScrollView *accordionViewScrollView;
+
 @property (strong, nonatomic) IBOutlet UIButton *curretOccupationButton;
 @property (strong, nonatomic) UIPickerView *selectCurrentOcupationPicker;
 @property (strong, nonatomic) UIPopoverController* popoverController6;
@@ -26,7 +28,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *requestedCreditLimitButton;
 @property (strong, nonatomic) IBOutlet UITextField *householdIncomeTextField;
 @property (strong, nonatomic) IBOutlet UITextField *grossAnualIncomeTextField;
-@property (strong, nonatomic) UIScrollView* accordionViewScrollView;
+
 @property (strong, nonatomic) IBOutlet UIButton *bextSteptButton;
 
 @property (strong, nonatomic) IBOutlet UIView *thirdHeaderView;
@@ -71,6 +73,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *employerName;
 @property (strong, nonatomic) IBOutlet UITextField *employerStreetAddress;
 @property (strong, nonatomic) IBOutlet UITextField *employerAreaCode;
+@property (strong, nonatomic) IBOutlet UITextField *employerWorkPrefix;
 @property (strong, nonatomic) IBOutlet UITextField *employerWorkPhoneNumber;
 @property (strong, nonatomic) IBOutlet UITextField *employerExt;
 @property (strong, nonatomic) IBOutlet UIButton *closeFinancialDetails;

@@ -16,6 +16,7 @@
 
 
 @property (strong, nonatomic) User* userInfo;
+@property (strong, nonatomic) IBOutlet UIScrollView *accordionViewScrollView;
 
 @property (strong, nonatomic) AccordionView *accordion;
 @property (strong, nonatomic) IBOutlet UIView *firstVIew;
@@ -71,7 +72,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *grossAnualIncome;
 @property (strong, nonatomic) IBOutlet UITextField *householdIncome;
 
-
+//@property (strong, nonatomic) UIScrollView* accordionViewScrollView;
 //general info
 @property (strong, nonatomic) UIPopoverController* popoverController1;
 @property (strong, nonatomic) UIPopoverController* popoverController2;

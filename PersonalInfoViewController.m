@@ -106,7 +106,7 @@
 - (IBAction)nextStep:(id)sender
 {
     
-    if ([self.titleString isEqualToString:@""] || self.firstName.text.length < 1 || self.lastName.text.length < 1 || self.primaryPhoneNumber.text.length < 1 || [self.gender isEqualToString:@""] || self.streetAddress.text.length < 1 || self.currentCity.text.length < 1 || [self.provinceButton.titleLabel.text isEqualToString:@"Province"] || self.postalCode.text.length < 1 || [self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"]) {
+    if ([self.titleString isEqualToString:@""] || self.firstName.text.length < 1 || self.lastName.text.length < 1 || self.primaryPhoneNumber.text.length < 1 || self.primaryPhoneNumber.text.length < 1 || [self.gender isEqualToString:@""] || self.streetAddress.text.length < 1 || self.currentCity.text.length < 1 || [self.provinceButton.titleLabel.text isEqualToString:@"Province"] || self.postalCode.text.length < 1 || [self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"]) {
         
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
         [alert show];
@@ -117,11 +117,15 @@
     
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
+    NSString *compositePhone = [NSString stringWithFormat:@"%@-%@", self.primaryPhonePrefix.text, self.primaryPhoneNumber.text];
+    
     [appDelegate addInfoToUser:self.titleString andFieldToAddItTo:@"title"];
     [appDelegate addInfoToUser:self.firstName.text andFieldToAddItTo:@"firstName"];
     [appDelegate addInfoToUser:self.lastName.text andFieldToAddItTo:@"lastName"];
     [appDelegate addInfoToUser:self.areaCode.text andFieldToAddItTo:@"areaCode"];
     [appDelegate addInfoToUser:self.primaryPhoneNumber.text andFieldToAddItTo:@"primaryPhone"];
+    [appDelegate addInfoToUser:self.primaryPhonePrefix.text andFieldToAddItTo:@"primaryPhonePrefix"];
+    
     [appDelegate addInfoToUser:self.emailAddress.text andFieldToAddItTo:@"email"];
     [appDelegate addInfoToUser:self.gender andFieldToAddItTo:@"gender"];
     [appDelegate addInfoToUser:self.selectLanguageOfCorespondace.titleLabel.text andFieldToAddItTo:@"languagOfCorespondace"];
@@ -275,6 +279,15 @@
         self.primaryPhoneNumber.backgroundColor = [UIColor whiteColor];
     }
     
+    if(self.primaryPhonePrefix.text.length < 1){
+        isValid=false;
+        //mark field as invalid
+        self.primaryPhonePrefix.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.primaryPhonePrefix.backgroundColor = [UIColor whiteColor];
+    }
+
+    
     
     if( [self.gender isEqualToString:@""] ){
         //mark field as invalid
@@ -354,7 +367,7 @@
     phoneNumber.textColor = [UIColor blackColor];
     phoneNumber.font = [UIFont fontWithName:@"Helvetica" size:16];
     phoneNumber.backgroundColor = [UIColor clearColor];
-    phoneNumber.text = [NSString stringWithFormat:@"%@",self.primaryPhoneNumber.text];
+    phoneNumber.text = [NSString stringWithFormat:@"%@-%@",self.primaryPhonePrefix.text,self.primaryPhoneNumber.text];
     [self.firstHeaderView addSubview:phoneNumber];
     
     UILabel* email = [[UILabel alloc] initWithFrame:CGRectMake(290., 63., 200., 30.)];
@@ -608,6 +621,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setFontFamily:@"FrutiBol" forView:self.view andSubViews:YES];
     // Do any additional setup after loading the view from its nib.
     
     self.monthsLivedArray = [NSArray new];

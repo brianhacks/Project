@@ -20,7 +20,10 @@
 @property (nonatomic, retain) NSString * firstName;
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSString * areaCode;
+@property (nonatomic, retain) NSString * primaryPhonePrefix;
+
 @property (nonatomic, retain) NSString * primaryPhone;
+
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * gender;
 @property (nonatomic, retain) NSString * languagOfCorespondace;
@@ -30,6 +33,8 @@
 @property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSString * province;
 @property (nonatomic, retain) NSDate * addressYearsAndMonths;
+@property (nonatomic, retain) NSString * employerWorkPrefix;
+
 @property (nonatomic, retain) NSString * resincialStatus;
 @property (nonatomic, retain) NSString * monthlyHouseCosts;
 @property (nonatomic, retain) NSString * employmentStatus;

@@ -627,13 +627,14 @@
     self.provinceArray = [NSArray new];
     self.provinceArray = @[@"Alberta", @"British Columbia", @"Manitoba", @"New Brunswick", @"Newfoundland & Labrador", @"Nova Scotia", @"Northwest Territories", @"Nunavut", @"Ontario", @"Prince Edward Island", @"Quebec", @"Saskatchewan", @"Yukon"];
     
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(18., 170., 987., 518.)];
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0., 0., 987., 518.)];
 //    [self.view addSubview:self.accordion];
 
-    self.accordionViewScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(18., 170., 987., 520.)];
-    self.accordionViewScrollView.contentSize = CGSizeMake(987., 800.);
+  
+    self.accordionViewScrollView.contentSize = CGSizeMake(1, 800.);
+    self.accordionViewScrollView.backgroundColor =[UIColor whiteColor];
 //    [self.view addSubview:self.accordionViewScrollView];
-    [self.view addSubview:self.accordion];
+    [self.accordionViewScrollView addSubview:self.accordion];
     
     self.firstHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
@@ -700,6 +701,8 @@
     
     [appDelegate addInfoToUser:self.employerAreaCode.text andFieldToAddItTo:@"employerAreaCode"];
     [appDelegate addInfoToUser:self.employerWorkPhoneNumber.text andFieldToAddItTo:@"workPhone"];
+    [appDelegate addInfoToUser:self.employerWorkPrefix.text andFieldToAddItTo:@"workPrefix"];
+    
     [appDelegate addInfoToUser:self.employerStreetAddress.text andFieldToAddItTo:@"employerStreetAddress"];
     [appDelegate addInfoToUser:self.provinceButton.titleLabel.text andFieldToAddItTo:@"employerProvince"];
     [appDelegate addInfoToUser:self.employerCity.text andFieldToAddItTo:@"employerCity"];

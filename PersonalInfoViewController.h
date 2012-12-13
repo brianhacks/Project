@@ -72,6 +72,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *lastName;
 @property (strong, nonatomic) IBOutlet UITextField *areaCode;
 @property (strong, nonatomic) IBOutlet UITextField *primaryPhoneNumber;
+@property (strong, nonatomic) IBOutlet UITextField *primaryPhonePrefix;
+
 @property (strong, nonatomic) IBOutlet UITextField *emailAddress;
 @property (strong, nonatomic) IBOutlet UITextField *streetAddress;
 @property (strong, nonatomic) IBOutlet UITextField *postalCode;

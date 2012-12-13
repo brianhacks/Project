@@ -16,6 +16,7 @@
 			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
 			<string>IBUIPickerView</string>
+			<string>IBUIScrollView</string>
 			<string>IBUITextField</string>
 			<string>IBUIView</string>
 		</array>
@@ -45,7 +46,7 @@
 						<string key="NSFrameSize">{1024, 172}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="411125220"/>
+						<reference key="NSNextKeyView" ref="505597750"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -197,6 +198,64 @@
 							<int key="interfaceOrientation">3</int>
 						</object>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+					</object>
+					<object class="IBUIImageView" id="901478633">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{1, 672}, {1022, 29}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="411125220"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">bottom-curve.png</string>
+						</object>
+					</object>
+					<object class="IBUIImageView" id="505597750">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{1, 171}, {20, 501}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="864143643"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">left-shadow.png</string>
+						</object>
+					</object>
+					<object class="IBUIImageView" id="864143643">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{1004, 171}, {21, 501}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="901478633"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<object class="NSCustomResource" key="IBUIImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">right-shadow.png</string>
+						</object>
+					</object>
+					<object class="IBUIScrollView" id="952310245">
+						<reference key="NSNextResponder" ref="766721923"/>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{20, 171}, {984, 501}}</string>
+						<reference key="NSSuperview" ref="766721923"/>
+						<reference key="NSWindow"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<bool key="IBUIMultipleTouchEnabled">YES</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<bool key="IBUIDirectionalLockEnabled">YES</bool>
+						<bool key="IBUIShowsHorizontalScrollIndicator">NO</bool>
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {1024, 748}}</string>
@@ -1884,6 +1943,14 @@
 					<int key="connectionID">361</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">accordionViewScrollView</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="952310245"/>
+					</object>
+					<int key="connectionID">378</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">closeGeneralInfo:</string>
 						<reference key="source" ref="357644065"/>
@@ -2062,6 +2129,10 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="411125220"/>
 							<reference ref="407646997"/>
+							<reference ref="901478633"/>
+							<reference ref="864143643"/>
+							<reference ref="505597750"/>
+							<reference ref="952310245"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -2544,6 +2615,26 @@
 						<reference key="object" ref="407646997"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">374</int>
+						<reference key="object" ref="901478633"/>
+						<reference key="parent" ref="766721923"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">375</int>
+						<reference key="object" ref="505597750"/>
+						<reference key="parent" ref="766721923"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">376</int>
+						<reference key="object" ref="864143643"/>
+						<reference key="parent" ref="766721923"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">377</int>
+						<reference key="object" ref="952310245"/>
+						<reference key="parent" ref="766721923"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -2614,6 +2705,10 @@
 				<string key="35.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="36.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="37.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="374.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="375.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="376.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="377.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="38.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="39.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="40.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -2629,7 +2724,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">373</int>
+			<int key="maxID">378</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2645,32 +2740,15 @@
 					<string key="className">ReviewAndSubmitViewController</string>
 					<string key="superclassName">MainViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="chooseStartDate:">id</string>
-						<string key="choseHowLongYouLivedAtCurrentAddress:">id</string>
 						<string key="closeCurrentAddress:">id</string>
 						<string key="closeEmployerDetails:">id</string>
 						<string key="closeFInancialDetails:">id</string>
 						<string key="closeGeneralInfo:">id</string>
 						<string key="closeIncomeAndCredit:">id</string>
 						<string key="nextStep:">id</string>
-						<string key="requesteCreditLimitAction:">id</string>
-						<string key="selectEmploymentStatus:">id</string>
 						<string key="selectGender:">id</string>
-						<string key="selectLanguageOfCorespondance:">id</string>
-						<string key="selectOccupation:">id</string>
-						<string key="selectProvince:">id</string>
-						<string key="selectResidentialStatus:">id</string>
-						<string key="titleSelection:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="chooseStartDate:">
-							<string key="name">chooseStartDate:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="choseHowLongYouLivedAtCurrentAddress:">
-							<string key="name">choseHowLongYouLivedAtCurrentAddress:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="closeCurrentAddress:">
 							<string key="name">closeCurrentAddress:</string>
 							<string key="candidateClassName">id</string>
@@ -2695,40 +2773,13 @@
 							<string key="name">nextStep:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="requesteCreditLimitAction:">
-							<string key="name">requesteCreditLimitAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectEmploymentStatus:">
-							<string key="name">selectEmploymentStatus:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 						<object class="IBActionInfo" key="selectGender:">
 							<string key="name">selectGender:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="selectLanguageOfCorespondance:">
-							<string key="name">selectLanguageOfCorespondance:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectOccupation:">
-							<string key="name">selectOccupation:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectProvince:">
-							<string key="name">selectProvince:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectResidentialStatus:">
-							<string key="name">selectResidentialStatus:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="titleSelection:">
-							<string key="name">titleSelection:</string>
-							<string key="candidateClassName">id</string>
-						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="accordionViewScrollView">UIScrollView</string>
 						<string key="cityTextfield">UITextField</string>
 						<string key="creditLimitButton">UIButton</string>
 						<string key="currentEmploymentStatus">UIButton</string>
@@ -2766,6 +2817,10 @@
 						<string key="yearsAndMontsButton">UIButton</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="accordionViewScrollView">
+							<string key="name">accordionViewScrollView</string>
+							<string key="candidateClassName">UIScrollView</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="cityTextfield">
 							<string key="name">cityTextfield</string>
 							<string key="candidateClassName">UITextField</string>
@@ -2920,6 +2975,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="banner-6.png">{2048, 337}</string>
+			<string key="bottom-curve.png">{2048, 92}</string>
 			<string key="btn-done.png">{168, 84}</string>
 			<string key="btn-next-hover.png">{192, 78}</string>
 			<string key="btn-next.png">{192, 78}</string>
@@ -2928,6 +2984,8 @@
 			<string key="btn-start-hover.png">{206, 78}</string>
 			<string key="btn-start.png">{206, 78}</string>
 			<string key="footer.png">{2048, 94}</string>
+			<string key="left-shadow.png">{38, 400}</string>
+			<string key="right-shadow.png">{38, 440}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1930</string>
 	</data>

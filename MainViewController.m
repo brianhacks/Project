@@ -39,7 +39,7 @@
 //    NSLog(@"%@",idleTimer.t);
     
 
-        [self setFontFamily:@"FrutiBol" forView:self.view andSubViews:YES];
+        
 }
     
 -(void)setFontFamily:(NSString*)fontFamily forView:(UIView*)view andSubViews:(BOOL)isSubViews

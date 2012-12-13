@@ -20,7 +20,9 @@
 @dynamic firstName;
 @dynamic lastName;
 @dynamic areaCode;
+@dynamic primaryPhonePrefix;
 @dynamic primaryPhone;
+
 @dynamic email;
 @dynamic gender;
 @dynamic languagOfCorespondace;
@@ -29,6 +31,7 @@
 @dynamic postalCode;
 @dynamic city;
 @dynamic province;
+@dynamic employerWorkPrefix;
 @dynamic addressYearsAndMonths;
 @dynamic resincialStatus;
 @dynamic monthlyHouseCosts;

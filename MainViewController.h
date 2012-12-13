@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSTimer *idleTimer;
  
 
-
+-(void)setFontFamily:(NSString*)fontFamily forView:(UIView*)view andSubViews:(BOOL)isSubViews;
 -(void)resetIdleTimer;
 
 @end

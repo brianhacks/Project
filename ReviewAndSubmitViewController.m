@@ -114,8 +114,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(19, 172, 988, 520)];
-    [self.view addSubview:self.accordion];
+    //self.accordionViewScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.,0., 1004., 680.)];
+    self.accordionViewScrollView.contentSize = CGSizeMake(1, 600.);
+    self.accordionViewScrollView.backgroundColor = [UIColor whiteColor];
+    
+   // [self.view addSubview:self.accordionViewScrollView];
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0, 0, 988, 900)];
+    [self.accordionViewScrollView addSubview:self.accordion];
     
     // Only height is taken into account, so other parameters are just dummy
     self.firstVIew = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
@@ -193,7 +198,7 @@
 {
     self.firstVIew.frame = CGRectMake(self.firstVIew.frame.origin.x, self.firstVIew.frame.origin.y, self.firstVIew.frame.size.width, self.firstVIew.frame.size.height + 50);
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
-    self.firstVIew.backgroundColor = background;
+    self.firstVIew.backgroundColor = [UIColor whiteColor];
     
     for (UILabel *tmpLabel in [self.firstVIew subviews]) {
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
@@ -251,8 +256,8 @@
 {
     self.secondView.frame = CGRectMake(self.secondView.frame.origin.x, self.secondView.frame.origin.y, self.secondView.frame.size.width, self.secondView.frame.size.height + 50);
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
-    self.secondView.backgroundColor = background;
-    
+    self.secondView.backgroundColor = [UIColor whiteColor];;
+        
     for (UILabel *tmpLabel in [self.secondView subviews]) {
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     }
@@ -300,7 +305,7 @@
     self.firstHeaderView.frame = CGRectMake(self.firstHeaderView.frame.origin.x, self.firstHeaderView.frame.origin.y, self.firstHeaderView.frame.size.width, self.firstHeaderView.frame.size.height + 50);
     
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
-    self.firstHeaderView.backgroundColor = background;
+    self.firstHeaderView.backgroundColor = [UIColor whiteColor];
     
     for (UILabel *tmpLabel in [self.firstHeaderView subviews]) {
         
@@ -344,7 +349,7 @@
 {
     self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height + 50);
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
-    self.secondHeaderView.backgroundColor = background;
+    self.secondHeaderView.backgroundColor = [UIColor whiteColor];
     
     for (UILabel *tmpLabel in [self.secondHeaderView subviews]) {
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
@@ -391,7 +396,7 @@
 {
     self.thirdHeaderView.frame = CGRectMake(self.thirdHeaderView.frame.origin.x, self.thirdHeaderView.frame.origin.y, self.thirdHeaderView.frame.size.width, self.thirdHeaderView.frame.size.height + 50);
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
-    self.thirdHeaderView.backgroundColor = background;
+    self.thirdHeaderView.backgroundColor = [UIColor whiteColor];;
     
     for (UILabel *tmpLabel in [self.thirdHeaderView subviews]) {
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];

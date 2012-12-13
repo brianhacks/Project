@@ -81,8 +81,8 @@
     //for debug mode only
     self.window.rootViewController = self.navController;
     
-//    self.window.rootViewController = self.thankYouViewController;
-    self.window.rootViewController = self.firstScreenSaverViewController;
+    self.window.rootViewController = self.financialInfoViewController;
+ //   self.window.rootViewController = self.firstScreenSaverViewController;
 
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
@@ -126,6 +126,10 @@
     
     NSLog(@"User hit Ok.");
     
+    //THIS IS CATCHING EVERY ALERT, WE CANT DO IT THIS WAY
+    
+   /*
+    
     if (alertView == self.sessionTimeoutAlert) {
         
         //reset fetch entity
@@ -161,7 +165,7 @@
         [self.navController popToRootViewControllerAnimated:YES];
         
     }
-    
+    */
     
     
     
