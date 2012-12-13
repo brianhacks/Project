@@ -403,6 +403,7 @@
     @"Marketing/Production/Operations",
     @"Marketing/Product",
     @"Medical/Health",
+    @"Other",
     @"Project/Program Management",
     @"Quality Assurance/Safety",
     @"Sales/Retail/Business Development",
@@ -1552,7 +1553,7 @@
 
 - (void)chooseCurrentOccupation{
     
-    if ([self.industryButton.titleLabel.text isEqualToString:@"Industry"]) {
+    if ([self.industryButton.titleLabel.text isEqualToString:@"Industry"] || [self.industryButton.titleLabel.text isEqualToString:@"Other"]) {
         [self.popoverController6 dismissPopoverAnimated:YES];
         return;
     }

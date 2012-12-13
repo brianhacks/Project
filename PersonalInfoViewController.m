@@ -89,7 +89,7 @@
     self.languageOfCorespondaceArray = @[@"English", @"French"];
     
     self.residentialStatusArray = [NSArray new];
-    self.residentialStatusArray = @[@"Own", @"Rent", @"Live w/Parents/Relatives", @"Board"];
+    self.residentialStatusArray = @[@"Rent", @"Live w/Parents/Relatives", @"Board"];
     
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
