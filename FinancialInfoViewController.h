@@ -12,7 +12,6 @@
 
 @interface FinancialInfoViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 
-@property (nonatomic, readwrite)BOOL clearUserDataFromTheApp;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *accordionViewScrollView;
 

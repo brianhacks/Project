@@ -15,7 +15,6 @@
 
 @implementation MainViewController
 
-@synthesize clearUserDataFromTheApp;
 
 #define maxIdleTime 10.0
 

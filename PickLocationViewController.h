@@ -25,7 +25,6 @@
 
 @interface PickLocationViewController : MainViewController <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate, UITextFieldDelegate>
 
-@property (nonatomic, readwrite)BOOL clearUserDataFromTheApp;
 
 @property (strong, nonatomic) UIImageView* sageataImage;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;

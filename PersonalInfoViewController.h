@@ -13,7 +13,6 @@
 
 @interface PersonalInfoViewController : MainViewController <UIPopoverControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
-@property (nonatomic, readwrite)BOOL clearUserDataFromTheApp;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *accordionViewScrollView;
 

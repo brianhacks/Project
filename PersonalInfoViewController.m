@@ -19,7 +19,6 @@
 @implementation PersonalInfoViewController
 
 @synthesize gender, titleString, languageOfCorespondaceString, editFirstView, monthsLivedArray, yearsLivedArray;
-@synthesize clearUserDataFromTheApp;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,160 +29,17 @@
     return self;
 }
 
-/* ??? */
+
 - (void)viewWillDisappear:(BOOL)animated{
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
     
-    //    [self.selectTitelButton setTitle:@"Title" forState:UIControlStateNormal];
-    //    self.firstName.text = @"";
-    //    self.lastName.text = @"";
-    //    self.areaCode.text = @"";
-    //    self.primaryPhoneNumber.text = @"";
-    //    self.emailAddress.text = @"";
-    //    [self.selectGenderButton setTitle:@"Gender" forState:UIControlStateNormal];
-    //    [self.selectLanguageOfCorespondace setTitle:@"Language of Correspondance" forState:UIControlStateNormal];
-    //    self.sinNumber.text = @"";
-    //    self.streetAddress.text = @"";
-    //    self.postalCode.text = @"";
-    //    self.totalMonthlyHousingCosts.text = @"";
-    //    self.currentCity.text = @"";
-    //    [self.residentialStatusButton setTitle:@"Choose" forState:UIControlStateNormal];
-    //    self.totalMonthlyHousingCosts.text = @"";
-    //    [self.provinceButton setTitle:@"Province" forState:UIControlStateNormal];
-    //
-    //    [self.accordion setSelectedIndex:0];
-    //    [self.accordion setNeedsLayout];
-    
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    
-    [super viewDidLoad];
-    
-    if (self.clearUserDataFromTheApp) {
-        
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         selector:@selector(anyMethod:)
-         name:UITextFieldTextDidChangeNotification
-         object:self.areaCode];
-        
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         selector:@selector(anyMethod:)
-         name:UITextFieldTextDidChangeNotification
-         object:self.primaryPhoneNumber];
-        
-        [[NSNotificationCenter defaultCenter]
-         addObserver:self
-         selector:@selector(anyMethod:)
-         name:UITextFieldTextDidChangeNotification
-         object:self.primaryPhonePrefix];
-        
-        [super viewDidLoad];
-        showThirdHeader = false;
-        [self setFontFamily:@"FrutiBol" forView:self.view andSubViews:YES];
-        // Do any additional setup after loading the view from its nib.
-        
-        self.monthsLivedArray = [NSArray new];
-        self.monthsLivedArray = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12"];
-        
-        self.yearsLivedArray = [NSArray new];
-        self.yearsLivedArray = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30", @"31", @"32", @"33", @"34", @"35", @"36", @"37", @"38", @"39", @"40"];
-        
-        [self.nextStepButton setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
-        self.nextStepButton.enabled = NO;
-        
-        [self.selectLanguageOfCorespondace setTitle:@"English" forState:UIControlStateNormal];
-        
-        self.provinceArray = [NSArray new];
-        self.provinceArray = @[@"Alberta", @"British Columbia", @"Manitoba", @"New Brunswick", @"Newfoundland & Labrador", @"Nova Scotia", @"Northwest Territories", @"Nunavut", @"Ontario", @"Prince Edward Island", @"Quebec", @"Saskatchewan", @"Yukon"];
-        
-        
-        self.titleArray = [NSArray new];
-        self.titleArray = @[@"Mr.", @"Mrs.", @"Miss.", @"Ms.", @"Dr."];
-        
-        self.genderArray = [NSArray new];
-        self.genderArray = @[@"Male", @"Female"];
-        
-        self.languageOfCorespondaceArray = [NSArray new];
-        self.languageOfCorespondaceArray = @[@"English", @"French"];
-        
-        self.residentialStatusArray = [NSArray new];
-        self.residentialStatusArray = @[@"Own", @"Rent", @"Live w/Parents/Relatives", @"Board"];
-        
-        UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
-        self.view.backgroundColor = background;
-        
-        //MTK - make sure it fits int he shoadows
-        
-        self.accordionViewScrollView.contentSize = CGSizeMake(1, 600.);
-        
-        self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0, 0, 989, 520)];
-        [self.accordionViewScrollView addSubview:self.accordion];
-        self.accordionViewScrollView.backgroundColor = [UIColor whiteColor];
-        // Only height is taken into account, so other parameters are just dummy
-        self.firstHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-        self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-        
-        UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
-        firstHeaderTitel.backgroundColor = [UIColor clearColor];
-        firstHeaderTitel.textColor = [UIColor whiteColor];
-        firstHeaderTitel.text = @" General Info";
-        firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
-        [self.firstHeaderView addSubview:firstHeaderTitel];
-        [self.accordion addHeader:self.firstHeaderView withView:self.generalInfoView];
-        
-        self.secondHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-        self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-        
-        UILabel* secondHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
-        secondHeaderTitel.backgroundColor = [UIColor clearColor];
-        secondHeaderTitel.textColor = [UIColor whiteColor];
-        secondHeaderTitel.text = @"  Current Home Address";
-        secondHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
-        [self.secondHeaderView addSubview:secondHeaderTitel];
-        
-        UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 400)];
-        view2.backgroundColor = [UIColor whiteColor];
-        
-        UIImageView* bottomCurve = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 243.0, 1024., 46.)];
-        bottomCurve.image = [UIImage imageNamed:@"bottom-curve.png"];
-        //    [self.accordion addSubview:bottomCurve];
-        
-        //need to figure out how to alternate the color of white and green
-        [self.accordion addHeader:self.secondHeaderView withView:self.currentHomeAddressView];
-        
-        // Only height is taken into account, so other parameters are just dummy
-        self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-        self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-        
-        UILabel* firstHeaderTitel2 = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
-        firstHeaderTitel2.backgroundColor = [UIColor clearColor];
-        firstHeaderTitel2.textColor = [UIColor whiteColor];
-        firstHeaderTitel2.text = @"Previous Home Address";
-        firstHeaderTitel2.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
-        [self.thirdHeaderView addSubview:firstHeaderTitel2];
-        
-        self.thirdHeaderView.hidden = YES;
-        
-        [self.accordion addHeader:self.thirdHeaderView withView:self.formalHomeAddress];
-        
-        [self.accordion setNeedsLayout];
-        
-        // Set this if you want to allow multiple selection
-        [self.accordion setAllowsMultipleSelection:YES];
-        
-    }
-    
-}
 
 #pragma mark viewDidLoad
 - (void)viewDidLoad
 {
-    
-    self.clearUserDataFromTheApp = NO;
     
     [[NSNotificationCenter defaultCenter]
      addObserver:self
@@ -296,6 +152,7 @@
     
     // Set this if you want to allow multiple selection
     [self.accordion setAllowsMultipleSelection:YES];
+    
     
 }
 
@@ -752,7 +609,7 @@
     
     if([self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"])
     {
-        isValid=false;
+//        isValid=false;
         
     }
     /*
@@ -761,13 +618,23 @@
      (2) If Residential Status = Live with Parents/Relatives Total Monthly Housing Cost is NOT Required
      */
     
-    int totalCosts = [self.totalMonthlyHousingCosts.text intValue];
+//    int totalCosts = [self.totalMonthlyHousingCosts.text intValue];
     
-    if(!(totalCosts == 0 && [ self.residentialStatusButton.titleLabel.text  isEqualToString:@"Live with Parents/Relatives"  ]
-         )
-       )
-    {
-        //        isValid=false;
+    if([self.residentialStatusButton.titleLabel.text isEqualToString:@"Own"]
+       || [self.residentialStatusButton.titleLabel.text isEqualToString:@"Rent"]
+       || [self.residentialStatusButton.titleLabel.text isEqualToString:@"Board"]){
+        
+        if (self.totalMonthlyHousingCosts.text == @"" || [self.totalMonthlyHousingCosts.text intValue] == 0) {
+            
+            isValid=false;
+            [self.totalMonthlyHousingCosts setBackgroundColor:[UIColor yellowColor]];
+            
+        }
+        
+    }else if([self.residentialStatusButton.titleLabel.text isEqualToString:@"Live w/Parents/Relatives"]){
+        
+//        isValid = TRUE;
+        [self.totalMonthlyHousingCosts setBackgroundColor:[UIColor whiteColor]];
         
     }
     
@@ -1631,7 +1498,6 @@
     
     [appDelegate startOver];
     
-    self.clearUserDataFromTheApp = YES;
     
 }
 
