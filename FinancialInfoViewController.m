@@ -700,7 +700,7 @@
     
     [appDelegate addInfoToUser:self.employerAreaCode.text andFieldToAddItTo:@"employerAreaCode"];
     [appDelegate addInfoToUser:self.employerWorkPhoneNumber.text andFieldToAddItTo:@"workPhone"];
-    [appDelegate addInfoToUser:self.employerWorkPrefix.text andFieldToAddItTo:@"workPrefix"];
+    [appDelegate addInfoToUser:self.employerWorkPrefix.text andFieldToAddItTo:@"employerWorkPrefix"];
     
     [appDelegate addInfoToUser:self.employerStreetAddress.text andFieldToAddItTo:@"employerStreetAddress"];
     [appDelegate addInfoToUser:self.provinceButton.titleLabel.text andFieldToAddItTo:@"employerProvince"];
@@ -1008,7 +1008,7 @@
     for (UILabel *tmpLabel in [self.firstHeaderView subviews]) {
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     }
-    
+    [self drawTopLineForSubView:self.firstHeaderView];
     self.editFirstView = [UIButton buttonWithType:UIButtonTypeCustom];
     self.editFirstView.frame = CGRectMake(910., 5., 81., 42.);
     [self.editFirstView setTitle:@"Edit" forState:UIControlStateNormal];
@@ -1110,7 +1110,7 @@
     }else{
         self.employerWorkPhoneNumber.backgroundColor = [UIColor whiteColor];
     }
-    if(self.employerAreaCode.text.length!=4){
+    if(self.employerAreaCode.text.length!=3){
         isValid=false;
         //mark field as invalid
         self.employerAreaCode.backgroundColor = [UIColor yellowColor];
@@ -1126,13 +1126,33 @@
         return;
     }
     
-     UIImage *image2 = [UIImage imageNamed:@"banner-4b.png"];
-     [self.financeHeader setImage:image2];
-    [self.accordion setSelectedIndex:2];
+    NSString *query = [NSString stringWithFormat:@"%@ %@ %@", self.employerStreetAddress.text, self.employerCityTextField.text, self.provinceButton.titleLabel.text];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
+        if ([placemarks count] > 0) {
+            
+            self.employerStreetAddress.backgroundColor = [UIColor whiteColor];
+            UIImage *image2 = [UIImage imageNamed:@"banner-4b.png"];
+            [self.financeHeader setImage:image2];
+            [self.accordion setSelectedIndex:2];
+            
+            [self changeSecondHeaderHeightAndAddInfo];
+            
+            self.secondViewClosed = YES;
+            
+            
+            
+            
+        } else {
+            
+            self.employerStreetAddress.backgroundColor = [UIColor yellowColor];
+            
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"We could not find your employer's addresss.  Please make sure it was entered correctly." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+            [alert show];
+            
+        }}];
     
-    [self changeSecondHeaderHeightAndAddInfo];
-    
-    self.secondViewClosed = YES;
+   
     
 }
 
@@ -1144,7 +1164,8 @@
     for (UILabel *tmpLabel in [self.secondHeaderView subviews]) {
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     }
-    
+    [self drawTopLineForSubView:self.secondHeaderView];
+
     self.editSecondView = [UIButton buttonWithType:UIButtonTypeCustom];
     self.editSecondView.frame = CGRectMake(910., 5., 81., 42.);
     [self.editSecondView setTitle:@"Edit" forState:UIControlStateNormal];
@@ -1174,7 +1195,7 @@
     employerStreetAddressLabel.numberOfLines = 0;
     employerStreetAddressLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
     employerStreetAddressLabel.backgroundColor = [UIColor clearColor];
-    employerStreetAddressLabel.text = [NSString stringWithFormat:@"%@",self.employerStreetAddress.text];
+    employerStreetAddressLabel.text = [NSString stringWithFormat:@"%@ %@ %@",self.employerStreetAddress.text, self.employerCityTextField.text, self.provinceButton];
     [self.secondHeaderView addSubview:employerStreetAddressLabel];
     
     
@@ -1228,6 +1249,10 @@
         return;
     }
     
+    
+    
+    
+    
     [self.accordion setSelectedIndex:3];
     [self changeThirdHeaderHeightAndAddInfo];
     self.bextSteptButton.enabled = YES;
@@ -1242,7 +1267,8 @@
     for (UILabel *tmpLabel in [self.thirdHeaderView subviews]) {
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     }
-    
+    [self drawTopLineForSubView:self.thirdHeaderView];
+
     self.editThirdView = [UIButton buttonWithType:UIButtonTypeCustom];
     self.editThirdView.frame = CGRectMake(910., 5., 81., 42.);
     [self.editThirdView setTitle:@"Edit" forState:UIControlStateNormal];

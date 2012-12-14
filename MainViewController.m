@@ -67,6 +67,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)drawTopLineForSubView:(UIView*)parentView {
+    UIImage *image = [UIImage imageNamed:@"horizontal-line.png"];
+    UIView *view = [[UIImageView alloc] initWithImage:image];
+    view.frame = CGRectMake(0, 0, 986, 3);
+    [parentView addSubview:view];
+}
+
 - (void)sendEvent:(UIEvent *)event{
     [self sendEvent:event];
     NSSet *allTouches = [event allTouches];

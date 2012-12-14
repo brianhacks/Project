@@ -437,10 +437,12 @@
 {
     self.firstHeaderView.frame = CGRectMake(self.firstHeaderView.frame.origin.x, self.firstHeaderView.frame.origin.y, self.firstHeaderView.frame.size.width, self.firstHeaderView.frame.size.height + 50);
     self.firstHeaderView.backgroundColor = [UIColor whiteColor];
+   // self.firstHeaderView.layer.borderColor = ( CGColorRef)CFBridgingRetain([UIColor colorWithRed:.89 green:.89 blue:.89 alpha:.8]);
     
     for (UILabel *tmpLabel in [self.firstHeaderView subviews]) {
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     }
+    [self drawTopLineForSubView:self.firstHeaderView];
     
     self.editFirstView = [UIButton buttonWithType:UIButtonTypeCustom];
     self.editFirstView.frame = CGRectMake(910., 5., 81., 42.);
@@ -758,7 +760,7 @@
     for (UILabel *tmpLabel in [self.secondHeaderView subviews]) {
         tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     }
-    
+    [self drawTopLineForSubView:self.secondHeaderView];
     self.editSecondView = [UIButton buttonWithType:UIButtonTypeCustom];
     self.editSecondView.frame = CGRectMake(910., 5., 81., 42.);
     [self.editSecondView setTitle:@"Edit" forState:UIControlStateNormal];
