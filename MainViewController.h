@@ -15,6 +15,6 @@
 
 -(void)setFontFamily:(NSString*)fontFamily forView:(UIView*)view andSubViews:(BOOL)isSubViews;
 -(void)resetIdleTimer;
-
+-(void)makeFeedbackButton;
 -(void)drawTopLineForSubView:(UIView*)parent;
 @end
