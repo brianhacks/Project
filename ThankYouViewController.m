@@ -8,6 +8,7 @@
 
 #import "ThankYouViewController.h"
 #import "AppDelegate.h"
+
 @interface ThankYouViewController ()
 
 @end
@@ -49,7 +50,13 @@
    
 }
 
-- (IBAction)doneClicked:(id)sender {
+- (IBAction)doneClicked:(id)sender
+{
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    [appDelegate startOver];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

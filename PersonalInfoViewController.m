@@ -1318,7 +1318,6 @@
 
 -(void)anyMethod:(NSNotification*)sender{
     
-    
     NSLog(@"%@",sender.object);
     
     if ([sender.object isEqual:self.areaCode]) {

@@ -54,8 +54,20 @@
 - (void)didSelectAnnotationViewInMap:(MKMapView*) mapView;
 {
     // hack that fixes bug in iOS 6 where an animation interrupts other animations
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, .1 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, .1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         Annotation *annotation = (Annotation*)self.annotation;
+    
+        CLLocationCoordinate2D coordinate = annotation.coordinate;
+    
+        MKCoordinateRegion region;
+        MKCoordinateSpan span;
+        span.latitudeDelta=0.1;
+        span.longitudeDelta=0.1;
+        region.span=span;
+        region.center = coordinate;
+    
+        [mapView setRegion:region animated:TRUE];
+    
         self.calloutAnnotation = [[CalloutAnnotation alloc] initWithContent:annotation.content];
         self.calloutAnnotation.parentAnnotationView = self;
         [mapView addAnnotation:self.calloutAnnotation];

@@ -35,16 +35,16 @@
     // Do any additional setup after loading the view from its nib.
     
     self.firstScreenShown = YES;
-/*
+
     
-    UIColor *background1 = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"ssaver1.png"]];
-   
-    self.firstView.backgroundColor = background1;
-    
-    UIColor *background2 = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"ssaver2.png"]];
-    
-    self.secondView.backgroundColor = background2;
-  */  
+//    UIColor *background1 = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"ssaver1.png"]];
+//   
+//    self.firstView.backgroundColor = background1;
+//    
+//    UIColor *background2 = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"ssaver2.png"]];
+//    
+//    self.secondView.backgroundColor = background2;
+ 
     
      self.view.frame = CGRectMake(0.0, 0.0, 1024.0, 768.0);
     self.switchViews = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(turnUp:) userInfo:nil repeats:YES];
@@ -77,23 +77,40 @@
         
         self.firstScreenShown = NO;
         
-        [self.secondView removeFromSuperview];
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:5.0];
-        [UIView setAnimationTransition:UIViewAnimationOptionTransitionCrossDissolve forView:self.view cache:YES];
+//        [self.secondView removeFromSuperview];
+//        [UIView beginAnimations:nil context:NULL];
+//        [UIView setAnimationDuration:5.0];
+//        [UIView setAnimationTransition:UIViewAnimationOptionTransitionCrossDissolve forView:self.view cache:YES];
+//        [UIView commitAnimations];
+//        [self.view addSubview:self.firstView];
+
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:2.0];
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.firstView cache:NO];
+        [self.firstView setAlpha:0.0];
+        [self.secondView setAlpha:1.0];
         [UIView commitAnimations];
-        [self.view addSubview:self.firstView];
         
     }else{
         
         self.firstScreenShown = YES;
         
-        [self.firstView removeFromSuperview];
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:5.0];
-        [UIView setAnimationTransition:UIViewAnimationOptionTransitionCrossDissolve forView:self.view cache:YES];
+//        [self.firstView removeFromSuperview];
+//        [UIView beginAnimations:nil context:NULL];
+//        [UIView setAnimationDuration:5.0];
+//        [UIView setAnimationTransition:UIViewAnimationOptionTransitionCrossDissolve forView:self.view cache:YES];
+//        [UIView commitAnimations];
+//        [self.view addSubview:self.secondView];
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:2.0];
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.secondView cache:NO];
+        [self.secondView setAlpha:0.0];
+        [self.firstView setAlpha:1.0];
         [UIView commitAnimations];
-        [self.view addSubview:self.secondView];
+        
     }
     
 }

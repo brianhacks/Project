@@ -110,11 +110,11 @@
     self.pickLocationViewController = [[PickLocationViewController alloc] initWithNibName:@"PickLocationViewController" bundle:nil];
     self.reviewAndSubmitViewController = [[ReviewAndSubmitViewController alloc] initWithNibName:@"ReviewAndSubmitViewController" bundle:nil];
     self.thankYouViewController = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
-    self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeCreate];
+    self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeVerify];
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.pickLocationViewController];
     
     self.window.rootViewController = self.navController;
     
@@ -129,13 +129,6 @@
 }
 
 - (void)startOver{
-    
-//    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    
-//    NSMutableArray *allViewControllers = [NSMutableArray arrayWithArray: sel.navController.viewControllers];
-//    [allViewControllers removeObjectIdenticalTo: removedViewController];
-//    navigationController.viewControllers = allViewControllers;
-    
 
     [self initViewsAndNavController];
     
@@ -215,7 +208,6 @@
         
         [self.idleTimer invalidate];
         self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
-        
         
         [self initViewsAndNavController];
         
