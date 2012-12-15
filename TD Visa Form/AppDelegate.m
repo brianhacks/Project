@@ -24,7 +24,7 @@
 @end
 
 
-
+ 
 @implementation AppDelegate
 
 #define maxIdleTime 1100.0
@@ -57,7 +57,7 @@
     self.pickLocationViewController = [[PickLocationViewController alloc] initWithNibName:@"PickLocationViewController" bundle:nil];
     self.reviewAndSubmitViewController = [[ReviewAndSubmitViewController alloc] initWithNibName:@"ReviewAndSubmitViewController" bundle:nil];
     self.thankYouViewController = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
-    self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeCreate];
+    self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeVerify];
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
 //    self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
     
@@ -120,10 +120,8 @@
         [self.sessionTimeoutAlert show];
     }
     
-    
-    
-    
 }
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     
     NSLog(@"User hit Ok.");
