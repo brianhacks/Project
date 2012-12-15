@@ -24,7 +24,7 @@
 @end
 
 
-
+ 
 @implementation AppDelegate
 
 #define maxIdleTime 1100.0
@@ -38,7 +38,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
     self.clearUserDataFromTheApp = NO;
+
+    [TestFlight takeOff:@"f969343d65109e13182ab5fb49109358_MTYzNjU0MjAxMi0xMi0xMSAyMzoxMDozMS4xODc4NTI"];
+
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -46,7 +50,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopScreenSaverAndAddRootView) name:@"StopScreenSaver" object:nil];
     
+
     [self initViewsAndNavController];
+
     
     NSManagedObjectContext* context = [self managedObjectContext];
     NSManagedObjectContext* context2 = [self managedObjectContext];
@@ -172,6 +178,7 @@
     }
     
 }
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     
     NSLog(@"User hit Ok.");

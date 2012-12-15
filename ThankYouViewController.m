@@ -25,6 +25,8 @@
 -(void)refresh{
     
 }
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -45,6 +47,9 @@
     [appDelegate addInfoToUser:num andFieldToAddItTo:@"referenceNumber"];
     
    
+}
+
+- (IBAction)doneClicked:(id)sender {
 }
 
 - (void)didReceiveMemoryWarning

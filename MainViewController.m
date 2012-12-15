@@ -8,13 +8,13 @@
 
 #import "MainViewController.h"
 #import "AppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface MainViewController ()
 
 @end
 
 @implementation MainViewController
-
 
 #define maxIdleTime 10.0
 
@@ -35,13 +35,40 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self makeFeedbackButton];
     
 //    NSLog(@"%@",idleTimer.t);
     
 
         
 }
+-(void)makeFeedbackButton{
     
+    //self = [super initWithFrame:frame];
+    //UIView *bView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect ];
+    
+    playButton.frame = CGRectMake(924, 25, 100, 40);
+    [playButton setTitle:@"Feedback" forState:UIControlStateNormal];
+    [playButton setTitleColor:[UIColor darkTextColor]forState:UIControlStateNormal];
+    // creating images here ...
+   
+    [playButton setEnabled:YES];
+    [playButton setUserInteractionEnabled:YES];
+    [playButton addTarget: self
+                   action: @selector(launchFeedback)
+         forControlEvents: UIControlEventTouchDown];
+    
+    [self.view addSubview:playButton];
+    
+    
+}
+    
+
+-(IBAction)launchFeedback {
+    [TestFlight openFeedbackView];
+}
+
 -(void)setFontFamily:(NSString*)fontFamily forView:(UIView*)view andSubViews:(BOOL)isSubViews
     {
         if ([view isKindOfClass:[UILabel class]])
@@ -65,6 +92,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)drawTopLineForSubView:(UIView*)parentView {
+    UIImage *image = [UIImage imageNamed:@"horizontal-line.png"];
+    UIView *view = [[UIImageView alloc] initWithImage:image];
+    view.frame = CGRectMake(0, 0, 986, 3);
+    [parentView addSubview:view];
 }
 
 - (void)sendEvent:(UIEvent *)event{

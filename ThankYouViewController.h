@@ -11,4 +11,5 @@
 @interface ThankYouViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *referenceNum;
 -(void)refresh;
+- (IBAction)doneClicked:(id)sender;
 @end

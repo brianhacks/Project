@@ -71,6 +71,12 @@
 		9F2B90B8166FABFE003DD835 /* header-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B7166FABFE003DD835 /* header-5.png */; };
 		9F647AD116723477001E6F3D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F647AD016723477001E6F3D /* AddressBook.framework */; };
 		9F647AD316724948001E6F3D /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F647AD216724948001E6F3D /* bank.png */; };
+		9F6A1D5A167B87E50021561B /* horizontal-line.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F6A1D59167B87E50021561B /* horizontal-line.png */; };
+		9F6A1D5D167B8CC90021561B /* housing-info.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F6A1D5C167B8CC90021561B /* housing-info.png */; };
+		9F83570A167BAA0A0088B366 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F835706167BAA090088B366 /* libTestFlight.a */; };
+		9F83570B167BAA0A0088B366 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F835707167BAA090088B366 /* README.md */; };
+		9F83570C167BAA0A0088B366 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F835708167BAA090088B366 /* release_notes.md */; };
+		9F83570E167BAB130088B366 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F83570D167BAB130088B366 /* libz.dylib */; };
 		9F854C6A166FE859009F9E01 /* body-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C68166FE859009F9E01 /* body-2.png */; };
 		9F854C6B166FE859009F9E01 /* footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C69166FE859009F9E01 /* footer.png */; };
 		9F854C76166FFA10009F9E01 /* FrutigerLTStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C6D166FFA10009F9E01 /* FrutigerLTStd-Bold.otf */; };
@@ -250,6 +256,13 @@
 		9F2B90B7166FABFE003DD835 /* header-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header-5.png"; path = "TD Visa Form/images/header-5.png"; sourceTree = "<group>"; };
 		9F647AD016723477001E6F3D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		9F647AD216724948001E6F3D /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bank.png; path = "TD Visa Form/images/bank.png"; sourceTree = "<group>"; };
+		9F6A1D59167B87E50021561B /* horizontal-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "horizontal-line.png"; path = "TD Visa Form/images/horizontal-line.png"; sourceTree = "<group>"; };
+		9F6A1D5C167B8CC90021561B /* housing-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "housing-info.png"; path = "TD Visa Form/images/housing-info.png"; sourceTree = "<group>"; };
+		9F835706167BAA090088B366 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		9F835707167BAA090088B366 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		9F835708167BAA090088B366 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		9F835709167BAA090088B366 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		9F83570D167BAB130088B366 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		9F854C68166FE859009F9E01 /* body-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "body-2.png"; path = "TD Visa Form/images/body-2.png"; sourceTree = "<group>"; };
 		9F854C69166FE859009F9E01 /* footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = footer.png; path = "TD Visa Form/images/footer.png"; sourceTree = "<group>"; };
 		9F854C6D166FFA10009F9E01 /* FrutigerLTStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Bold.otf"; path = "TD Visa Form/FrutigerLTStd-Bold.otf"; sourceTree = "<group>"; };
@@ -437,6 +450,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F83570E167BAB130088B366 /* libz.dylib in Frameworks */,
 				9FBDBCD7167437C100BE04E6 /* CoreLocation.framework in Frameworks */,
 				9F647AD116723477001E6F3D /* AddressBook.framework in Frameworks */,
 				70CB8158166410BE0003B225 /* MapKit.framework in Frameworks */,
@@ -446,6 +460,7 @@
 				702337B01652C56800B87249 /* CoreGraphics.framework in Frameworks */,
 				702337B21652C56800B87249 /* CoreData.framework in Frameworks */,
 				9FF89EC3167599B80084D3A0 /* libCorePlot-CocoaTouch.a in Frameworks */,
+				9F83570A167BAA0A0088B366 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +503,8 @@
 		702337AA1652C56800B87249 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F83570D167BAB130088B366 /* libz.dylib */,
+				9F835705167BAA090088B366 /* TestFlightSDK1.1 */,
 				703E131D165979BE0043D72A /* DCRoundSwitch */,
 				9FF89E77167599B80084D3A0 /* libCorePlot-CocoaTouch.a */,
 				9FF89E78167599B80084D3A0 /* CorePlotHeaders */,
@@ -687,6 +704,8 @@
 		9F2B90A7166F0588003DD835 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9F6A1D5C167B8CC90021561B /* housing-info.png */,
+				9F6A1D59167B87E50021561B /* horizontal-line.png */,
 				9FFB47DC1678F4B1005E50F4 /* banner-4a.png */,
 				9FFB47DD1678F4B1005E50F4 /* banner-4b.png */,
 				9FFB47D81678E5C5005E50F4 /* finance-info1.jpg */,
@@ -721,6 +740,17 @@
 				9F2B90A4166F057A003DD835 /* ssaver1.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		9F835705167BAA090088B366 /* TestFlightSDK1.1 */ = {
+			isa = PBXGroup;
+			children = (
+				9F835706167BAA090088B366 /* libTestFlight.a */,
+				9F835707167BAA090088B366 /* README.md */,
+				9F835708167BAA090088B366 /* release_notes.md */,
+				9F835709167BAA090088B366 /* TestFlight.h */,
+			);
+			path = TestFlightSDK1.1;
 			sourceTree = "<group>";
 		};
 		9F854C8C16706F31009F9E01 /* admin */ = {
@@ -1083,6 +1113,10 @@
 				9FFB47DB1678E5C5005E50F4 /* finance-info2.png in Resources */,
 				9FFB47DE1678F4B1005E50F4 /* banner-4a.png in Resources */,
 				9FFB47DF1678F4B1005E50F4 /* banner-4b.png in Resources */,
+				9F6A1D5A167B87E50021561B /* horizontal-line.png in Resources */,
+				9F6A1D5D167B8CC90021561B /* housing-info.png in Resources */,
+				9F83570B167BAA0A0088B366 /* README.md in Resources */,
+				9F83570C167BAA0A0088B366 /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1211,6 +1245,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1232,12 +1267,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1ECC528C-5259-493C-A804-C6A1948DDAA9";
-				"PROVISIONING_PROFILE[sdk=*]" = "1ECC528C-5259-493C-A804-C6A1948DDAA9";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1ECC528C-5259-493C-A804-C6A1948DDAA9";
+				PROVISIONING_PROFILE = "6C7AE0A7-7AAB-4954-B684-48C6AA1387DB";
+				"PROVISIONING_PROFILE[sdk=*]" = "6C7AE0A7-7AAB-4954-B684-48C6AA1387DB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C7AE0A7-7AAB-4954-B684-48C6AA1387DB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
