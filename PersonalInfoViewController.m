@@ -152,6 +152,7 @@
     
     // Set this if you want to allow multiple selection
     [self.accordion setAllowsMultipleSelection:YES];
+//    [self.accordion setSelectedIndex:1];
     
     
 }
@@ -676,9 +677,10 @@
             [self.personalHeader setImage:image2];
 
             self.streetAddress.backgroundColor = [UIColor whiteColor];
-            [self.accordion setSelectedIndex:3];
+            [self.accordion setSelectedIndex:2];
             [self changeSecondHeaderHeightAndAddInfo];
-            self.nextStepButton.enabled = YES;
+//            [self.accordion setSelectedIndex:2];
+            self.nextStepButton.enabled = NO;
             
             
             
@@ -729,9 +731,9 @@
         
         self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
         
-        [self changeSecondHeaderHeightAndAddInfo];
+//        [self changeSecondHeaderHeightAndAddInfo];
         
-        [self.accordion setSelectedIndex:2];
+        
         
         
     }else{
