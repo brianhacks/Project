@@ -34,12 +34,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PersonalInfoViewController.m"
-         timestampString = "377074782.78767"
+         timestampString = "377458442.081883"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "256"
-         endingLineNumber = "256"
-         landmarkName = "-nextStep:"
+         startingLineNumber = "363"
+         endingLineNumber = "363"
+         landmarkName = "-closeGeneralInfoView:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,13 +47,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PersonalInfoViewController.m"
-         timestampString = "377074782.78767"
+         timestampString = "377458442.081883"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "424"
-         endingLineNumber = "424"
-         landmarkName = "-closeGeneralInfoView:"
-         landmarkType = "5">
+         startingLineNumber = "531"
+         endingLineNumber = "531"
+         landmarkName = "@implementation PersonalInfoViewController"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -273,7 +273,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "106"
          endingLineNumber = "106"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         landmarkName = "-initViewsAndNavController"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -286,7 +286,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "107"
          endingLineNumber = "107"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         landmarkName = "-initViewsAndNavController"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -489,13 +489,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PersonalInfoViewController.m"
-         timestampString = "377074782.78767"
+         timestampString = "377458442.081883"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "217"
-         endingLineNumber = "217"
-         landmarkName = "@implementation PersonalInfoViewController"
-         landmarkType = "3">
+         startingLineNumber = "324"
+         endingLineNumber = "324"
+         landmarkName = "-chooseTitle"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
@@ -507,7 +507,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "129"
          endingLineNumber = "129"
-         landmarkName = "-alertView:didDismissWithButtonIndex:"
+         landmarkName = "-popToRoot"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -560,6 +560,45 @@
          startingLineNumber = "49"
          endingLineNumber = "49"
          landmarkName = "-makeFeedbackButton"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PersonalInfoViewController.m"
+         timestampString = "377455539.298515"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "80"
+         endingLineNumber = "80"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PersonalInfoViewController.m"
+         timestampString = "377458442.081883"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "710"
+         endingLineNumber = "710"
+         landmarkName = "-closeAddressView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PersonalInfoViewController.m"
+         timestampString = "377457940.226271"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "636"
+         endingLineNumber = "636"
+         landmarkName = "-closeAddressView:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
