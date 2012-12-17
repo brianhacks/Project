@@ -168,17 +168,20 @@
     firstHeaderTitel.textColor = [UIColor whiteColor];
     firstHeaderTitel.text = @" General Info";
     firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    
     [self.firstHeaderView addSubview:firstHeaderTitel];
     [self.accordion addHeader:self.firstHeaderView withView:self.generalInfoView];
     
     self.secondHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+   // self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    self.secondHeaderView.backgroundColor = [UIColor whiteColor];
     
     UILabel* secondHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
     secondHeaderTitel.backgroundColor = [UIColor clearColor];
-    secondHeaderTitel.textColor = [UIColor whiteColor];
+    secondHeaderTitel.textColor = [UIColor blackColor];
     secondHeaderTitel.text = @"  Current Home Address";
     secondHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self drawTopLineForSubView:self.secondHeaderView];
     [self.secondHeaderView addSubview:secondHeaderTitel];
     
     UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 400)];
@@ -193,15 +196,16 @@
     
     // Only height is taken into account, so other parameters are just dummy
     self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    //self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    self.thirdHeaderView.backgroundColor = [UIColor whiteColor];
     
     UILabel* firstHeaderTitel2 = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
     firstHeaderTitel2.backgroundColor = [UIColor clearColor];
-    firstHeaderTitel2.textColor = [UIColor whiteColor];
+    firstHeaderTitel2.textColor = [UIColor blackColor];
     firstHeaderTitel2.text = @"Previous Home Address";
     firstHeaderTitel2.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
     [self.thirdHeaderView addSubview:firstHeaderTitel2];
-    
+     [self drawTopLineForSubView:self.thirdHeaderView];
     self.thirdHeaderView.hidden = YES;
     
     [self.accordion addHeader:self.thirdHeaderView withView:self.formalHomeAddress];

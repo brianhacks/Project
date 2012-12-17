@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PersonalInfoViewController.m"
-         timestampString = "377459095.410393"
+         timestampString = "377460479.673207"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "421"
-         endingLineNumber = "421"
+         startingLineNumber = "425"
+         endingLineNumber = "425"
          landmarkName = "-closeGeneralInfoView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PersonalInfoViewController.m"
-         timestampString = "377459095.410393"
+         timestampString = "377460479.673207"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "589"
-         endingLineNumber = "589"
+         startingLineNumber = "593"
+         endingLineNumber = "593"
          landmarkName = "@implementation PersonalInfoViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -489,11 +489,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PersonalInfoViewController.m"
-         timestampString = "377459095.410393"
+         timestampString = "377460479.673207"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "382"
-         endingLineNumber = "382"
+         startingLineNumber = "386"
+         endingLineNumber = "386"
          landmarkName = "-chooseTitle"
          landmarkType = "5">
       </FileBreakpoint>
@@ -580,11 +580,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PersonalInfoViewController.m"
-         timestampString = "377459095.410393"
+         timestampString = "377460479.673207"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "784"
-         endingLineNumber = "784"
+         startingLineNumber = "788"
+         endingLineNumber = "788"
          landmarkName = "-closeAddressView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -593,12 +593,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PersonalInfoViewController.m"
-         timestampString = "377459095.410393"
+         timestampString = "377460479.673207"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "710"
-         endingLineNumber = "710"
+         startingLineNumber = "714"
+         endingLineNumber = "714"
          landmarkName = "-closeAddressView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PersonalInfoViewController.m"
+         timestampString = "377460593.335192"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "157"
+         endingLineNumber = "157"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
