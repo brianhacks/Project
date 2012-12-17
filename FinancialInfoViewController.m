@@ -63,6 +63,12 @@
     self.employmentStatusPicker.showsSelectionIndicator = YES;
     [popoverView addSubview:self.employmentStatusPicker];
     
+    if (![self.employmentStatus.titleLabel.text isEqualToString:@"Current Employment Status"]) {
+        
+        int index = [self.employmentStatusArray indexOfObject:self.employmentStatus.titleLabel.text];
+        [self.employmentStatusPicker selectRow:index inComponent:0 animated:YES];
+    }
+    
     popoverContent.view = popoverView;
     self.popoverController1 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController1.delegate = self;
@@ -156,6 +162,10 @@
             
         }
         
+    }else if(pickerView == self.selectCountryPicker){
+        
+        return [self.countryArray count];
+        
     }else{
         return [self.employmentStatusArray count];
     }
@@ -207,66 +217,52 @@
     
     }else if(pickerView == self.selectCurrentOcupationPicker){
         
-        NSLog(@"%@",self.industryButton.titleLabel.text);
-        
         if ([self.industryButton.titleLabel.text isEqualToString:@"Accounting/Finance/Insurance"]) {
             
-//            return [self.accountingFinanceInsurance count];
             val1 = [self.accountingFinanceInsurance objectAtIndex:row];
             
         }else if ([self.industryButton.titleLabel.text isEqualToString:@"Installation/Maintenance/Repair"]){
             
-//            return [self.installationMaintenanceRepair count];
             val1 = [self.installationMaintenanceRepair objectAtIndex:row];
             
         }else if ([self.industryButton.titleLabel.text isEqualToString:@"IT/Software Development"]){
             
-//            return [self.ITSoftwareDevelopment count];
             val1 = [self.ITSoftwareDevelopment objectAtIndex:row];
             
         }else if ([self.industryButton.titleLabel.text isEqualToString:@"Legal"]){
             
-//            return [self.legal count];
             val1 = [self.legal objectAtIndex:row];
             
         }else if ([self.industryButton.titleLabel.text isEqualToString:@"Administrative/Clarical"]){
             
-//            return [self.administrativeClerical count];
             val1 = [self.administrativeClerical objectAtIndex:row];
             
         }else if ([self.industryButton.titleLabel.text isEqualToString:@"Logistics/Transportation"]){
             
-//            return [self.logisticsTransportation count];
             val1 = [self.logisticsTransportation objectAtIndex:row];
             
         }else if ([self.industryButton.titleLabel.text isEqualToString:@"Banking/Real Estate/Mortgage Professionals"]){
             
-//            return [self.bankingRealEstateMortgageProfessionals count];
             val1 = [self.bankingRealEstateMortgageProfessionals objectAtIndex:row];
             
         }else if ([self.industryButton.titleLabel.text isEqualToString:@"Biotech/R&D/Science"]){
             
-//            return [self.biotechRDScience count];
             val1 = [self.biotechRDScience objectAtIndex:row];
             
         }else if ([self.industryButton.titleLabel.text isEqualToString:@"Manufacturing/Production/Operations"]){
             
-//            return [self.manufacturingProductionOperations count];
             val1 = [self.manufacturingProductionOperations objectAtIndex:row];
             
         }else if ([self.industryButton.titleLabel.text isEqualToString:@"Building Construction/Skilled Trades"]){
             
-//            return [self.buildingConstructionSkilledTrades count];
             val1 = [self.buildingConstructionSkilledTrades objectAtIndex:row];
             
         }else if ([self.industryButton.titleLabel.text isEqualToString:@"Marketing/Product"]){
             
-//            return [self.marketingProduct count];
             val1 = [self.marketingProduct objectAtIndex:row];
             
         }else if ([self.industryButton.titleLabel.text isEqualToString:@"Business/Strategic Management"]){
             
-//            return [self.businessStrategicManagement count];
             val1 = [self.businessStrategicManagement objectAtIndex:row];
             
         }else {
@@ -274,6 +270,10 @@
             return @"";
             
         }
+        
+    }else if(pickerView == self.selectCountryPicker){
+        
+        val1 = [self.countryArray objectAtIndex:row];
         
     }else{
         
@@ -318,6 +318,12 @@
     self.statesPicker.delegate = self;
     self.statesPicker.showsSelectionIndicator = YES;
     [popoverView addSubview:self.statesPicker];
+    
+    if (![self.provinceButton.titleLabel.text isEqualToString:@"Province"]) {
+        
+        int index = [self.provinceArray indexOfObject:self.provinceButton.titleLabel.text];
+        [self.statesPicker selectRow:index inComponent:0 animated:YES];
+    }
     
     popoverContent.view = popoverView;
     self.popoverController2 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
@@ -617,9 +623,11 @@
     self.employmentStatusArray = @[@"Employed Full Time", @"Employed Part Time", @"Self-employed", @"Unemployed", @"Retired", @"Student",
     @"Homemaker"];
     
-    
     self.provinceArray = [NSArray new];
     self.provinceArray = @[@"Alberta", @"British Columbia", @"Manitoba", @"New Brunswick", @"Newfoundland & Labrador", @"Nova Scotia", @"Northwest Territories", @"Nunavut", @"Ontario", @"Prince Edward Island", @"Quebec", @"Saskatchewan", @"Yukon"];
+    
+    self.countryArray = [NSArray new];
+    self.countryArray = @[@"Afghanistan",@"Albania",@"Algeria",@"Andorra",@"Angola",@"Antigua Deps",@"Argentina",@"Armenia",@"Australia",@"Austria",@"Azerbaijan",@"Bahamas",@"Bahrain",@"Bangladesh",@"Barbados",@"Belarus",@"Belgium",@"Belize",@"Benin",@"Bhutan",@"Bolivia",@"Bosnia Herzegovina",@"Botswana",@"Brazil",@"Brunei",@"Bulgaria",@"Burkina",@"Burundi",@"Cambodia",@"Cameroon",@"Canada",@"Cape Verde",@"Central African Rep",@"Chad",@"Chile",@"China",@"Colombia",@"Comoros",@"Congo",@"Congo {Democratic Rep}",@"Costa Rica",@"Croatia",@"Cuba",@"Cyprus",@"Czech Republic",@"Denmark",@"Djibouti",@"Dominica",@"Dominican Republic",@"East Timor",@"Ecuador",@"Egypt",@"El Salvador",@"Equatorial Guinea",@"Eritrea",@"Estonia",@"Ethiopia",@"Fiji",@"Finland",@"France",@"Gabon",@"Gambia",@"Georgia",@"Germany",@"Ghana",@"Greece",@"Grenada",@"Guatemala",@"Guinea",@"Guinea-Bissau",@"Guyana",@"Haiti",@"Honduras",@"Hungary",@"Iceland",@"India",@"Indonesia",@"Iran",@"Iraq",@"Ireland {Republic}",@"Israel",@"Italy",@"Ivory Coast",@"Jamaica",@"Japan",@"Jordan",@"Kazakhstan",@"Kenya",@"Kiribati",@"Korea North",@"Korea South",@"Kosovo",@"Kuwait",@"Kyrgyzstan",@"Laos",@"Latvia",@"Lebanon",@"Lesotho",@"Liberia",@"Libya",@"Liechtenstein",@"Lithuania",@"Luxembourg",@"Macedonia",@"Madagascar",@"Malawi",@"Malaysia",@"Maldives",@"Mali",@"Malta",@"Marshall Islands",@"Mauritania",@"Mauritius",@"Mexico",@"Micronesia",@"Moldova",@"Monaco",@"Mongolia",@"Montenegro",@"Morocco",@"Mozambique",@"Myanmar, {Burma}",@"Namibia",@"Nauru",@"Nepal",@"Netherlands",@"New Zealand",@"Nicaragua",@"Niger",@"Nigeria",@"Norway",@"Oman",@"Pakistan",@"Palau",@"Panama",@"Papua New Guinea",@"Paraguay",@"Peru",@"Philippines",@"Poland",@"Portugal",@"Qatar",@"Romania",@"Russian Federation",@"Rwanda",@"St Kitts &amp; Nevis",@"St Lucia",@"Saint Vincent &amp; the Grenadines",@"Samoa",@"San Marino",@"Sao Tome &amp; Principe",@"Saudi Arabia",@"Senegal",@"Serbia",@"Seychelles",@"Sierra Leone",@"Singapore",@"Slovakia",@"Slovenia",@"Solomon Islands",@"Somalia",@"South Africa",@"South Sudan",@"Spain",@"Sri Lanka",@"Sudan",@"Suriname",@"Swaziland",@"Sweden",@"Switzerland",@"Syria",@"Taiwan",@"Tajikistan",@"Tanzania",@"Thailand",@"Togo",@"Tonga",@"Trinidad &amp; Tobago",@"Tunisia",@"Turkey",@"Turkmenistan",@"Tuvalu",@"Uganda",@"Ukraine",@"United Arab Emirates",@"United Kingdom",@"United States",@"Uruguay",@"Uzbekistan",@"Vanuatu",@"Vatican City",@"Venezuela",@"Vietnam",@"Yemen",@"Zambia",@"Zimbabwe"];
     
     self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0., 0., 987., 518.)];
 //    [self.view addSubview:self.accordion];
@@ -895,6 +903,9 @@
     return YES;
 }
 
+#pragma mark
+#pragma mark industry
+//this is industry not occupation
 - (IBAction)selectOccupation:(id)sender
 {
     
@@ -930,6 +941,12 @@
     self.occupationPicker.showsSelectionIndicator = YES;
     [popoverView addSubview:self.occupationPicker];
     
+    if (![self.industryButton.titleLabel.text isEqualToString:@"Industry"]) {
+        
+        int index = [self.occupationArray indexOfObject:self.industryButton.titleLabel.text];
+        [self.occupationPicker selectRow:index inComponent:0 animated:YES];
+    }
+    
     popoverContent.view = popoverView;
     self.popoverController3 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController3.delegate = self;
@@ -953,8 +970,6 @@
     
     [self.industryButton setTitle:[NSString stringWithFormat:@"%@",[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
     [self.popoverController3 dismissPopoverAnimated:YES];
-    
-//    [self.curretOccupationButton setTitle:[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]] forState:UIControlStateNormal];
     
 }
 
@@ -1561,6 +1576,7 @@
     self.selectCurrentOcupationPicker.delegate = self;
     self.selectCurrentOcupationPicker.showsSelectionIndicator = YES;
     [popoverView addSubview:self.selectCurrentOcupationPicker];
+
     
     popoverContent.view = popoverView;
     self.popoverController6 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
@@ -1641,6 +1657,12 @@
         
     }
     
+    //there are no jobs for this industry
+    if ([array2 count] == 0) {
+        [self.popoverController6 dismissPopoverAnimated:YES];
+        return;
+    }
+    
     NSString* otherString = [NSString stringWithFormat:@"%@",[array2 objectAtIndex:[self.selectCurrentOcupationPicker selectedRowInComponent:0]]];
     
     [otherString lowercaseString];
@@ -1661,6 +1683,64 @@
     [self.popoverController6 dismissPopoverAnimated:YES];
     
     
+    
+}
+
+- (IBAction)selectCountryAction:(id)sender
+{
+    
+    UIViewController* popoverContent = [[UIViewController alloc] init]; //ViewController
+    
+    UIView *popoverView = [[UIView alloc] init];   //view
+    popoverView.backgroundColor = [UIColor grayColor];
+    
+    UIToolbar* toolbar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0.0, 320., 44.0)];
+    toolbar.barStyle = UIBarStyleBlack;
+    
+    UIBarButtonItem* space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemFlexibleSpace
+                                                                           target: nil
+                                                                           action: nil];
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone
+                                                                                target: self
+                                                                                action: @selector(selectCountry)];
+    
+    doneButton.tintColor = [UIColor blackColor];
+    
+    NSMutableArray* toolbarItems = [NSMutableArray array];
+    [toolbarItems addObject:space];
+    [toolbarItems addObject:doneButton];
+    toolbar.items = toolbarItems;
+    
+    [popoverView addSubview:toolbar];
+    
+    self.selectCountryPicker = [[UIPickerView alloc]init];//Date picker
+    self.selectCountryPicker.frame = CGRectMake(0,44,320, 216);
+    self.selectCountryPicker.dataSource = self;
+    self.selectCountryPicker.delegate = self;
+    self.selectCountryPicker.showsSelectionIndicator = YES;
+    [popoverView addSubview:self.selectCountryPicker];
+    
+    if (![self.chooseCountryButton.titleLabel.text isEqualToString:@"Country"]) {
+        
+        int index = [self.countryArray indexOfObject:[NSString stringWithFormat:@"%@",self.chooseCountryButton.titleLabel.text]];
+        
+        [self.selectCountryPicker selectRow:index inComponent:0 animated:YES];
+        
+    }
+    
+    popoverContent.view = popoverView;
+    self.popoverController7 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
+    self.popoverController7.delegate = self;
+    [self.popoverController7 setPopoverContentSize:CGSizeMake(320, 260) animated:NO];
+    [self.popoverController7 presentPopoverFromRect:CGRectMake(780.0, 256.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+    
+}
+
+- (void)selectCountry
+{
+    
+    [self.chooseCountryButton setTitle:[NSString stringWithFormat:@"%@",[self.countryArray objectAtIndex:[self.selectCountryPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+    [self.popoverController7 dismissPopoverAnimated:YES];
     
 }
 

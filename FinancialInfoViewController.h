@@ -12,6 +12,12 @@
 
 @interface FinancialInfoViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, UITextFieldDelegate>
 
+- (IBAction)selectCountryAction:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIButton *chooseCountryButton;
+@property (strong, nonatomic) NSArray* countryArray;
+@property (strong, nonatomic) UIPickerView *selectCountryPicker;
+@property (strong, nonatomic) UIPopoverController* popoverController7;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *accordionViewScrollView;
 
