@@ -63,7 +63,6 @@
 @property (strong, nonatomic) NSArray* languageOfCorespondaceArray;
 @property (strong, nonatomic) NSArray* residentialStatusArray;
 
-@property (strong, nonatomic) UIImageView* sageataImage;
 @property (strong, nonatomic) IBOutlet UIView *generalInfoView;
 @property (strong, nonatomic) UIPopoverController* popoverController1;
 @property (strong, nonatomic) UIPopoverController* popoverController2;

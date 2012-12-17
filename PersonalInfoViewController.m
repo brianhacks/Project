@@ -89,7 +89,7 @@
     self.languageOfCorespondaceArray = @[@"English", @"French"];
     
     self.residentialStatusArray = [NSArray new];
-    self.residentialStatusArray = @[@"Rent", @"Live w/Parents/Relatives", @"Board"];
+    self.residentialStatusArray = @[@"Own",@"Rent", @"Live w/Parents/Relatives", @"Board"];
     
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
@@ -126,8 +126,8 @@
     UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 400)];
     view2.backgroundColor = [UIColor whiteColor];
     
-    UIImageView* bottomCurve = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 243.0, 1024., 46.)];
-    bottomCurve.image = [UIImage imageNamed:@"bottom-curve.png"];
+   // UIImageView* bottomCurve = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 243.0, 1024., 46.)];
+    //bottomCurve.image = [UIImage imageNamed:@"bottom-curve.png"];
     //    [self.accordion addSubview:bottomCurve];
     
     //need to figure out how to alternate the color of white and green
@@ -158,10 +158,7 @@
 
 - (void)refresh
 {
-    /* self.sageataImage = [[UIImageView alloc] initWithFrame:CGRectMake(349.0, 62.0, 94., 81)];
-     self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
-     [self.view addSubview:self.sageataImage];
-     */
+    
     [self.accordion setNeedsLayout];
 }
 
@@ -889,9 +886,6 @@
     [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
         if ([placemarks count] > 0) {
             
-            
-            //UIImage *image2 = [UIImage imageNamed:@"banner-3b.png"];
-            //[self.personalHeader setImage:image2];
             
             self.streetAddress.backgroundColor = [UIColor whiteColor];
             [self.accordion setSelectedIndex:3];
