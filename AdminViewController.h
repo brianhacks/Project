@@ -15,11 +15,19 @@
     AdminGraph *_scatterPlot;
 }
 
+
+
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain) AdminGraph *scatterPlot;
 
 - (IBAction)clearUserData:(id)sender;
 - (IBAction)exportData:(id)sender;
+
+
+- (NSString *)getExportFileName;
+- (NSData *)exportToNSData;
+- (BOOL)exportToDiskWithForce:(BOOL)force;
+- (BOOL)importFromPath:(NSString *)importPath;
 
 @end
 

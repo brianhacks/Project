@@ -152,6 +152,7 @@
     
     // Set this if you want to allow multiple selection
     [self.accordion setAllowsMultipleSelection:YES];
+//    [self.accordion setSelectedIndex:1];
     
     
 }
@@ -650,43 +651,6 @@
     
     //geocode address
     
-    
-    NSString *query = [NSString stringWithFormat:@"%@ %@ %@", self.streetAddress.text, self.currentCity.text, self.provinceButton.titleLabel.text];
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
-        if ([placemarks count] > 0) {
-            
-            // ALL DONE!
-            
-            //do we show third header?
-        /*
-            if(showThirdHeader){
-                self.nextStepButton.enabled = NO;
-                [self displayThirdHeader];
-            }else{
-                self.nextStepButton.enabled = YES;
-                [self hideThirdHeader];
-            }
-          */  
-            
-            UIImage *image2 = [UIImage imageNamed:@"banner-3b.png"];
-            [self.personalHeader setImage:image2];
-
-            self.streetAddress.backgroundColor = [UIColor whiteColor];
-            [self.accordion setSelectedIndex:3];
-            [self changeSecondHeaderHeightAndAddInfo];
-            self.nextStepButton.enabled = YES;
-            
-            
-            
-        } else {
-            self.nextStepButton.enabled = NO;
-            self.streetAddress.backgroundColor = [UIColor yellowColor];
-            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"We could not find your addresss.  Please make sure it was entered correctly." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
-            [alert show];
-            
-        }}];
-    
     NSString* years = [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]];
     //    int months = [self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]]
     
@@ -726,15 +690,66 @@
         
         self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
         
-        [self changeSecondHeaderHeightAndAddInfo];
+        //        [self changeSecondHeaderHeightAndAddInfo];
         
-        [self.accordion setSelectedIndex:2];
+        
         
         
     }else{
+        
+        
+        
         showThirdHeader = false;
         
     }
+    
+    
+    NSString *query = [NSString stringWithFormat:@"%@ %@ %@", self.streetAddress.text, self.currentCity.text, self.provinceButton.titleLabel.text];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
+        if ([placemarks count] > 0) {
+            
+            // ALL DONE!
+            
+            //do we show third header?
+        /*
+            if(showThirdHeader){
+                self.nextStepButton.enabled = NO;
+                [self displayThirdHeader];
+            }else{
+                self.nextStepButton.enabled = YES;
+                [self hideThirdHeader];
+            }
+          */
+            
+            if (showThirdHeader) {
+                
+                UIImage *image2 = [UIImage imageNamed:@"banner-3b.png"];
+                [self.personalHeader setImage:image2];
+                
+                self.streetAddress.backgroundColor = [UIColor whiteColor];
+                [self.accordion setSelectedIndex:4];
+                [self changeSecondHeaderHeightAndAddInfo];
+                self.nextStepButton.enabled = NO;
+                
+            }else{
+                [self changeSecondHeaderHeightAndAddInfo];
+                [self.accordion setSelectedIndex:4];
+                self.nextStepButton.enabled = YES;
+                return;
+            }
+            
+            
+            
+        } else {
+            self.nextStepButton.enabled = NO;
+            self.streetAddress.backgroundColor = [UIColor yellowColor];
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"We could not find your addresss.  Please make sure it was entered correctly." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+            [alert show];
+            
+        }}];
+    
+    
     
 }
 
