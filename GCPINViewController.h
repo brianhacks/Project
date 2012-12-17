@@ -57,6 +57,8 @@ typedef BOOL (^GCPasscodeVerifyBlock) (NSString *code);
  */
 @property (nonatomic, copy) NSString *errorText;
 
+
+
 /*
  
  Called when a passcode has passed internal verification and needs to be
@@ -98,14 +100,20 @@ typedef BOOL (^GCPasscodeVerifyBlock) (NSString *code);
 - (void)proccessPassword:(NSString*)password;
 
 // nib properties
+
+@property (nonatomic, copy) NSArray *cPassCodes;
+
 @property (nonatomic, retain) IBOutlet UILabel *fieldOneLabel;
 @property (nonatomic, retain) IBOutlet UILabel *fieldTwoLabel;
 @property (nonatomic, retain) IBOutlet UILabel *fieldThreeLabel;
 @property (nonatomic, retain) IBOutlet UILabel *fieldFourLabel;
-//@property (nonatomic, retain) IBOutlet UILabel *fieldFifthLabel;
+//@property (strong, nonatomic) IBOutlet UILabel *fieldFifthLabel;
+
 @property (nonatomic, retain) IBOutlet UILabel *messageLabel;
 @property (nonatomic, retain) IBOutlet UILabel *errorLabel;
 @property (nonatomic, retain) IBOutlet UITextField *inputField;
 @property (strong, nonatomic) IBOutlet UILabel *fieldFifthLabel;
+@property (strong, nonatomic) IBOutlet UILabel *fieldSixthLabel;
+@property (strong, nonatomic) IBOutlet UILabel *fieldSeventhLabel;
 
 @end

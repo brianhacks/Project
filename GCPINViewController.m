@@ -44,6 +44,9 @@
 @synthesize fieldThreeLabel = __fieldThreeLabel;
 @synthesize fieldFourLabel = __fieldFourLabel;
 @synthesize fieldFifthLabel = __fieldFifthLabel;
+@synthesize fieldSeventhLabel = __fieldSeventhLabel;
+@synthesize fieldSixthLabel = __fieldSixthLabel;
+
 @synthesize messageLabel = __messageLabel;
 @synthesize errorLabel = __errorLabel;
 @synthesize inputField = __inputField;
@@ -51,6 +54,7 @@
 @synthesize errorText = __errorText;
 @synthesize labels = __labels;
 @synthesize mode = __mode;
+@synthesize cPassCodes = __cPassCodes;
 @synthesize text = __text;
 @synthesize verifyBlock = __verifyBlock;
 
@@ -105,7 +109,7 @@
 }
 - (void)updatePasscodeDisplay {
     NSUInteger length = [self.inputField.text length];
-    for (NSUInteger i = 0; i < 5; i++) {
+    for (NSUInteger i = 0; i < 7; i++) {
         UILabel *label = [self.labels objectAtIndex:i];
         label.text = (i < length) ? @"●" : @"";
     }
@@ -146,6 +150,9 @@
                    self.fieldThreeLabel,
                    self.fieldFourLabel,
                    self.fieldFifthLabel,
+                   self.fieldSixthLabel,
+                   self.fieldSeventhLabel,
+                   
                    nil];
     
     // setup labels
@@ -162,6 +169,9 @@
     self.inputField.autocorrectionType = UITextAutocorrectionTypeNo;
     self.inputField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     [self.inputField becomeFirstResponder];
+    
+    self.cPassCodes = [NSArray arrayWithObjects:@"", @"", nil];
+    
 	
 }
 - (void)viewDidUnload {
@@ -225,7 +235,7 @@
         }
         
         [self updatePasscodeDisplay];
-        if ([self.inputField.text length] == 5) {
+        if ([self.inputField.text length] == 7) {
             
             NSString *passcode = self.inputField.text;
 //            passcode = [passcode stringByReplacingCharactersInRange:range withString:string];
@@ -267,7 +277,7 @@
         NSLog(@"%@",password);
         
         //check - for now against dummy code
-        NSString *validCode =  @"a1111";
+        NSString *validCode =  @"a111111";
         if(![password isEqualToString:validCode]){
             
             //   getEmailView.alertViewStyle=  UIAlertViewStylePlainTextInput;
@@ -316,7 +326,7 @@
     [self resetInput];
     
     NSUInteger length = [self.inputField.text length];
-    for (NSUInteger i = 0; i < 5; i++) {
+    for (NSUInteger i = 0; i < 7; i++) {
         UILabel *label = [self.labels objectAtIndex:i];
         label.text = @"";
     }
@@ -330,6 +340,9 @@
                    self.fieldThreeLabel,
                    self.fieldFourLabel,
                    self.fieldFifthLabel,
+                   self.fieldSixthLabel,
+                   self.fieldSeventhLabel,
+                   
                    nil];
     
     // setup labels
@@ -408,7 +421,7 @@
         NSLog(@"%@",password);
         
         //check - for now against dummy code
-        NSString *validCode =  @"a1111";
+        NSString *validCode =  @"a111111";
         if(![password isEqualToString:validCode]){
             
          //   getEmailView.alertViewStyle=  UIAlertViewStylePlainTextInput;
@@ -441,7 +454,7 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if ([textField.text length] == 5 && [string length] > 0) {
+    if ([textField.text length] == 7 && [string length] > 0) {
         return NO;
     }
     else {

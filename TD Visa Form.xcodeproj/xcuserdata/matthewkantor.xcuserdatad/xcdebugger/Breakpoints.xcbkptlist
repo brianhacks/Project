@@ -528,12 +528,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "GCPINViewController.m"
-         timestampString = "377202630.908018"
+         timestampString = "377467320.042136"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "266"
-         endingLineNumber = "266"
-         landmarkName = "-proccessPassword:"
+         startingLineNumber = "272"
+         endingLineNumber = "272"
+         landmarkName = "-proccessPassword2:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -541,12 +541,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "GCPINViewController.m"
-         timestampString = "377202630.908018"
+         timestampString = "377467320.042136"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "121"
-         endingLineNumber = "121"
-         landmarkName = "-resetInput"
+         startingLineNumber = "124"
+         endingLineNumber = "124"
+         landmarkName = "-wrong"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -611,6 +611,19 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "157"
          endingLineNumber = "157"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "GCPINViewController.m"
+         timestampString = "377473220.400199"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
