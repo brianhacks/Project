@@ -300,7 +300,7 @@
 //        [appDelegate addBOOLInfoToUser:areYouAnExistingTDCanadianCustomer andFieldToAddItTo:@"canadianResident"];
 //        
 //    }
-    [appDelegate addEntryToLog];
+   
     
     [appDelegate setNewRootView:appDelegate.personalInfoViewController];
     [appDelegate.personalInfoViewController refresh];

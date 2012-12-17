@@ -170,7 +170,28 @@
     self.inputField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     [self.inputField becomeFirstResponder];
     
-    self.cPassCodes = [NSArray arrayWithObjects:@"", @"", nil];
+    self.cPassCodes = [NSArray arrayWithObjects:@"c111111",
+                       @"c029345",
+                       @"c286727",
+                       @"c328439",
+                       @"c428395",
+                       @"c502957",
+                       @"c610293",
+                       @"c728394",
+                       @"c820571",
+                       @"c919283",
+                       @"c103627",
+                       @"c114472",
+                       @"c123940",
+                       @"c132738",
+                       @"c141182",
+                       @"c153456",
+                       @"c160965",
+                       @"c178734",
+                       @"c182345",
+                       @"c192378",
+                       @"c209983",
+                       nil];
     
 	
 }
@@ -258,7 +279,7 @@
                 }
             }
             else if (self.mode == GCPINViewControllerModeVerify) {
-                [self proccessPassword2:passcode];
+               [self proccessPassword2:self.inputField.text];
             }
         }
     }
@@ -270,6 +291,8 @@
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     BOOL isAdmin;
     NSLog(@"processing");
+    NSLog(@"%@", password);
+    
     if ([password hasPrefix:@"a"])
     {
         isAdmin = YES;
@@ -277,21 +300,27 @@
         NSLog(@"%@",password);
         
         //check - for now against dummy code
-        NSString *validCode =  @"a111111";
+       
+        NSString *validCode =  @"a123232";
         if(![password isEqualToString:validCode]){
             
-            //   getEmailView.alertViewStyle=  UIAlertViewStylePlainTextInput;
+          
             
-            NSLog(@"failed!");
+            UIAlertView *getEmailView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Wrong passcode", @"") message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [getEmailView setAlertViewStyle:UIAlertViewStyleDefault];
+            [getEmailView show];
+            
             
             
         }else{
             // we needto collect the email address and log it to a file someplace :-(
+           /*
+            OBSOLETE - SORRY
             
             UIAlertView *getEmailView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Enter your Email address", @"") message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:NSLocalizedString(@"OK", @""), nil];
             [getEmailView setAlertViewStyle:UIAlertViewStylePlainTextInput];
             [getEmailView show];
-            
+            */
             [appDelegate closeRootAndLaunchNextPart:isAdmin];
 //            [self.inputField resignFirstResponder];
         }
@@ -301,39 +330,55 @@
     }
     else if ([password hasPrefix:@"c"])
     {
-        isAdmin = NO;
-        NSLog(@"%@",password);
-        NSLog(@"launch application procces");
-        [appDelegate closeRootAndLaunchNextPart:isAdmin];
-        [self.inputField resignFirstResponder];
-        [self.view endEditing:YES];
+         NSLog(@"%@",password);
+        bool enteredCorrectPassword = false;
+        for(NSString *validPass in self.cPassCodes){
+            if([validPass isEqualToString:password]){
+                enteredCorrectPassword = true;
+            }
+        }
+
+        if(enteredCorrectPassword){
+            isAdmin = NO;
+           
+            NSLog(@"launch application procces c");
+            [appDelegate closeRootAndLaunchNextPart:isAdmin];
+            [self.inputField resignFirstResponder];
+            [self.view endEditing:YES];
+        }else{
+            NSLog(@"failed for C!");
+            NSLog(@"so this is the failure area?");
+            
+            UIAlertView *getEmailView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Wrong passcode", @"") message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [getEmailView setAlertViewStyle:UIAlertViewStyleDefault];
+            [getEmailView show];
+
+        }
 
     }else{
-        
-        UIAlertView *getEmailView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Enter your Email address", @"") message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:NSLocalizedString(@"OK", @""), nil];
-        [getEmailView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        NSLog(@"so this is the failure area?");
+      
+        UIAlertView *getEmailView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Wrong Code", @"") message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [getEmailView setAlertViewStyle:UIAlertViewStyleDefault];
         [getEmailView show];
         
 //        [appDelegate closeRootAndLaunchNextPart:isAdmin];
-        [self.inputField resignFirstResponder];
+        
+        
         
     }
 }
 
+
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
-    [[alertView textFieldAtIndex:0] resignFirstResponder];
+    //[[alertView textFieldAtIndex:0] resignFirstResponder];
     [self resetInput];
-    
-    NSUInteger length = [self.inputField.text length];
     for (NSUInteger i = 0; i < 7; i++) {
         UILabel *label = [self.labels objectAtIndex:i];
         label.text = @"";
     }
-    
-//    self.inputField.text = @"";
-    
-    // setup labels list
     self.labels = [NSArray arrayWithObjects:
                    self.fieldOneLabel,
                    self.fieldTwoLabel,
@@ -349,25 +394,10 @@
     self.messageLabel.text = self.messageText;
     self.errorLabel.text = self.errorText;
     self.errorLabel.hidden = YES;
-//	[self updatePasscodeDisplay];
-    
-	// setup input field
-//    self.inputField.hidden = YES;
-//    self.inputField.keyboardType = UIKeyboardTypeNumberPad;
-//    self.inputField.delegate = self;
-//    self.inputField.secureTextEntry = YES;
-//    self.inputField.autocorrectionType = UITextAutocorrectionTypeNo;
-//    self.inputField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    [self.inputField becomeFirstResponder];
+	[self.inputField becomeFirstResponder];
     
     
-    
-    
-//    if ([alertView.title isEqualToString:@"Enter your Email address"]) {
-//        
-//        [self writeToTextFile:[[alertView textFieldAtIndex:0] text]];
-//        
-//    }
+
     
 }
 
@@ -402,9 +432,7 @@
         [filemgr createFileAtPath: dataFile contents: databuffer attributes:nil];
         
     }
-    
-//    [self resetInput];
-//    [self dismiss];
+
     
 }
 
@@ -445,11 +473,24 @@
     }
     else if ([password hasPrefix:@"c"])
     {
-        isAdmin = NO;
-        NSLog(@"%@",password);
-        NSLog(@"launch application procces");
-        [appDelegate closeRootAndLaunchNextPart:isAdmin];
-        [self.inputField resignFirstResponder];
+        bool enteredCorrectPassword = false;
+        for(NSString *validPass in self.cPassCodes){
+            if([validPass isEqualToString:password]){
+                enteredCorrectPassword = true;
+            }
+        }
+        if(enteredCorrectPassword){
+            isAdmin = NO;
+            NSLog(@"%@",password);
+            NSLog(@"launch application procces");
+            [appDelegate closeRootAndLaunchNextPart:isAdmin];
+            [self.inputField resignFirstResponder];
+            
+        }else{
+            NSLog(@"failed!");
+            
+        }
+        
     }
 }
 

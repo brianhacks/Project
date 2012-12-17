@@ -46,6 +46,7 @@
     //GENERATE AND SAVE THE REF NUM
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     [appDelegate addInfoToUser:num andFieldToAddItTo:@"referenceNumber"];
+    [appDelegate addEntryToLog];
     
    
 }
