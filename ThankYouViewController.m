@@ -54,6 +54,8 @@
 {
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
+    [appDelegate.adminViewController exportData:nil];
+    
     [appDelegate startOver];
     
     

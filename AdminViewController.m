@@ -10,6 +10,9 @@
 #import "sqlite3.h"
 #import "Log.h"
 #import "AppDelegate.h"
+#import "NSData+CocoaDevUsersAdditions.h"
+#import "User.h"
+
 @interface AdminViewController (){
 }
 
@@ -26,6 +29,60 @@
     }
     return self;
 }
+
+- (NSString *)getExportFileName {
+    NSString *fileName = @"first";
+    NSString *zippedName = [fileName stringByAppendingString:@".sbz"];
+    return zippedName;
+}
+
+- (NSData *)exportToNSData {
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    documentsDirectory = [documentsDirectory stringByAppendingPathComponent:@"Private Documents"];
+    
+    NSError *error;
+    [[NSFileManager defaultManager] createDirectoryAtPath:documentsDirectory withIntermediateDirectories:YES attributes:nil error:&error];
+
+    
+//    NSError *error;
+    NSURL *url = [NSURL fileURLWithPath:documentsDirectory];
+    NSFileWrapper *dirWrapper = [[NSFileWrapper alloc] initWithURL:url options:0 error:&error];
+    if (dirWrapper == nil) {
+        NSLog(@"Error creating directory wrapper: %@", error.localizedDescription);
+        return nil;
+    }
+    
+    NSData *dirData = [dirWrapper serializedRepresentation];
+    NSData *gzData = [dirData gzipDeflate];
+    return gzData;
+}
+
+- (BOOL)exportToDiskWithForce:(BOOL)force {
+    
+    
+    // Figure out destination name (in public docs dir)
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *zippedName = [self getExportFileName];
+    NSString *zippedPath = [documentsDirectory stringByAppendingPathComponent:zippedName];
+    
+    // Check if file already exists (unless we force the write)
+    if (!force && [[NSFileManager defaultManager] fileExistsAtPath:zippedPath]) {
+        return FALSE;
+    }
+    
+    // Export to data buffer
+    NSData *gzData = [self exportToNSData];
+    if (gzData == nil) return FALSE;
+    
+    // Write to disk
+    [gzData writeToFile:zippedPath atomically:YES];
+    return TRUE;
+    
+}
+
 
 /*
 TO DO
@@ -128,10 +185,74 @@ TO DO
         }
 }
 
+- (User*)userRecord{
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    self.userInfo = nil;
+    
+    NSManagedObjectContext* context = [appDelegate managedObjectContext];
+    
+    NSFetchRequest* request = [NSFetchRequest new];
+    
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError* error = nil;
+    NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
+    
+    
+    if (![fetchedResult count] == 0) {
+        
+        self.userInfo = [fetchedResult objectAtIndex:0];
+        
+    }
+    
+    return self.userInfo;
+    
+}
+
 - (IBAction)exportData:(id)sender {
     //generate the stats file
     
     //generate each file for record in the DB
+    
+    User *info = [self userRecord];
+    
+    NSFileManager *filemgr;
+    NSData *databuffer;
+    NSString *dataFile;
+    NSString *docsDir;
+    NSArray *dirPaths;
+    
+    filemgr = [NSFileManager defaultManager];
+    
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    docsDir = [dirPaths objectAtIndex:0];
+    
+    dataFile = [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@.txt",info.firstName, info.lastName]];
+    
+    if ([filemgr fileExistsAtPath: dataFile]){
+            
+        NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath: dataFile];
+        
+        [fh seekToEndOfFile];
+        NSData *dataToSave = [[NSString stringWithFormat:@"Credit Card type: %@ \nSpecial Offer Code: %@ \nMarketing Code: %@ \nResponse Channel: %@ \nTitle: %@ \nFirst Name: %@ \nLast Name: %@ \nGender: %@ \nDate Of Birth: %@ \nSocial Insurance Number: %@ \nPhone Number: %@ \nHome Address: %@ \nCity: %@ \nProvince: %@ \nPostal Code: %@ \nResidential Status: %@ \nLength of Residence: %@ \nPrevious Address: %@ \nCity: %@ \nProvince/State: %@ \nCountry: %@ \nPostal Code: %@ \nLength of Residence: %@ \nCredit Limit Request: %@ \nEmail Address: %@ \nPreferred Language: %@ \nTotal Monthly Housing Costs: %@ \nCurrent Employment Status: %@ \nName of Employer: %@ \nEmployer Address: %@ \Employer City: %@ \nEmployer Province: %@ \nEmployer Country:%@ \nEmployer Postal Code: %@ \nOccupation: %@ \nCurrent Business Phone Number: %@ \nExtension: %@ \nStart Date: %@ \nGross Annual Income: %@ \nTotal Household Income: %@ \nPickup Branch: %@ \nAre you an existing TD Canada Trust Customer:%@ \nDate: %@ \nTimestamp: %@" ,@"credid card selected", @"special offer code", @"marketing code", @"response channel", info.title, info.firstName, info.lastName, info.gender, info.birthDate, info.sin, info.primaryPhone, info.street, info.city, info.province, info.resincialStatus,@"lenght of residence", info.previousAddress, info.previousCity, info.previousProvince, @"previous country",info.postalCode, info.previousPostalCode, @"previous lenght of residence", info.requestedCreditLimit, info.email, info.languagOfCorespondace, info.monthlyHouseCosts, info.employmentStatus, info.employerName, info.employerStreetAddress, info.employerCity, info.employerProvince, info.employerCountry, @"employer postal code", info.currentOcupation, @"employer phone", @"emploeyr extension", info.startDateForWork, info.grossAnualIncome, info.householdIncome, @"branch", @"existing td customer", @"date", @"time stamp"] dataUsingEncoding:NSUTF8StringEncoding];
+        [fh writeData: dataToSave];
+        
+        
+    }else{
+        
+        databuffer = [[NSString stringWithFormat:@"Credit Card type: %@ \nSpecial Offer Code: %@ \nMarketing Code: %@ \nResponse Channel: %@ \nTitle: %@ \nFirst Name: %@ \nLast Name: %@ \nGender: %@ \nDate Of Birth: %@ \nSocial Insurance Number: %@ \nPhone Number: %@ \nHome Address: %@ \nCity: %@ \nProvince: %@ \nPostal Code: %@ \nResidential Status: %@ \nLength of Residence: %@ \nPrevious Address: %@ \nCity: %@ \nProvince/State: %@ \nCountry: %@ \nPostal Code: %@ \nLength of Residence: %@ \nCredit Limit Request: %@ \nEmail Address: %@ \nPreferred Language: %@ \nTotal Monthly Housing Costs: %@ \nCurrent Employment Status: %@ \nName of Employer: %@ \nEmployer Address: %@ \Employer City: %@ \nEmployer Province: %@ \nEmployer Country:%@ \nEmployer Postal Code: %@ \nOccupation: %@ \nCurrent Business Phone Number: %@ \nExtension: %@ \nStart Date: %@ \nGross Annual Income: %@ \nTotal Household Income: %@ \nPickup Branch: %@ \nAre you an existing TD Canada Trust Customer:%@ \nDate: %@ \nTimestamp: %@" ,@"credid card selected", @"special offer code", @"marketing code", @"response channel", info.title, info.firstName, info.lastName, info.gender, info.birthDate, info.sin, info.primaryPhone, info.street, info.city, info.province, info.resincialStatus,@"lenght of residence", info.previousAddress, info.previousCity, info.previousProvince, @"previous country",info.postalCode, info.previousPostalCode, @"previous lenght of residence", info.requestedCreditLimit, info.email, info.languagOfCorespondace, info.monthlyHouseCosts, info.employmentStatus, info.employerName, info.employerStreetAddress, info.employerCity, info.employerProvince, info.employerCountry, @"employer postal code", info.currentOcupation, @"employer phone", @"emploeyr extension", info.startDateForWork, info.grossAnualIncome, info.householdIncome, @"branch", @"existing td customer", @"date", @"time stamp"] dataUsingEncoding:NSUTF8StringEncoding];
+        
+        [filemgr createFileAtPath: dataFile contents: databuffer attributes:nil];
+        
+        NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath: dataFile];
+        [fh seekToEndOfFile];
+        
+    }
+    
     
 }
 

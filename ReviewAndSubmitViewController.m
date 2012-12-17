@@ -94,8 +94,6 @@
     NSManagedObjectContext* context = [appDelegate managedObjectContext];
     
     NSFetchRequest* request = [NSFetchRequest new];
-    //    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"firstName = %@", _firstName];
-    //    [request setPredicate:predicate];
     
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
     [request setEntity:entity];
