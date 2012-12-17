@@ -781,6 +781,15 @@
         
     }
     
+    UIActivityIndicatorView *uiAIV = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    CGRect frame = CGRectMake(0., 0., 1024., 768.);
+    [uiAIV setFrame:frame];
+    uiAIV.hidesWhenStopped = YES;
+    uiAIV.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    
+    self.activityIndicator = uiAIV;
+    [self.view addSubview:self.activityIndicator];
+    [self.activityIndicator startAnimating];
     
     NSString *query = [NSString stringWithFormat:@"%@ %@ %@", self.streetAddress.text, self.currentCity.text, self.provinceButton.titleLabel.text];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
@@ -799,6 +808,8 @@
                 [self hideThirdHeader];
             }
           */
+            
+            
             
             if (showThirdHeader) {
                 
@@ -998,6 +1009,9 @@
 /* MAKES THE ACCORDION FIT THE NEW STUFF */
 - (void)changeSecondHeaderHeightAndAddInfo
 {
+    
+    [self.activityIndicator stopAnimating];
+    
     self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height + 50);
     self.secondHeaderView.backgroundColor = [UIColor whiteColor];
     

@@ -95,6 +95,9 @@
 
 @property (readwrite, nonatomic) BOOL firstViewClosed;
 @property (strong, nonatomic) IBOutlet UIButton *closePreviousAddressView;
+
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
+
 - (IBAction)selectPreviousResidentialStatus:(id)sender;
 
 - (IBAction)selectPreviousProvince:(id)sender;
