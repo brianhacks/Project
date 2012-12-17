@@ -58,6 +58,10 @@
 @property (strong, nonatomic) NSString* titleString;
 @property (strong, nonatomic) NSString* languageOfCorespondaceString;
 @property (strong, nonatomic) NSArray* provinceArray;
+@property (strong, nonatomic) NSArray* usStatesArray;
+@property (strong, nonatomic) NSArray* countryArray;
+
+
 @property (strong, nonatomic) NSArray* titleArray;
 @property (strong, nonatomic) NSArray* genderArray;
 @property (strong, nonatomic) NSArray* languageOfCorespondaceArray;
