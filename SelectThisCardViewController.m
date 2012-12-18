@@ -33,25 +33,19 @@
    // self.view.backgroundColor = background;
    
     //load the web view
-    NSString *urlAddress = @"http://news.ycombinator.com";
+   
     
     //Create a URL object.
-    NSURL *url = [NSURL URLWithString:urlAddress];
-    
     //URL Requst Object
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     
     
     [self.webShowdowView.layer setMasksToBounds:YES];
     [self.webShowdowView.layer setCornerRadius:12.0f];
+    
    // [self.webShowdowView.layer setBorderColor:[[UIColor blackColor] CGColor]];
     //[self.webShowdowView.layer setBorderWidth:1.0f];
       
-    [self.selectCardWebView loadRequest:requestObj];
-    [self.webShowdowView.layer setShadowColor:[[UIColor blackColor] CGColor]];
-    [self.webShowdowView.layer setShadowOffset:CGSizeMake(3.0, 3.0)];
-    [self.webShowdowView.layer setShadowOpacity:1];
-    [self.webShowdowView.layer setShadowRadius:2];
+   
    
     
     
