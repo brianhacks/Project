@@ -21,6 +21,7 @@
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain) AdminGraph *scatterPlot;
 @property (nonatomic, strong) User* userInfo;
+@property (strong, nonatomic) IBOutlet UILabel *totalApps;
 
 - (IBAction)clearUserData:(id)sender;
 - (IBAction)exportData:(id)sender;

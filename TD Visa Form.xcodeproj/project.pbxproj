@@ -98,6 +98,12 @@
 		9F3923031680107A008B2E56 /* FrutigerLTStd-UltraBlack.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922E81680107A008B2E56 /* FrutigerLTStd-UltraBlack.otf */; };
 		9F57DC0E1680223600BF306F /* HelveticaNeue.dfont in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC0D1680223600BF306F /* HelveticaNeue.dfont */; };
 		9F57DC211680FEB400BF306F /* legalstuff.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC201680FEB400BF306F /* legalstuff.png */; };
+		9F57DC251681079400BF306F /* admin_lhs.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC231681079400BF306F /* admin_lhs.jpg */; };
+		9F57DC261681079400BF306F /* admin-topnav.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC241681079400BF306F /* admin-topnav.png */; };
+		9F57DC291681079F00BF306F /* btn-generate-report.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC271681079F00BF306F /* btn-generate-report.jpg */; };
+		9F57DC2A1681079F00BF306F /* btn-prepare-forms.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC281681079F00BF306F /* btn-prepare-forms.jpg */; };
+		9F57DC2D16810A3400BF306F /* btn-admin-generate.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC2B16810A3400BF306F /* btn-admin-generate.png */; };
+		9F57DC2E16810A3400BF306F /* btn-admin-prepare.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC2C16810A3400BF306F /* btn-admin-prepare.png */; };
 		9F647AD116723477001E6F3D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F647AD016723477001E6F3D /* AddressBook.framework */; };
 		9F647AD316724948001E6F3D /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F647AD216724948001E6F3D /* bank.png */; };
 		9F6A1D5A167B87E50021561B /* horizontal-line.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F6A1D59167B87E50021561B /* horizontal-line.png */; };
@@ -304,6 +310,12 @@
 		9F3922E81680107A008B2E56 /* FrutigerLTStd-UltraBlack.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-UltraBlack.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-UltraBlack.otf"; sourceTree = "<group>"; };
 		9F57DC0D1680223600BF306F /* HelveticaNeue.dfont */ = {isa = PBXFileReference; lastKnownFileType = file; name = HelveticaNeue.dfont; path = "TD Visa Form/fonts/HelveticaNeue.dfont"; sourceTree = "<group>"; };
 		9F57DC201680FEB400BF306F /* legalstuff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = legalstuff.png; path = "TD Visa Form/images/legalstuff.png"; sourceTree = "<group>"; };
+		9F57DC231681079400BF306F /* admin_lhs.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = admin_lhs.jpg; path = "TD Visa Form/images/admin_lhs.jpg"; sourceTree = "<group>"; };
+		9F57DC241681079400BF306F /* admin-topnav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "admin-topnav.png"; path = "TD Visa Form/images/admin-topnav.png"; sourceTree = "<group>"; };
+		9F57DC271681079F00BF306F /* btn-generate-report.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "btn-generate-report.jpg"; path = "TD Visa Form/images/btn-generate-report.jpg"; sourceTree = "<group>"; };
+		9F57DC281681079F00BF306F /* btn-prepare-forms.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "btn-prepare-forms.jpg"; path = "TD Visa Form/images/btn-prepare-forms.jpg"; sourceTree = "<group>"; };
+		9F57DC2B16810A3400BF306F /* btn-admin-generate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-admin-generate.png"; path = "TD Visa Form/buttons/btn-admin-generate.png"; sourceTree = "<group>"; };
+		9F57DC2C16810A3400BF306F /* btn-admin-prepare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-admin-prepare.png"; path = "TD Visa Form/buttons/btn-admin-prepare.png"; sourceTree = "<group>"; };
 		9F647AD016723477001E6F3D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		9F647AD216724948001E6F3D /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bank.png; path = "TD Visa Form/images/bank.png"; sourceTree = "<group>"; };
 		9F6A1D59167B87E50021561B /* horizontal-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "horizontal-line.png"; path = "TD Visa Form/images/horizontal-line.png"; sourceTree = "<group>"; };
@@ -829,6 +841,12 @@
 				9F854C8716706F2B009F9E01 /* AdminViewController.h */,
 				9F854C8816706F2B009F9E01 /* AdminViewController.m */,
 				9F854C8916706F2B009F9E01 /* AdminViewController.xib */,
+				9F57DC2B16810A3400BF306F /* btn-admin-generate.png */,
+				9F57DC2C16810A3400BF306F /* btn-admin-prepare.png */,
+				9F57DC271681079F00BF306F /* btn-generate-report.jpg */,
+				9F57DC281681079F00BF306F /* btn-prepare-forms.jpg */,
+				9F57DC231681079400BF306F /* admin_lhs.jpg */,
+				9F57DC241681079400BF306F /* admin-topnav.png */,
 				9F0CE3A91676E3A700117F1D /* AdminGraph.h */,
 				9F0CE3AA1676E3A700117F1D /* AdminGraph.m */,
 			);
@@ -1206,6 +1224,12 @@
 				9F3923031680107A008B2E56 /* FrutigerLTStd-UltraBlack.otf in Resources */,
 				9F57DC0E1680223600BF306F /* HelveticaNeue.dfont in Resources */,
 				9F57DC211680FEB400BF306F /* legalstuff.png in Resources */,
+				9F57DC251681079400BF306F /* admin_lhs.jpg in Resources */,
+				9F57DC261681079400BF306F /* admin-topnav.png in Resources */,
+				9F57DC291681079F00BF306F /* btn-generate-report.jpg in Resources */,
+				9F57DC2A1681079F00BF306F /* btn-prepare-forms.jpg in Resources */,
+				9F57DC2D16810A3400BF306F /* btn-admin-generate.png in Resources */,
+				9F57DC2E16810A3400BF306F /* btn-admin-prepare.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,12 +43,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-    for(NSString *familyName in [UIFont familyNames]) {
-        for(NSString *fontName in [UIFont fontNamesForFamilyName:familyName]) {
-            NSLog(@"%@", fontName);
-        }
-    }
-    
     self.clearUserDataFromTheApp = NO;
 
     [TestFlight takeOff:@"f969343d65109e13182ab5fb49109358_MTYzNjU0MjAxMi0xMi0xMSAyMzoxMDozMS4xODc4NTI"];
@@ -74,7 +68,21 @@
     NSEntityDescription* log = [NSEntityDescription entityForName:@"Log" inManagedObjectContext:context2];
     [fetchRequest setEntity:log];
     
-    self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
+    
+    //IDLE TIMER SETUP
+    if (self.navController.visibleViewController != self.firstScreenSaverViewController) {
+        NSLog(@"dont set a timer");
+        
+      //  self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
+    }else if (self.navController.visibleViewController != self.gCPINViewController) {
+          NSLog(@"regular Idle Timer initialized");
+         
+         self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
+     }else{
+         NSLog(@"Login Idle Timer initialized");
+         
+         self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:loginIdleTime target:self selector:@selector(loginIdleTimerExceeded) userInfo:nil repeats:NO];
+     }
     
     //for debug mode only
     self.window.rootViewController = self.navController;
@@ -128,7 +136,7 @@
 }
 
 - (void)popToRoot{
-     NSLog(@"POP TO ROOT");
+    NSLog(@"POP TO ROOT");
     self.window.rootViewController = self.firstScreenSaverViewController;
     [self.navController popToRootViewControllerAnimated:YES];
     self.clearUserDataFromTheApp = NO;
@@ -158,6 +166,18 @@
     
 }
 
+/*
+ RULES
+ 
+ screen saver has no timer.
+ login has a timer of 60 seconds.
+ the rest of the app has a timer of 120 seconds.  IT puts up a popup.  if the user doesnt click it or clicks "start over", the app takes you back to login (and removes the popup).
+ login then goes back to screen saver after 60 seconds.
+ 
+ 
+ 
+ */
+
 - (void)idleTimerExceeded{
     NSLog(@"idle timer exceeded");
     if (self.navController.visibleViewController == self.appProcessViewController) {
@@ -174,6 +194,11 @@
         [self.sessionTimeoutAlert show];
     }
     
+}
+-(void)loginIdleTimerExceeded{
+    NSLog(@"LOGIN idle timer exceeded");
+    //turn on screen savers
+    [self.navController popToViewController:self.firstScreenSaverViewController animated:true];
 }
 
 -(void)popupIdleTimerExceeded{

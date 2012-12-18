@@ -20,6 +20,7 @@
 
 @implementation AdminViewController
 @synthesize managedObjectContext;
+@synthesize totalApps;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -108,11 +109,12 @@ TO DO
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"hour", @"count", nil];
+    int i=0;
     for (NSManagedObject *info in fetchedObjects) {
+        i++;
         NSLog(@"Name: %@", [info valueForKey:@"createdAt"]);
         NSString *key = [info valueForKey:@"createdAt"];
         
-        NSString *s_count = [[NSString alloc] init];
         int count;
         //Refactor me
         if ([data objectForKey:key]) {
@@ -128,6 +130,7 @@ TO DO
        [data setObject:[NSString stringWithFormat:@"%d", count] forKey:key];
         
     }
+    [self.totalApps setText:[NSString stringWithFormat:@"%d", i]];
    
     NSMutableArray *gData = [NSMutableArray array];
     for (NSString *key in data){

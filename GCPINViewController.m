@@ -341,10 +341,12 @@
             isAdmin = NO;
            
             NSLog(@"launch application procces c");
+            //[self clearInput];
+            [appDelegate setCurrentUserCode:password];
             [appDelegate closeRootAndLaunchNextPart:isAdmin];
             [self.inputField resignFirstResponder];
             [self.view endEditing:YES];
-            appDelegate.currentUserCode=password;
+            
             
         }else{
             NSLog(@"failed for C!");
@@ -369,7 +371,13 @@
         
     }
 }
-
+- (void)clearInput{
+    [self resetInput];
+    for (NSUInteger i = 0; i < 7; i++) {
+        UILabel *label = [self.labels objectAtIndex:i];
+        label.text = @"";
+    }
+}
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
