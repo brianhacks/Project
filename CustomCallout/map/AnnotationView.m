@@ -58,19 +58,26 @@
         Annotation *annotation = (Annotation*)self.annotation;
     
         CLLocationCoordinate2D coordinate = annotation.coordinate;
-    
+        CLLocationCoordinate2D newCenter; 
+        newCenter.longitude = annotation.coordinate.longitude;
+        newCenter.latitude = annotation.coordinate.latitude+0.04;
         MKCoordinateRegion region;
         MKCoordinateSpan span;
         span.latitudeDelta=0.1;
         span.longitudeDelta=0.1;
         region.span=span;
-        region.center = coordinate;
+        region.center = newCenter;
     
         [mapView setRegion:region animated:TRUE];
+       // CLLocationCoordinate2D newCenter = annotation.coordinate;
+       // newCenter.longitude = newCenter.longitude - 0.0002;
     
         self.calloutAnnotation = [[CalloutAnnotation alloc] initWithContent:annotation.content];
         self.calloutAnnotation.parentAnnotationView = self;
         [mapView addAnnotation:self.calloutAnnotation];
+     //   [mapView setCenterCoordinate:newCenter animated:true];
+        
+        
         
     });
 }

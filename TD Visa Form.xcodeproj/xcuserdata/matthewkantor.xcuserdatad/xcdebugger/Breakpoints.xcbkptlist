@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PersonalInfoViewController.m"
-         timestampString = "377500399.884674"
+         timestampString = "377503186.586954"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "424"
-         endingLineNumber = "424"
+         startingLineNumber = "434"
+         endingLineNumber = "434"
          landmarkName = "-closeGeneralInfoView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PersonalInfoViewController.m"
-         timestampString = "377500399.884674"
+         timestampString = "377503186.586954"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "597"
-         endingLineNumber = "597"
+         startingLineNumber = "607"
+         endingLineNumber = "607"
          landmarkName = "-changeFirstHeaderHeightAndAddInfo"
          landmarkType = "5">
       </FileBreakpoint>
@@ -316,19 +316,6 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "PickLocationViewController.m"
-         timestampString = "376968631.374419"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "366"
-         endingLineNumber = "366"
-         landmarkName = "@implementation PickLocationViewController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
@@ -489,11 +476,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PersonalInfoViewController.m"
-         timestampString = "377500399.884674"
+         timestampString = "377503186.586954"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "385"
-         endingLineNumber = "385"
+         startingLineNumber = "395"
+         endingLineNumber = "395"
          landmarkName = "-chooseTitle"
          landmarkType = "5">
       </FileBreakpoint>
@@ -580,11 +567,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PersonalInfoViewController.m"
-         timestampString = "377500399.884674"
+         timestampString = "377503186.586954"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "719"
-         endingLineNumber = "719"
+         startingLineNumber = "729"
+         endingLineNumber = "729"
          landmarkName = "-closeAddressView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -742,6 +729,32 @@
          startingLineNumber = "97"
          endingLineNumber = "97"
          landmarkName = "-setDefaultStyles:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CustomCallout/map/AnnotationView.m"
+         timestampString = "377504442.49726"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "71"
+         endingLineNumber = "71"
+         landmarkName = "-didSelectAnnotationViewInMap:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CustomCallout/map/AnnotationView.m"
+         timestampString = "377504442.49726"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "78"
+         endingLineNumber = "78"
+         landmarkName = "-didSelectAnnotationViewInMap:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

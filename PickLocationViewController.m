@@ -364,24 +364,6 @@
     
 }
 
-- (IBAction)cancelMapAnnotationClicked:(id)sender
-{
-    //close the overlay and destroy
-}
-- (IBAction)mapItemClicked:(id)sender;
-{
-   //do popupView
-       
-       
-}
-- (IBAction)itemHighlighted:(id)sender;
-{
-  //map pin to side bar and hgihlight star
-    //also unhighlight other stars
-
-}
-
-
 - (IBAction)search:(id)sender {
 
 //    UITextField
@@ -415,6 +397,7 @@
 
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+    
  
 }
 
