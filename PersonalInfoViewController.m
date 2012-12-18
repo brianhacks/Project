@@ -718,11 +718,14 @@
        || [self.residentialStatusButton.titleLabel.text isEqualToString:@"Rent"]
        || [self.residentialStatusButton.titleLabel.text isEqualToString:@"Board"]){
         
-        if (self.totalMonthlyHousingCosts.text == @"" || [self.totalMonthlyHousingCosts.text intValue] == 0) {
+        if (self.totalMonthlyHousingCosts.text == @"" || [self.totalMonthlyHousingCosts.text intValue] == 0 ||[self.totalMonthlyHousingCosts.text intValue]>9999999  ) {
             
             isValid=false;
             [self.totalMonthlyHousingCosts setBackgroundColor:[UIColor yellowColor]];
             
+        }else{
+            
+            [self.totalMonthlyHousingCosts setBackgroundColor:[UIColor whiteColor]];
         }
         
     }else if([self.residentialStatusButton.titleLabel.text isEqualToString:@"Live w/Parents/Relatives"]){
@@ -754,37 +757,8 @@
         
         // this doesnt work so hide it for now it shouldnt happen here anyway because we havent geocoded yet.
         
-        NSLog(@"display the other view");
+     
         
-        
-        /*
-        
-         
-        for (UILabel *tmpLabel in [self.thirdHeaderView subviews]) {
-            [tmpLabel removeFromSuperview];
-        }
-        
-        for (UIButton *tmpButton in [self.thirdHeaderView subviews]) {
-            [tmpButton removeFromSuperview];
-        }
-        
-        UILabel* firstHeaderTitel2 = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
-        firstHeaderTitel2.backgroundColor = [UIColor clearColor];
-        firstHeaderTitel2.textColor = [UIColor whiteColor];
-        firstHeaderTitel2.text = @"Previous Home Address";
-        [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel2];
-        [self.thirdHeaderView addSubview:firstHeaderTitel2];
-        
-        if (self.thirdHeaderView.frame.size.height > 50) {
-            
-            self.thirdHeaderView.frame = CGRectMake(self.thirdHeaderView.frame.origin.x, self.thirdHeaderView.frame.origin.y, self.thirdHeaderView.frame.size.width, self.thirdHeaderView.frame.size.height - 50);
-            
-        }
-        
-        self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-        
-        
-        */
         
         
     }else{
@@ -832,6 +806,38 @@
                 [self.personalHeader setImage:image2];
                 
                 self.streetAddress.backgroundColor = [UIColor whiteColor];
+            
+                
+                /* this is moved down for testing */
+                
+                NSLog(@"display the other view");
+                
+                
+                for (UILabel *tmpLabel in [self.thirdHeaderView subviews]) {
+                    [tmpLabel removeFromSuperview];
+                }
+                
+                for (UIButton *tmpButton in [self.thirdHeaderView subviews]) {
+                    [tmpButton removeFromSuperview];
+                }
+                
+                UILabel* firstHeaderTitel2 = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
+                firstHeaderTitel2.backgroundColor = [UIColor clearColor];
+                firstHeaderTitel2.textColor = [UIColor whiteColor];
+                firstHeaderTitel2.text = @"Previous Home Address";
+                [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel2];
+                [self.thirdHeaderView addSubview:firstHeaderTitel2];
+                
+                if (self.thirdHeaderView.frame.size.height > 50) {
+                    
+                    self.thirdHeaderView.frame = CGRectMake(self.thirdHeaderView.frame.origin.x, self.thirdHeaderView.frame.origin.y, self.thirdHeaderView.frame.size.width, self.thirdHeaderView.frame.size.height - 50);
+                    
+                }
+                
+                self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+                
+        /* END MTK MOVING STUFF */
+                
                 [self.accordion setSelectedIndex:4];
                 [self changeSecondHeaderHeightAndAddInfo];
                 self.nextStepButton.enabled = NO;

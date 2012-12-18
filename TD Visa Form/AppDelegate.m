@@ -75,7 +75,7 @@
     //for debug mode only
     self.window.rootViewController = self.navController;
    //
-    self.window.rootViewController = self.gettingStartedViewController;
+    self.window.rootViewController = self.personalInfoViewController;
    // self.window.rootViewController = self.firstScreenSaverViewController;
 
     
