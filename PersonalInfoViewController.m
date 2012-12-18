@@ -60,8 +60,13 @@
      object:self.primaryPhonePrefix];
     
     [super viewDidLoad];
+    
+    [self setDefaultStyles:self.generalInfoView];
+    [self setDefaultStyles:self.currentHomeAddressView];
+    [self setDefaultStyles:self.formalHomeAddress];
+    
     showThirdHeader = false;
-    [self setFontFamily:@"FrutiBol" forView:self.view andSubViews:YES];
+   
     // Do any additional setup after loading the view from its nib.
     
     self.monthsLivedArray = [NSArray new];
@@ -163,11 +168,11 @@
     self.firstHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
-    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 40.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
-    firstHeaderTitel.text = @" General Info";
-    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    firstHeaderTitel.text = @"General Information";
+    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
     
     [self.firstHeaderView addSubview:firstHeaderTitel];
     [self.accordion addHeader:self.firstHeaderView withView:self.generalInfoView];
@@ -176,20 +181,16 @@
    // self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     self.secondHeaderView.backgroundColor = [UIColor whiteColor];
     
-    UILabel* secondHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* secondHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
     secondHeaderTitel.backgroundColor = [UIColor clearColor];
     secondHeaderTitel.textColor = [UIColor blackColor];
-    secondHeaderTitel.text = @"  Current Home Address";
-    secondHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    secondHeaderTitel.text = @"Current Home Address";
+    [self setAppFontStyle:@"accordion-header" forView:secondHeaderTitel];
     [self drawTopLineForSubView:self.secondHeaderView];
     [self.secondHeaderView addSubview:secondHeaderTitel];
     
     UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 400)];
     view2.backgroundColor = [UIColor whiteColor];
-    
-   // UIImageView* bottomCurve = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 243.0, 1024., 46.)];
-    //bottomCurve.image = [UIImage imageNamed:@"bottom-curve.png"];
-    //    [self.accordion addSubview:bottomCurve];
     
     //need to figure out how to alternate the color of white and green
     [self.accordion addHeader:self.secondHeaderView withView:self.currentHomeAddressView];
@@ -199,13 +200,13 @@
     //self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     self.thirdHeaderView.backgroundColor = [UIColor whiteColor];
     
-    UILabel* firstHeaderTitel2 = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* firstHeaderTitel2 = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
     firstHeaderTitel2.backgroundColor = [UIColor clearColor];
     firstHeaderTitel2.textColor = [UIColor blackColor];
     firstHeaderTitel2.text = @"Previous Home Address";
-    firstHeaderTitel2.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel2];
     [self.thirdHeaderView addSubview:firstHeaderTitel2];
-     [self drawTopLineForSubView:self.thirdHeaderView];
+    [self drawTopLineForSubView:self.thirdHeaderView];
     self.thirdHeaderView.hidden = YES;
     
     [self.accordion addHeader:self.thirdHeaderView withView:self.formalHomeAddress];
@@ -215,8 +216,7 @@
     // Set this if you want to allow multiple selection
     [self.accordion setAllowsMultipleSelection:YES];
 //    [self.accordion setSelectedIndex:1];
-    
-    
+   
 }
 
 - (void)refresh
@@ -316,6 +316,16 @@
     [appDelegate addInfoToUser:self.residentialStatusButton.titleLabel.text andFieldToAddItTo:@"resincialStatus"];
     [appDelegate addInfoToUser:self.totalMonthlyHousingCosts.text andFieldToAddItTo:@"monthlyHouseCosts"];
     [appDelegate addInfoToUser:self.provinceButton.titleLabel.text andFieldToAddItTo:@"province"];
+    
+    if(showThirdHeader){
+        [appDelegate addInfoToUser:self.previousProvinceButton.titleLabel.text andFieldToAddItTo:@"previousProvince"];
+        [appDelegate addInfoToUser:self.previousAddress.text andFieldToAddItTo:@"previousAddress"];
+        [appDelegate addInfoToUser:self.previousCity.text andFieldToAddItTo:@"previousCity"];
+        [appDelegate addInfoToUser:self.previousPostalCode.text andFieldToAddItTo:@"previousPostalCode"];
+ 
+    
+        [appDelegate addInfoToUser:self.timeLivedAtPreviousAddressButton.titleLabel.text andFieldToAddItTo:@"previousAddressYearsAndMonths"];
+    }
     
     [appDelegate setNewRootView:appDelegate.financialInfoViewController];
     [appDelegate.financialInfoViewController refresh];
@@ -422,11 +432,11 @@
     
     self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
-    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
     firstHeaderTitel.text = @"Current Home Address";
-    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+     [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
     [self.secondHeaderView addSubview:firstHeaderTitel];
     
     //validate the fields here!
@@ -555,40 +565,45 @@
     [self.editFirstView addTarget:self action:@selector(editFirstViewAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.firstHeaderView addSubview:self.editFirstView];
     
-    UILabel* userName = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 200., 30.)];
+    UILabel* userName = [[UILabel alloc] initWithFrame:CGRectMake(290., 13., 200., 30.)];
     userName.textColor = [UIColor blackColor];
-    userName.font = [UIFont fontWithName:@"Helvetica" size:16];
+    
     userName.backgroundColor = [UIColor clearColor];
+    [self setAppFontStyle:@"display-data" forView:userName];
     userName.text = [NSString stringWithFormat:@"%@ %@",self.firstName.text, self.lastName.text];
     [self.firstHeaderView addSubview:userName];
+   
     
-    UILabel* phoneNumber = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 200., 30.)];
+    UILabel* phoneNumber = [[UILabel alloc] initWithFrame:CGRectMake(290., 40., 200., 30.)];
     phoneNumber.textColor = [UIColor blackColor];
-    phoneNumber.font = [UIFont fontWithName:@"Helvetica" size:16];
+   
+    [self setAppFontStyle:@"display-data" forView:phoneNumber];
+
     phoneNumber.backgroundColor = [UIColor clearColor];
-    phoneNumber.text = [NSString stringWithFormat:@"%@-%@",self.primaryPhonePrefix.text,self.primaryPhoneNumber.text];
+    phoneNumber.text = [NSString stringWithFormat:@"%@-%@-%@",self.areaCode.text,self.primaryPhonePrefix.text,self.primaryPhoneNumber.text];
     [self.firstHeaderView addSubview:phoneNumber];
     
-    UILabel* email = [[UILabel alloc] initWithFrame:CGRectMake(290., 63., 200., 30.)];
+    UILabel* email = [[UILabel alloc] initWithFrame:CGRectMake(290., 67., 200., 30.)];
     email.textColor = [UIColor blackColor];
-    email.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"display-data" forView:email];
     email.backgroundColor = [UIColor clearColor];
     email.text = [NSString stringWithFormat:@"%@",self.emailAddress.text];
     [self.firstHeaderView addSubview:email];
     
-    UILabel* genderLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 3., 100., 30.)];
+    UILabel* genderLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 13., 100., 30.)];
     genderLabel.textColor = [UIColor blackColor];
-    genderLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"display-data" forView:genderLabel];
     genderLabel.backgroundColor = [UIColor clearColor];
     genderLabel.text = [NSString stringWithFormat:@"%@",self.gender];
     [self.firstHeaderView addSubview:genderLabel];
     
-    UILabel* preferedLanguage = [[UILabel alloc] initWithFrame:CGRectMake(590., 33., 100., 30.)];
+    UILabel* preferedLanguage = [[UILabel alloc] initWithFrame:CGRectMake(590., 40., 100., 30.)];
     preferedLanguage.textColor = [UIColor blackColor];
-    preferedLanguage.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"display-data" forView:preferedLanguage];
     preferedLanguage.backgroundColor = [UIColor clearColor];
     preferedLanguage.text = [NSString stringWithFormat:@"%@",self.selectLanguageOfCorespondace.titleLabel.text];
     [self.firstHeaderView addSubview:preferedLanguage];
+   // [self setAppFontStyle:@"Cn" forView:self.firstHeaderView];
 }
 
 /* CLICK ON THE EDIT BUTTON IN THE FIRST HEADER AFTER IT IS SAVED */
@@ -601,11 +616,12 @@
         [tmpLabel removeFromSuperview];
     }
     
-    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
     firstHeaderTitel.text = @"General Info";
-    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
+    
     [self.firstHeaderView addSubview:firstHeaderTitel];
     
     [self.accordion setSelectedIndex:0];
@@ -710,8 +726,7 @@
         }
         
     }else if([self.residentialStatusButton.titleLabel.text isEqualToString:@"Live w/Parents/Relatives"]){
-        
-//        isValid = TRUE;
+ 
         [self.totalMonthlyHousingCosts setBackgroundColor:[UIColor whiteColor]];
         
     }
@@ -734,17 +749,17 @@
     
     if ([years integerValue] <= 2) {
         
-        self.thirdHeaderView.hidden = NO;
-        
+                
         showThirdHeader = true;
         
-        // this doesnt work so hide it for now
+        // this doesnt work so hide it for now it shouldnt happen here anyway because we havent geocoded yet.
         
         NSLog(@"display the other view");
         
         
+        /*
         
-        
+         
         for (UILabel *tmpLabel in [self.thirdHeaderView subviews]) {
             [tmpLabel removeFromSuperview];
         }
@@ -753,11 +768,11 @@
             [tmpButton removeFromSuperview];
         }
         
-        UILabel* firstHeaderTitel2 = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+        UILabel* firstHeaderTitel2 = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
         firstHeaderTitel2.backgroundColor = [UIColor clearColor];
         firstHeaderTitel2.textColor = [UIColor whiteColor];
         firstHeaderTitel2.text = @"Previous Home Address";
-        firstHeaderTitel2.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+        [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel2];
         [self.thirdHeaderView addSubview:firstHeaderTitel2];
         
         if (self.thirdHeaderView.frame.size.height > 50) {
@@ -768,9 +783,8 @@
         
         self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
         
-        //        [self changeSecondHeaderHeightAndAddInfo];
         
-        
+        */
         
         
     }else{
@@ -781,6 +795,8 @@
         
     }
     
+   //I assume this fixes double clicking durug geocode?
+   
     UIActivityIndicatorView *uiAIV = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     CGRect frame = CGRectMake(0., 0., 1024., 768.);
     [uiAIV setFrame:frame];
@@ -794,12 +810,13 @@
     NSString *query = [NSString stringWithFormat:@"%@ %@ %@", self.streetAddress.text, self.currentCity.text, self.provinceButton.titleLabel.text];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
+        [self.activityIndicator stopAnimating];
         if ([placemarks count] > 0) {
             
             // ALL DONE!
             
             //do we show third header?
-        /*
+        
             if(showThirdHeader){
                 self.nextStepButton.enabled = NO;
                 [self displayThirdHeader];
@@ -807,8 +824,6 @@
                 self.nextStepButton.enabled = YES;
                 [self hideThirdHeader];
             }
-          */
-            
             
             
             if (showThirdHeader) {
@@ -859,37 +874,40 @@
     [self.editFirstView addTarget:self action:@selector(editFirstViewAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.secondHeaderView addSubview:self.editFirstView];
     
-    UILabel* userName = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 200., 30.)];
+    UILabel* userName = [[UILabel alloc] initWithFrame:CGRectMake(290., 13., 200., 30.)];
     userName.textColor = [UIColor blackColor];
-    userName.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"display-label" forView:userName];
     userName.backgroundColor = [UIColor clearColor];
     userName.text = [NSString stringWithFormat:@"%@ %@",self.firstName.text, self.lastName.text];
     [self.secondHeaderView addSubview:userName];
     
-    UILabel* phoneNumber = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 200., 30.)];
+    UILabel* phoneNumber = [[UILabel alloc] initWithFrame:CGRectMake(290., 40., 200., 30.)];
     phoneNumber.textColor = [UIColor blackColor];
-    phoneNumber.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"display-label" forView:phoneNumber];
     phoneNumber.backgroundColor = [UIColor clearColor];
     phoneNumber.text = [NSString stringWithFormat:@"%@-%@",self.primaryPhonePrefix.text,self.primaryPhoneNumber.text];
     [self.secondHeaderView addSubview:phoneNumber];
     
-    UILabel* email = [[UILabel alloc] initWithFrame:CGRectMake(290., 63., 200., 30.)];
+    UILabel* email = [[UILabel alloc] initWithFrame:CGRectMake(290., 67., 200., 30.)];
     email.textColor = [UIColor blackColor];
-    email.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"display-label" forView:email];
+    
     email.backgroundColor = [UIColor clearColor];
     email.text = [NSString stringWithFormat:@"%@",self.emailAddress.text];
     [self.secondHeaderView addSubview:email];
     
     UILabel* genderLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 3., 100., 30.)];
     genderLabel.textColor = [UIColor blackColor];
-    genderLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"display-label" forView:genderLabel];
+    
     genderLabel.backgroundColor = [UIColor clearColor];
     genderLabel.text = [NSString stringWithFormat:@"%@",self.gender];
     [self.secondHeaderView addSubview:genderLabel];
     
     UILabel* preferedLanguage = [[UILabel alloc] initWithFrame:CGRectMake(590., 33., 100., 30.)];
     preferedLanguage.textColor = [UIColor blackColor];
-    preferedLanguage.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"display-label" forView:preferedLanguage];
+    
     preferedLanguage.backgroundColor = [UIColor clearColor];
     preferedLanguage.text = [NSString stringWithFormat:@"%@",self.selectLanguageOfCorespondace.titleLabel.text];
     [self.secondHeaderView addSubview:preferedLanguage];
@@ -1027,30 +1045,84 @@
     [self.editSecondView addTarget:self action:@selector(editSecondViewAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.secondHeaderView addSubview:self.editSecondView];
     
-    UILabel* address = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 200., 50.)];
+    UILabel* address = [[UILabel alloc] initWithFrame:CGRectMake(290., 20., 200., 20.)];
     address.textColor = [UIColor blackColor];
     address.backgroundColor = [UIColor blackColor];
-    address.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"display-label" forView:address];
     address.numberOfLines = 0;
     address.backgroundColor = [UIColor clearColor];
-    address.text = [NSString stringWithFormat:@"%@ %@ %@",self.streetAddress.text, self.currentCity.text, self.provinceButton.titleLabel.text];
+    address.text = [NSString stringWithFormat:@"%@",self.streetAddress.text];
     [self.secondHeaderView addSubview:address];
     
-    UILabel* residentialStatusLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 3., 200., 30.)];
+    UILabel* address2 = [[UILabel alloc] initWithFrame:CGRectMake(290., 40., 200., 20.)];
+    address2.textColor = [UIColor blackColor];
+    address2.backgroundColor = [UIColor blackColor];
+     [self setAppFontStyle:@"display-label" forView:address2];
+    address2.numberOfLines = 0;
+    address2.backgroundColor = [UIColor clearColor];
+    address2.text = [NSString stringWithFormat:@"%@ %@",self.currentCity.text, self.provinceButton.titleLabel.text];
+    [self.secondHeaderView addSubview:address2];
+    
+    
+    UILabel* address3 = [[UILabel alloc] initWithFrame:CGRectMake(290., 60., 200., 20.)];
+    address3.textColor = [UIColor blackColor];
+    address3.backgroundColor = [UIColor blackColor];
+    [self setAppFontStyle:@"display-label" forView:address3];
+    address3.numberOfLines = 0;
+    address3.backgroundColor = [UIColor clearColor];
+    address3.text = [NSString stringWithFormat:@"%@",self.postalCode.text];
+    [self.secondHeaderView addSubview:address3];
+    
+    UILabel* howlong = [[UILabel alloc] initWithFrame:CGRectMake(290, 90, 300., 20.)];
+    howlong.textColor = [UIColor blackColor];
+     [self setAppFontStyle:@"display-label-bold" forView:howlong];
+    howlong.backgroundColor = [UIColor clearColor];
+    howlong.numberOfLines = 0;
+    howlong.text = [NSString stringWithFormat:@"How Long have you been living here?"];
+    [self.secondHeaderView addSubview:howlong];
+    
+    UILabel* howlongdata = [[UILabel alloc] initWithFrame:CGRectMake(290., 110, 200., 20.)];
+    howlongdata.textColor = [UIColor blackColor];
+     [self setAppFontStyle:@"display-label" forView:howlongdata];
+    howlongdata.backgroundColor = [UIColor clearColor];
+    howlongdata.numberOfLines = 0;
+    howlongdata.text = [NSString stringWithFormat:@"%@",self.timeLivedAtCurrentAddress.titleLabel.text];
+    [self.secondHeaderView addSubview:howlongdata];
+    
+     /////////////////////////////////////////////////
+    
+    
+    UILabel* residentialStatusLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 13., 200., 20.)];
     residentialStatusLabel.textColor = [UIColor blackColor];
-    residentialStatusLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+     [self setAppFontStyle:@"display-label-bold" forView:residentialStatusLabel];
     residentialStatusLabel.backgroundColor = [UIColor clearColor];
-    residentialStatusLabel.text = [NSString stringWithFormat:@"Residential Status: %@",self.residentialStatusButton.titleLabel.text];
+    
+    residentialStatusLabel.text = [NSString stringWithFormat:@"Residential Status:"];
     [self.secondHeaderView addSubview:residentialStatusLabel];
     
-    UILabel* totalMonthlyCostsLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 33., 200., 50.)];
+    UILabel* residentialStatusdata = [[UILabel alloc] initWithFrame:CGRectMake(790, 13., 200., 20.)];
+    residentialStatusdata.textColor = [UIColor blackColor];
+     [self setAppFontStyle:@"display-label" forView:residentialStatusdata];
+    
+    residentialStatusdata.backgroundColor = [UIColor clearColor];
+    residentialStatusdata.text = [NSString stringWithFormat:@"%@",self.residentialStatusButton.titleLabel.text];
+    [self.secondHeaderView addSubview:residentialStatusdata];
+    ////
+    UILabel* totalMonthlyCostsLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 40., 280., 20)];
     totalMonthlyCostsLabel.textColor = [UIColor blackColor];
-    totalMonthlyCostsLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+     [self setAppFontStyle:@"display-label-bold" forView:totalMonthlyCostsLabel];
     totalMonthlyCostsLabel.backgroundColor = [UIColor clearColor];
     totalMonthlyCostsLabel.numberOfLines = 0;
-    totalMonthlyCostsLabel.text = [NSString stringWithFormat:@"Total monthly housing costs: %@",self.totalMonthlyHousingCosts.text];
+    totalMonthlyCostsLabel.text = [NSString stringWithFormat:@"Total monthly housing costs"];
     [self.secondHeaderView addSubview:totalMonthlyCostsLabel];
     
+    UILabel* totalMonthlyCostsData = [[UILabel alloc] initWithFrame:CGRectMake(590., 55., 200., 20)];
+    totalMonthlyCostsData.textColor = [UIColor blackColor];
+     [self setAppFontStyle:@"display-label" forView:totalMonthlyCostsData];
+    totalMonthlyCostsData.backgroundColor = [UIColor clearColor];
+    totalMonthlyCostsData.numberOfLines = 0;
+    totalMonthlyCostsData.text = [NSString stringWithFormat:@"$ %@",self.totalMonthlyHousingCosts.text];
+    [self.secondHeaderView addSubview:totalMonthlyCostsData];
 }
 
 /*EDIT BUTTON IS CLICLED ON FOR ADDRESS */
@@ -1063,11 +1135,11 @@
         [tmpLabel removeFromSuperview];
     }
     
-    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
     firstHeaderTitel.text = @"Current Home Address";
-    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
     [self.secondHeaderView addSubview:firstHeaderTitel];
     
     [self.accordion setSelectedIndex:1];
@@ -1566,14 +1638,15 @@
     
     UILabel* monthsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0., 60., 60., 20.)];
     monthsLabel.text = @"Years";
-    monthsLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
+    [self setAppFontStyle:@"display-label-bold" forView:monthsLabel];
     monthsLabel.backgroundColor = [UIColor clearColor];
     monthsLabel.textColor = [UIColor whiteColor];
     [popoverView addSubview:monthsLabel];
     
     monthsLabel = [[UILabel alloc] initWithFrame:CGRectMake(120., 60., 60., 20.)];
     monthsLabel.text = @"Months";
-    monthsLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
+    [self setAppFontStyle:@"display-label-bold" forView:monthsLabel];
+    
     monthsLabel.backgroundColor = [UIColor clearColor];
     monthsLabel.textColor = [UIColor whiteColor];
     [popoverView addSubview:monthsLabel];
@@ -1628,23 +1701,24 @@
         
         showThirdHeader = true;
         
-        /* this doesnt work so hide it for now
-        
+     //    this doesnt work so hide it for now
+        /*
         NSLog(@"display the other view");
         // Only height is taken into account, so other parameters are just dummy
         self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
         self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
         
-        UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+        UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
         firstHeaderTitel.backgroundColor = [UIColor clearColor];
         firstHeaderTitel.textColor = [UIColor whiteColor];
-        firstHeaderTitel.text = @"Previous Home Address";
-        firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+        firstHeaderTitel.text = @"  Previous Home Address";
+        [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
+        
         [self.thirdHeaderView addSubview:firstHeaderTitel];
         
         [self.accordion addHeader:self.thirdHeaderView withView:self.formalHomeAddress];
         
-       // [self.accordion setSelectedIndex:2];
+        [self.accordion setSelectedIndex:2];
          */
         
     }else{
@@ -1664,16 +1738,17 @@
     self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
-    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
     firstHeaderTitel.text = @"Previous Home Address";
-    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
+    
     [self.thirdHeaderView addSubview:firstHeaderTitel];
     
     [self.accordion addHeader:self.thirdHeaderView withView:self.formalHomeAddress];
     
-    // [self.accordion setSelectedIndex:2];
+     [self.accordion setSelectedIndex:2];
 }
 
 #pragma mark
@@ -1725,14 +1800,14 @@
     
     UILabel* monthsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0., 60., 60., 20.)];
     monthsLabel.text = @"Years";
-    monthsLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
+     [self setAppFontStyle:@"display-label-bold" forView:monthsLabel];
     monthsLabel.backgroundColor = [UIColor clearColor];
     monthsLabel.textColor = [UIColor whiteColor];
     [popoverView addSubview:monthsLabel];
     
     monthsLabel = [[UILabel alloc] initWithFrame:CGRectMake(120., 60., 60., 20.)];
     monthsLabel.text = @"Months";
-    monthsLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
+    [self setAppFontStyle:@"display-label-bold" forView:monthsLabel];
     monthsLabel.backgroundColor = [UIColor clearColor];
     monthsLabel.textColor = [UIColor whiteColor];
     [popoverView addSubview:monthsLabel];

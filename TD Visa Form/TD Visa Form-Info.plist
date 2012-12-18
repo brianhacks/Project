@@ -28,9 +28,33 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Frutiger</string>
-		<string>FrutiCn</string>
 		<string>FrutigerLTStd-Bold.otf</string>
+		<string>FrutigerLTStd-ExtraBlackCn.otf</string>
+		<string>FrutigerLTStd-Black.otf</string>
+		<string>FrutigerLTStd-Italic 2.otf</string>
+		<string>FrutigerLTStd-BlackCn 2.otf</string>
+		<string>FrutigerLTStd-Italic.otf</string>
+		<string>FrutigerLTStd-BlackCn.otf</string>
+		<string>FrutigerLTStd-Light 2.otf</string>
+		<string>FrutigerLTStd-BlackItalic 2.otf</string>
+		<string>FrutigerLTStd-Light.otf</string>
+		<string>FrutigerLTStd-BlackItalic.otf</string>
+		<string>FrutigerLTStd-LightCn 2.otf</string>
+		<string>FrutigerLTStd-Bold.otf</string>
+		<string>FrutigerLTStd-LightCn.otf</string>
+		<string>FrutigerLTStd-BoldCn 2.otf</string>
+		<string>FrutigerLTStd-LightItalic 2.otf</string>
+		<string>FrutigerLTStd-BoldCn.otf</string>
+		<string>FrutigerLTStd-LightItalic.otf</string>
+		<string>FrutigerLTStd-BoldItalic 2.otf</string>
+		<string>FrutigerLTStd-Roman 2.otf</string>
+		<string>FrutigerLTStd-BoldItalic.otf</string>
+		<string>FrutigerLTStd-Cn 2.otf</string>
+		<string>FrutigerLTStd-Roman.otf</string>
+		<string>FrutigerLTStd-UltraBlack 2.otf</string>
+		<string>FrutigerLTStd-Cn.otf</string>
+		<string>FrutigerLTStd-UltraBlack.otf</string>
+		<string>Helvetica-Neue.dfont</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

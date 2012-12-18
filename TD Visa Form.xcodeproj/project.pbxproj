@@ -55,7 +55,6 @@
 		9F0C3903166FB582009C8297 /* passcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C3902166FB582009C8297 /* passcode.png */; };
 		9F0C3905166FB812009C8297 /* select.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C3904166FB812009C8297 /* select.png */; };
 		9F0C3907166FB9DB009C8297 /* banner-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C3906166FB9DB009C8297 /* banner-2.png */; };
-		9F0C3909166FC98F009C8297 /* Frutiger in Resources */ = {isa = PBXBuildFile; fileRef = 9F0C3908166FC98F009C8297 /* Frutiger */; };
 		9F0CE3841676C35B00117F1D /* banner-3b.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0CE3821676C35B00117F1D /* banner-3b.png */; };
 		9F0CE3851676C35B00117F1D /* banner-3a.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F0CE3831676C35B00117F1D /* banner-3a.png */; };
 		9F0CE3AB1676E3A700117F1D /* AdminGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F0CE3AA1676E3A700117F1D /* AdminGraph.m */; };
@@ -70,6 +69,34 @@
 		9F2B90B5166FA897003DD835 /* banner-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B3166FA897003DD835 /* banner-5.png */; };
 		9F2B90B6166FA897003DD835 /* banner-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B4166FA897003DD835 /* banner-4.png */; };
 		9F2B90B8166FABFE003DD835 /* header-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B7166FABFE003DD835 /* header-5.png */; };
+		9F3922E91680107A008B2E56 /* FrutigerLTStd-Black 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922CE16801079008B2E56 /* FrutigerLTStd-Black 2.otf */; };
+		9F3922EA1680107A008B2E56 /* FrutigerLTStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922CF16801079008B2E56 /* FrutigerLTStd-Black.otf */; };
+		9F3922EB1680107A008B2E56 /* FrutigerLTStd-BlackCn 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922D016801079008B2E56 /* FrutigerLTStd-BlackCn 2.otf */; };
+		9F3922EC1680107A008B2E56 /* FrutigerLTStd-BlackCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922D116801079008B2E56 /* FrutigerLTStd-BlackCn.otf */; };
+		9F3922ED1680107A008B2E56 /* FrutigerLTStd-BlackItalic 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922D216801079008B2E56 /* FrutigerLTStd-BlackItalic 2.otf */; };
+		9F3922EE1680107A008B2E56 /* FrutigerLTStd-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922D316801079008B2E56 /* FrutigerLTStd-BlackItalic.otf */; };
+		9F3922EF1680107A008B2E56 /* FrutigerLTStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922D416801079008B2E56 /* FrutigerLTStd-Bold.otf */; };
+		9F3922F01680107A008B2E56 /* FrutigerLTStd-BoldCn 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922D516801079008B2E56 /* FrutigerLTStd-BoldCn 2.otf */; };
+		9F3922F11680107A008B2E56 /* FrutigerLTStd-BoldCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922D616801079008B2E56 /* FrutigerLTStd-BoldCn.otf */; };
+		9F3922F21680107A008B2E56 /* FrutigerLTStd-BoldItalic 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922D716801079008B2E56 /* FrutigerLTStd-BoldItalic 2.otf */; };
+		9F3922F31680107A008B2E56 /* FrutigerLTStd-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922D816801079008B2E56 /* FrutigerLTStd-BoldItalic.otf */; };
+		9F3922F41680107A008B2E56 /* FrutigerLTStd-Cn 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922D916801079008B2E56 /* FrutigerLTStd-Cn 2.otf */; };
+		9F3922F51680107A008B2E56 /* FrutigerLTStd-Cn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922DA16801079008B2E56 /* FrutigerLTStd-Cn.otf */; };
+		9F3922F61680107A008B2E56 /* FrutigerLTStd-ExtraBlackCn 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922DB16801079008B2E56 /* FrutigerLTStd-ExtraBlackCn 2.otf */; };
+		9F3922F71680107A008B2E56 /* FrutigerLTStd-ExtraBlackCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922DC16801079008B2E56 /* FrutigerLTStd-ExtraBlackCn.otf */; };
+		9F3922F81680107A008B2E56 /* FrutigerLTStd-Italic 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922DD16801079008B2E56 /* FrutigerLTStd-Italic 2.otf */; };
+		9F3922F91680107A008B2E56 /* FrutigerLTStd-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922DE16801079008B2E56 /* FrutigerLTStd-Italic.otf */; };
+		9F3922FA1680107A008B2E56 /* FrutigerLTStd-Light 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922DF16801079008B2E56 /* FrutigerLTStd-Light 2.otf */; };
+		9F3922FB1680107A008B2E56 /* FrutigerLTStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922E016801079008B2E56 /* FrutigerLTStd-Light.otf */; };
+		9F3922FC1680107A008B2E56 /* FrutigerLTStd-LightCn 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922E116801079008B2E56 /* FrutigerLTStd-LightCn 2.otf */; };
+		9F3922FD1680107A008B2E56 /* FrutigerLTStd-LightCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922E216801079008B2E56 /* FrutigerLTStd-LightCn.otf */; };
+		9F3922FE1680107A008B2E56 /* FrutigerLTStd-LightItalic 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922E316801079008B2E56 /* FrutigerLTStd-LightItalic 2.otf */; };
+		9F3922FF1680107A008B2E56 /* FrutigerLTStd-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922E416801079008B2E56 /* FrutigerLTStd-LightItalic.otf */; };
+		9F3923001680107A008B2E56 /* FrutigerLTStd-Roman 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922E516801079008B2E56 /* FrutigerLTStd-Roman 2.otf */; };
+		9F3923011680107A008B2E56 /* FrutigerLTStd-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922E616801079008B2E56 /* FrutigerLTStd-Roman.otf */; };
+		9F3923021680107A008B2E56 /* FrutigerLTStd-UltraBlack 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922E71680107A008B2E56 /* FrutigerLTStd-UltraBlack 2.otf */; };
+		9F3923031680107A008B2E56 /* FrutigerLTStd-UltraBlack.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922E81680107A008B2E56 /* FrutigerLTStd-UltraBlack.otf */; };
+		9F57DC0E1680223600BF306F /* HelveticaNeue.dfont in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC0D1680223600BF306F /* HelveticaNeue.dfont */; };
 		9F647AD116723477001E6F3D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F647AD016723477001E6F3D /* AddressBook.framework */; };
 		9F647AD316724948001E6F3D /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F647AD216724948001E6F3D /* bank.png */; };
 		9F6A1D5A167B87E50021561B /* horizontal-line.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F6A1D59167B87E50021561B /* horizontal-line.png */; };
@@ -80,15 +107,6 @@
 		9F83570E167BAB130088B366 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F83570D167BAB130088B366 /* libz.dylib */; };
 		9F854C6A166FE859009F9E01 /* body-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C68166FE859009F9E01 /* body-2.png */; };
 		9F854C6B166FE859009F9E01 /* footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C69166FE859009F9E01 /* footer.png */; };
-		9F854C76166FFA10009F9E01 /* FrutigerLTStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C6D166FFA10009F9E01 /* FrutigerLTStd-Bold.otf */; };
-		9F854C77166FFA10009F9E01 /* FrutiBol in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C6E166FFA10009F9E01 /* FrutiBol */; };
-		9F854C78166FFA10009F9E01 /* FrutiRom in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C6F166FFA10009F9E01 /* FrutiRom */; };
-		9F854C79166FFA10009F9E01 /* FrutiBlaCn in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C70166FFA10009F9E01 /* FrutiBlaCn */; };
-		9F854C7A166FFA10009F9E01 /* FrutiBolCn in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C71166FFA10009F9E01 /* FrutiBolCn */; };
-		9F854C7B166FFA10009F9E01 /* FrutiCn in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C72166FFA10009F9E01 /* FrutiCn */; };
-		9F854C7C166FFA10009F9E01 /* FrutiExtBlaCn in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C73166FFA10009F9E01 /* FrutiExtBlaCn */; };
-		9F854C7D166FFA10009F9E01 /* Frutiger Condensed in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C74166FFA10009F9E01 /* Frutiger Condensed */; };
-		9F854C7E166FFA10009F9E01 /* FrutiLigCn in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C75166FFA10009F9E01 /* FrutiLigCn */; };
 		9F854C81167022F9009F9E01 /* btn-security-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C7F167022F8009F9E01 /* btn-security-down.png */; };
 		9F854C82167022F9009F9E01 /* btn-security-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C80167022F9009F9E01 /* btn-security-normal.png */; };
 		9F854C8516703CE5009F9E01 /* body-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F854C8316703CE4009F9E01 /* body-1.png */; };
@@ -241,7 +259,6 @@
 		9F0C3902166FB582009C8297 /* passcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = passcode.png; path = "TD Visa Form/images/passcode.png"; sourceTree = "<group>"; };
 		9F0C3904166FB812009C8297 /* select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = select.png; path = "TD Visa Form/images/select.png"; sourceTree = "<group>"; };
 		9F0C3906166FB9DB009C8297 /* banner-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-2.png"; path = "TD Visa Form/images/banner-2.png"; sourceTree = "<group>"; };
-		9F0C3908166FC98F009C8297 /* Frutiger */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Frutiger; sourceTree = "<group>"; };
 		9F0CE3821676C35B00117F1D /* banner-3b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-3b.png"; path = "TD Visa Form/images/banner-3b.png"; sourceTree = "<group>"; };
 		9F0CE3831676C35B00117F1D /* banner-3a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-3a.png"; path = "TD Visa Form/images/banner-3a.png"; sourceTree = "<group>"; };
 		9F0CE3A91676E3A700117F1D /* AdminGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminGraph.h; sourceTree = "<group>"; };
@@ -257,6 +274,34 @@
 		9F2B90B3166FA897003DD835 /* banner-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-5.png"; path = "TD Visa Form/images/banner-5.png"; sourceTree = "<group>"; };
 		9F2B90B4166FA897003DD835 /* banner-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-4.png"; path = "TD Visa Form/images/banner-4.png"; sourceTree = "<group>"; };
 		9F2B90B7166FABFE003DD835 /* header-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header-5.png"; path = "TD Visa Form/images/header-5.png"; sourceTree = "<group>"; };
+		9F3922CE16801079008B2E56 /* FrutigerLTStd-Black 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Black 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Black 2.otf"; sourceTree = "<group>"; };
+		9F3922CF16801079008B2E56 /* FrutigerLTStd-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Black.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Black.otf"; sourceTree = "<group>"; };
+		9F3922D016801079008B2E56 /* FrutigerLTStd-BlackCn 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-BlackCn 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-BlackCn 2.otf"; sourceTree = "<group>"; };
+		9F3922D116801079008B2E56 /* FrutigerLTStd-BlackCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-BlackCn.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-BlackCn.otf"; sourceTree = "<group>"; };
+		9F3922D216801079008B2E56 /* FrutigerLTStd-BlackItalic 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-BlackItalic 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-BlackItalic 2.otf"; sourceTree = "<group>"; };
+		9F3922D316801079008B2E56 /* FrutigerLTStd-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-BlackItalic.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-BlackItalic.otf"; sourceTree = "<group>"; };
+		9F3922D416801079008B2E56 /* FrutigerLTStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Bold.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Bold.otf"; sourceTree = "<group>"; };
+		9F3922D516801079008B2E56 /* FrutigerLTStd-BoldCn 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-BoldCn 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-BoldCn 2.otf"; sourceTree = "<group>"; };
+		9F3922D616801079008B2E56 /* FrutigerLTStd-BoldCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-BoldCn.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-BoldCn.otf"; sourceTree = "<group>"; };
+		9F3922D716801079008B2E56 /* FrutigerLTStd-BoldItalic 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-BoldItalic 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-BoldItalic 2.otf"; sourceTree = "<group>"; };
+		9F3922D816801079008B2E56 /* FrutigerLTStd-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-BoldItalic.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-BoldItalic.otf"; sourceTree = "<group>"; };
+		9F3922D916801079008B2E56 /* FrutigerLTStd-Cn 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Cn 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Cn 2.otf"; sourceTree = "<group>"; };
+		9F3922DA16801079008B2E56 /* FrutigerLTStd-Cn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Cn.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Cn.otf"; sourceTree = "<group>"; };
+		9F3922DB16801079008B2E56 /* FrutigerLTStd-ExtraBlackCn 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-ExtraBlackCn 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-ExtraBlackCn 2.otf"; sourceTree = "<group>"; };
+		9F3922DC16801079008B2E56 /* FrutigerLTStd-ExtraBlackCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-ExtraBlackCn.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-ExtraBlackCn.otf"; sourceTree = "<group>"; };
+		9F3922DD16801079008B2E56 /* FrutigerLTStd-Italic 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Italic 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Italic 2.otf"; sourceTree = "<group>"; };
+		9F3922DE16801079008B2E56 /* FrutigerLTStd-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Italic.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Italic.otf"; sourceTree = "<group>"; };
+		9F3922DF16801079008B2E56 /* FrutigerLTStd-Light 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Light 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Light 2.otf"; sourceTree = "<group>"; };
+		9F3922E016801079008B2E56 /* FrutigerLTStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Light.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Light.otf"; sourceTree = "<group>"; };
+		9F3922E116801079008B2E56 /* FrutigerLTStd-LightCn 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-LightCn 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-LightCn 2.otf"; sourceTree = "<group>"; };
+		9F3922E216801079008B2E56 /* FrutigerLTStd-LightCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-LightCn.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-LightCn.otf"; sourceTree = "<group>"; };
+		9F3922E316801079008B2E56 /* FrutigerLTStd-LightItalic 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-LightItalic 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-LightItalic 2.otf"; sourceTree = "<group>"; };
+		9F3922E416801079008B2E56 /* FrutigerLTStd-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-LightItalic.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-LightItalic.otf"; sourceTree = "<group>"; };
+		9F3922E516801079008B2E56 /* FrutigerLTStd-Roman 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Roman 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Roman 2.otf"; sourceTree = "<group>"; };
+		9F3922E616801079008B2E56 /* FrutigerLTStd-Roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Roman.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Roman.otf"; sourceTree = "<group>"; };
+		9F3922E71680107A008B2E56 /* FrutigerLTStd-UltraBlack 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-UltraBlack 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-UltraBlack 2.otf"; sourceTree = "<group>"; };
+		9F3922E81680107A008B2E56 /* FrutigerLTStd-UltraBlack.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-UltraBlack.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-UltraBlack.otf"; sourceTree = "<group>"; };
+		9F57DC0D1680223600BF306F /* HelveticaNeue.dfont */ = {isa = PBXFileReference; lastKnownFileType = file; name = HelveticaNeue.dfont; path = "TD Visa Form/fonts/HelveticaNeue.dfont"; sourceTree = "<group>"; };
 		9F647AD016723477001E6F3D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		9F647AD216724948001E6F3D /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bank.png; path = "TD Visa Form/images/bank.png"; sourceTree = "<group>"; };
 		9F6A1D59167B87E50021561B /* horizontal-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "horizontal-line.png"; path = "TD Visa Form/images/horizontal-line.png"; sourceTree = "<group>"; };
@@ -268,15 +313,6 @@
 		9F83570D167BAB130088B366 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		9F854C68166FE859009F9E01 /* body-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "body-2.png"; path = "TD Visa Form/images/body-2.png"; sourceTree = "<group>"; };
 		9F854C69166FE859009F9E01 /* footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = footer.png; path = "TD Visa Form/images/footer.png"; sourceTree = "<group>"; };
-		9F854C6D166FFA10009F9E01 /* FrutigerLTStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Bold.otf"; path = "TD Visa Form/FrutigerLTStd-Bold.otf"; sourceTree = "<group>"; };
-		9F854C6E166FFA10009F9E01 /* FrutiBol */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiBol; path = "TD Visa Form/FrutiBol"; sourceTree = "<group>"; };
-		9F854C6F166FFA10009F9E01 /* FrutiRom */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiRom; path = "TD Visa Form/FrutiRom"; sourceTree = "<group>"; };
-		9F854C70166FFA10009F9E01 /* FrutiBlaCn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiBlaCn; path = "TD Visa Form/FrutiBlaCn"; sourceTree = "<group>"; };
-		9F854C71166FFA10009F9E01 /* FrutiBolCn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiBolCn; path = "TD Visa Form/FrutiBolCn"; sourceTree = "<group>"; };
-		9F854C72166FFA10009F9E01 /* FrutiCn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiCn; path = "TD Visa Form/FrutiCn"; sourceTree = "<group>"; };
-		9F854C73166FFA10009F9E01 /* FrutiExtBlaCn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiExtBlaCn; path = "TD Visa Form/FrutiExtBlaCn"; sourceTree = "<group>"; };
-		9F854C74166FFA10009F9E01 /* Frutiger Condensed */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Frutiger Condensed"; path = "TD Visa Form/Frutiger Condensed"; sourceTree = "<group>"; };
-		9F854C75166FFA10009F9E01 /* FrutiLigCn */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FrutiLigCn; path = "TD Visa Form/FrutiLigCn"; sourceTree = "<group>"; };
 		9F854C7F167022F8009F9E01 /* btn-security-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-security-down.png"; path = "TD Visa Form/images/btn-security-down.png"; sourceTree = "<group>"; };
 		9F854C80167022F9009F9E01 /* btn-security-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-security-normal.png"; path = "TD Visa Form/images/btn-security-normal.png"; sourceTree = "<group>"; };
 		9F854C8316703CE4009F9E01 /* body-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "body-1.png"; path = "TD Visa Form/images/body-1.png"; sourceTree = "<group>"; };
@@ -700,16 +736,34 @@
 		9F0C390A166FC996009C8297 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				9F0C3908166FC98F009C8297 /* Frutiger */,
-				9F854C6D166FFA10009F9E01 /* FrutigerLTStd-Bold.otf */,
-				9F854C6E166FFA10009F9E01 /* FrutiBol */,
-				9F854C6F166FFA10009F9E01 /* FrutiRom */,
-				9F854C70166FFA10009F9E01 /* FrutiBlaCn */,
-				9F854C71166FFA10009F9E01 /* FrutiBolCn */,
-				9F854C72166FFA10009F9E01 /* FrutiCn */,
-				9F854C73166FFA10009F9E01 /* FrutiExtBlaCn */,
-				9F854C74166FFA10009F9E01 /* Frutiger Condensed */,
-				9F854C75166FFA10009F9E01 /* FrutiLigCn */,
+				9F57DC0D1680223600BF306F /* HelveticaNeue.dfont */,
+				9F3922CE16801079008B2E56 /* FrutigerLTStd-Black 2.otf */,
+				9F3922CF16801079008B2E56 /* FrutigerLTStd-Black.otf */,
+				9F3922D016801079008B2E56 /* FrutigerLTStd-BlackCn 2.otf */,
+				9F3922D116801079008B2E56 /* FrutigerLTStd-BlackCn.otf */,
+				9F3922D216801079008B2E56 /* FrutigerLTStd-BlackItalic 2.otf */,
+				9F3922D316801079008B2E56 /* FrutigerLTStd-BlackItalic.otf */,
+				9F3922D416801079008B2E56 /* FrutigerLTStd-Bold.otf */,
+				9F3922D516801079008B2E56 /* FrutigerLTStd-BoldCn 2.otf */,
+				9F3922D616801079008B2E56 /* FrutigerLTStd-BoldCn.otf */,
+				9F3922D716801079008B2E56 /* FrutigerLTStd-BoldItalic 2.otf */,
+				9F3922D816801079008B2E56 /* FrutigerLTStd-BoldItalic.otf */,
+				9F3922D916801079008B2E56 /* FrutigerLTStd-Cn 2.otf */,
+				9F3922DA16801079008B2E56 /* FrutigerLTStd-Cn.otf */,
+				9F3922DB16801079008B2E56 /* FrutigerLTStd-ExtraBlackCn 2.otf */,
+				9F3922DC16801079008B2E56 /* FrutigerLTStd-ExtraBlackCn.otf */,
+				9F3922DD16801079008B2E56 /* FrutigerLTStd-Italic 2.otf */,
+				9F3922DE16801079008B2E56 /* FrutigerLTStd-Italic.otf */,
+				9F3922DF16801079008B2E56 /* FrutigerLTStd-Light 2.otf */,
+				9F3922E016801079008B2E56 /* FrutigerLTStd-Light.otf */,
+				9F3922E116801079008B2E56 /* FrutigerLTStd-LightCn 2.otf */,
+				9F3922E216801079008B2E56 /* FrutigerLTStd-LightCn.otf */,
+				9F3922E316801079008B2E56 /* FrutigerLTStd-LightItalic 2.otf */,
+				9F3922E416801079008B2E56 /* FrutigerLTStd-LightItalic.otf */,
+				9F3922E516801079008B2E56 /* FrutigerLTStd-Roman 2.otf */,
+				9F3922E616801079008B2E56 /* FrutigerLTStd-Roman.otf */,
+				9F3922E71680107A008B2E56 /* FrutigerLTStd-UltraBlack 2.otf */,
+				9F3922E81680107A008B2E56 /* FrutigerLTStd-UltraBlack.otf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -999,7 +1053,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Adrian Somesan";
 			};
-			buildConfigurationList = 702337A11652C56800B87249 /* Build configuration list for PBXProject "TD Visa Form" */;
+			buildConfigurationList = 702337A11652C56800B87249 /* Build configuration list for PBXProject "TD VISA FORM" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1049,18 +1103,8 @@
 				9F0C3903166FB582009C8297 /* passcode.png in Resources */,
 				9F0C3905166FB812009C8297 /* select.png in Resources */,
 				9F0C3907166FB9DB009C8297 /* banner-2.png in Resources */,
-				9F0C3909166FC98F009C8297 /* Frutiger in Resources */,
 				9F854C6A166FE859009F9E01 /* body-2.png in Resources */,
 				9F854C6B166FE859009F9E01 /* footer.png in Resources */,
-				9F854C76166FFA10009F9E01 /* FrutigerLTStd-Bold.otf in Resources */,
-				9F854C77166FFA10009F9E01 /* FrutiBol in Resources */,
-				9F854C78166FFA10009F9E01 /* FrutiRom in Resources */,
-				9F854C79166FFA10009F9E01 /* FrutiBlaCn in Resources */,
-				9F854C7A166FFA10009F9E01 /* FrutiBolCn in Resources */,
-				9F854C7B166FFA10009F9E01 /* FrutiCn in Resources */,
-				9F854C7C166FFA10009F9E01 /* FrutiExtBlaCn in Resources */,
-				9F854C7D166FFA10009F9E01 /* Frutiger Condensed in Resources */,
-				9F854C7E166FFA10009F9E01 /* FrutiLigCn in Resources */,
 				9F854C81167022F9009F9E01 /* btn-security-down.png in Resources */,
 				9F854C82167022F9009F9E01 /* btn-security-normal.png in Resources */,
 				9F854C8516703CE5009F9E01 /* body-1.png in Resources */,
@@ -1130,6 +1174,34 @@
 				9F6A1D5D167B8CC90021561B /* housing-info.png in Resources */,
 				9F83570B167BAA0A0088B366 /* README.md in Resources */,
 				9F83570C167BAA0A0088B366 /* release_notes.md in Resources */,
+				9F3922E91680107A008B2E56 /* FrutigerLTStd-Black 2.otf in Resources */,
+				9F3922EA1680107A008B2E56 /* FrutigerLTStd-Black.otf in Resources */,
+				9F3922EB1680107A008B2E56 /* FrutigerLTStd-BlackCn 2.otf in Resources */,
+				9F3922EC1680107A008B2E56 /* FrutigerLTStd-BlackCn.otf in Resources */,
+				9F3922ED1680107A008B2E56 /* FrutigerLTStd-BlackItalic 2.otf in Resources */,
+				9F3922EE1680107A008B2E56 /* FrutigerLTStd-BlackItalic.otf in Resources */,
+				9F3922EF1680107A008B2E56 /* FrutigerLTStd-Bold.otf in Resources */,
+				9F3922F01680107A008B2E56 /* FrutigerLTStd-BoldCn 2.otf in Resources */,
+				9F3922F11680107A008B2E56 /* FrutigerLTStd-BoldCn.otf in Resources */,
+				9F3922F21680107A008B2E56 /* FrutigerLTStd-BoldItalic 2.otf in Resources */,
+				9F3922F31680107A008B2E56 /* FrutigerLTStd-BoldItalic.otf in Resources */,
+				9F3922F41680107A008B2E56 /* FrutigerLTStd-Cn 2.otf in Resources */,
+				9F3922F51680107A008B2E56 /* FrutigerLTStd-Cn.otf in Resources */,
+				9F3922F61680107A008B2E56 /* FrutigerLTStd-ExtraBlackCn 2.otf in Resources */,
+				9F3922F71680107A008B2E56 /* FrutigerLTStd-ExtraBlackCn.otf in Resources */,
+				9F3922F81680107A008B2E56 /* FrutigerLTStd-Italic 2.otf in Resources */,
+				9F3922F91680107A008B2E56 /* FrutigerLTStd-Italic.otf in Resources */,
+				9F3922FA1680107A008B2E56 /* FrutigerLTStd-Light 2.otf in Resources */,
+				9F3922FB1680107A008B2E56 /* FrutigerLTStd-Light.otf in Resources */,
+				9F3922FC1680107A008B2E56 /* FrutigerLTStd-LightCn 2.otf in Resources */,
+				9F3922FD1680107A008B2E56 /* FrutigerLTStd-LightCn.otf in Resources */,
+				9F3922FE1680107A008B2E56 /* FrutigerLTStd-LightItalic 2.otf in Resources */,
+				9F3922FF1680107A008B2E56 /* FrutigerLTStd-LightItalic.otf in Resources */,
+				9F3923001680107A008B2E56 /* FrutigerLTStd-Roman 2.otf in Resources */,
+				9F3923011680107A008B2E56 /* FrutigerLTStd-Roman.otf in Resources */,
+				9F3923021680107A008B2E56 /* FrutigerLTStd-UltraBlack 2.otf in Resources */,
+				9F3923031680107A008B2E56 /* FrutigerLTStd-UltraBlack.otf in Resources */,
+				9F57DC0E1680223600BF306F /* HelveticaNeue.dfont in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1301,7 +1373,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		702337A11652C56800B87249 /* Build configuration list for PBXProject "TD Visa Form" */ = {
+		702337A11652C56800B87249 /* Build configuration list for PBXProject "TD VISA FORM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				702337C81652C56800B87249 /* Debug */,

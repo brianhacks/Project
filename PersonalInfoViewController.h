@@ -13,6 +13,7 @@
 
 @interface PersonalInfoViewController : MainViewController <UIPopoverControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UILabel *fontTestLabel;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *accordionViewScrollView;
 

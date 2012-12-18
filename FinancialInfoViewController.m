@@ -383,6 +383,11 @@
     self.requesteCreditLimitArray = [NSMutableArray new];
     
     [super viewDidLoad];
+    [self setDefaultStyles:self.financialDetailsView];
+    [self setDefaultStyles:self.employerDetailsView];
+    [self setDefaultStyles:self.incomeAndCreditDetailsView];
+    
+    
     // Do any additional setup after loading the view from its nib.
     
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
@@ -645,7 +650,8 @@
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
     firstHeaderTitel.text = @"Financial Details";
-    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
+    
     [self.firstHeaderView addSubview:firstHeaderTitel];
     
     [self.accordion addHeader:self.firstHeaderView withView:self.financialDetailsView];
@@ -657,7 +663,8 @@
     secondHeaderTitel.backgroundColor = [UIColor clearColor];
     secondHeaderTitel.textColor = [UIColor whiteColor];
     secondHeaderTitel.text = @"Employer's Details";
-    secondHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self setAppFontStyle:@"accordion-header" forView:secondHeaderTitel];
+    
     [self.secondHeaderView addSubview:secondHeaderTitel];
     
     [self.accordion addHeader:self.secondHeaderView withView:self.employerDetailsView];
@@ -670,7 +677,8 @@
     thirdHeaderTitel.backgroundColor = [UIColor clearColor];
     thirdHeaderTitel.textColor = [UIColor whiteColor];
     thirdHeaderTitel.text = @"Income and Credit Limit Details";
-    thirdHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self setAppFontStyle:@"accordion-header" forView:thirdHeaderTitel];
+    
     [self.thirdHeaderView addSubview:thirdHeaderTitel];
     
     [self.accordion addHeader:self.thirdHeaderView withView:self.incomeAndCreditDetailsView];
@@ -1034,7 +1042,9 @@
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
     firstHeaderTitel.text = @"Employer's Details";
-    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
+    
+    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
     [self.secondHeaderView addSubview:firstHeaderTitel];
     
     //validate the fields here!
@@ -1095,14 +1105,15 @@
     
     UILabel* employmentStatus = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 500., 30.)];
     employmentStatus.textColor = [UIColor blackColor];
-    employmentStatus.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"label" forView:employmentStatus];
     employmentStatus.backgroundColor = [UIColor clearColor];
     employmentStatus.text = [NSString stringWithFormat:@"Employment Status: %@",self.employmentStatus.titleLabel.text];
     [self.firstHeaderView addSubview:employmentStatus];
     
     UILabel* currentOccupation = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 500., 30.)];
     currentOccupation.textColor = [UIColor blackColor];
-    currentOccupation.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"label" forView:currentOccupation];
+    
     currentOccupation.backgroundColor = [UIColor clearColor];
     currentOccupation.text = [NSString stringWithFormat:@"Current Occupation: %@",self.industryButton.titleLabel.text];
     [self.firstHeaderView addSubview:currentOccupation];
@@ -1122,7 +1133,8 @@
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
     firstHeaderTitel.text = @"Financial Details";
-    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
+    
     [self.firstHeaderView addSubview:firstHeaderTitel];
     
     [self.accordion setSelectedIndex:0];
@@ -1252,7 +1264,8 @@
     
     UILabel* employerName = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 300., 30.)];
     employerName.textColor = [UIColor blackColor];
-    employerName.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"label" forView:employerName];
+    
     employerName.backgroundColor = [UIColor clearColor];
     employerName.numberOfLines = 0;
     employerName.text = [NSString stringWithFormat:@"Employment Name: %@",self.employerName.text];
@@ -1260,7 +1273,8 @@
     
     UILabel* startDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 300., 30.)];
     startDateLabel.textColor = [UIColor blackColor];
-    startDateLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"data-label-bold" forView:startDateLabel];
+    
     startDateLabel.backgroundColor = [UIColor clearColor];
     startDateLabel.numberOfLines = 0;
     startDateLabel.text = [NSString stringWithFormat:@"Start date:"];
@@ -1269,7 +1283,7 @@
     UILabel* employerStreetAddressLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 3., 400., 30.)];
     employerStreetAddressLabel.textColor = [UIColor blackColor];
     employerStreetAddressLabel.numberOfLines = 0;
-    employerStreetAddressLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    
     employerStreetAddressLabel.backgroundColor = [UIColor clearColor];
     employerStreetAddressLabel.text = [NSString stringWithFormat:@"%@ %@ %@",self.employerStreetAddress.text, self.employerCityTextField.text, self.provinceButton];
     [self.secondHeaderView addSubview:employerStreetAddressLabel];
@@ -1291,7 +1305,8 @@
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
     firstHeaderTitel.text = @"Employer's Details";
-    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
+    
     [self.secondHeaderView addSubview:firstHeaderTitel];
     
     [self.accordion setSelectedIndex:1];
@@ -1355,7 +1370,7 @@
     
     UILabel* employerName = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 300., 30.)];
     employerName.textColor = [UIColor blackColor];
-    employerName.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"data-label" forView:employerName];
     employerName.backgroundColor = [UIColor clearColor];
     employerName.numberOfLines = 0;
     employerName.text = [NSString stringWithFormat:@"Requested Credit Limit: %@",self.requestedCreditLimitButton.titleLabel.text];
@@ -1363,7 +1378,8 @@
     
     UILabel* startDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 300., 30.)];
     startDateLabel.textColor = [UIColor blackColor];
-    startDateLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
+    [self setAppFontStyle:@"data-label" forView:startDateLabel];
+    
     startDateLabel.backgroundColor = [UIColor clearColor];
     startDateLabel.numberOfLines = 0;
     startDateLabel.text = [NSString stringWithFormat:@"Gross Anual Income: %@", self.grossAnualIncomeTextField.text];
@@ -1384,7 +1400,8 @@
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
     firstHeaderTitel.text = @"Income and Credit Limit Details";
-    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
+    
     [self.thirdHeaderView addSubview:firstHeaderTitel];
     
     [self.accordion setSelectedIndex:2];

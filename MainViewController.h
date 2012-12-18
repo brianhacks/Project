@@ -11,9 +11,9 @@
 @interface MainViewController : UIViewController
 
 @property (nonatomic, strong) NSTimer *idleTimer;
- 
 
--(void)setFontFamily:(NSString*)fontFamily forView:(UIView*)view andSubViews:(BOOL)isSubViews;
+-(void)setDefaultStyles:(UIView*)view;
+-(void)setAppFontStyle:(NSString*)fontFamily forView:(UIView*)view ;
 -(void)resetIdleTimer;
 -(void)makeFeedbackButton;
 -(void)drawTopLineForSubView:(UIView*)parent;

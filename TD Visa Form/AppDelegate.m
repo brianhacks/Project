@@ -39,6 +39,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
+    for(NSString *familyName in [UIFont familyNames]) {
+        for(NSString *fontName in [UIFont fontNamesForFamilyName:familyName]) {
+            NSLog(@"%@", fontName);
+        }
+    }
+    
     self.clearUserDataFromTheApp = NO;
 
     [TestFlight takeOff:@"f969343d65109e13182ab5fb49109358_MTYzNjU0MjAxMi0xMi0xMSAyMzoxMDozMS4xODc4NTI"];
@@ -69,8 +75,8 @@
     //for debug mode only
     self.window.rootViewController = self.navController;
    //
-    //self.window.rootViewController = self.financialInfoViewController;
-    self.window.rootViewController = self.firstScreenSaverViewController;
+    self.window.rootViewController = self.personalInfoViewController;
+   // self.window.rootViewController = self.firstScreenSaverViewController;
 
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
@@ -116,7 +122,9 @@
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
 //    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
     
-    self.window.rootViewController = self.navController;
+   // self.window.rootViewController = self.navController;
+    self.window.rootViewController = self.personalInfoViewController;
+    
     
     [self.navController setNavigationBarHidden:YES animated:NO];
     
