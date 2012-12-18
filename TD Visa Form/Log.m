@@ -12,5 +12,7 @@
 
 
 @dynamic createdAt;
+@dynamic currentUserCode;
+
 
 @end

@@ -23,16 +23,17 @@
 @interface AppDelegate()
 @end
 
-
  
 @implementation AppDelegate
 
-#define maxIdleTime 1100.0
+#define maxIdleTime 120.0
+#define loginIdleTime 30.0
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize idleTimer;
+@synthesize currentUserCode;
 @synthesize sessionTimeoutAlert;
 @synthesize clearUserDataFromTheApp;
 
@@ -167,7 +168,7 @@
         self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
         
     }else{
-        self.sessionTimeoutAlert= [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Your session has timed out.  Information Only" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        self.sessionTimeoutAlert= [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Your session has timed out." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [self.sessionTimeoutAlert show];
     }
     

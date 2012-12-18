@@ -345,6 +345,8 @@
             [appDelegate closeRootAndLaunchNextPart:isAdmin];
             [self.inputField resignFirstResponder];
             [self.view endEditing:YES];
+            appDelegate.currentUserCode=password;
+            
         }else{
             NSLog(@"failed for C!");
             NSLog(@"so this is the failure area?");

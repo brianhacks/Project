@@ -2,6 +2,7 @@
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Log" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currentUserCode" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="addressYearsAndMonths" optional="YES" attributeType="Date" syncable="YES"/>
@@ -49,7 +50,7 @@
         <attribute name="workPhone" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Log" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="Log" positionX="160" positionY="192" width="128" height="75"/>
         <element name="User" positionX="-7344" positionY="189" width="155" height="690"/>
     </elements>
 </model>

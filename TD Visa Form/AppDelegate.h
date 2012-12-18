@@ -30,6 +30,8 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (nonatomic, strong) NSTimer *idleTimer;
+@property (nonatomic, strong) NSString *currentUserCode;
+
 @property (nonatomic, strong) UIAlertView* sessionTimeoutAlert;
 
 
