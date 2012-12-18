@@ -97,6 +97,7 @@
 		9F3923021680107A008B2E56 /* FrutigerLTStd-UltraBlack 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922E71680107A008B2E56 /* FrutigerLTStd-UltraBlack 2.otf */; };
 		9F3923031680107A008B2E56 /* FrutigerLTStd-UltraBlack.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922E81680107A008B2E56 /* FrutigerLTStd-UltraBlack.otf */; };
 		9F57DC0E1680223600BF306F /* HelveticaNeue.dfont in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC0D1680223600BF306F /* HelveticaNeue.dfont */; };
+		9F57DC211680FEB400BF306F /* legalstuff.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC201680FEB400BF306F /* legalstuff.png */; };
 		9F647AD116723477001E6F3D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F647AD016723477001E6F3D /* AddressBook.framework */; };
 		9F647AD316724948001E6F3D /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F647AD216724948001E6F3D /* bank.png */; };
 		9F6A1D5A167B87E50021561B /* horizontal-line.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F6A1D59167B87E50021561B /* horizontal-line.png */; };
@@ -302,6 +303,7 @@
 		9F3922E71680107A008B2E56 /* FrutigerLTStd-UltraBlack 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-UltraBlack 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-UltraBlack 2.otf"; sourceTree = "<group>"; };
 		9F3922E81680107A008B2E56 /* FrutigerLTStd-UltraBlack.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-UltraBlack.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-UltraBlack.otf"; sourceTree = "<group>"; };
 		9F57DC0D1680223600BF306F /* HelveticaNeue.dfont */ = {isa = PBXFileReference; lastKnownFileType = file; name = HelveticaNeue.dfont; path = "TD Visa Form/fonts/HelveticaNeue.dfont"; sourceTree = "<group>"; };
+		9F57DC201680FEB400BF306F /* legalstuff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = legalstuff.png; path = "TD Visa Form/images/legalstuff.png"; sourceTree = "<group>"; };
 		9F647AD016723477001E6F3D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		9F647AD216724948001E6F3D /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bank.png; path = "TD Visa Form/images/bank.png"; sourceTree = "<group>"; };
 		9F6A1D59167B87E50021561B /* horizontal-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "horizontal-line.png"; path = "TD Visa Form/images/horizontal-line.png"; sourceTree = "<group>"; };
@@ -685,6 +687,7 @@
 				70A2528C16557E6B00049612 /* SelectThisCardViewController.h */,
 				70A2528D16557E6B00049612 /* SelectThisCardViewController.m */,
 				70A2528E16557E6B00049612 /* SelectThisCardViewController.xib */,
+				9F57DC201680FEB400BF306F /* legalstuff.png */,
 			);
 			name = "Application process";
 			sourceTree = "<group>";
@@ -1202,6 +1205,7 @@
 				9F3923021680107A008B2E56 /* FrutigerLTStd-UltraBlack 2.otf in Resources */,
 				9F3923031680107A008B2E56 /* FrutigerLTStd-UltraBlack.otf in Resources */,
 				9F57DC0E1680223600BF306F /* HelveticaNeue.dfont in Resources */,
+				9F57DC211680FEB400BF306F /* legalstuff.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

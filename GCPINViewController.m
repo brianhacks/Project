@@ -337,7 +337,6 @@
                 enteredCorrectPassword = true;
             }
         }
-
         if(enteredCorrectPassword){
             isAdmin = NO;
            

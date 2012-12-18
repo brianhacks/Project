@@ -26,13 +26,16 @@
  
 @implementation AppDelegate
 
-#define maxIdleTime 120.0
+#define maxIdleTime 60.0//126
+#define popupIdleTime 30.0//60
 #define loginIdleTime 30.0
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize idleTimer;
+@synthesize popupIdleTimer;
+
 @synthesize currentUserCode;
 @synthesize sessionTimeoutAlert;
 @synthesize clearUserDataFromTheApp;
@@ -114,7 +117,7 @@
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
+   // self.navController = [[UINavigationController alloc] initWithRootViewController:self.gCPINViewController];
     
    self.window.rootViewController = self.navController;
    /// self.window.rootViewController = self.personalInfoViewController;
@@ -125,16 +128,69 @@
 }
 
 - (void)popToRoot{
-    
+     NSLog(@"POP TO ROOT");
+    self.window.rootViewController = self.firstScreenSaverViewController;
     [self.navController popToRootViewControllerAnimated:YES];
     self.clearUserDataFromTheApp = NO;
+    
 }
+
 
 - (void)startOver{
 
     [self initViewsAndNavController];
-    
     self.clearUserDataFromTheApp = YES;
+    NSManagedObjectContext* context = [self managedObjectContext];
+    NSFetchRequest* request = [NSFetchRequest new];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError* error = nil;
+    NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
+    
+    for (NSManagedObject * users in fetchedResult) {
+        [context deleteObject:users];
+    }
+    
+    NSError *saveError = nil;
+    [context save:&saveError];
+    [self popToRoot];
+    
+}
+
+- (void)idleTimerExceeded{
+    NSLog(@"idle timer exceeded");
+    if (self.navController.visibleViewController == self.appProcessViewController) {
+        
+        [self.idleTimer invalidate];
+        [self popToRoot];
+        self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
+        
+    }else{
+        self.popupIdleTimer = [NSTimer scheduledTimerWithTimeInterval:popupIdleTime target:self selector:@selector(popupIdleTimerExceeded) userInfo:nil repeats:NO];
+        
+        
+        self.sessionTimeoutAlert= [[UIAlertView alloc] initWithTitle:@"IDLE" message:@"Your session has timed out." delegate:self cancelButtonTitle:@"START OVER" otherButtonTitles:@"WAKE UP", nil];
+        [self.sessionTimeoutAlert show];
+    }
+    
+}
+
+-(void)popupIdleTimerExceeded{
+    NSLog(@"POPUP idle timer exceeded");
+    
+    [ self.sessionTimeoutAlert dismissWithClickedButtonIndex:0 animated:YES];
+      [self cleanupFromTimer];
+}
+
+-(void)cleanupFromTimer{
+     NSLog(@"CLEANUP FROM TIMER");
+    self.clearUserDataFromTheApp = YES;
+    
+    //reset fetch entity
+    //return to some other view controller
+    
+    //        AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
     NSManagedObjectContext* context = [self managedObjectContext];
     
@@ -154,66 +210,24 @@
     NSError *saveError = nil;
     [context save:&saveError];
     
+    
+    [self.idleTimer invalidate];
+    self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
+    
+    [self initViewsAndNavController];
+    
     [self popToRoot];
-    
-    
-    
-}
-
-- (void)idleTimerExceeded{
-    
-    if (self.navController.visibleViewController == self.appProcessViewController) {
-        
-        [self.idleTimer invalidate];
-        self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
-        
-    }else{
-        self.sessionTimeoutAlert= [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Your session has timed out." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [self.sessionTimeoutAlert show];
-    }
-    
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    
-    NSLog(@"User hit Ok.");
+     NSLog(@"DISMISS POPUP WHEN USER HITS OK");
+   
     
     //THIS IS CATCHING EVERY ALERT, WE CANT DO IT THIS WAY
     
-    if ([alertView.title isEqualToString:@"Alert"]) {
+    if ([alertView.title isEqualToString:@"IDLE"] && buttonIndex==0) {
         
-        self.clearUserDataFromTheApp = YES;
-        
-        //reset fetch entity
-        //return to some other view controller
-        
-//        AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-        
-        NSManagedObjectContext* context = [self managedObjectContext];
-        
-        NSFetchRequest* request = [NSFetchRequest new];
-        
-        NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
-        [request setEntity:entity];
-        
-        NSError* error = nil;
-        NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
-        
-        for (NSManagedObject * users in fetchedResult) {
-            [context deleteObject:users];
-        }
-        
-        
-        NSError *saveError = nil;
-        [context save:&saveError];
-        
-        
-        [self.idleTimer invalidate];
-        self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
-        
-        [self initViewsAndNavController];
-        
-        [self popToRoot];
+        [self cleanupFromTimer];
         
     }
     
@@ -223,7 +237,7 @@
 }
 
 -(void)resetIdleTimer{
-    
+     NSLog(@"RESET TIMER");
     [self.idleTimer invalidate];
     self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
     
