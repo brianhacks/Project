@@ -16,13 +16,15 @@
 
 @end
 
-@interface SelectThisCardViewController : UIViewController 
+@interface SelectThisCardViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic, weak) id <SelectThisCardViewControllerDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UIScrollView *scroll;
+@property (strong, nonatomic) IBOutlet UIButton *btnTerms;
 
 @property (strong, nonatomic) IBOutlet UIView *webShowdowView;
 
 - (IBAction)backToCards:(id)sender;
 - (IBAction)chooseThisCard:(id)sender;
-
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView;
 @end

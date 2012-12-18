@@ -24,6 +24,31 @@
     return self;
 }
 
+-(void)scrollViewDidScroll: (UIScrollView*)scrollView
+{
+   // self.scroll = [[[UIScrollView alloc] initWithFrame:CGRectMake(...)] autorelease];
+   
+    
+   // NSLog(@"SCROLL");
+    float scrollViewHeight = scrollView.frame.size.height;
+    float scrollContentSizeHeight = scrollView.contentSize.height;
+    float scrollOffset = scrollView.contentOffset.y;
+    
+  //  NSLog(@"Viewheight=%f",scrollViewHeight);
+   // NSLog(@"contentheight=%f",scrollContentSizeHeight);
+    //NSLog(@"offset=%f",scrollOffset);
+    
+    
+    if (scrollOffset == 0)
+    {
+        // then we are at the top
+    }
+    else if (scrollOffset > 150)
+    {
+         self.btnTerms.enabled=YES;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -33,8 +58,9 @@
    // self.view.backgroundColor = background;
    
     //load the web view
-   
+    self.scroll.delegate = self;
     
+    self.btnTerms.enabled=NO;
     //Create a URL object.
     //URL Requst Object
     
