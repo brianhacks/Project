@@ -142,7 +142,7 @@
 #pragma mark - view lifecycle
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    
+[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
     // setup labels list
     self.labels = [NSArray arrayWithObjects:
                    self.fieldOneLabel,

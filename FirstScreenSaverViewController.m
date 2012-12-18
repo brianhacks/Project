@@ -35,7 +35,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.firstScreenShown = YES;
-
+ [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:YES];
     
 //    UIColor *background1 = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"ssaver1.png"]];
 //   
