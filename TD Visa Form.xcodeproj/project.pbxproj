@@ -104,6 +104,7 @@
 		9F57DC2A1681079F00BF306F /* btn-prepare-forms.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC281681079F00BF306F /* btn-prepare-forms.jpg */; };
 		9F57DC2D16810A3400BF306F /* btn-admin-generate.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC2B16810A3400BF306F /* btn-admin-generate.png */; };
 		9F57DC2E16810A3400BF306F /* btn-admin-prepare.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC2C16810A3400BF306F /* btn-admin-prepare.png */; };
+		9F57DC301681268300BF306F /* consent_title.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F57DC2F1681268300BF306F /* consent_title.png */; };
 		9F647AD116723477001E6F3D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F647AD016723477001E6F3D /* AddressBook.framework */; };
 		9F647AD316724948001E6F3D /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F647AD216724948001E6F3D /* bank.png */; };
 		9F6A1D5A167B87E50021561B /* horizontal-line.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F6A1D59167B87E50021561B /* horizontal-line.png */; };
@@ -316,6 +317,7 @@
 		9F57DC281681079F00BF306F /* btn-prepare-forms.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "btn-prepare-forms.jpg"; path = "TD Visa Form/images/btn-prepare-forms.jpg"; sourceTree = "<group>"; };
 		9F57DC2B16810A3400BF306F /* btn-admin-generate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-admin-generate.png"; path = "TD Visa Form/buttons/btn-admin-generate.png"; sourceTree = "<group>"; };
 		9F57DC2C16810A3400BF306F /* btn-admin-prepare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-admin-prepare.png"; path = "TD Visa Form/buttons/btn-admin-prepare.png"; sourceTree = "<group>"; };
+		9F57DC2F1681268300BF306F /* consent_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = consent_title.png; path = "TD Visa Form/images/consent_title.png"; sourceTree = "<group>"; };
 		9F647AD016723477001E6F3D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		9F647AD216724948001E6F3D /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bank.png; path = "TD Visa Form/images/bank.png"; sourceTree = "<group>"; };
 		9F6A1D59167B87E50021561B /* horizontal-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "horizontal-line.png"; path = "TD Visa Form/images/horizontal-line.png"; sourceTree = "<group>"; };
@@ -786,6 +788,7 @@
 		9F2B90A7166F0588003DD835 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9F57DC2F1681268300BF306F /* consent_title.png */,
 				9F6A1D5C167B8CC90021561B /* housing-info.png */,
 				9F6A1D59167B87E50021561B /* horizontal-line.png */,
 				9FFB47DC1678F4B1005E50F4 /* banner-4a.png */,
@@ -1230,6 +1233,7 @@
 				9F57DC2A1681079F00BF306F /* btn-prepare-forms.jpg in Resources */,
 				9F57DC2D16810A3400BF306F /* btn-admin-generate.png in Resources */,
 				9F57DC2E16810A3400BF306F /* btn-admin-prepare.png in Resources */,
+				9F57DC301681268300BF306F /* consent_title.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,8 +30,6 @@
    
     
    // NSLog(@"SCROLL");
-    float scrollViewHeight = scrollView.frame.size.height;
-    float scrollContentSizeHeight = scrollView.contentSize.height;
     float scrollOffset = scrollView.contentOffset.y;
     
   //  NSLog(@"Viewheight=%f",scrollViewHeight);
