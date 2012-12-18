@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *fontTestLabel;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *accordionViewScrollView;
+@property (strong, nonatomic) IBOutlet UIView *forthheaderView;
+@property (strong, nonatomic) IBOutlet UIView *formalFormalHomeAddress;
 
 @property (strong, nonatomic) IBOutlet UIView *thirdHeaderView;
 @property (strong, nonatomic) IBOutlet UIView *formalHomeAddress;
@@ -109,7 +111,6 @@
 - (IBAction)previousStep:(id)sender;
 - (IBAction)nextStep:(id)sender;
 - (IBAction)selectGender:(id)sender;
-- (IBAction)selectLanguageOfCorrespondace:(id)sender;
 - (IBAction)closeGeneralInfoView:(id)sender;
 - (IBAction)closeAddressView:(id)sender;
 - (IBAction)selectResidentialStatus:(id)sender;
