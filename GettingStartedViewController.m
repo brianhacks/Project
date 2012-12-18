@@ -33,7 +33,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   [self setDefaultStyles:self.view];
+    [self setAppFontStyle:@"display-label-bold" forView:self.residentLabel];
+    [self setAppFontStyle:@"display-label-bold" forView:self.dobLabel];
+    [self setAppFontStyle:@"display-label-bold" forView:self.bankruptLabel];
+    [self setAppFontStyle:@"display-label-bold" forView:self.existingLabel];
+
+    self.areYouACanadianResidentSwitch.onText = NSLocalizedString(@"YES", @"YES");
+	self.areYouACanadianResidentSwitch.offText = NSLocalizedString(@"NO", @"NO");
     
+    self.bankruptcySwitch.onText = NSLocalizedString(@"YES", @"YES");
+	self.bankruptcySwitch.offText = NSLocalizedString(@"NO", @"NO");
+    
+    self.existingTDCanadaCustomer.onText = NSLocalizedString(@"YES", @"YES");
+	self.existingTDCanadaCustomer.offText = NSLocalizedString(@"NO", @"NO");
     
     // Do any additional setup after loading the view from its nib.
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];

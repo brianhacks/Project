@@ -12,15 +12,21 @@
 
 @interface GettingStartedViewController : MainViewController <UIPopoverControllerDelegate>
 
+@property (strong, nonatomic) IBOutlet UILabel *residentLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *dobLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *bankruptLabel;
+@property (strong, nonatomic) IBOutlet UILabel *existingLabel;
+
+
 @property (nonatomic, strong) NSDate* selectedPickerDate;
 
-@property (strong, nonatomic) UIImageView* sageataImage;
-@property (strong, nonatomic) IBOutlet DCRoundSwitch *lakjsd;
 @property (strong, nonatomic) IBOutlet UIButton *birthDateButton;
 @property (strong, nonatomic) UIPopoverController* popoverController1;
-@property (strong, nonatomic) IBOutlet UISwitch *areYouACanadianResidentSwitch;
-@property (strong, nonatomic) IBOutlet UISwitch *bankruptcySwitch;
-@property (strong, nonatomic) IBOutlet UISwitch *existingTDCanadaCustomer;
+@property (strong, nonatomic) IBOutlet DCRoundSwitch *areYouACanadianResidentSwitch;
+@property (strong, nonatomic) IBOutlet DCRoundSwitch *bankruptcySwitch;
+@property (strong, nonatomic) IBOutlet DCRoundSwitch *existingTDCanadaCustomer;
 @property (strong, nonatomic) UIDatePicker *datePicker;
 @property (strong, nonatomic) UIButton* chooseDateButton2;
 @property (strong, nonatomic) IBOutlet UIView *firstBorderView;

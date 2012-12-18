@@ -98,6 +98,10 @@
         }else if([lbl isKindOfClass:[UIButton class]]){
             [(UIButton *)lbl setFont:[UIFont fontWithName:@"FrutigerLTStd-BlackCn" size:15]];
         }
+        for (UIView *sview in lbl.subviews)
+        {
+            [self setDefaultStyles:sview];
+        }
 
     }
 }
