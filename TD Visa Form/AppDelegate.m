@@ -75,8 +75,8 @@
     //for debug mode only
     self.window.rootViewController = self.navController;
    //
-    self.window.rootViewController = self.personalInfoViewController;
-   // self.window.rootViewController = self.firstScreenSaverViewController;
+    self.window.rootViewController = self.adminViewController;
+  // self.window.rootViewController = self.firstScreenSaverViewController;
 
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
@@ -87,14 +87,7 @@
     
     [self.window makeKeyAndVisible];
     
-    NSArray *familyNames = [UIFont familyNames];
-    for( NSString *familyName in familyNames ){
-//        printf( "Family: %s \n", [familyName UTF8String] );
-        NSArray *fontNames = [UIFont fontNamesForFamilyName:familyName];
-        for( NSString *fontName in fontNames ){
-//            printf( "\tFont: %s \n", [fontName UTF8String] );
-        }
-    } 
+
     
     
     return YES;
@@ -122,8 +115,8 @@
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
 //    self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
     
-   // self.window.rootViewController = self.navController;
-    self.window.rootViewController = self.personalInfoViewController;
+   self.window.rootViewController = self.navController;
+   /// self.window.rootViewController = self.personalInfoViewController;
     
     
     [self.navController setNavigationBarHidden:YES animated:NO];

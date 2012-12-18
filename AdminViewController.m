@@ -212,9 +212,90 @@ TO DO
     
 }
 
+-(void)exportLog{
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Log" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+    for (NSManagedObject *info in fetchedObjects) {
+        NSLog(@"Name: %@", [info valueForKey:@"createdAt"]);
+        NSString *key = [info valueForKey:@"createdAt"];
+        
+        NSString *s_count = [[NSString alloc] init];
+        int count;
+        //Refactor me
+        if ([data objectForKey:key]) {
+            NSLog(@"There's an object set for key @\"b\"!");
+            NSString *currentCount = [data valueForKey:key];
+            int count = [currentCount intValue];
+            count++;
+        } else {
+            NSLog(@"No object set for key @\"b\"");
+            count = 1;
+            
+        }
+        [data setObject:[NSString stringWithFormat:@"%d", count] forKey:key];
+        
+    }
+    
+
+   
+    
+    NSFileManager *filemgr;
+    NSData *databuffer;
+    NSString *dataFile;
+    NSString *docsDir;
+    NSArray *dirPaths;
+    
+    filemgr = [NSFileManager defaultManager];
+    
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    docsDir = [dirPaths objectAtIndex:0];
+    
+    dataFile = [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"history.csv"]];
+    
+    if ([filemgr fileExistsAtPath: dataFile]){
+            //delete me
+    }
+        
+      //  NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath: dataFile];
+    [filemgr createFileAtPath: dataFile contents: databuffer attributes:nil];
+    NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath: dataFile];
+    
+        for (NSString *key in data){
+            id value = [data objectForKey:key];
+            
+            NSData *dataToSave = [[NSString stringWithFormat:@"%@,%@\n", key, value] dataUsingEncoding:NSUTF8StringEncoding];
+            //write the data
+            [fh writeData:dataToSave];
+        }
+        
+        
+        [fh seekToEndOfFile];
+        
+                               
+    
+
+    
+    
+    
+    
+    
+}
+
 - (IBAction)exportData:(id)sender {
     //generate the stats file
     
+    //save the log data first
+    [self exportLog];
+   // return;
     //generate each file for record in the DB
     
     User *info = [self userRecord];
@@ -252,6 +333,11 @@ TO DO
         [fh seekToEndOfFile];
         
     }
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sync" message:@"Your data has been exported.  Please sync via iTunes.  Delete your data once you confirm it has been received." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK",nil];
+    [alert show];
+
     
     
 }

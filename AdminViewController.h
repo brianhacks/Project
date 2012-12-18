@@ -24,7 +24,7 @@
 
 - (IBAction)clearUserData:(id)sender;
 - (IBAction)exportData:(id)sender;
-
+- (void)exportLog;
 
 - (NSString *)getExportFileName;
 - (NSData *)exportToNSData;
