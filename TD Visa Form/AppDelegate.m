@@ -125,7 +125,7 @@
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-   // self.navController = [[UINavigationController alloc] initWithRootViewController:self.gCPINViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.personalInfoViewController];
     
    self.window.rootViewController = self.navController;
    /// self.window.rootViewController = self.personalInfoViewController;

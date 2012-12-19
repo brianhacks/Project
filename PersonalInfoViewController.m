@@ -1038,13 +1038,13 @@
                 
         /* END MTK MOVING STUFF */
                 
-//                [self.accordion setSelectedIndex:4];
+//                [self.accordion setSelectedIndex:6];
                 [self changeSecondHeaderHeightAndAddInfo];
                 self.nextStepButton.enabled = NO;
                 
             }else{
                 [self changeSecondHeaderHeightAndAddInfo];
-//                [self.accordion setSelectedIndex:4];
+                [self.accordion setSelectedIndex:4];
                 self.nextStepButton.enabled = YES;
                 return;
             }
@@ -1197,13 +1197,13 @@
     
     bool isValid=true;
     
-    if(self.streetAddress.text.length < 1)
+    if(self.previousAddress.text.length < 1)
     {
         isValid=false;
         //mark field as invalid
-        self.streetAddress.backgroundColor = [UIColor yellowColor];
+        self.previousAddress.backgroundColor = [UIColor yellowColor];
     }else{
-        self.streetAddress.backgroundColor = [UIColor whiteColor];
+        self.previousAddress.backgroundColor = [UIColor whiteColor];
         
     }
     
@@ -1215,52 +1215,52 @@
     bool foundError = false;
     NSRange foundRange;
     for(NSString *found in searchFor){
-        foundRange = [self.streetAddress.text  rangeOfString:found options:0  range:searchRange];
+        foundRange = [self.previousAddress.text  rangeOfString:found options:0  range:searchRange];
         if(foundRange.location >0){
             NSLog(@"%d",foundRange.location);
             //    foundError = true;
         }
     }
     
-    if(self.currentCity.text.length < 1)
+    if(self.previousCity.text.length < 1)
     {
         isValid=false;
         //mark field as invalid
-        self.currentCity.backgroundColor = [UIColor yellowColor];
+        self.previousCity.backgroundColor = [UIColor yellowColor];
     }else{
-        self.currentCity.backgroundColor = [UIColor whiteColor];
+        self.previousCity.backgroundColor = [UIColor whiteColor];
         
     }
-    if([self.provinceButton.titleLabel.text isEqualToString:@"Province"]){
+    if([self.previousProvinceButton.titleLabel.text isEqualToString:@"Province"]){
         isValid = false;
         
-        self.provinceButton.backgroundColor = [UIColor yellowColor];
+        self.previousProvinceButton.backgroundColor = [UIColor yellowColor];
     }else{
-        self.provinceButton.backgroundColor = [UIColor whiteColor];
+        self.previousProvinceButton.backgroundColor = [UIColor whiteColor];
     }
     
-    if([self.timeLivedAtCurrentAddress.titleLabel.text isEqualToString:@"Years & Months"]){
+    if([self.timeLivedAtPreviousAddressButton.titleLabel.text isEqualToString:@"Years & Months"]){
         isValid = false;
         
-        self.timeLivedAtCurrentAddress.backgroundColor = [UIColor yellowColor];
+        self.timeLivedAtPreviousAddressButton.backgroundColor = [UIColor yellowColor];
     }else{
-        self.timeLivedAtCurrentAddress.backgroundColor = [UIColor whiteColor];
+        self.timeLivedAtPreviousAddressButton.backgroundColor = [UIColor whiteColor];
     }
     
     
     NSString *zip_regex_str=@"^[ABCEGHJKLMNPRSTVXY]{1}\\d{1}[A-Z]{1} *\\d{1}[A-Z]{1}\\d{1}$";
     NSPredicate *zip_no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",zip_regex_str];
     
-    if(self.postalCode.text.length < 1 || [zip_no evaluateWithObject:self.postalCode.text])
+    if(self.previousPostalCode.text.length < 1 || [zip_no evaluateWithObject:self.postalCode.text])
     {
-        self.postalCode.backgroundColor = [UIColor yellowColor];
+        self.previousPostalCode.backgroundColor = [UIColor yellowColor];
     }else{
-        self.postalCode.backgroundColor = [UIColor whiteColor];
+        self.previousPostalCode.backgroundColor = [UIColor whiteColor];
     }
     
     
     
-    if([self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"])
+    if([self.previousProvinceButton.titleLabel.text isEqualToString:@"Choose"])
     {
         //        isValid=false;
         
@@ -1271,11 +1271,13 @@
      (2) If Residential Status = Live with Parents/Relatives Total Monthly Housing Cost is NOT Required
      */
     
-    //    int totalCosts = [self.totalMonthlyHousingCosts.text intValue];
     
-    if([self.residentialStatusButton.titleLabel.text isEqualToString:@"Own"]
-       || [self.residentialStatusButton.titleLabel.text isEqualToString:@"Rent"]
-       || [self.residentialStatusButton.titleLabel.text isEqualToString:@"Board"]){
+    
+    //we don't have this validation on the previous address??
+    /*
+    if([self.previousProvinceButton.titleLabel.text isEqualToString:@"Own"]
+       || [self.previousProvinceButton.titleLabel.text isEqualToString:@"Rent"]
+       || [self.previousProvinceButton.titleLabel.text isEqualToString:@"Board"]){
         
         if (self.totalMonthlyHousingCosts.text == @"" || [self.totalMonthlyHousingCosts.text intValue] == 0 ||[self.totalMonthlyHousingCosts.text intValue]>9999999  ) {
             
@@ -1292,7 +1294,7 @@
         [self.totalMonthlyHousingCosts setBackgroundColor:[UIColor whiteColor]];
         
     }
-    
+    */
     
     
     if(isValid==false){
@@ -1347,7 +1349,7 @@
                 [self displayForthHeader];
             }else{
                 self.nextStepButton.enabled = YES;
-                [self hideForthHeader];
+//                [self hideForthHeader];
             }
             
             
@@ -1396,6 +1398,7 @@
             }else{
                 //                [self changeSecondHeaderHeightAndAddInfo];
                 [self changeThirdHeaderHeightAndAddInfo];
+                [self.accordion setSelectedIndex:6];
                 self.nextStepButton.enabled = YES;
                 return;
             }
@@ -1404,7 +1407,7 @@
             
         } else {
             self.nextStepButton.enabled = NO;
-            self.streetAddress.backgroundColor = [UIColor yellowColor];
+            self.previousAddress.backgroundColor = [UIColor yellowColor];
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"We could not find your addresss.  Please make sure it was entered correctly." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
             [alert show];
             
@@ -1432,7 +1435,7 @@
     [self.editSecondView setTitle:@"Edit" forState:UIControlStateNormal];
     [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateNormal];
     [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit-hover.png"] forState:UIControlStateHighlighted];
-    [self.editSecondView addTarget:self action:@selector(editThirdViewAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.editSecondView addTarget:self action:@selector(editThirdViewAction) forControlEvents:UIControlEventTouchUpInside];
     [self.thirdHeaderView addSubview:self.editSecondView];
     
     UILabel* address = [[UILabel alloc] initWithFrame:CGRectMake(290., 20., 200., 20.)];
@@ -1525,7 +1528,7 @@
 
 - (void)editThirdViewAction
 {
-    self.thirdHeaderView.frame = CGRectMake(self.thirdHeaderView.frame.origin.x, self.thirdHeaderView.frame.origin.y, self.thirdHeaderView.frame.size.width, self.thirdHeaderView.frame.size.height - 50);
+    self.thirdHeaderView.frame = CGRectMake(self.thirdHeaderView.frame.origin.x, self.thirdHeaderView.frame.origin.y, self.thirdHeaderView.frame.size.width, self.thirdHeaderView.frame.size.height - 40);
     self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     for (UILabel *tmpLabel in [self.thirdHeaderView subviews]) {

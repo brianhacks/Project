@@ -46,7 +46,9 @@
     //GENERATE AND SAVE THE REF NUM
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     [appDelegate addInfoToUser:num andFieldToAddItTo:@"referenceNumber"];
-    [appDelegate addInfoToUser:appDelegate.currentUserCode andFieldToAddItTo:@"userCode"];
+    
+    //commented out because there is no field in User.h with the property "userCode" this lead to a crash
+//    [appDelegate addInfoToUser:appDelegate.currentUserCode andFieldToAddItTo:@"userCode"];
 
     
     [appDelegate addEntryToLog];
