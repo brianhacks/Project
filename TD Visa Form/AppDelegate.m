@@ -128,7 +128,7 @@
 //    self.navController = [[UINavigationController alloc] initWithRootViewController:self.personalInfoViewController];
     
    self.window.rootViewController = self.navController;
-   /// self.window.rootViewController = self.personalInfoViewController;
+//    self.window.rootViewController = self.personalInfoViewController;
     
     
     [self.navController setNavigationBarHidden:YES animated:NO];

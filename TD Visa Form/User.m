@@ -53,5 +53,10 @@
 @dynamic householdIncome;
 @dynamic grossAnualIncome;
 @dynamic currentIndustry;
+@dynamic previousPreviousPostaCode;
+@dynamic previousPreviousAddress;
+@dynamic previousPreviousCity;
+@dynamic previousPreviousProvince;
+@dynamic previousPreviousAddressYearsAndMonths;
 
 @end

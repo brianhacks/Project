@@ -30,6 +30,20 @@
     return self;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    
+    if (interfaceOrientation==UIInterfaceOrientationLandscapeLeft || interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+
+        return YES;
+        
+    }else{
+        
+        return NO;
+    }
+    
+    
+}
+
 #pragma mark
 #pragma mark picker view delegate
 /* FIGURES OUT THE PICKER WIDTHS */
@@ -346,9 +360,9 @@
     
     //MTK - make sure it fits int he shoadows
     
-    self.accordionViewScrollView.contentSize = CGSizeMake(1, 600.);
-    
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0, 0, 989, 510)];
+    self.accordionViewScrollView.contentSize = CGSizeMake(1, 660.);
+
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0, 0, 989, 660)];
     [self.accordionViewScrollView addSubview:self.accordion];
     self.accordionViewScrollView.backgroundColor = [UIColor clearColor];
     // Only height is taken into account, so other parameters are just dummy
@@ -420,7 +434,7 @@
     
     // Set this if you want to allow multiple selection
     [self.accordion setAllowsMultipleSelection:YES];
-//    [self.accordion setSelectedIndex:2];
+//    [self.accordion setSelectedIndex:3];
    
 }
 
@@ -461,13 +475,27 @@
     [appDelegate addInfoToUser:self.provinceButton.titleLabel.text andFieldToAddItTo:@"province"];
     
     if(showThirdHeader){
+        
         [appDelegate addInfoToUser:self.previousProvinceButton.titleLabel.text andFieldToAddItTo:@"previousProvince"];
         [appDelegate addInfoToUser:self.previousAddress.text andFieldToAddItTo:@"previousAddress"];
         [appDelegate addInfoToUser:self.previousCity.text andFieldToAddItTo:@"previousCity"];
         [appDelegate addInfoToUser:self.previousPostalCode.text andFieldToAddItTo:@"previousPostalCode"];
         
         
+        [appDelegate addInfoToUser:self.timeLivedAtPreviousAddressButton.titleLabel.text andFieldToAddItTo:@"previousPreviousAddressYearsAndMonths"];
+    
+    }
+    
+    if (showForthHeader) {
+        
+        [appDelegate addInfoToUser:self.previousProvinceButton.titleLabel.text andFieldToAddItTo:@"previousPreviousProvince"];
+        [appDelegate addInfoToUser:self.previousAddress.text andFieldToAddItTo:@"previousPreviousAddress"];
+        [appDelegate addInfoToUser:self.previousCity.text andFieldToAddItTo:@"previousPreviousCity"];
+        [appDelegate addInfoToUser:self.previousPostalCode.text andFieldToAddItTo:@"previousPreviousPostaCode"];
+        
+        
         [appDelegate addInfoToUser:self.timeLivedAtPreviousAddressButton.titleLabel.text andFieldToAddItTo:@"previousAddressYearsAndMonths"];
+        
     }
     
     [appDelegate setNewRootView:appDelegate.financialInfoViewController];
@@ -633,7 +661,7 @@
     
     if (self.secondHeaderView.frame.size.height > 50) {
         
-        self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height - 50);
+        self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height - 90);
         
     }
     
@@ -1038,7 +1066,7 @@
                 
         /* END MTK MOVING STUFF */
                 
-//                [self.accordion setSelectedIndex:6];
+                [self.accordion setSelectedIndex:2];
                 [self changeSecondHeaderHeightAndAddInfo];
                 self.nextStepButton.enabled = NO;
                 
@@ -1065,6 +1093,8 @@
 {
     
     [self.activityIndicator stopAnimating];
+    
+    NSLog(@"second view frame: %@",NSStringFromCGRect(self.secondHeaderView.frame));
     
     self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height + 90);
     self.secondHeaderView.backgroundColor = [UIColor whiteColor];
@@ -1171,12 +1201,14 @@
 /*EDIT BUTTON IS CLICLED ON FOR ADDRESS */
 - (void)editSecondViewAction:(id)sender
 {
-    self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height - 50);
+    self.secondHeaderView.frame = CGRectMake(self.secondHeaderView.frame.origin.x, self.secondHeaderView.frame.origin.y, self.secondHeaderView.frame.size.width, self.secondHeaderView.frame.size.height - 90);
     self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     for (UILabel *tmpLabel in [self.secondHeaderView subviews]) {
         [tmpLabel removeFromSuperview];
     }
+    
+    
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
@@ -1429,7 +1461,7 @@
         
     }
     
-    [self drawTopLineForSubView:self.secondHeaderView];
+    [self drawTopLineForSubView:self.thirdHeaderView];
     self.editSecondView = [UIButton buttonWithType:UIButtonTypeCustom];
     self.editSecondView.frame = CGRectMake(910., 5., 81., 42.);
     [self.editSecondView setTitle:@"Edit" forState:UIControlStateNormal];
@@ -1444,7 +1476,7 @@
     [self setAppFontStyle:@"display-label" forView:address];
     address.numberOfLines = 0;
     address.backgroundColor = [UIColor clearColor];
-    address.text = [NSString stringWithFormat:@"%@",self.streetAddress.text];
+    address.text = [NSString stringWithFormat:@"%@",self.previousAddress.text];
     [self.thirdHeaderView addSubview:address];
     
     UILabel* address2 = [[UILabel alloc] initWithFrame:CGRectMake(290., 40., 200., 20.)];
@@ -1453,7 +1485,7 @@
     [self setAppFontStyle:@"display-label" forView:address2];
     address2.numberOfLines = 0;
     address2.backgroundColor = [UIColor clearColor];
-    address2.text = [NSString stringWithFormat:@"%@ %@",self.currentCity.text, self.provinceButton.titleLabel.text];
+    address2.text = [NSString stringWithFormat:@"%@ %@",self.previousCity.text, self.previousProvinceButton.titleLabel.text];
     [self.thirdHeaderView addSubview:address2];
     
     
@@ -1463,7 +1495,7 @@
     [self setAppFontStyle:@"display-label" forView:address3];
     address3.numberOfLines = 0;
     address3.backgroundColor = [UIColor clearColor];
-    address3.text = [NSString stringWithFormat:@"%@",self.postalCode.text];
+    address3.text = [NSString stringWithFormat:@"%@",self.previousPostalCode.text];
     [self.thirdHeaderView addSubview:address3];
     
     UILabel* howlong = [[UILabel alloc] initWithFrame:CGRectMake(290, 90, 300., 20.)];
@@ -1479,7 +1511,7 @@
     [self setAppFontStyle:@"display-label" forView:howlongdata];
     howlongdata.backgroundColor = [UIColor clearColor];
     howlongdata.numberOfLines = 0;
-    howlongdata.text = [NSString stringWithFormat:@"%@",self.timeLivedAtCurrentAddress.titleLabel.text];
+    howlongdata.text = [NSString stringWithFormat:@"%@",self.timeLivedAtPreviousAddressButton.titleLabel.text];
     [self.thirdHeaderView addSubview:howlongdata];
     
     /////////////////////////////////////////////////
@@ -1498,24 +1530,24 @@
     [self setAppFontStyle:@"display-label" forView:residentialStatusdata];
     
     residentialStatusdata.backgroundColor = [UIColor clearColor];
-    residentialStatusdata.text = [NSString stringWithFormat:@"%@",self.residentialStatusButton.titleLabel.text];
+    residentialStatusdata.text = [NSString stringWithFormat:@"%@",self.previousResidentialStatusButton.titleLabel.text];
     [self.thirdHeaderView addSubview:residentialStatusdata];
     ////
-    UILabel* totalMonthlyCostsLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 40., 280., 20)];
-    totalMonthlyCostsLabel.textColor = [UIColor blackColor];
-    [self setAppFontStyle:@"display-label-bold" forView:totalMonthlyCostsLabel];
-    totalMonthlyCostsLabel.backgroundColor = [UIColor clearColor];
-    totalMonthlyCostsLabel.numberOfLines = 0;
-    totalMonthlyCostsLabel.text = [NSString stringWithFormat:@"Total monthly housing costs"];
-    [self.thirdHeaderView addSubview:totalMonthlyCostsLabel];
-    
-    UILabel* totalMonthlyCostsData = [[UILabel alloc] initWithFrame:CGRectMake(590., 55., 200., 20)];
-    totalMonthlyCostsData.textColor = [UIColor blackColor];
-    [self setAppFontStyle:@"display-label" forView:totalMonthlyCostsData];
-    totalMonthlyCostsData.backgroundColor = [UIColor clearColor];
-    totalMonthlyCostsData.numberOfLines = 0;
-    totalMonthlyCostsData.text = [NSString stringWithFormat:@"$ %@",self.totalMonthlyHousingCosts.text];
-    [self.thirdHeaderView addSubview:totalMonthlyCostsData];
+//    UILabel* totalMonthlyCostsLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 40., 280., 20)];
+//    totalMonthlyCostsLabel.textColor = [UIColor blackColor];
+//    [self setAppFontStyle:@"display-label-bold" forView:totalMonthlyCostsLabel];
+//    totalMonthlyCostsLabel.backgroundColor = [UIColor clearColor];
+//    totalMonthlyCostsLabel.numberOfLines = 0;
+//    totalMonthlyCostsLabel.text = [NSString stringWithFormat:@"Total monthly housing costs"];
+//    [self.thirdHeaderView addSubview:totalMonthlyCostsLabel];
+//    
+//    UILabel* totalMonthlyCostsData = [[UILabel alloc] initWithFrame:CGRectMake(590., 55., 200., 20)];
+//    totalMonthlyCostsData.textColor = [UIColor blackColor];
+//    [self setAppFontStyle:@"display-label" forView:totalMonthlyCostsData];
+//    totalMonthlyCostsData.backgroundColor = [UIColor clearColor];
+//    totalMonthlyCostsData.numberOfLines = 0;
+//    totalMonthlyCostsData.text = [NSString stringWithFormat:@"$ %@",self.totalMonthlyHousingCosts.text];
+//    [self.thirdHeaderView addSubview:totalMonthlyCostsData];
 }
 
 
@@ -1528,11 +1560,23 @@
 
 - (void)editThirdViewAction
 {
-    self.thirdHeaderView.frame = CGRectMake(self.thirdHeaderView.frame.origin.x, self.thirdHeaderView.frame.origin.y, self.thirdHeaderView.frame.size.width, self.thirdHeaderView.frame.size.height - 40);
+    self.thirdHeaderView.frame = CGRectMake(self.thirdHeaderView.frame.origin.x, self.thirdHeaderView.frame.origin.y, self.thirdHeaderView.frame.size.width, self.thirdHeaderView.frame.size.height - 90);
     self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     for (UILabel *tmpLabel in [self.thirdHeaderView subviews]) {
-        [tmpLabel removeFromSuperview];
+        
+        if ([tmpLabel isKindOfClass:[UILabel class]]) {
+            [tmpLabel removeFromSuperview];
+        }
+        
+    }
+    
+    for (UIButton* button in [self.thirdHeaderView subviews]) {
+        
+        if ([button isKindOfClass:[UIButton class]] && [button.titleLabel.text isEqualToString:@"Edit"]) {
+            button.hidden = YES;
+        }
+        
     }
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
@@ -1549,7 +1593,8 @@
 
 -(void)hideThirdHeader{
     if(self.thirdHeaderView)
-        [self.thirdHeaderView removeFromSuperview];
+        self.thirdHeaderView.hidden = YES;
+        self.formalHomeAddress.hidden = YES;
 }
 
 - (void)displayThirdHeader{
@@ -1575,8 +1620,223 @@
     [self.accordion setSelectedIndex:2];
 }
 
+#pragma mark
+#pragma mark close forth header
 
+- (IBAction)closePreviousPreviousAddress:(id)sender
+{
+    
+    bool isValid=true;
+    
+    if(self.previousPreviousStreet.text.length < 1)
+    {
+        isValid=false;
+        //mark field as invalid
+        self.previousPreviousStreet.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.previousPreviousStreet.backgroundColor = [UIColor whiteColor];
+        
+    }
+    
+    //see if they are putting in a PO BOX
+    NSRange searchRange;
+    searchRange.location = 0;
+   	searchRange.length = [self.previousPreviousStreet.text length];
+    NSArray *searchFor = [NSArray arrayWithObjects: @"PO BOX",@"PoBox",@"P.O",@"P. O", nil];
+    bool foundError = false;
+    NSRange foundRange;
+    for(NSString *found in searchFor){
+        foundRange = [self.previousAddress.text  rangeOfString:found options:0  range:searchRange];
+        if(foundRange.location >0){
+            NSLog(@"%d",foundRange.location);
+            //    foundError = true;
+        }
+    }
+    
+    if(self.previousPreviousCity.text.length < 1)
+    {
+        isValid=false;
+        //mark field as invalid
+        self.previousPreviousCity.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.previousPreviousCity.backgroundColor = [UIColor whiteColor];
+        
+    }
+    if([self.previousPreviousProvince.titleLabel.text isEqualToString:@"Province"]){
+        isValid = false;
+        
+        self.previousPreviousProvince.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.previousPreviousProvince.backgroundColor = [UIColor whiteColor];
+    }
+    
+    if([self.previousPreviousYearsAndMonths.titleLabel.text isEqualToString:@"Years & Months"]){
+        isValid = false;
+        
+        self.previousPreviousYearsAndMonths.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.previousPreviousYearsAndMonths.backgroundColor = [UIColor whiteColor];
+    }
+    
+    
+    NSString *zip_regex_str=@"^[ABCEGHJKLMNPRSTVXY]{1}\\d{1}[A-Z]{1} *\\d{1}[A-Z]{1}\\d{1}$";
+    NSPredicate *zip_no=[NSPredicate predicateWithFormat:@"SELF MATCHES %@",zip_regex_str];
+    
+    if(self.previousPreviousPostalCode.text.length < 1 || [zip_no evaluateWithObject:self.previousPreviousPostalCode.text])
+    {
+        self.previousPreviousPostalCode.backgroundColor = [UIColor yellowColor];
+    }else{
+        self.previousPreviousPostalCode.backgroundColor = [UIColor whiteColor];
+    }
+    
+    
+    
+    if([self.previousPreviousProvince.titleLabel.text isEqualToString:@"Choose"])
+    {
+        //        isValid=false;
+        
+    }
+    
+    if(isValid==false){
+        self.nextStepButton.enabled = NO;
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Info" message:@"Not all mandatory fields have been completed, please go back and fill them!" delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+        [alert show];
+        
+        
+        return;
+    }
+    
+    //I assume this fixes double clicking durug geocode?
+    
+    UIActivityIndicatorView *uiAIV = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    CGRect frame = CGRectMake(0., 0., 1024., 768.);
+    [uiAIV setFrame:frame];
+    uiAIV.hidesWhenStopped = YES;
+    uiAIV.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+    
+    self.activityIndicator = uiAIV;
+    [self.view addSubview:self.activityIndicator];
+    [self.activityIndicator startAnimating];
+    
+    NSString *query = [NSString stringWithFormat:@"%@ %@ %@", self.streetAddress.text, self.currentCity.text, self.provinceButton.titleLabel.text];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
+        [self.activityIndicator stopAnimating];
+        if ([placemarks count] > 0) {
+            
+            [self changeForthHeaderHeightAndAddInfo];
+            [self.accordion setSelectedIndex:6];
+            self.nextStepButton.enabled = YES;
+            return;
+            
+            
+            
+            
+        } else {
+            self.nextStepButton.enabled = NO;
+            self.previousAddress.backgroundColor = [UIColor yellowColor];
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"We could not find your addresss.  Please make sure it was entered correctly." delegate:self cancelButtonTitle:@"OKAY" otherButtonTitles: nil];
+            [alert show];
+            
+        }}];
+    
+}
 
+- (void)changeForthHeaderHeightAndAddInfo
+{
+    
+    self.forthheaderView.frame = CGRectMake(self.forthheaderView.frame.origin.x, self.forthheaderView.frame.origin.y, self.forthheaderView.frame.size.width, self.forthheaderView.frame.size.height + 90);
+    self.forthheaderView.backgroundColor = [UIColor whiteColor];
+    
+    for (UILabel *tmpLabel in [self.forthheaderView subviews]) {
+        
+        if ([tmpLabel isKindOfClass:[UILabel class]]) {
+            tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+        }
+        
+        
+    }
+    
+    [self drawTopLineForSubView:self.forthheaderView];
+    
+    self.editSecondView = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.editSecondView.frame = CGRectMake(910., 5., 81., 42.);
+    [self.editSecondView setTitle:@"Edit" forState:UIControlStateNormal];
+    [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateNormal];
+    [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit-hover.png"] forState:UIControlStateHighlighted];
+    [self.editSecondView addTarget:self action:@selector(editForthViewAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.forthheaderView addSubview:self.editSecondView];
+    
+    UILabel* address = [[UILabel alloc] initWithFrame:CGRectMake(290., 20., 200., 20.)];
+    address.textColor = [UIColor blackColor];
+    address.backgroundColor = [UIColor blackColor];
+    [self setAppFontStyle:@"display-label" forView:address];
+    address.numberOfLines = 0;
+    address.backgroundColor = [UIColor clearColor];
+    address.text = [NSString stringWithFormat:@"%@",self.previousPreviousStreet.text];
+    [self.forthheaderView addSubview:address];
+    
+    UILabel* address2 = [[UILabel alloc] initWithFrame:CGRectMake(290., 40., 200., 20.)];
+    address2.textColor = [UIColor blackColor];
+    address2.backgroundColor = [UIColor blackColor];
+    [self setAppFontStyle:@"display-label" forView:address2];
+    address2.numberOfLines = 0;
+    address2.backgroundColor = [UIColor clearColor];
+    address2.text = [NSString stringWithFormat:@"%@ %@",self.previousPreviousCity.text, self.previousPreviousProvince.titleLabel.text];
+    [self.forthheaderView addSubview:address2];
+    
+    
+    UILabel* address3 = [[UILabel alloc] initWithFrame:CGRectMake(290., 60., 200., 20.)];
+    address3.textColor = [UIColor blackColor];
+    address3.backgroundColor = [UIColor blackColor];
+    [self setAppFontStyle:@"display-label" forView:address3];
+    address3.numberOfLines = 0;
+    address3.backgroundColor = [UIColor clearColor];
+    address3.text = [NSString stringWithFormat:@"%@",self.previousPreviousPostalCode.text];
+    [self.forthheaderView addSubview:address3];
+    
+    UILabel* howlong = [[UILabel alloc] initWithFrame:CGRectMake(290, 90, 300., 20.)];
+    howlong.textColor = [UIColor blackColor];
+    [self setAppFontStyle:@"display-label-bold" forView:howlong];
+    howlong.backgroundColor = [UIColor clearColor];
+    howlong.numberOfLines = 0;
+    howlong.text = [NSString stringWithFormat:@"How Long have you been living here?"];
+    [self.forthheaderView addSubview:howlong];
+    
+    UILabel* howlongdata = [[UILabel alloc] initWithFrame:CGRectMake(290., 110, 200., 20.)];
+    howlongdata.textColor = [UIColor blackColor];
+    [self setAppFontStyle:@"display-label" forView:howlongdata];
+    howlongdata.backgroundColor = [UIColor clearColor];
+    howlongdata.numberOfLines = 0;
+    howlongdata.text = [NSString stringWithFormat:@"%@",self.previousPreviousYearsAndMonths.titleLabel.text];
+    [self.forthheaderView addSubview:howlongdata];
+    
+    /////////////////////////////////////////////////
+    
+    
+    UILabel* residentialStatusLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 13., 200., 20.)];
+    residentialStatusLabel.textColor = [UIColor blackColor];
+    [self setAppFontStyle:@"display-label-bold" forView:residentialStatusLabel];
+    residentialStatusLabel.backgroundColor = [UIColor clearColor];
+    
+    residentialStatusLabel.text = [NSString stringWithFormat:@"Residential Status:"];
+    [self.forthheaderView addSubview:residentialStatusLabel];
+    
+    UILabel* residentialStatusdata = [[UILabel alloc] initWithFrame:CGRectMake(790, 13., 200., 20.)];
+    residentialStatusdata.textColor = [UIColor blackColor];
+    [self setAppFontStyle:@"display-label" forView:residentialStatusdata];
+    
+    residentialStatusdata.backgroundColor = [UIColor clearColor];
+    residentialStatusdata.text = [NSString stringWithFormat:@"%@",self.previousPreviousResidentialStatus.titleLabel.text];
+    [self.forthheaderView addSubview:residentialStatusdata];
+    
+}
+
+- (void)editForthViewAction
+{
+    
+    
+}
 
 #pragma mark
 #pragma mark selectLanguageOfCorespondance
@@ -1640,6 +1900,7 @@
 #pragma mark
 #pragma mark select previous residential status
 /* TBD */
+
 - (IBAction)selectPreviousResidentialStatus:(id)sender
 {
     
@@ -1679,8 +1940,22 @@
     self.popoverController5.delegate = self;
     [self.popoverController5 setPopoverContentSize:CGSizeMake(320, 260) animated:NO];
     
-    CGRect frame = self.residentialStatusButton.frame;
-    frame.origin.y = frame.origin.y + 140;
+    CGRect frame;
+    
+    if (showThirdHeader) {
+    
+        frame = self.residentialStatusButton.frame;
+        frame.origin.y = frame.origin.y + 290;
+        
+    }
+    
+    if (showForthHeader) {
+        
+        frame = self.residentialStatusButton.frame;
+        frame.origin.y = frame.origin.y + 300;
+        
+    }
+    
     
     [self.popoverController5 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
     
@@ -1688,7 +1963,18 @@
 
 - (void)choosePreviosResidentialStatus{
     
-    [self.previousResidentialStatusButton setTitle:[NSString stringWithFormat:@"%@",[self.residentialStatusArray objectAtIndex:[self.residentialStatusPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+    if (showThirdHeader) {
+        
+        [self.previousResidentialStatusButton setTitle:[NSString stringWithFormat:@"%@",[self.residentialStatusArray objectAtIndex:[self.residentialStatusPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+        
+    }
+    
+    if (showForthHeader) {
+        
+        [self.previousPreviousResidentialStatus setTitle:[NSString stringWithFormat:@"%@",[self.residentialStatusArray objectAtIndex:[self.residentialStatusPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+        
+    }
+    
     [self.popoverController5 dismissPopoverAnimated:YES];
 }
 
@@ -1728,11 +2014,29 @@
     self.statesPicker.showsSelectionIndicator = YES;
     [popoverView addSubview:self.statesPicker];
     
+    CGRect frame;
+    
+    if (showThirdHeader) {
+    
+        frame = self.previousProvinceButton.frame;
+        frame.origin.y = frame.origin.y + 290;
+        
+    }
+    
+    if (showForthHeader) {
+        
+        frame = self.previousPreviousProvince.frame;
+        frame.origin.y = frame.origin.y + 330;
+        
+    }
+    
+    
+    
     popoverContent.view = popoverView;
     self.popoverController4 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController4.delegate = self;
     [self.popoverController4 setPopoverContentSize:CGSizeMake(320, 260) animated:NO];
-    [self.popoverController4 presentPopoverFromRect:CGRectMake(420.0, 340.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    [self.popoverController4 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
 
 }
@@ -1741,8 +2045,24 @@
 - (void)choosePreviousProvince
 {
     
-    //    NSLog(@"%@",[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]]);
-    [self.previousProvinceButton setTitle:[NSString stringWithFormat:@"%@",[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+    if (showThirdHeader) {
+        
+        [self.previousProvinceButton setTitle:[NSString stringWithFormat:@"%@",[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+        
+    }
+    
+    if(showForthHeader){
+        
+        [self.previousPreviousProvince setTitle:[NSString stringWithFormat:@"%@",[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+        
+    }
+    
+    if (!showForthHeader && !showThirdHeader) {
+    
+        [self.previousProvinceButton setTitle:[NSString stringWithFormat:@"%@",[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
+        
+    }
+
     [self.popoverController4 dismissPopoverAnimated:YES];
     
 }
@@ -2039,7 +2359,7 @@
     
     NSLog(@"display the other view");
     // Only height is taken into account, so other parameters are just dummy
-    self.forthheaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
+//    self.forthheaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.forthheaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
@@ -2133,17 +2453,56 @@
     
     [self.popoverController5 setPopoverContentSize:CGSizeMake(220, 214) animated:NO];
     
-    CGRect frame = self.previousProvinceButton.frame;
-    frame.origin.y = frame.origin.y + 140;
+    CGRect frame;
     
-    [self.popoverController5 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    if (showThirdHeader) {
+    
+        frame = self.timeLivedAtPreviousAddressButton.frame;
+        frame.origin.y = frame.origin.y + 290;
+//        frame.origin.x = frame.origin.x - 100;
+        
+        [self.popoverController5 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+        
+    }
+    
+    if (showForthHeader) {
+        
+        frame = self.previousPreviousYearsAndMonths.frame;
+        frame.origin.y = frame.origin.y + 300;
+        frame.origin.x = frame.origin.x - 100;
+        
+    }
+    
+    if (!showForthHeader && !showThirdHeader) {
+        
+        frame = self.timeLivedAtPreviousAddressButton.frame;
+        frame.origin.y = frame.origin.y + 290;
+        frame.origin.x = frame.origin.x - 100;
+    
+        [self.popoverController5 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+        
+    }
+    
+
     
 }
 
 - (void)choosePreviousTime
 {
     
-    [self.timeLivedAtPreviousAddressButton setTitle:[NSString stringWithFormat:@"%@ year(s) %@ month(s)",[self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]], [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:1]]] forState:UIControlStateNormal];
+    if (showThirdHeader) {
+        
+        [self.timeLivedAtPreviousAddressButton setTitle:[NSString stringWithFormat:@"%@ year(s) %@ month(s)",[self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]], [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:1]]] forState:UIControlStateNormal];
+        
+    }
+    
+    if (showForthHeader) {
+        
+        [self.previousPreviousYearsAndMonths setTitle:[NSString stringWithFormat:@"%@ year(s) %@ month(s)",[self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]], [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:1]]] forState:UIControlStateNormal];
+        
+    }
+    
+    
     [self.popoverController5 dismissPopoverAnimated:YES];
     
 }
