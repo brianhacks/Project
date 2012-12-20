@@ -29,6 +29,7 @@
 #define maxIdleTime 60.0//126
 #define popupIdleTime 30.0//60
 #define loginIdleTime 30.0
+#define debugTime 10000.0
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -70,19 +71,7 @@
     
     
     //IDLE TIMER SETUP
-    if (self.navController.visibleViewController != self.firstScreenSaverViewController) {
-        NSLog(@"dont set a timer");
-        
-      //  self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
-    }else if (self.navController.visibleViewController != self.gCPINViewController) {
-          NSLog(@"regular Idle Timer initialized");
-         
-         self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
-     }else{
-         NSLog(@"Login Idle Timer initialized");
-         
-         self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:loginIdleTime target:self selector:@selector(loginIdleTimerExceeded) userInfo:nil repeats:NO];
-     }
+    
     
     //for debug mode only
     self.window.rootViewController = self.navController;
@@ -133,10 +122,12 @@
     
     [self.navController setNavigationBarHidden:YES animated:NO];
     
+    
+    
 }
 
 - (void)popToRoot{
-    NSLog(@"POP TO ROOT");
+//    NSLog(@"POP TO ROOT");
     self.window.rootViewController = self.firstScreenSaverViewController;
     [self.navController popToRootViewControllerAnimated:YES];
     self.clearUserDataFromTheApp = NO;
@@ -178,38 +169,10 @@
  
  */
 
-- (void)idleTimerExceeded{
-    NSLog(@"idle timer exceeded");
-    if (self.navController.visibleViewController == self.appProcessViewController) {
-        
-        [self.idleTimer invalidate];
-        [self popToRoot];
-        self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
-        
-    }else{
-        self.popupIdleTimer = [NSTimer scheduledTimerWithTimeInterval:popupIdleTime target:self selector:@selector(popupIdleTimerExceeded) userInfo:nil repeats:NO];
-        
-        
-        self.sessionTimeoutAlert= [[UIAlertView alloc] initWithTitle:@"IDLE" message:@"Your session has timed out." delegate:self cancelButtonTitle:@"START OVER" otherButtonTitles:@"WAKE UP", nil];
-        [self.sessionTimeoutAlert show];
-    }
-    
-}
--(void)loginIdleTimerExceeded{
-    NSLog(@"LOGIN idle timer exceeded");
-    //turn on screen savers
-    [self.navController popToViewController:self.firstScreenSaverViewController animated:true];
-}
 
--(void)popupIdleTimerExceeded{
-    NSLog(@"POPUP idle timer exceeded");
-    
-    [ self.sessionTimeoutAlert dismissWithClickedButtonIndex:0 animated:YES];
-      [self cleanupFromTimer];
-}
 
 -(void)cleanupFromTimer{
-     NSLog(@"CLEANUP FROM TIMER");
+//     NSLog(@"CLEANUP FROM TIMER");
     self.clearUserDataFromTheApp = YES;
     
     //reset fetch entity
@@ -236,39 +199,25 @@
     [context save:&saveError];
     
     
-    [self.idleTimer invalidate];
-    self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
-    
     [self initViewsAndNavController];
     
     [self popToRoot];
 }
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-     NSLog(@"DISMISS POPUP WHEN USER HITS OK");
-   
-    
-    //THIS IS CATCHING EVERY ALERT, WE CANT DO IT THIS WAY
-    
-    if ([alertView.title isEqualToString:@"IDLE"] && buttonIndex==0) {
-        
-        [self cleanupFromTimer];
-        
-    }
+- (void)resetIdleTimer
+{
     
     
     
+    [self.popupIdleTimer invalidate];
+    self.popupIdleTimer = nil;
+    self.popupIdleTimer = [NSTimer scheduledTimerWithTimeInterval:debugTime target:self selector:@selector(showAlert) userInfo:nil repeats:NO];
     
+    [self.idleTimer invalidate];
+    self.idleTimer = nil;
+    self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:debugTime target:self selector:@selector(showScreenSaver) userInfo:nil repeats:NO];
 }
 
--(void)resetIdleTimer{
-     NSLog(@"RESET TIMER");
-    [self.idleTimer invalidate];
-    self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO];
-    
-    
-    
-}
 
 - (void)singleTapGestureCaptured:(UITapGestureRecognizer *)gesture
 {
@@ -467,12 +416,84 @@
     
 }
 
+- (void)showScreenSaver
+{
+    if (self.window.rootViewController == self.firstScreenSaverViewController) {
+    
+        [self.idleAlert dismissWithClickedButtonIndex:3 animated:NO];
+        
+    }else{
+    
+        [self.idleAlert dismissWithClickedButtonIndex:3 animated:NO];
+        
+        [self.firstScreenSaverViewController restartEverythingAfterIdleTime];
+        self.window.rootViewController = self.firstScreenSaverViewController;
+        
+    }
+    
+    
+    
+}
+
 - (void)stopScreenSaverAndAddRootView
 {
+    
+    self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:debugTime target:self selector:@selector(showScreenSaver) userInfo:nil repeats:NO];
+    
+    [self initViewsAndNavController];
+    
     self.window.rootViewController = self.gCPINViewController;
     
 }
 
+- (void)showAlert
+{
+    
+    if (self.window.rootViewController != self.firstScreenSaverViewController) {
+        
+//        self.idleTimer = nil;
+//        self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:debugTime target:self selector:@selector(showScreenSaver) userInfo:nil repeats:NO];
+        
+        self.idleAlert = [[UIAlertView alloc] initWithTitle:@"Idle" message:@"some message" delegate:self cancelButtonTitle:@"Start Over" otherButtonTitles:@"Wake up", nil];
+        [self.idleAlert show];
+        
+    }
+    
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+
+    if ([alertView.title isEqualToString:@"Idle"]){
+        
+        if(buttonIndex==0) {
+            
+            [self initViewsAndNavController];
+            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+            
+            [self.popupIdleTimer invalidate];
+            self.popupIdleTimer = nil;
+            self.popupIdleTimer = [NSTimer scheduledTimerWithTimeInterval:debugTime target:self selector:@selector(showAlert) userInfo:nil repeats:NO];
+            
+            
+        }else{
+            
+            [self.popupIdleTimer invalidate];
+            self.popupIdleTimer = nil;
+            self.popupIdleTimer = [NSTimer scheduledTimerWithTimeInterval:debugTime target:self selector:@selector(showAlert) userInfo:nil repeats:NO];
+            
+            [self.idleTimer invalidate];
+            self.idleTimer = nil;
+            
+            if (idleTimer.isValid) {
+                [self.idleTimer invalidate];
+            }
+            
+            self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:debugTime target:self selector:@selector(showScreenSaver) userInfo:nil repeats:NO];
+        }
+    }
+    
+}
 
 - (void)backOneView
 {
@@ -482,8 +503,9 @@
 
 - (void)setNewRootView:(UIViewController *)controller
 {
+    
+    
     [self.navController pushViewController:controller animated:YES];
-    //    [self.window.rootViewController.navigationController pushViewController:controller animated:YES];
     
 }
 
@@ -497,11 +519,17 @@
     else
     {
         
-        //        self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-        //        [self.navController setNavigationBarHidden:YES animated:YES];
-        //        self.window.rootViewController = self.navController;
-        
         self.window.rootViewController = self.navController;
+//        [self.idleTimer invalidate];
+        
+        if (self.navController.topViewController != self.firstScreenSaverViewController) {
+            
+            [self.idleTimer invalidate];
+            [self.popupIdleTimer invalidate];
+            self.popupIdleTimer = nil;
+            self.popupIdleTimer = [NSTimer scheduledTimerWithTimeInterval:debugTime target:self selector:@selector(showAlert) userInfo:nil repeats:NO];
+            
+        }
         
     }
     
