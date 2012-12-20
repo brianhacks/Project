@@ -38,6 +38,13 @@
 @property (nonatomic, retain) NSString * previousPostalCode;
 @property (nonatomic, retain) NSDate * previousAddressYearsAndMonths;
 
+@property (nonatomic, retain) NSString * previousPreviousPostaCode;
+@property (nonatomic, retain) NSString * previousPreviousAddress;
+@property (nonatomic, retain) NSString * previousPreviousCity;
+@property (nonatomic, retain) NSString * previousPreviousProvince;
+@property (nonatomic, retain) NSDate * previousPreviousAddressYearsAndMonths;
+
+
 @property (nonatomic, retain) NSDate * addressYearsAndMonths;
 
 

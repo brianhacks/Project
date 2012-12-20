@@ -98,11 +98,21 @@
 
 @property (readwrite, nonatomic) BOOL firstViewClosed;
 @property (strong, nonatomic) IBOutlet UIButton *closePreviousAddressView;
-
 @property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
 
-- (IBAction)selectPreviousResidentialStatus:(id)sender;
 
+
+@property (strong, nonatomic) IBOutlet UITextField *previousPreviousStreet;
+@property (strong, nonatomic) IBOutlet UITextField *previousPreviousPostalCode;
+@property (strong, nonatomic) IBOutlet UITextField *previousPreviousCity;
+@property (strong, nonatomic) IBOutlet UIButton *previousPreviousProvince;
+@property (strong, nonatomic) IBOutlet UIButton *previousPreviousYearsAndMonths;
+@property (strong, nonatomic) IBOutlet UIButton *previousPreviousResidentialStatus;
+
+
+
+- (IBAction)closePreviousPreviousAddress:(id)sender;
+- (IBAction)selectPreviousResidentialStatus:(id)sender;
 - (IBAction)selectPreviousProvince:(id)sender;
 - (IBAction)selectProvince:(id)sender;
 - (IBAction)selectLanguageOfCorespondance:(id)sender;
