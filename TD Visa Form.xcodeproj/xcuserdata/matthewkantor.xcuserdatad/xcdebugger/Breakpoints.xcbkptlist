@@ -26,7 +26,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "434"
          endingLineNumber = "434"
-         landmarkName = "-closeGeneralInfoView:"
+         landmarkName = "-previousStep:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -39,7 +39,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "607"
          endingLineNumber = "607"
-         landmarkName = "-changeFirstHeaderHeightAndAddInfo"
+         landmarkName = "-closeGenderPopoverGender"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -468,7 +468,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "395"
          endingLineNumber = "395"
-         landmarkName = "-chooseTitle"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -546,7 +546,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "143"
          endingLineNumber = "143"
-         landmarkName = "-viewDidLoad"
+         landmarkName = "-textField:shouldChangeCharactersInRange:replacementString:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -559,7 +559,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "732"
          endingLineNumber = "732"
-         landmarkName = "-closeAddressView:"
+         landmarkName = "-closeGeneralInfoView:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -572,7 +572,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "162"
          endingLineNumber = "162"
-         landmarkName = "-viewDidLoad"
+         landmarkName = "-textField:shouldChangeCharactersInRange:replacementString:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

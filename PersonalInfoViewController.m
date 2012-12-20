@@ -1347,7 +1347,9 @@
                 [self displayForthHeader];
             }else{
                 self.nextStepButton.enabled = YES;
-                [self hideForthHeader];
+                
+                [self hideForthHeader ];
+                
             }
             
             
@@ -1547,6 +1549,11 @@
 -(void)hideThirdHeader{
     if(self.thirdHeaderView)
         [self.thirdHeaderView removeFromSuperview];
+}
+
+-(void)hideForthHeader{
+    if(self.forthheaderView)
+        [self.forthheaderView removeFromSuperview];
 }
 
 - (void)displayThirdHeader{
@@ -2029,8 +2036,8 @@
 }
 
 
-- (void)displayForthHeader
-{
+- (void)displayForthHeader{
+    
     self.forthheaderView.hidden = NO;
     self.formalFormalHomeAddress.hidden = NO;
     
