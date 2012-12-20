@@ -53,6 +53,19 @@
     
 }
 
+- (void)restartEverythingAfterIdleTime
+{
+//    self.firstScreenShown = YES;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:YES];
+    self.view.frame = CGRectMake(0.0, 0.0, 1024.0, 768.0);
+    
+    [self.switchViews invalidate];
+    self.switchViews = nil;
+    
+    self.switchViews = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(turnUp:) userInfo:nil repeats:YES];
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -61,8 +74,6 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
-    NSLog(@"touches began, hide screen saver");
     
     [self.switchViews invalidate];
     

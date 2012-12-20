@@ -11,6 +11,8 @@
 @interface FirstScreenSaverViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIView *firstView;
 @property (strong, nonatomic) IBOutlet UIView *secondView;
+
 - (IBAction)turnUp:(id)sender;
+- (void)restartEverythingAfterIdleTime;
 
 @end
