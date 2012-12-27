@@ -344,7 +344,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
     
 
     
@@ -673,7 +673,7 @@
     self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
-    UILabel* thirdHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 300., 40.)];
+    UILabel* thirdHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 400., 40.)];
     thirdHeaderTitel.backgroundColor = [UIColor clearColor];
     thirdHeaderTitel.textColor = [UIColor whiteColor];
     thirdHeaderTitel.text = @"Income and Credit Limit Details";
@@ -762,8 +762,6 @@
 
 -(void)anyMethod:(NSNotification*)sender{
     
-    
-    NSLog(@"%@",sender.object);
     
     if ([sender.object isEqual:self.employerAreaCode]) {
         
@@ -1285,7 +1283,7 @@
     employerStreetAddressLabel.numberOfLines = 0;
     
     employerStreetAddressLabel.backgroundColor = [UIColor clearColor];
-    employerStreetAddressLabel.text = [NSString stringWithFormat:@"%@ %@ %@",self.employerStreetAddress.text, self.employerCityTextField.text, self.provinceButton];
+    employerStreetAddressLabel.text = [NSString stringWithFormat:@"%@ %@ %@",self.employerStreetAddress.text, self.employerCityTextField.text, self.provinceButton.titleLabel.text];
     [self.secondHeaderView addSubview:employerStreetAddressLabel];
     
     

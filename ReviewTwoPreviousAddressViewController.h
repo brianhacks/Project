@@ -1,8 +1,8 @@
 //
-//  ReviewAndSubmitViewController.h
+//  ReviewTwoPreviousAddressViewController.h
 //  TD Visa Form
 //
-//  Created by Adrian Somesan on 12/9/12.
+//  Created by Adrian Somesan on 12/27/12.
 //  Copyright (c) 2012 Adrian Somesan. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 #import "MainViewController.h"
 #import "SelectThisCardViewController.h"
 
-@interface ReviewAndSubmitViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, SelectThisCardViewControllerDelegate>
+@interface ReviewTwoPreviousAddressViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, SelectThisCardViewControllerDelegate>
 
 
 @property (strong, nonatomic) User* userInfo;
@@ -120,3 +120,4 @@
 - (IBAction)startOver:(id)sender;
 
 @end
+

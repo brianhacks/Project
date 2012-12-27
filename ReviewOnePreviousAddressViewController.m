@@ -6,16 +6,16 @@
 //  Copyright (c) 2012 Adrian Somesan. All rights reserved.
 //
 
-#import "ReviewAndSubmitViewController.h"
+#import "ReviewOnePreviousAddressViewController.h"
 #import "AppDelegate.h"
 #import "User.h"
 #import "FinalAcceptViewController.h"
 
-@interface ReviewAndSubmitViewController ()
+@interface ReviewOnePreviousAddressViewController ()
 @property (nonatomic, strong) FinalAcceptViewController * finalAcceptViewController;
 @end
 
-@implementation ReviewAndSubmitViewController
+@implementation ReviewOnePreviousAddressViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -99,10 +99,10 @@
     
     NSError* error = nil;
     NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
-
+    
     
     if (![fetchedResult count] == 0) {
-    
+        
         self.userInfo = [fetchedResult objectAtIndex:0];
         
     }
@@ -110,20 +110,6 @@
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-//    if (appDelegate.userHasPreviousAddres) {
-//        
-//        [self makeAccordionForUserWithOnePreviousAddress];
-//        
-//    }else if(appDelegate.userHasPreviousPreviousAddress){
-//        
-//        [self makeAccordionForUserWithTwoPreviousAddress];
-//        
-//    }else{
-//        
-//        [self makeAccordionForUserWithNoPreviousAddress];
-//        
-//    }
     
     [self makeAccordionForUserWithOnePreviousAddress];
     
@@ -162,7 +148,7 @@
     
     self.secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.secondView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    UILabel* secondHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* secondHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 300., 40.)];
     secondHeaderTitel.backgroundColor = [UIColor clearColor];
     secondHeaderTitel.textColor = [UIColor whiteColor];
     secondHeaderTitel.text = @"Current Home Address";
@@ -192,7 +178,7 @@
     self.firstHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
-    UILabel* thirdHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* thirdHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 300., 40.)];
     thirdHeaderTitel.backgroundColor = [UIColor clearColor];
     thirdHeaderTitel.textColor = [UIColor whiteColor];
     thirdHeaderTitel.text = @"Your Financial Details";
@@ -240,305 +226,7 @@
 }
 
 #pragma mark
-#pragma mark makeAccordionForUserWithTwoPreviousAddress
-
-- (void)makeAccordionForUserWithTwoPreviousAddress
-{
-    
-    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
-    self.view.backgroundColor = background;
-    
-    //self.accordionViewScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.,0., 1004., 680.)];
-    self.accordionViewScrollView.contentSize = CGSizeMake(1, 800.);
-    self.accordionViewScrollView.backgroundColor = [UIColor whiteColor];
-    
-    // [self.view addSubview:self.accordionViewScrollView];
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0, 0, 988, 900)];
-    [self.accordionViewScrollView addSubview:self.accordion];
-    
-    // Only height is taken into account, so other parameters are just dummy
-    self.firstVIew = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.firstVIew.backgroundColor = background;
-    
-    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
-    firstHeaderTitel.backgroundColor = [UIColor clearColor];
-    firstHeaderTitel.textColor = [UIColor whiteColor];
-    firstHeaderTitel.text = @"General Info";
-    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
-    [self drawTopLineForSubView:self.firstVIew];
-    [self.firstVIew addSubview:firstHeaderTitel];
-    [self.accordion addHeader:self.firstVIew withView:self.firstView1];
-    
-    self.secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.secondView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    UILabel* secondHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
-    secondHeaderTitel.backgroundColor = [UIColor clearColor];
-    secondHeaderTitel.textColor = [UIColor whiteColor];
-    secondHeaderTitel.text = @"Current Home Address";
-    [self setAppFontStyle:@"accordion-header" forView:secondHeaderTitel];
-    [self drawTopLineForSubView:self.secondView];
-    [self.secondView addSubview:secondHeaderTitel];
-    [self.accordion addHeader:self.secondView withView:self.secondView1];
-    
-    
-    // Only height is taken into account, so other parameters are just dummy
-    self.formalHomeAddressView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.formalHomeAddressView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    
-    UILabel* firstHeaderTitel2 = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
-    firstHeaderTitel2.backgroundColor = [UIColor clearColor];
-    firstHeaderTitel2.textColor = [UIColor whiteColor];
-    firstHeaderTitel2.text = @"Previous Home Address";
-    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel2];
-    [self drawTopLineForSubView:self.formalHomeAddressView];
-    [self.formalHomeAddressView addSubview:firstHeaderTitel2];
-    
-    [self.accordion addHeader:self.formalHomeAddressView withView:self.formalHomeAddress];
-    
-    // Only height is taken into account, so other parameters are just dummy
-    self.formalFormalHomeAddressView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.formalFormalHomeAddressView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    
-    UILabel* firstHeaderTitel3 = [[UILabel alloc] initWithFrame:CGRectMake(15., 9., 300., 50.)];
-    firstHeaderTitel3.backgroundColor = [UIColor clearColor];
-    firstHeaderTitel3.textColor = [UIColor whiteColor];
-    firstHeaderTitel3.text = @"Previous previous Home Address";
-    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel3];
-    [self drawTopLineForSubView:self.formalFormalHomeAddressView];
-    [self.formalFormalHomeAddressView addSubview:firstHeaderTitel3];
-    
-    [self.accordion addHeader:self.formalFormalHomeAddressView withView:self.formalFormalHomeAddress];
-    
-    
-    self.firstHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    
-    UILabel* thirdHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
-    thirdHeaderTitel.backgroundColor = [UIColor clearColor];
-    thirdHeaderTitel.textColor = [UIColor whiteColor];
-    thirdHeaderTitel.text = @"Your Financial Details";
-    [self setAppFontStyle:@"accordion-header" forView:thirdHeaderTitel];
-    [self drawTopLineForSubView:self.firstHeaderView];
-    [self.firstHeaderView addSubview:thirdHeaderTitel];
-    
-    [self.accordion addHeader:self.firstHeaderView withView:self.financialDetails];
-    
-    self.secondHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    
-    UILabel* forthHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
-    forthHeaderTitel.backgroundColor = [UIColor clearColor];
-    forthHeaderTitel.textColor = [UIColor whiteColor];
-    forthHeaderTitel.text = @"Employer's Details";
-    [self setAppFontStyle:@"accordion-header" forView:forthHeaderTitel];
-    [self drawTopLineForSubView:self.secondHeaderView];
-    [self.secondHeaderView addSubview:forthHeaderTitel];
-    
-    [self.accordion addHeader:self.secondHeaderView withView:self.employerDetails];
-    
-    self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    
-    UILabel* fifthHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 300., 40.)];
-    fifthHeaderTitel.backgroundColor = [UIColor clearColor];
-    fifthHeaderTitel.textColor = [UIColor whiteColor];
-    fifthHeaderTitel.text = @"Income & Credit Limit Details";
-    [self setAppFontStyle:@"accordion-header" forView:fifthHeaderTitel];
-    [self drawTopLineForSubView:self.thirdHeaderView];
-    [self.thirdHeaderView addSubview:fifthHeaderTitel];
-    
-    [self.accordion addHeader:self.thirdHeaderView withView:self.incomeAndCreditLimts];
-    
-    [self.accordion setSelectedIndex:10];
-    [self changeFirstHeaderHeightAndAddInfo];
-    [self changeSecondHeaderHeightAndAddInfo];
-    [self changeThirdHeaderHeightAndAddInfo];
-    [self changeFormalAddressHeaderHeightAndAddInfo];
-    [self changeFormalFormalHeaderHeightAndAddInfo];
-    [self changeForthHeaderHeightAndAddInfo];
-    [self changeFifthHeaderHeightAndAddInfo];
-    
-}
-
-
-#pragma mark
-#pragma mark makeAccordionForUserWithNoPreviousAddress
-
-- (void)makeAccordionForUserWithNoPreviousAddress
-{
-    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
-    self.view.backgroundColor = background;
-    
-    //self.accordionViewScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.,0., 1004., 680.)];
-    self.accordionViewScrollView.contentSize = CGSizeMake(1, 750.);
-    self.accordionViewScrollView.backgroundColor = [UIColor whiteColor];
-    
-    // [self.view addSubview:self.accordionViewScrollView];
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0, 0, 988, 900)];
-    [self.accordionViewScrollView addSubview:self.accordion];
-    
-    // Only height is taken into account, so other parameters are just dummy
-    self.firstVIew = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.firstVIew.backgroundColor = background;
-    
-    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
-    firstHeaderTitel.backgroundColor = [UIColor clearColor];
-    firstHeaderTitel.textColor = [UIColor whiteColor];
-    firstHeaderTitel.text = @"General Info";
-    [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
-    [self drawTopLineForSubView:self.firstVIew];
-    [self.firstVIew addSubview:firstHeaderTitel];
-    [self.accordion addHeader:self.firstVIew withView:self.firstView1];
-    
-    self.secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.secondView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    UILabel* secondHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
-    secondHeaderTitel.backgroundColor = [UIColor clearColor];
-    secondHeaderTitel.textColor = [UIColor whiteColor];
-    secondHeaderTitel.text = @"Current Home Address";
-    [self setAppFontStyle:@"accordion-header" forView:secondHeaderTitel];
-    [self drawTopLineForSubView:self.secondView];
-    [self.secondView addSubview:secondHeaderTitel];
-    [self.accordion addHeader:self.secondView withView:self.secondView1];
-    
-    self.firstHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    
-    UILabel* thirdHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
-    thirdHeaderTitel.backgroundColor = [UIColor clearColor];
-    thirdHeaderTitel.textColor = [UIColor whiteColor];
-    thirdHeaderTitel.text = @"Your Financial Details";
-    [self setAppFontStyle:@"accordion-header" forView:thirdHeaderTitel];
-    [self drawTopLineForSubView:self.firstHeaderView];
-    [self.firstHeaderView addSubview:thirdHeaderTitel];
-    
-    [self.accordion addHeader:self.firstHeaderView withView:self.financialDetails];
-    
-    self.secondHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    
-    UILabel* forthHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
-    forthHeaderTitel.backgroundColor = [UIColor clearColor];
-    forthHeaderTitel.textColor = [UIColor whiteColor];
-    forthHeaderTitel.text = @"Employer's Details";
-    [self setAppFontStyle:@"accordion-header" forView:forthHeaderTitel];
-    [self drawTopLineForSubView:self.secondHeaderView];
-    [self.secondHeaderView addSubview:forthHeaderTitel];
-    
-    [self.accordion addHeader:self.secondHeaderView withView:self.employerDetails];
-    
-    self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-    
-    UILabel* fifthHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 300., 40.)];
-    fifthHeaderTitel.backgroundColor = [UIColor clearColor];
-    fifthHeaderTitel.textColor = [UIColor whiteColor];
-    fifthHeaderTitel.text = @"Income & Credit Limit Details";
-    [self setAppFontStyle:@"accordion-header" forView:fifthHeaderTitel];
-    [self drawTopLineForSubView:self.thirdHeaderView];
-    [self.thirdHeaderView addSubview:fifthHeaderTitel];
-    
-    [self.accordion addHeader:self.thirdHeaderView withView:self.incomeAndCreditLimts];
-    
-    [self.accordion setSelectedIndex:10];
-    [self changeFirstHeaderHeightAndAddInfo];
-    [self changeSecondHeaderHeightAndAddInfo];
-    [self changeThirdHeaderHeightAndAddInfo];
-    [self changeForthHeaderHeightAndAddInfo];
-    [self changeFifthHeaderHeightAndAddInfo];
-    
-    
-}
-
-- (void)changeFormalFormalHeaderHeightAndAddInfo
-{
-    
-    self.formalFormalHomeAddressView.frame = CGRectMake(self.formalFormalHomeAddressView.frame.origin.x, self.formalFormalHomeAddressView.frame.origin.y, self.formalFormalHomeAddressView.frame.size.width, self.formalFormalHomeAddressView.frame.size.height + 90);
-    self.formalFormalHomeAddressView.backgroundColor = [UIColor whiteColor];
-    
-    for (UILabel *tmpLabel in [self.formalFormalHomeAddressView subviews]) {
-        
-        if ([tmpLabel isKindOfClass:[UILabel class]]) {
-            tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
-        }
-        
-        
-    }
-    
-    [self drawTopLineForSubView:self.formalFormalHomeAddressView];
-    
-    self.editSecondView = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.editSecondView.frame = CGRectMake(910., 5., 81., 42.);
-    [self.editSecondView setTitle:@"Edit" forState:UIControlStateNormal];
-    [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateNormal];
-    [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit-hover.png"] forState:UIControlStateHighlighted];
-    [self.editSecondView addTarget:self action:@selector(editForthViewAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.formalFormalHomeAddressView addSubview:self.editSecondView];
-    
-//    UILabel* address = [[UILabel alloc] initWithFrame:CGRectMake(290., 20., 200., 20.)];
-//    address.textColor = [UIColor blackColor];
-//    address.backgroundColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label" forView:address];
-//    address.numberOfLines = 0;
-//    address.backgroundColor = [UIColor clearColor];
-//    address.text = [NSString stringWithFormat:@"%@",self.previousPreviousStreet.text];
-//    [self.formalFormalHomeAddressView addSubview:address];
-//    
-//    UILabel* address2 = [[UILabel alloc] initWithFrame:CGRectMake(290., 40., 200., 20.)];
-//    address2.textColor = [UIColor blackColor];
-//    address2.backgroundColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label" forView:address2];
-//    address2.numberOfLines = 0;
-//    address2.backgroundColor = [UIColor clearColor];
-//    address2.text = [NSString stringWithFormat:@"%@ %@",self.previousPreviousCity.text, self.previousPreviousProvince.titleLabel.text];
-//    [self.formalFormalHomeAddressView addSubview:address2];
-//    
-//    
-//    UILabel* address3 = [[UILabel alloc] initWithFrame:CGRectMake(290., 60., 200., 20.)];
-//    address3.textColor = [UIColor blackColor];
-//    address3.backgroundColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label" forView:address3];
-//    address3.numberOfLines = 0;
-//    address3.backgroundColor = [UIColor clearColor];
-//    address3.text = [NSString stringWithFormat:@"%@",self.previousPreviousPostalCode.text];
-//    [self.formalFormalHomeAddressView addSubview:address3];
-//    
-//    UILabel* howlong = [[UILabel alloc] initWithFrame:CGRectMake(290, 90, 300., 20.)];
-//    howlong.textColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label-bold" forView:howlong];
-//    howlong.backgroundColor = [UIColor clearColor];
-//    howlong.numberOfLines = 0;
-//    howlong.text = [NSString stringWithFormat:@"How Long have you been living here?"];
-//    [self.formalFormalHomeAddressView addSubview:howlong];
-//    
-//    UILabel* howlongdata = [[UILabel alloc] initWithFrame:CGRectMake(290., 110, 200., 20.)];
-//    howlongdata.textColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label" forView:howlongdata];
-//    howlongdata.backgroundColor = [UIColor clearColor];
-//    howlongdata.numberOfLines = 0;
-//    howlongdata.text = [NSString stringWithFormat:@"%@",self.previousPreviousYearsAndMonths.titleLabel.text];
-//    [self.formalFormalHomeAddressView addSubview:howlongdata];
-//    
-//    /////////////////////////////////////////////////
-//    
-//    
-//    UILabel* residentialStatusLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 13., 200., 20.)];
-//    residentialStatusLabel.textColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label-bold" forView:residentialStatusLabel];
-//    residentialStatusLabel.backgroundColor = [UIColor clearColor];
-//    
-//    residentialStatusLabel.text = [NSString stringWithFormat:@"Residential Status:"];
-//    [self.formalFormalHomeAddressView addSubview:residentialStatusLabel];
-//    
-//    UILabel* residentialStatusdata = [[UILabel alloc] initWithFrame:CGRectMake(790, 13., 200., 20.)];
-//    residentialStatusdata.textColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label" forView:residentialStatusdata];
-//    
-//    residentialStatusdata.backgroundColor = [UIColor clearColor];
-//    residentialStatusdata.text = [NSString stringWithFormat:@"%@",self.previousPreviousResidentialStatus.titleLabel.text];
-//    [self.formalFormalHomeAddressView addSubview:residentialStatusdata];
-    
-}
+#pragma mark changeFormalAddressHeaderHeightAndAddInfo
 
 - (void)changeFormalAddressHeaderHeightAndAddInfo
 {
@@ -559,72 +247,73 @@
     self.editSecondView.frame = CGRectMake(910., 5., 81., 42.);
     [self.editSecondView setTitle:@"Edit" forState:UIControlStateNormal];
     [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateNormal];
+    [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateDisabled];
     [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit-hover.png"] forState:UIControlStateHighlighted];
-    [self.editSecondView addTarget:self action:@selector(editThirdViewAction) forControlEvents:UIControlEventTouchUpInside];
-//    [self.formalHomeAddressView addSubview:self.editSecondView];
+    [self.editSecondView addTarget:self action:@selector(editFormalAddressViewAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.formalHomeAddressView addSubview:self.editSecondView];
     
-//    UILabel* address = [[UILabel alloc] initWithFrame:CGRectMake(290., 20., 200., 20.)];
-//    address.textColor = [UIColor blackColor];
-//    address.backgroundColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label" forView:address];
-//    address.numberOfLines = 0;
-//    address.backgroundColor = [UIColor clearColor];
-//    address.text = [NSString stringWithFormat:@"%@",self.previousAddress.text];
-//    [self.thirdHeaderView addSubview:address];
-//    
-//    UILabel* address2 = [[UILabel alloc] initWithFrame:CGRectMake(290., 40., 200., 20.)];
-//    address2.textColor = [UIColor blackColor];
-//    address2.backgroundColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label" forView:address2];
-//    address2.numberOfLines = 0;
-//    address2.backgroundColor = [UIColor clearColor];
-//    address2.text = [NSString stringWithFormat:@"%@ %@",self.previousCity.text, self.previousProvinceButton.titleLabel.text];
-//    [self.thirdHeaderView addSubview:address2];
-//    
-//    
-//    UILabel* address3 = [[UILabel alloc] initWithFrame:CGRectMake(290., 60., 200., 20.)];
-//    address3.textColor = [UIColor blackColor];
-//    address3.backgroundColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label" forView:address3];
-//    address3.numberOfLines = 0;
-//    address3.backgroundColor = [UIColor clearColor];
-//    address3.text = [NSString stringWithFormat:@"%@",self.previousPostalCode.text];
-//    [self.thirdHeaderView addSubview:address3];
-//    
-//    UILabel* howlong = [[UILabel alloc] initWithFrame:CGRectMake(290, 90, 300., 20.)];
-//    howlong.textColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label-bold" forView:howlong];
-//    howlong.backgroundColor = [UIColor clearColor];
-//    howlong.numberOfLines = 0;
-//    howlong.text = [NSString stringWithFormat:@"How Long have you been living here?"];
-//    [self.thirdHeaderView addSubview:howlong];
-//    
-//    UILabel* howlongdata = [[UILabel alloc] initWithFrame:CGRectMake(290., 110, 200., 20.)];
-//    howlongdata.textColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label" forView:howlongdata];
-//    howlongdata.backgroundColor = [UIColor clearColor];
-//    howlongdata.numberOfLines = 0;
-//    howlongdata.text = [NSString stringWithFormat:@"%@",self.timeLivedAtPreviousAddressButton.titleLabel.text];
-//    [self.thirdHeaderView addSubview:howlongdata];
-//    
-//    /////////////////////////////////////////////////
-//    
-//    
-//    UILabel* residentialStatusLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 13., 200., 20.)];
-//    residentialStatusLabel.textColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label-bold" forView:residentialStatusLabel];
-//    residentialStatusLabel.backgroundColor = [UIColor clearColor];
-//    
-//    residentialStatusLabel.text = [NSString stringWithFormat:@"Residential Status:"];
-//    [self.thirdHeaderView addSubview:residentialStatusLabel];
-//    
-//    UILabel* residentialStatusdata = [[UILabel alloc] initWithFrame:CGRectMake(790, 13., 200., 20.)];
-//    residentialStatusdata.textColor = [UIColor blackColor];
-//    [self setAppFontStyle:@"display-label" forView:residentialStatusdata];
-//    
-//    residentialStatusdata.backgroundColor = [UIColor clearColor];
-//    residentialStatusdata.text = [NSString stringWithFormat:@"%@",self.previousResidentialStatusButton.titleLabel.text];
-//    [self.thirdHeaderView addSubview:residentialStatusdata];
+    //    UILabel* address = [[UILabel alloc] initWithFrame:CGRectMake(290., 20., 200., 20.)];
+    //    address.textColor = [UIColor blackColor];
+    //    address.backgroundColor = [UIColor blackColor];
+    //    [self setAppFontStyle:@"display-label" forView:address];
+    //    address.numberOfLines = 0;
+    //    address.backgroundColor = [UIColor clearColor];
+    //    address.text = [NSString stringWithFormat:@"%@",self.previousAddress.text];
+    //    [self.thirdHeaderView addSubview:address];
+    //
+    //    UILabel* address2 = [[UILabel alloc] initWithFrame:CGRectMake(290., 40., 200., 20.)];
+    //    address2.textColor = [UIColor blackColor];
+    //    address2.backgroundColor = [UIColor blackColor];
+    //    [self setAppFontStyle:@"display-label" forView:address2];
+    //    address2.numberOfLines = 0;
+    //    address2.backgroundColor = [UIColor clearColor];
+    //    address2.text = [NSString stringWithFormat:@"%@ %@",self.previousCity.text, self.previousProvinceButton.titleLabel.text];
+    //    [self.thirdHeaderView addSubview:address2];
+    //
+    //
+    //    UILabel* address3 = [[UILabel alloc] initWithFrame:CGRectMake(290., 60., 200., 20.)];
+    //    address3.textColor = [UIColor blackColor];
+    //    address3.backgroundColor = [UIColor blackColor];
+    //    [self setAppFontStyle:@"display-label" forView:address3];
+    //    address3.numberOfLines = 0;
+    //    address3.backgroundColor = [UIColor clearColor];
+    //    address3.text = [NSString stringWithFormat:@"%@",self.previousPostalCode.text];
+    //    [self.thirdHeaderView addSubview:address3];
+    //
+    //    UILabel* howlong = [[UILabel alloc] initWithFrame:CGRectMake(290, 90, 300., 20.)];
+    //    howlong.textColor = [UIColor blackColor];
+    //    [self setAppFontStyle:@"display-label-bold" forView:howlong];
+    //    howlong.backgroundColor = [UIColor clearColor];
+    //    howlong.numberOfLines = 0;
+    //    howlong.text = [NSString stringWithFormat:@"How Long have you been living here?"];
+    //    [self.thirdHeaderView addSubview:howlong];
+    //
+    //    UILabel* howlongdata = [[UILabel alloc] initWithFrame:CGRectMake(290., 110, 200., 20.)];
+    //    howlongdata.textColor = [UIColor blackColor];
+    //    [self setAppFontStyle:@"display-label" forView:howlongdata];
+    //    howlongdata.backgroundColor = [UIColor clearColor];
+    //    howlongdata.numberOfLines = 0;
+    //    howlongdata.text = [NSString stringWithFormat:@"%@",self.timeLivedAtPreviousAddressButton.titleLabel.text];
+    //    [self.thirdHeaderView addSubview:howlongdata];
+    //
+    //    /////////////////////////////////////////////////
+    //
+    //
+    //    UILabel* residentialStatusLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 13., 200., 20.)];
+    //    residentialStatusLabel.textColor = [UIColor blackColor];
+    //    [self setAppFontStyle:@"display-label-bold" forView:residentialStatusLabel];
+    //    residentialStatusLabel.backgroundColor = [UIColor clearColor];
+    //
+    //    residentialStatusLabel.text = [NSString stringWithFormat:@"Residential Status:"];
+    //    [self.thirdHeaderView addSubview:residentialStatusLabel];
+    //
+    //    UILabel* residentialStatusdata = [[UILabel alloc] initWithFrame:CGRectMake(790, 13., 200., 20.)];
+    //    residentialStatusdata.textColor = [UIColor blackColor];
+    //    [self setAppFontStyle:@"display-label" forView:residentialStatusdata];
+    //
+    //    residentialStatusdata.backgroundColor = [UIColor clearColor];
+    //    residentialStatusdata.text = [NSString stringWithFormat:@"%@",self.previousResidentialStatusButton.titleLabel.text];
+    //    [self.thirdHeaderView addSubview:residentialStatusdata];
 }
 
 
@@ -640,13 +329,16 @@
     for (UILabel *tmpLabel in [self.firstVIew subviews]) {
         
         if ([tmpLabel isKindOfClass:[UILabel class]]) {
-        
+            
             tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
             
         }
         
         
     }
+    
+    
+    [self drawTopLineForSubView:self.firstVIew];
     
     self.editFirstView = [UIButton buttonWithType:UIButtonTypeCustom];
     self.editFirstView.frame = CGRectMake(910., 5., 81., 42.);
@@ -701,7 +393,7 @@
     self.secondView.frame = CGRectMake(self.secondView.frame.origin.x, self.secondView.frame.origin.y, self.secondView.frame.size.width, self.secondView.frame.size.height + 50);
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.secondView.backgroundColor = [UIColor whiteColor];;
-        
+    
     for (UILabel *tmpLabel in [self.secondView subviews]) {
         if ([tmpLabel isKindOfClass:[UILabel class]]) {
             
@@ -709,6 +401,8 @@
             
         }
     }
+    
+    [self drawTopLineForSubView:self.secondView];
     
     self.editSecondView = [UIButton buttonWithType:UIButtonTypeCustom];
     self.editSecondView.frame = CGRectMake(910., 5., 81., 42.);
@@ -758,13 +452,15 @@
     for (UILabel *tmpLabel in [self.firstHeaderView subviews]) {
         
         if ([tmpLabel isKindOfClass:[UILabel class]]) {
-        
+            
             tmpLabel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
             
         }
         
         
     }
+    
+    [self drawTopLineForSubView:self.firstHeaderView];
     
     self.editThirdView = [UIButton buttonWithType:UIButtonTypeCustom];
     self.editThirdView.frame = CGRectMake(910., 5., 81., 42.);
@@ -806,6 +502,8 @@
             
         }
     }
+    
+    [self drawTopLineForSubView:self.secondHeaderView];
     
     self.editForthView = [UIButton buttonWithType:UIButtonTypeCustom];
     self.editForthView.frame = CGRectMake(910., 5., 81., 42.);
@@ -858,6 +556,8 @@
         }
     }
     
+    [self drawTopLineForSubView:self.thirdHeaderView];
+    
     self.editFifthView = [UIButton buttonWithType:UIButtonTypeCustom];
     self.editFifthView.frame = CGRectMake(910., 5., 81., 42.);
     [self.editFifthView setTitle:@"Edit" forState:UIControlStateNormal];
@@ -888,7 +588,7 @@
 {
     
     
-        
+    
 }
 
 #pragma mark
@@ -896,14 +596,14 @@
 
 - (void)editFirstViewAction:(id)sender
 {
-   
+    
     self.firstNameTextfield.text = self.userInfo.firstName;
     self.lastnameTextField.text = self.userInfo.lastName;
     self.primaryPhonenumberTextField.text = self.userInfo.primaryPhone;
     [self.titleButton setTitle:self.userInfo.title forState:UIControlStateNormal];
     [self.genderButton setTitle:self.userInfo.gender forState:UIControlStateNormal];
     [self.languageOfCorespondaceButton setTitle:self.userInfo.languagOfCorespondace forState:UIControlStateNormal];
-
+    
     
     [self.accordion setSelectedIndex:0];
     
@@ -930,7 +630,7 @@
         self.firstVIew.frame = CGRectMake(self.firstVIew.frame.origin.x, self.firstVIew.frame.origin.y, self.firstVIew.frame.size.width, self.firstVIew.frame.size.height + 50);
         
     }
-//    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    //    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.firstVIew.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
@@ -967,13 +667,13 @@
     dateString = [formatter stringFromDate:self.userInfo.addressYearsAndMonths];
     
     if (self.userInfo.addressYearsAndMonths == nil) {
-    
+        
         [self.yearsAndMontsButton setTitle:@"Years & Months" forState:UIControlStateNormal];
         self.yearsAndMontsButton.enabled = YES;
         
         
     }else{
-     
+        
         [self.yearsAndMontsButton setTitle:dateString forState:UIControlStateNormal];
         
     }
@@ -1004,7 +704,7 @@
         self.secondView.frame = CGRectMake(self.secondView.frame.origin.x, self.secondView.frame.origin.y, self.secondView.frame.size.width, self.secondView.frame.size.height + 50);
         
     }
-//    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    //    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.secondView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
@@ -1031,7 +731,7 @@
     self.editThirdView.enabled = NO;
     self.editForthView.enabled = NO;
     self.editFifthView.enabled = NO;
-    [self.accordion setSelectedIndex:2];
+    [self.accordion setSelectedIndex:3];
     
     for (UILabel *tmpLabel in [self.firstHeaderView subviews]) {
         [tmpLabel removeFromSuperview];
@@ -1051,7 +751,6 @@
         
     }
     
-//    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
@@ -1095,7 +794,7 @@
     self.editThirdView.enabled = NO;
     self.editForthView.enabled = NO;
     self.editFifthView.enabled = NO;
-    [self.accordion setSelectedIndex:3];
+    [self.accordion setSelectedIndex:4];
     
     for (UILabel *tmpLabel in [self.secondHeaderView subviews]) {
         [tmpLabel removeFromSuperview];
@@ -1115,7 +814,7 @@
         
     }
     
-//    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    //    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
@@ -1142,7 +841,7 @@
     self.editThirdView.enabled = NO;
     self.editForthView.enabled = NO;
     self.editFifthView.enabled = NO;
-    [self.accordion setSelectedIndex:4];
+    [self.accordion setSelectedIndex:5];
     
     for (UILabel *tmpLabel in [self.thirdHeaderView subviews]) {
         [tmpLabel removeFromSuperview];
@@ -1162,7 +861,7 @@
         
     }
     
-//    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    //    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
@@ -1171,6 +870,12 @@
     firstHeaderTitel.text = @"Income & Credit Limit";
     firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
     [self.thirdHeaderView addSubview:firstHeaderTitel];
+    
+}
+
+- (void)editFormalAddressViewAction
+{
+    
     
 }
 
@@ -1189,12 +894,12 @@
     [appDelegate addInfoToUser:self.titleButton.titleLabel.text andFieldToAddItTo:@"title"];
     [appDelegate addInfoToUser:self.firstNameTextfield.text andFieldToAddItTo:@"firstName"];
     [appDelegate addInfoToUser:self.lastnameTextField.text andFieldToAddItTo:@"lastName"];
-//    [appDelegate addInfoToUser:self.areaCode.text andFieldToAddItTo:@"areaCode"];
+    //    [appDelegate addInfoToUser:self.areaCode.text andFieldToAddItTo:@"areaCode"];
     [appDelegate addInfoToUser:self.primaryPhonenumberTextField.text andFieldToAddItTo:@"primaryPhone"];
-//    [appDelegate addInfoToUser:self.emailAddress.text andFieldToAddItTo:@"email"];
+    //    [appDelegate addInfoToUser:self.emailAddress.text andFieldToAddItTo:@"email"];
     [appDelegate addInfoToUser:self.genderButton.titleLabel.text andFieldToAddItTo:@"gender"];
     [appDelegate addInfoToUser:self.languageOfCorespondaceButton.titleLabel.text andFieldToAddItTo:@"languagOfCorespondace"];
-//    [appDelegate addInfoToUser:self.sinNumber.text andFieldToAddItTo:@"sin"];
+    //    [appDelegate addInfoToUser:self.sinNumber.text andFieldToAddItTo:@"sin"];
     
     
     
@@ -1220,7 +925,7 @@
     
     [appDelegate addInfoToUser:self.currentHomeAddress.text andFieldToAddItTo:@"street"];
     [appDelegate addInfoToUser:self.postalCode.text andFieldToAddItTo:@"postalCode"];
-//    [appDelegate addInfoToUser:self.totalMonthlyHousingCosts.text andFieldToAddItTo:@"monthlyHouseCosts"];
+    //    [appDelegate addInfoToUser:self.totalMonthlyHousingCosts.text andFieldToAddItTo:@"monthlyHouseCosts"];
     [appDelegate addInfoToUser:self.cityTextfield.text andFieldToAddItTo:@"city"];
     [appDelegate addInfoToUser:self.residentialStatusButton.titleLabel.text andFieldToAddItTo:@"resincialStatus"];
     [appDelegate addInfoToUser:self.provinceButton.titleLabel.text andFieldToAddItTo:@"province"];
@@ -1278,7 +983,7 @@
     [appDelegate addInfoToUser:self.employerCity.text andFieldToAddItTo:@"employerCity"];
     
     
-
+    
     
     self.editFirstView.enabled = YES;
     self.editSecondView.enabled = YES;
@@ -1303,7 +1008,7 @@
     
     [appDelegate addInfoToUser:self.creditLimitButton.titleLabel.text andFieldToAddItTo:@"employerAreaCode"];
     [appDelegate addInfoToUser:self.grossAnualIncome.text andFieldToAddItTo:@"grossAnualIncome"];
-
+    
     
     
     self.editFirstView.enabled = YES;
@@ -1346,13 +1051,13 @@
     }else{
         
         NSLog(@"move to next part of the app");
-      
+        
         [appDelegate setNewRootView:appDelegate.thankYouViewController];
         //[appDelegate.thankYouViewController refresh];
-
+        
         //[appDelegate.rootViewController.navigationController pushViewController:appDelegate.thankYouViewController animated:YES];
         [appDelegate.thankYouViewController refresh];
-
+        
     }
     
 }
@@ -1427,7 +1132,7 @@
 {
     
     NSString* val1;
-//    NSString* val2;
+    //    NSString* val2;
     
     if (pickerView == self.statesPicker) {
         
@@ -1846,9 +1551,9 @@
         firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
         [self.thirdHeaderView addSubview:firstHeaderTitel];
         
-//        [self.accordion addHeader:self.thirdHeaderView withView:self.formalHomeAddress];
+        //        [self.accordion addHeader:self.thirdHeaderView withView:self.formalHomeAddress];
         
-//        [self.accordion setSelectedIndex:2];
+        //        [self.accordion setSelectedIndex:2];
         
     }
 }
@@ -1951,11 +1656,11 @@
 {
     if ([[self.provinceArray objectAtIndex:[self.statesPicker selectedRowInComponent:0]] isEqualToString:@"Other"]) {
         
-//        self.otherOccupationTextField.hidden = NO;
+        //        self.otherOccupationTextField.hidden = NO;
         
     }else{
         
-//        self.otherOccupationTextField.hidden = YES;
+        //        self.otherOccupationTextField.hidden = YES;
     }
     
     [self.currentOccupation setTitle:[NSString stringWithFormat:@"%@",[self.occupationArray objectAtIndex:[self.occupationPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
@@ -1995,7 +1700,7 @@
     self.startDatePicker.frame = CGRectMake(0,44,320, 216);
     self.startDatePicker.datePickerMode = UIDatePickerModeDate;
     [self.startDatePicker setTag:10];
-//    [self.startDatePicker addTarget:self action:@selector(result:) forControlEvents:UIControlEventValueChanged];
+    //    [self.startDatePicker addTarget:self action:@selector(result:) forControlEvents:UIControlEventValueChanged];
     [popoverView addSubview:self.startDatePicker];
     
     popoverContent.view = popoverView;
@@ -2071,7 +1776,7 @@
 }
 
 - (void)selectRequestedCreditLimit{
-
+    
     [self.creditLimitButton setTitle:[NSString stringWithFormat:@"%@",[self.requesteCreditLimitArray objectAtIndex:[self.requesteCreditLimitPicker selectedRowInComponent:0]]] forState:UIControlStateNormal];
     [self.popoverController4 dismissPopoverAnimated:YES];
     

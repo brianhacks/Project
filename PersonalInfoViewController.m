@@ -146,11 +146,13 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     
-    if (self.firstViewClosed) {
-        if (self.streetAddress.text.length > 1 && self.postalCode.text.length && self.currentCity.text.length && ![self.provinceButton.titleLabel.text isEqualToString:@"Province"] && ![self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"] && self.totalMonthlyHousingCosts.text.length > 1 && ![self.timeLivedAtCurrentAddress.titleLabel.text isEqualToString:@"Years & Months"]) {
-            self.nextStepButton.enabled = YES;
-        }
-    }
+//    if (self.firstViewClosed) {
+//        if (self.streetAddress.text.length > 1 && self.postalCode.text.length && self.currentCity.text.length && ![self.provinceButton.titleLabel.text isEqualToString:@"Province"] && ![self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"] && self.totalMonthlyHousingCosts.text.length > 1 && ![self.timeLivedAtCurrentAddress.titleLabel.text isEqualToString:@"Years & Months"]) {
+//            self.nextStepButton.enabled = YES;
+//        }
+//    }
+    
+    
     
     if (textField == self.firstName || textField == self.lastName ) {
         
@@ -233,7 +235,7 @@
 #pragma mark view will disappear
 - (void)viewWillDisappear:(BOOL)animated{
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
     
 }
 
@@ -1009,6 +1011,8 @@
     [self.view addSubview:self.activityIndicator];
     [self.activityIndicator startAnimating];
     
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
     NSString *query = [NSString stringWithFormat:@"%@ %@ %@", self.streetAddress.text, self.currentCity.text, self.provinceButton.titleLabel.text];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
@@ -1022,6 +1026,9 @@
             if(showThirdHeader){
                 self.nextStepButton.enabled = NO;
                 [self displayThirdHeader];
+                appDelegate.userHasPreviousAddres = YES;
+                
+                
             }else{
                 self.nextStepButton.enabled = YES;
                 [self hideThirdHeader];
@@ -1366,6 +1373,8 @@
     [self.view addSubview:self.activityIndicator];
     [self.activityIndicator startAnimating];
     
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
     NSString *query = [NSString stringWithFormat:@"%@ %@ %@", self.streetAddress.text, self.currentCity.text, self.provinceButton.titleLabel.text];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:query completionHandler:^(NSArray *placemarks, NSError *error){
@@ -1379,6 +1388,8 @@
             if(showForthHeader){
                 self.nextStepButton.enabled = NO;
                 [self displayForthHeader];
+                appDelegate.userHasPreviousPreviousAddress = YES;
+                
             }else{
                 self.nextStepButton.enabled = YES;
 //                [self hideForthHeader];
@@ -1952,7 +1963,7 @@
     if (showForthHeader) {
         
         frame = self.residentialStatusButton.frame;
-        frame.origin.y = frame.origin.y + 300;
+        frame.origin.y = frame.origin.y + 420;
         
     }
     
@@ -2026,7 +2037,7 @@
     if (showForthHeader) {
         
         frame = self.previousPreviousProvince.frame;
-        frame.origin.y = frame.origin.y + 330;
+        frame.origin.y = frame.origin.y + 420;
         
     }
     
@@ -2459,7 +2470,6 @@
     
         frame = self.timeLivedAtPreviousAddressButton.frame;
         frame.origin.y = frame.origin.y + 290;
-//        frame.origin.x = frame.origin.x - 100;
         
         [self.popoverController5 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
         
@@ -2468,8 +2478,9 @@
     if (showForthHeader) {
         
         frame = self.previousPreviousYearsAndMonths.frame;
-        frame.origin.y = frame.origin.y + 300;
-        frame.origin.x = frame.origin.x - 100;
+        frame.origin.y = frame.origin.y + 420;
+        
+        [self.popoverController5 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
         
     }
     
