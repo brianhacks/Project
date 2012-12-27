@@ -108,7 +108,22 @@
 @property (strong, nonatomic) IBOutlet UIView *formalHomeAddressView;
 @property (strong, nonatomic) IBOutlet UIView *formalFormalHomeAddressView;
 
+@property (strong, nonatomic) IBOutlet UITextField *previousStreetAddres;
+@property (strong, nonatomic) IBOutlet UITextField *previousCity;
+@property (strong, nonatomic) IBOutlet UIButton *previousProvinceButton;
+@property (strong, nonatomic) IBOutlet UITextField *previousPostalCode;
+@property (strong, nonatomic) IBOutlet UIButton *previousResidentialStatus;
+@property (strong, nonatomic) IBOutlet UIButton *previousYearsAndMonths;
+@property (strong, nonatomic) IBOutlet UITextField *formalFormalStreetAddress;
 
+@property (strong, nonatomic) IBOutlet UITextField *formalFormalCity;
+@property (strong, nonatomic) IBOutlet UIButton *formalFormalProvince;
+@property (strong, nonatomic) IBOutlet UITextField *formalFormalPostalCode;
+@property (strong, nonatomic) IBOutlet UIButton *formalFormalYearsAndMonths;
+@property (strong, nonatomic) IBOutlet UIButton *formalFormalResidentialStatus;
+
+- (IBAction)closeFormalFormalAddressView:(id)sender;
+- (IBAction)closeFormalAddressView:(id)sender;
 - (IBAction)closeGeneralInfo:(id)sender;
 - (IBAction)closeCurrentAddress:(id)sender;
 - (IBAction)closeFInancialDetails:(id)sender;

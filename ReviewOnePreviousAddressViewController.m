@@ -252,68 +252,46 @@
     [self.editSecondView addTarget:self action:@selector(editFormalAddressViewAction) forControlEvents:UIControlEventTouchUpInside];
     [self.formalHomeAddressView addSubview:self.editSecondView];
     
-    //    UILabel* address = [[UILabel alloc] initWithFrame:CGRectMake(290., 20., 200., 20.)];
-    //    address.textColor = [UIColor blackColor];
-    //    address.backgroundColor = [UIColor blackColor];
-    //    [self setAppFontStyle:@"display-label" forView:address];
-    //    address.numberOfLines = 0;
-    //    address.backgroundColor = [UIColor clearColor];
-    //    address.text = [NSString stringWithFormat:@"%@",self.previousAddress.text];
-    //    [self.thirdHeaderView addSubview:address];
-    //
-    //    UILabel* address2 = [[UILabel alloc] initWithFrame:CGRectMake(290., 40., 200., 20.)];
-    //    address2.textColor = [UIColor blackColor];
-    //    address2.backgroundColor = [UIColor blackColor];
-    //    [self setAppFontStyle:@"display-label" forView:address2];
-    //    address2.numberOfLines = 0;
-    //    address2.backgroundColor = [UIColor clearColor];
-    //    address2.text = [NSString stringWithFormat:@"%@ %@",self.previousCity.text, self.previousProvinceButton.titleLabel.text];
-    //    [self.thirdHeaderView addSubview:address2];
-    //
-    //
-    //    UILabel* address3 = [[UILabel alloc] initWithFrame:CGRectMake(290., 60., 200., 20.)];
-    //    address3.textColor = [UIColor blackColor];
-    //    address3.backgroundColor = [UIColor blackColor];
-    //    [self setAppFontStyle:@"display-label" forView:address3];
-    //    address3.numberOfLines = 0;
-    //    address3.backgroundColor = [UIColor clearColor];
-    //    address3.text = [NSString stringWithFormat:@"%@",self.previousPostalCode.text];
-    //    [self.thirdHeaderView addSubview:address3];
-    //
-    //    UILabel* howlong = [[UILabel alloc] initWithFrame:CGRectMake(290, 90, 300., 20.)];
-    //    howlong.textColor = [UIColor blackColor];
-    //    [self setAppFontStyle:@"display-label-bold" forView:howlong];
-    //    howlong.backgroundColor = [UIColor clearColor];
-    //    howlong.numberOfLines = 0;
-    //    howlong.text = [NSString stringWithFormat:@"How Long have you been living here?"];
-    //    [self.thirdHeaderView addSubview:howlong];
-    //
-    //    UILabel* howlongdata = [[UILabel alloc] initWithFrame:CGRectMake(290., 110, 200., 20.)];
-    //    howlongdata.textColor = [UIColor blackColor];
-    //    [self setAppFontStyle:@"display-label" forView:howlongdata];
-    //    howlongdata.backgroundColor = [UIColor clearColor];
-    //    howlongdata.numberOfLines = 0;
-    //    howlongdata.text = [NSString stringWithFormat:@"%@",self.timeLivedAtPreviousAddressButton.titleLabel.text];
-    //    [self.thirdHeaderView addSubview:howlongdata];
-    //
-    //    /////////////////////////////////////////////////
-    //
-    //
-    //    UILabel* residentialStatusLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 13., 200., 20.)];
-    //    residentialStatusLabel.textColor = [UIColor blackColor];
-    //    [self setAppFontStyle:@"display-label-bold" forView:residentialStatusLabel];
-    //    residentialStatusLabel.backgroundColor = [UIColor clearColor];
-    //
-    //    residentialStatusLabel.text = [NSString stringWithFormat:@"Residential Status:"];
-    //    [self.thirdHeaderView addSubview:residentialStatusLabel];
-    //
-    //    UILabel* residentialStatusdata = [[UILabel alloc] initWithFrame:CGRectMake(790, 13., 200., 20.)];
-    //    residentialStatusdata.textColor = [UIColor blackColor];
-    //    [self setAppFontStyle:@"display-label" forView:residentialStatusdata];
-    //
-    //    residentialStatusdata.backgroundColor = [UIColor clearColor];
-    //    residentialStatusdata.text = [NSString stringWithFormat:@"%@",self.previousResidentialStatusButton.titleLabel.text];
-    //    [self.thirdHeaderView addSubview:residentialStatusdata];
+    UILabel* address = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 200., 50.)];
+    address.textColor = [UIColor blackColor];
+    address.backgroundColor = [UIColor blackColor];
+    address.font = [UIFont fontWithName:@"Helvetica" size:16];
+    address.numberOfLines = 0;
+    address.backgroundColor = [UIColor clearColor];
+    address.text = [NSString stringWithFormat:@"%@ %@ %@",self.userInfo.previousAddress, self.userInfo.previousCity, self.userInfo.previousProvince];
+    [self.formalHomeAddressView addSubview:address];
+
+    UILabel* howlong = [[UILabel alloc] initWithFrame:CGRectMake(290, 90, 300., 20.)];
+    howlong.textColor = [UIColor blackColor];
+    [self setAppFontStyle:@"display-label-bold" forView:howlong];
+    howlong.backgroundColor = [UIColor clearColor];
+    howlong.numberOfLines = 0;
+    howlong.text = [NSString stringWithFormat:@"How Long have you been living here?"];
+    [self.formalHomeAddressView addSubview:howlong];
+
+    UILabel* howlongdata = [[UILabel alloc] initWithFrame:CGRectMake(290., 110, 200., 20.)];
+    howlongdata.textColor = [UIColor blackColor];
+    [self setAppFontStyle:@"display-label" forView:howlongdata];
+    howlongdata.backgroundColor = [UIColor clearColor];
+    howlongdata.numberOfLines = 0;
+    howlongdata.text = [NSString stringWithFormat:@"%@",self.userInfo.previousAddressYearsAndMonths];
+    [self.formalHomeAddressView addSubview:howlongdata];
+
+    /////////////////////////////////////////////////
+
+    UILabel* residentialStatusLabel = [[UILabel alloc] initWithFrame:CGRectMake(590., 13., 200., 20.)];
+    residentialStatusLabel.textColor = [UIColor blackColor];
+    [self setAppFontStyle:@"display-label-bold" forView:residentialStatusLabel];
+    residentialStatusLabel.backgroundColor = [UIColor clearColor];
+    residentialStatusLabel.text = [NSString stringWithFormat:@"Residential Status:"];
+    [self.formalHomeAddressView addSubview:residentialStatusLabel];
+
+    UILabel* residentialStatusdata = [[UILabel alloc] initWithFrame:CGRectMake(790, 13., 200., 20.)];
+    residentialStatusdata.textColor = [UIColor blackColor];
+    [self setAppFontStyle:@"display-label" forView:residentialStatusdata];
+    residentialStatusdata.backgroundColor = [UIColor clearColor];
+    residentialStatusdata.text = [NSString stringWithFormat:@"%@",self.userInfo.resincialStatus];
+    [self.formalHomeAddressView addSubview:residentialStatusdata];
 }
 
 
@@ -873,12 +851,81 @@
     
 }
 
+#pragma mark
+#pragma mark editFormalAddressViewAction
+
 - (void)editFormalAddressViewAction
 {
+    
+    self.previousStreetAddres.text = self.userInfo.previousAddress;
+    self.previousPostalCode.text = self.userInfo.previousPostalCode;
+    self.previousCity.text = self.userInfo.previousCity;
+    [self.previousProvinceButton setTitle:self.userInfo.previousProvince forState:UIControlStateNormal];
+    [self.previousResidentialStatus setTitle:self.userInfo.resincialStatus forState:UIControlStateNormal];
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+	df.dateStyle = NSDateFormatterMediumStyle;
+	NSLog(@"%@",self.userInfo.previousAddressYearsAndMonths);
+    NSDateFormatter *formatter;
+    NSString        *dateString;
+    
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM dd, yyyy"];
+    
+    dateString = [formatter stringFromDate:self.userInfo.previousAddressYearsAndMonths];
+    
+    if (self.userInfo.previousAddressYearsAndMonths == nil) {
+        
+        [self.previousYearsAndMonths setTitle:@"Years & Months" forState:UIControlStateNormal];
+        self.previousYearsAndMonths.enabled = YES;
+        
+        
+    }else{
+        
+        [self.previousYearsAndMonths setTitle:dateString forState:UIControlStateNormal];
+        
+    }
+    
+    
+    
+    self.editFirstView.enabled = NO;
+    self.editSecondView.enabled = NO;
+    self.editThirdView.enabled = NO;
+    self.editForthView.enabled = NO;
+    self.editFifthView.enabled = NO;
+    [self.accordion setSelectedIndex:2];
+    
+    for (UILabel *tmpLabel in [self.formalHomeAddressView subviews]) {
+        [tmpLabel removeFromSuperview];
+    }
+    
+    for (UIButton *tmpButton in [self.formalHomeAddressView subviews]) {
+        [tmpButton removeFromSuperview];
+    }
+    
+    if (self.formalHomeAddressView.frame.size.height > 50) {
+        
+        self.formalHomeAddressView.frame = CGRectMake(self.formalHomeAddressView.frame.origin.x, self.formalHomeAddressView.frame.origin.y, self.formalHomeAddressView.frame.size.width, self.formalHomeAddressView.frame.size.height - 90);
+        
+    }else{
+        
+        self.formalHomeAddressView.frame = CGRectMake(self.formalHomeAddressView.frame.origin.x, self.formalHomeAddressView.frame.origin.y, self.formalHomeAddressView.frame.size.width, self.formalHomeAddressView.frame.size.height + 90);
+        
+    }
+    //    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.formalHomeAddressView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+    
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    firstHeaderTitel.backgroundColor = [UIColor clearColor];
+    firstHeaderTitel.textColor = [UIColor whiteColor];
+    firstHeaderTitel.text = @"Previous Home Address";
+    firstHeaderTitel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.0];
+    [self.formalHomeAddressView addSubview:firstHeaderTitel];
     
     
 }
 
+#pragma mark
 
 - (void)didReceiveMemoryWarning
 {
@@ -1026,6 +1073,30 @@
     [self.accordion setNeedsDisplay];
     
 }
+
+- (IBAction)closeFormalAddressView:(id)sender
+{
+    
+    self.editFirstView.enabled = YES;
+    self.editSecondView.enabled = YES;
+    self.editThirdView.enabled = YES;
+    self.editForthView.enabled = YES;
+    self.editFifthView.enabled = YES;
+    
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.formalHomeAddressView.backgroundColor = background;
+    
+    [self changeFormalAddressHeaderHeightAndAddInfo];
+    
+    [self.accordion setSelectedIndex:10];
+    [self.accordion setNeedsDisplay];
+    
+    
+}
+
+
+#pragma mark
+#pragma mark next Step
 
 - (IBAction)nextStep:(id)sender {
     
@@ -1781,6 +1852,7 @@
     [self.popoverController4 dismissPopoverAnimated:YES];
     
 }
+
 
 
 @end

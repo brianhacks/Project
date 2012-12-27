@@ -37,6 +37,7 @@
 @property (readwrite, nonatomic) BOOL thirdViewOpen;
 @property (readwrite, nonatomic) BOOL forthViewOpen;
 @property (readwrite, nonatomic) BOOL fifthViewOpen;
+@property (readwrite, nonatomic) BOOL sixthViewOpen;
 
 @property (strong, nonatomic) UIButton *editFirstView;
 @property (strong, nonatomic) UIButton *editSecondView;
@@ -108,8 +109,16 @@
 @property (strong, nonatomic) IBOutlet UIView *formalFormalHomeAddress;
 @property (strong, nonatomic) IBOutlet UIView *formalHomeAddressView;
 @property (strong, nonatomic) IBOutlet UIView *formalFormalHomeAddressView;
+@property (strong, nonatomic) IBOutlet UITextField *previousStreetAddres;
+@property (strong, nonatomic) IBOutlet UITextField *previousCity;
+@property (strong, nonatomic) IBOutlet UIButton *previousProvinceButton;
+@property (strong, nonatomic) IBOutlet UITextField *previousPostalCode;
+@property (strong, nonatomic) IBOutlet UIButton *previousResidentialStatus;
+@property (strong, nonatomic) IBOutlet UIButton *previousYearsAndMonths;
 
 
+
+- (IBAction)closeFormalAddressView:(id)sender;
 - (IBAction)closeGeneralInfo:(id)sender;
 - (IBAction)closeCurrentAddress:(id)sender;
 - (IBAction)closeFInancialDetails:(id)sender;
