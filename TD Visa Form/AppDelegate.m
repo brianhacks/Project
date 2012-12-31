@@ -249,7 +249,13 @@
     
     
     
-    //WTF what are we building here? Save this for later
+    /*
+     
+     OK so I'm storing the day of week and the date in a column.  You can split them out wiht "|"
+     
+     
+     
+     */
      
      NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
     [DateFormatter setDateFormat:@"MM dd"];
@@ -261,10 +267,10 @@
      [theDateFormatter2 setDateFormat:@"EEEE"];
      NSString *weekDay =  [theDateFormatter2 stringFromDate:[NSDate date]];
      
-   
     
-    [logInfo setCreatedAt:dateInQuestion];
-    [logInfo setCreatedAtDay:weekDay];
+    NSString *dateToSave = [NSString stringWithFormat:@"%@|%@",weekDay, dateInQuestion ];
+    [logInfo setCreatedAt:dateToSave];
+    
     
    
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"Log" inManagedObjectContext:context];
