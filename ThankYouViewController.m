@@ -48,8 +48,8 @@
     [appDelegate addInfoToUser:num andFieldToAddItTo:@"referenceNumber"];
     
     //commented out because there is no field in User.h with the property "userCode" this lead to a crash
-//    [appDelegate addInfoToUser:appDelegate.currentUserCode andFieldToAddItTo:@"userCode"];
-
+   // [appDelegate addInfoToLog:appDelegate.currentUserCode andFieldToAddItTo:@"userCode"];
+    
     
     [appDelegate addEntryToLog];
     

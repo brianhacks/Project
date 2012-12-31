@@ -240,12 +240,32 @@
     
         logInfo = [[Log alloc] initWithEntity:[NSEntityDescription entityForName:@"Log" inManagedObjectContext:[self managedObjectContext]] insertIntoManagedObjectContext:[self managedObjectContext]];
     NSDate *theDate  = [[NSDate date] init];
+   
+    
     NSCalendar *calendar = [NSCalendar currentCalendar];
+  
     NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:theDate];
     NSString *hour =  [NSString stringWithFormat:@"%d", [components hour] ];
     
     
-    [logInfo setCreatedAt:hour]; 
+    
+    //WTF what are we building here? Save this for later
+     
+     NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"MM dd"];
+    NSString *dateInQuestion = [DateFormatter stringFromDate:[NSDate date]];
+     
+      
+     NSDateFormatter* theDateFormatter2 = [[NSDateFormatter alloc] init];
+     [theDateFormatter2 setFormatterBehavior:NSDateFormatterBehavior10_4];
+     [theDateFormatter2 setDateFormat:@"EEEE"];
+     NSString *weekDay =  [theDateFormatter2 stringFromDate:[NSDate date]];
+     
+   
+    
+    [logInfo setCreatedAt:dateInQuestion];
+    [logInfo setCreatedAtDay:weekDay];
+    
    
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"Log" inManagedObjectContext:context];
     NSError* error = nil;

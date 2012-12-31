@@ -12,6 +12,7 @@
 
 
 @dynamic createdAt;
+@dynamic createdAtDay; 
 @dynamic currentUserCode;
 
 
