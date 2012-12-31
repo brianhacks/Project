@@ -44,7 +44,7 @@
 }
 -(void)makeFeedbackButton{
     
-    //self = [super initWithFrame:frame];
+   /* //self = [super initWithFrame:frame];
     //UIView *bView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     UIButton *playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect ];
     
@@ -60,6 +60,7 @@
          forControlEvents: UIControlEventTouchDown];
     
     [self.view addSubview:playButton];
+    */
     
     
 }

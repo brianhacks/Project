@@ -98,7 +98,7 @@
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDelegate:self];
         [UIView setAnimationDuration:2.0];
-        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.firstView cache:NO];
+        [UIView setAnimationTransition:UIViewAnimationCurveLinear forView:self.firstView cache:NO];
         [self.firstView setAlpha:0.0];
         [self.secondView setAlpha:1.0];
         [UIView commitAnimations];

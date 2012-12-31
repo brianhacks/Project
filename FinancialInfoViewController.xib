@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1536</int>
-		<string key="IBDocument.SystemVersion">11G63</string>
+		<string key="IBDocument.SystemVersion">12C60</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
-		<string key="IBDocument.AppKitVersion">1138.51</string>
-		<string key="IBDocument.HIToolboxVersion">569.00</string>
+		<string key="IBDocument.AppKitVersion">1187.34</string>
+		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">1930</string>
@@ -194,7 +194,7 @@
 							<object class="IBUIButton" id="655948138">
 								<reference key="NSNextResponder" ref="182119811"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{269, -1}, {106, 44}}</string>
+								<string key="NSFrame">{{274, 3}, {92, 34}}</string>
 								<reference key="NSSuperview" ref="182119811"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="868520320"/>
@@ -216,7 +216,7 @@
 								</object>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">btn-start.png</string>
+									<string key="NSResourceName">btn-startover.png</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="466476269"/>
 								<reference key="IBUIFont" ref="248554062"/>
@@ -227,6 +227,7 @@
 								<string key="NSFrame">{{919, -3}, {105, 46}}</string>
 								<reference key="NSSuperview" ref="182119811"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -1265,11 +1266,9 @@
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
 			<object class="IBUIView" id="846277479">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{1024, 200}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -1279,11 +1278,9 @@
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
 			<object class="IBUIView" id="911714404">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{1024, 200}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -1739,8 +1736,8 @@
 							<reference ref="182119811"/>
 							<reference ref="256413176"/>
 							<reference ref="643556"/>
-							<reference ref="524731152"/>
 							<reference ref="675376578"/>
+							<reference ref="524731152"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -2155,8 +2152,6 @@
 						<string key="selectCountryAction:">id</string>
 						<string key="selectCurrentOccupation:">id</string>
 						<string key="selectOccupation:">id</string>
-						<string key="selectProvince:">id</string>
-						<string key="selectResidentialStatus:">id</string>
 						<string key="showLegal:">id</string>
 						<string key="showPrivacy:">id</string>
 						<string key="showSecurity:">id</string>
@@ -2201,14 +2196,6 @@
 						</object>
 						<object class="IBActionInfo" key="selectOccupation:">
 							<string key="name">selectOccupation:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectProvince:">
-							<string key="name">selectProvince:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectResidentialStatus:">
-							<string key="name">selectResidentialStatus:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="showLegal:">
@@ -2426,7 +2413,7 @@
 			<string key="btn-security-hover.png">{154, 72}</string>
 			<string key="btn-security.png">{154, 72}</string>
 			<string key="btn-start-hover.png">{206, 78}</string>
-			<string key="btn-start.png">{206, 78}</string>
+			<string key="btn-startover.png">{166, 59}</string>
 			<string key="finance-info1.jpg">{748, 191}</string>
 			<string key="finance-info2.png">{757, 169}</string>
 			<string key="footer.png">{2048, 94}</string>

@@ -73,6 +73,7 @@
 		9F2B90B5166FA897003DD835 /* banner-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B3166FA897003DD835 /* banner-5.png */; };
 		9F2B90B6166FA897003DD835 /* banner-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B4166FA897003DD835 /* banner-4.png */; };
 		9F2B90B8166FABFE003DD835 /* header-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90B7166FABFE003DD835 /* header-5.png */; };
+		9F307F9D169222CC0077F6B8 /* btn-startover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F307F9C169222CC0077F6B8 /* btn-startover.png */; };
 		9F3922E91680107A008B2E56 /* FrutigerLTStd-Black 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922CE16801079008B2E56 /* FrutigerLTStd-Black 2.otf */; };
 		9F3922EA1680107A008B2E56 /* FrutigerLTStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922CF16801079008B2E56 /* FrutigerLTStd-Black.otf */; };
 		9F3922EB1680107A008B2E56 /* FrutigerLTStd-BlackCn 2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F3922D016801079008B2E56 /* FrutigerLTStd-BlackCn 2.otf */; };
@@ -292,6 +293,7 @@
 		9F2B90B3166FA897003DD835 /* banner-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-5.png"; path = "TD Visa Form/images/banner-5.png"; sourceTree = "<group>"; };
 		9F2B90B4166FA897003DD835 /* banner-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-4.png"; path = "TD Visa Form/images/banner-4.png"; sourceTree = "<group>"; };
 		9F2B90B7166FABFE003DD835 /* header-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header-5.png"; path = "TD Visa Form/images/header-5.png"; sourceTree = "<group>"; };
+		9F307F9C169222CC0077F6B8 /* btn-startover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-startover.png"; path = "TD Visa Form/images/btn-startover.png"; sourceTree = "<group>"; };
 		9F3922CE16801079008B2E56 /* FrutigerLTStd-Black 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Black 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Black 2.otf"; sourceTree = "<group>"; };
 		9F3922CF16801079008B2E56 /* FrutigerLTStd-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Black.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Black.otf"; sourceTree = "<group>"; };
 		9F3922D016801079008B2E56 /* FrutigerLTStd-BlackCn 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-BlackCn 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-BlackCn 2.otf"; sourceTree = "<group>"; };
@@ -698,6 +700,7 @@
 				709BABCE1662BD4C00F852CD /* AccordionView.m */,
 				709BABD11662BD5B00F852CD /* PersonalInfoViewController.h */,
 				709BABD21662BD5B00F852CD /* PersonalInfoViewController.m */,
+				9F307F9C169222CC0077F6B8 /* btn-startover.png */,
 				709BABD31662BD5B00F852CD /* PersonalInfoViewController.xib */,
 			);
 			name = "Personal Info";
@@ -1101,7 +1104,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Adrian Somesan";
 			};
-			buildConfigurationList = 702337A11652C56800B87249 /* Build configuration list for PBXProject "TD Visa Form" */;
+			buildConfigurationList = 702337A11652C56800B87249 /* Build configuration list for PBXProject "TD VISA FORM" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1260,6 +1263,7 @@
 				9F57DC301681268300BF306F /* consent_title.png in Resources */,
 				705BCD1A168C758D008E93E2 /* ReviewOnePreviousAddressViewController.xib in Resources */,
 				705BCD21168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.xib in Resources */,
+				9F307F9D169222CC0077F6B8 /* btn-startover.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1433,7 +1437,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		702337A11652C56800B87249 /* Build configuration list for PBXProject "TD Visa Form" */ = {
+		702337A11652C56800B87249 /* Build configuration list for PBXProject "TD VISA FORM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				702337C81652C56800B87249 /* Debug */,
