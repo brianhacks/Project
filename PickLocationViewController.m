@@ -349,10 +349,21 @@
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     [appDelegate addInfoToUser:activeBranchId andFieldToAddItTo:@"bankNumber"];
     
-    [appDelegate setNewRootView:appDelegate.reviewAndSubmitViewController];
-   // [appDelegate.reviewAndSubmitViewController refresh];
-
     
+    if (appDelegate.userHasPreviousPreviousAddress) {
+    
+        [appDelegate setNewRootView:appDelegate.reviewTwoPreviousAddressViewController];
+        
+    }else if(appDelegate.userHasPreviousAddres){
+        
+        [appDelegate setNewRootView:appDelegate.reviewOnePreviousAddressViewController];
+        
+    }else{
+        
+        [appDelegate setNewRootView:appDelegate.reviewAndSubmitViewController];
+        
+    }
+
 }
 
 - (IBAction)previousStep:(id)sender

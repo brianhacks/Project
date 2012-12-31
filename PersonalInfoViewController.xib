@@ -2810,6 +2810,7 @@
 						<string key="closeAddressView:">id</string>
 						<string key="closeGeneralInfoView:">id</string>
 						<string key="closePreviousAddress:">id</string>
+						<string key="closePreviousPreviousAddress:">id</string>
 						<string key="nextStep:">id</string>
 						<string key="previousStep:">id</string>
 						<string key="selectGender:">id</string>
@@ -2843,6 +2844,10 @@
 						</object>
 						<object class="IBActionInfo" key="closePreviousAddress:">
 							<string key="name">closePreviousAddress:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="closePreviousPreviousAddress:">
+							<string key="name">closePreviousPreviousAddress:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="nextStep:">

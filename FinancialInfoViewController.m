@@ -69,11 +69,16 @@
         [self.employmentStatusPicker selectRow:index inComponent:0 animated:YES];
     }
     
+    CGRect frame;
+    
+    frame = self.employmentStatus.frame;
+    frame.origin.y = frame.origin.y + 50;
+    
     popoverContent.view = popoverView;
     self.popoverController1 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController1.delegate = self;
     [self.popoverController1 setPopoverContentSize:CGSizeMake(320., 260.) animated:NO];
-    [self.popoverController1 presentPopoverFromRect:CGRectMake(160.0, 200.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    [self.popoverController1 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
     
 }
@@ -325,11 +330,16 @@
         [self.statesPicker selectRow:index inComponent:0 animated:YES];
     }
     
+    CGRect frame;
+    
+    frame = self.provinceButton.frame;
+    frame.origin.y = frame.origin.y + 150;
+    
     popoverContent.view = popoverView;
     self.popoverController2 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController2.delegate = self;
     [self.popoverController2 setPopoverContentSize:CGSizeMake(320, 260) animated:NO];
-    [self.popoverController2 presentPopoverFromRect:CGRectMake(520.0, 340.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+    [self.popoverController2 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
     
 }
 
@@ -344,7 +354,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
     
 
     
@@ -634,11 +644,11 @@
     self.countryArray = [NSArray new];
     self.countryArray = @[@"Afghanistan",@"Albania",@"Algeria",@"Andorra",@"Angola",@"Antigua Deps",@"Argentina",@"Armenia",@"Australia",@"Austria",@"Azerbaijan",@"Bahamas",@"Bahrain",@"Bangladesh",@"Barbados",@"Belarus",@"Belgium",@"Belize",@"Benin",@"Bhutan",@"Bolivia",@"Bosnia Herzegovina",@"Botswana",@"Brazil",@"Brunei",@"Bulgaria",@"Burkina",@"Burundi",@"Cambodia",@"Cameroon",@"Canada",@"Cape Verde",@"Central African Rep",@"Chad",@"Chile",@"China",@"Colombia",@"Comoros",@"Congo",@"Congo {Democratic Rep}",@"Costa Rica",@"Croatia",@"Cuba",@"Cyprus",@"Czech Republic",@"Denmark",@"Djibouti",@"Dominica",@"Dominican Republic",@"East Timor",@"Ecuador",@"Egypt",@"El Salvador",@"Equatorial Guinea",@"Eritrea",@"Estonia",@"Ethiopia",@"Fiji",@"Finland",@"France",@"Gabon",@"Gambia",@"Georgia",@"Germany",@"Ghana",@"Greece",@"Grenada",@"Guatemala",@"Guinea",@"Guinea-Bissau",@"Guyana",@"Haiti",@"Honduras",@"Hungary",@"Iceland",@"India",@"Indonesia",@"Iran",@"Iraq",@"Ireland {Republic}",@"Israel",@"Italy",@"Ivory Coast",@"Jamaica",@"Japan",@"Jordan",@"Kazakhstan",@"Kenya",@"Kiribati",@"Korea North",@"Korea South",@"Kosovo",@"Kuwait",@"Kyrgyzstan",@"Laos",@"Latvia",@"Lebanon",@"Lesotho",@"Liberia",@"Libya",@"Liechtenstein",@"Lithuania",@"Luxembourg",@"Macedonia",@"Madagascar",@"Malawi",@"Malaysia",@"Maldives",@"Mali",@"Malta",@"Marshall Islands",@"Mauritania",@"Mauritius",@"Mexico",@"Micronesia",@"Moldova",@"Monaco",@"Mongolia",@"Montenegro",@"Morocco",@"Mozambique",@"Myanmar, {Burma}",@"Namibia",@"Nauru",@"Nepal",@"Netherlands",@"New Zealand",@"Nicaragua",@"Niger",@"Nigeria",@"Norway",@"Oman",@"Pakistan",@"Palau",@"Panama",@"Papua New Guinea",@"Paraguay",@"Peru",@"Philippines",@"Poland",@"Portugal",@"Qatar",@"Romania",@"Russian Federation",@"Rwanda",@"St Kitts &amp; Nevis",@"St Lucia",@"Saint Vincent &amp; the Grenadines",@"Samoa",@"San Marino",@"Sao Tome &amp; Principe",@"Saudi Arabia",@"Senegal",@"Serbia",@"Seychelles",@"Sierra Leone",@"Singapore",@"Slovakia",@"Slovenia",@"Solomon Islands",@"Somalia",@"South Africa",@"South Sudan",@"Spain",@"Sri Lanka",@"Sudan",@"Suriname",@"Swaziland",@"Sweden",@"Switzerland",@"Syria",@"Taiwan",@"Tajikistan",@"Tanzania",@"Thailand",@"Togo",@"Tonga",@"Trinidad &amp; Tobago",@"Tunisia",@"Turkey",@"Turkmenistan",@"Tuvalu",@"Uganda",@"Ukraine",@"United Arab Emirates",@"United Kingdom",@"United States",@"Uruguay",@"Uzbekistan",@"Vanuatu",@"Vatican City",@"Venezuela",@"Vietnam",@"Yemen",@"Zambia",@"Zimbabwe"];
     
-    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0., 0., 987., 518.)];
+    self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0., 0., 987., 548.)];
 //    [self.view addSubview:self.accordion];
 
   
-    self.accordionViewScrollView.contentSize = CGSizeMake(1, 800.);
+    self.accordionViewScrollView.contentSize = CGSizeMake(1, 600.);
     self.accordionViewScrollView.backgroundColor =[UIColor whiteColor];
 //    [self.view addSubview:self.accordionViewScrollView];
     [self.accordionViewScrollView addSubview:self.accordion];
@@ -673,7 +683,7 @@
     self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
-    UILabel* thirdHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 300., 40.)];
+    UILabel* thirdHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 400., 40.)];
     thirdHeaderTitel.backgroundColor = [UIColor clearColor];
     thirdHeaderTitel.textColor = [UIColor whiteColor];
     thirdHeaderTitel.text = @"Income and Credit Limit Details";
@@ -762,8 +772,6 @@
 
 -(void)anyMethod:(NSNotification*)sender{
     
-    
-    NSLog(@"%@",sender.object);
     
     if ([sender.object isEqual:self.employerAreaCode]) {
         
@@ -955,11 +963,16 @@
         [self.occupationPicker selectRow:index inComponent:0 animated:YES];
     }
     
+    CGRect frame;
+    
+    frame = self.industryButton.frame;
+    frame.origin.y = frame.origin.y + 50;
+    
     popoverContent.view = popoverView;
     self.popoverController3 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController3.delegate = self;
     [self.popoverController3 setPopoverContentSize:CGSizeMake(480, 260) animated:NO];
-    [self.popoverController3 presentPopoverFromRect:CGRectMake(450.0, 208.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    [self.popoverController3 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
 }
 
@@ -1285,7 +1298,7 @@
     employerStreetAddressLabel.numberOfLines = 0;
     
     employerStreetAddressLabel.backgroundColor = [UIColor clearColor];
-    employerStreetAddressLabel.text = [NSString stringWithFormat:@"%@ %@ %@",self.employerStreetAddress.text, self.employerCityTextField.text, self.provinceButton];
+    employerStreetAddressLabel.text = [NSString stringWithFormat:@"%@ %@ %@",self.employerStreetAddress.text, self.employerCityTextField.text, self.provinceButton.titleLabel.text];
     [self.secondHeaderView addSubview:employerStreetAddressLabel];
     
     
@@ -1444,11 +1457,16 @@
     self.requesteCreditLimitPicker.showsSelectionIndicator = YES;
     [popoverView addSubview:self.requesteCreditLimitPicker];
     
+    CGRect frame;
+    
+    frame = self.requestedCreditLimitButton.frame;
+    frame.origin.y = frame.origin.y + 240;
+    
     popoverContent.view = popoverView;
     self.popoverController4 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController4.delegate = self;
     [self.popoverController4 setPopoverContentSize:CGSizeMake(320, 260) animated:NO];
-    [self.popoverController4 presentPopoverFromRect:CGRectMake(390.0, 400.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    [self.popoverController4 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
 }
 
@@ -1504,11 +1522,16 @@
     [self.startDatePicker addTarget:self action:@selector(result:) forControlEvents:UIControlEventValueChanged];
     [popoverView addSubview:self.startDatePicker];
     
+    CGRect frame;
+    
+    frame = self.startDateButton.frame;
+    frame.origin.y = frame.origin.y + 150;
+    
     popoverContent.view = popoverView;
     self.popoverController5 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController5.delegate = self;
     [self.popoverController5 setPopoverContentSize:CGSizeMake(320, 264) animated:NO];
-    [self.popoverController5 presentPopoverFromRect:CGRectMake(180., 160., 320., 264.) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];//tempButton.frame where you need you can put that frame
+    [self.popoverController5 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];//tempButton.frame where you need you can put that frame
     
 }
 
@@ -1593,13 +1616,17 @@
     self.selectCurrentOcupationPicker.delegate = self;
     self.selectCurrentOcupationPicker.showsSelectionIndicator = YES;
     [popoverView addSubview:self.selectCurrentOcupationPicker];
-
+    
+    CGRect frame;
+    
+    frame = self.curretOccupationButton.frame;
+    frame.origin.y = frame.origin.y + 50;
     
     popoverContent.view = popoverView;
     self.popoverController6 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController6.delegate = self;
     [self.popoverController6 setPopoverContentSize:CGSizeMake(480., 260) animated:NO];
-    [self.popoverController6 presentPopoverFromRect:CGRectMake(650.0, 208.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+    [self.popoverController6 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
     
 }
 
@@ -1745,11 +1772,16 @@
         
     }
     
+    CGRect frame;
+    
+    frame = self.chooseCountryButton.frame;
+    frame.origin.y = frame.origin.y + 150;
+    
     popoverContent.view = popoverView;
     self.popoverController7 = [[UIPopoverController alloc] initWithContentViewController:popoverContent];
     self.popoverController7.delegate = self;
     [self.popoverController7 setPopoverContentSize:CGSizeMake(320, 260) animated:NO];
-    [self.popoverController7 presentPopoverFromRect:CGRectMake(780.0, 256.0, 100.0, 100.0) inView:self.view permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
+    [self.popoverController7 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionRight animated:YES];
     
 }
 

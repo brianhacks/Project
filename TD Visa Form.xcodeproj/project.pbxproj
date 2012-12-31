@@ -32,6 +32,10 @@
 		703E1328165979BE0043D72A /* DCRoundSwitchOutlineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E1323165979BE0043D72A /* DCRoundSwitchOutlineLayer.m */; };
 		703E1329165979BE0043D72A /* DCRoundSwitchToggleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E1325165979BE0043D72A /* DCRoundSwitchToggleLayer.m */; };
 		703E132B16597A410043D72A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703E132A16597A410043D72A /* QuartzCore.framework */; };
+		705BCD19168C758D008E93E2 /* ReviewOnePreviousAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 705BCD17168C758D008E93E2 /* ReviewOnePreviousAddressViewController.m */; };
+		705BCD1A168C758D008E93E2 /* ReviewOnePreviousAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 705BCD18168C758D008E93E2 /* ReviewOnePreviousAddressViewController.xib */; };
+		705BCD20168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 705BCD1E168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.m */; };
+		705BCD21168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 705BCD1F168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.xib */; };
 		707DFA3916765D770079FA72 /* CDatePickerViewEx.m in Sources */ = {isa = PBXBuildFile; fileRef = 707DFA3816765D770079FA72 /* CDatePickerViewEx.m */; };
 		709BABCF1662BD4C00F852CD /* AccordionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 709BABCE1662BD4C00F852CD /* AccordionView.m */; };
 		709BABD41662BD5B00F852CD /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709BABD21662BD5B00F852CD /* PersonalInfoViewController.m */; };
@@ -232,6 +236,12 @@
 		703E1324165979BE0043D72A /* DCRoundSwitchToggleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchToggleLayer.h; sourceTree = "<group>"; };
 		703E1325165979BE0043D72A /* DCRoundSwitchToggleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchToggleLayer.m; sourceTree = "<group>"; };
 		703E132A16597A410043D72A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		705BCD16168C758D008E93E2 /* ReviewOnePreviousAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewOnePreviousAddressViewController.h; sourceTree = "<group>"; };
+		705BCD17168C758D008E93E2 /* ReviewOnePreviousAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewOnePreviousAddressViewController.m; sourceTree = "<group>"; };
+		705BCD18168C758D008E93E2 /* ReviewOnePreviousAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewOnePreviousAddressViewController.xib; sourceTree = "<group>"; };
+		705BCD1D168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewTwoPreviousAddressViewController.h; sourceTree = "<group>"; };
+		705BCD1E168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewTwoPreviousAddressViewController.m; sourceTree = "<group>"; };
+		705BCD1F168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewTwoPreviousAddressViewController.xib; sourceTree = "<group>"; };
 		707DFA3716765D770079FA72 /* CDatePickerViewEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDatePickerViewEx.h; sourceTree = "<group>"; };
 		707DFA3816765D770079FA72 /* CDatePickerViewEx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDatePickerViewEx.m; sourceTree = "<group>"; };
 		709BABCD1662BD4C00F852CD /* AccordionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccordionView.h; sourceTree = "<group>"; };
@@ -525,6 +535,7 @@
 		7023379C1652C56800B87249 = {
 			isa = PBXGroup;
 			children = (
+				705BCD1C168C7AD5008E93E2 /* Final Accept view */,
 				70C8C90E167E4D17004125C8 /* Helpers */,
 				9F90EBAB1670F68F00501F8C /* buttons */,
 				9F0C390A166FC996009C8297 /* Fonts */,
@@ -670,6 +681,16 @@
 			path = DCRoundSwitch;
 			sourceTree = "<group>";
 		};
+		705BCD1C168C7AD5008E93E2 /* Final Accept view */ = {
+			isa = PBXGroup;
+			children = (
+				9FFB47D316786D40005E50F4 /* FinalAcceptViewController.h */,
+				9FFB47D416786D40005E50F4 /* FinalAcceptViewController.m */,
+				9FFB47D516786D40005E50F4 /* FinalAcceptViewController.xib */,
+			);
+			name = "Final Accept view";
+			sourceTree = "<group>";
+		};
 		705C2C051663F8D200D5205D /* Personal Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -719,6 +740,8 @@
 		70C8C90E167E4D17004125C8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				707DFA3716765D770079FA72 /* CDatePickerViewEx.h */,
+				707DFA3816765D770079FA72 /* CDatePickerViewEx.m */,
 				70C8C910167E4D26004125C8 /* NSData+CocoaDevUsersAdditions.h */,
 				70C8C911167E4D26004125C8 /* NSData+CocoaDevUsersAdditions.m */,
 			);
@@ -903,14 +926,15 @@
 		9F9CB22B1677156F00550686 /* ReviewAndSubmit */ = {
 			isa = PBXGroup;
 			children = (
-				707DFA3716765D770079FA72 /* CDatePickerViewEx.h */,
-				707DFA3816765D770079FA72 /* CDatePickerViewEx.m */,
 				9FE0887E16756D2A00428F5E /* ReviewAndSubmitViewController.h */,
 				9FE0887F16756D2A00428F5E /* ReviewAndSubmitViewController.m */,
 				9FE0888016756D2A00428F5E /* ReviewAndSubmitViewController.xib */,
-				9FFB47D316786D40005E50F4 /* FinalAcceptViewController.h */,
-				9FFB47D416786D40005E50F4 /* FinalAcceptViewController.m */,
-				9FFB47D516786D40005E50F4 /* FinalAcceptViewController.xib */,
+				705BCD16168C758D008E93E2 /* ReviewOnePreviousAddressViewController.h */,
+				705BCD17168C758D008E93E2 /* ReviewOnePreviousAddressViewController.m */,
+				705BCD18168C758D008E93E2 /* ReviewOnePreviousAddressViewController.xib */,
+				705BCD1D168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.h */,
+				705BCD1E168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.m */,
+				705BCD1F168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.xib */,
 			);
 			name = ReviewAndSubmit;
 			sourceTree = "<group>";
@@ -1077,7 +1101,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Adrian Somesan";
 			};
-			buildConfigurationList = 702337A11652C56800B87249 /* Build configuration list for PBXProject "TD VISA FORM" */;
+			buildConfigurationList = 702337A11652C56800B87249 /* Build configuration list for PBXProject "TD Visa Form" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1234,6 +1258,8 @@
 				9F57DC2D16810A3400BF306F /* btn-admin-generate.png in Resources */,
 				9F57DC2E16810A3400BF306F /* btn-admin-prepare.png in Resources */,
 				9F57DC301681268300BF306F /* consent_title.png in Resources */,
+				705BCD1A168C758D008E93E2 /* ReviewOnePreviousAddressViewController.xib in Resources */,
+				705BCD21168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1283,6 +1309,8 @@
 				9FFB47C216784DA6005E50F4 /* MainViewController.m in Sources */,
 				9FFB47D616786D40005E50F4 /* FinalAcceptViewController.m in Sources */,
 				70C8C912167E4D26004125C8 /* NSData+CocoaDevUsersAdditions.m in Sources */,
+				705BCD19168C758D008E93E2 /* ReviewOnePreviousAddressViewController.m in Sources */,
+				705BCD20168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1405,7 +1433,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		702337A11652C56800B87249 /* Build configuration list for PBXProject "TD VISA FORM" */ = {
+		702337A11652C56800B87249 /* Build configuration list for PBXProject "TD Visa Form" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				702337C81652C56800B87249 /* Debug */,

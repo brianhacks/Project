@@ -20,6 +20,8 @@
 #import "AdminViewController.h"
 #import "ThankYouViewController.h"
 #import "ReviewAndSubmitViewController.h"
+#import "ReviewOnePreviousAddressViewController.h"
+#import "ReviewTwoPreviousAddressViewController.h"
 #import "MainViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
@@ -56,11 +58,16 @@
 @property (nonatomic, strong) AdminViewController* adminViewController;
 @property (nonatomic, strong) ThankYouViewController* thankYouViewController;
 @property (nonatomic, strong) ReviewAndSubmitViewController* reviewAndSubmitViewController;
+@property (nonatomic, strong) ReviewOnePreviousAddressViewController* reviewOnePreviousAddressViewController;
+@property (nonatomic, strong) ReviewTwoPreviousAddressViewController* reviewTwoPreviousAddressViewController;
 @property (nonatomic, strong) MainViewController* mainViewController;
 
 @property (nonatomic, strong) UINavigationController *navController;
 
 @property (nonatomic, readwrite)BOOL clearUserDataFromTheApp;
+
+@property (nonatomic, readwrite)BOOL userHasPreviousAddres;
+@property (nonatomic, readwrite)BOOL userHasPreviousPreviousAddress;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

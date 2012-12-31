@@ -44,6 +44,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
+    self.userHasPreviousAddres = NO;
+    self.userHasPreviousPreviousAddress = NO;
+    
     self.clearUserDataFromTheApp = NO;
 
     [TestFlight takeOff:@"f969343d65109e13182ab5fb49109358_MTYzNjU0MjAxMi0xMi0xMSAyMzoxMDozMS4xODc4NTI"];
@@ -82,10 +85,9 @@
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapGestureCaptured:)];
     
-    [self.navController.view addGestureRecognizer:singleTap];
+    [self.window addGestureRecognizer:singleTap];
     [singleTap setCancelsTouchesInView:NO];
-    
-    
+        
     [self.window makeKeyAndVisible];
     
 
@@ -109,12 +111,14 @@
     self.financialInfoViewController = [[FinancialInfoViewController alloc] initWithNibName:@"FinancialInfoViewController" bundle:nil];
     self.pickLocationViewController = [[PickLocationViewController alloc] initWithNibName:@"PickLocationViewController" bundle:nil];
     self.reviewAndSubmitViewController = [[ReviewAndSubmitViewController alloc] initWithNibName:@"ReviewAndSubmitViewController" bundle:nil];
+    self.reviewOnePreviousAddressViewController = [[ReviewOnePreviousAddressViewController alloc] initWithNibName:@"ReviewOnePreviousAddressViewController" bundle:nil];
+    self.reviewTwoPreviousAddressViewController = [[ReviewTwoPreviousAddressViewController alloc] initWithNibName:@"ReviewTwoPreviousAddressViewController" bundle:nil];
     self.thankYouViewController = [[ThankYouViewController alloc] initWithNibName:@"ThankYouViewController" bundle:nil];
     self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeVerify];
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.personalInfoViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.reviewOnePreviousAddressViewController];
     
    self.window.rootViewController = self.navController;
 //    self.window.rootViewController = self.personalInfoViewController;
@@ -207,7 +211,7 @@
 - (void)resetIdleTimer
 {
     
-    
+    NSLog(@"touch detected, rest timer");
     
     [self.popupIdleTimer invalidate];
     self.popupIdleTimer = nil;

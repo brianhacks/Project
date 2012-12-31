@@ -1,8 +1,8 @@
 //
-//  ReviewAndSubmitViewController.h
+//  ReviewTwoPreviousAddressViewController.h
 //  TD Visa Form
 //
-//  Created by Adrian Somesan on 12/9/12.
+//  Created by Adrian Somesan on 12/27/12.
 //  Copyright (c) 2012 Adrian Somesan. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 #import "MainViewController.h"
 #import "SelectThisCardViewController.h"
 
-@interface ReviewAndSubmitViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, SelectThisCardViewControllerDelegate>
+@interface ReviewTwoPreviousAddressViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, SelectThisCardViewControllerDelegate>
 
 
 @property (strong, nonatomic) User* userInfo;
@@ -108,7 +108,22 @@
 @property (strong, nonatomic) IBOutlet UIView *formalHomeAddressView;
 @property (strong, nonatomic) IBOutlet UIView *formalFormalHomeAddressView;
 
+@property (strong, nonatomic) IBOutlet UITextField *previousStreetAddres;
+@property (strong, nonatomic) IBOutlet UITextField *previousCity;
+@property (strong, nonatomic) IBOutlet UIButton *previousProvinceButton;
+@property (strong, nonatomic) IBOutlet UITextField *previousPostalCode;
+@property (strong, nonatomic) IBOutlet UIButton *previousResidentialStatus;
+@property (strong, nonatomic) IBOutlet UIButton *previousYearsAndMonths;
+@property (strong, nonatomic) IBOutlet UITextField *formalFormalStreetAddress;
 
+@property (strong, nonatomic) IBOutlet UITextField *formalFormalCity;
+@property (strong, nonatomic) IBOutlet UIButton *formalFormalProvince;
+@property (strong, nonatomic) IBOutlet UITextField *formalFormalPostalCode;
+@property (strong, nonatomic) IBOutlet UIButton *formalFormalYearsAndMonths;
+@property (strong, nonatomic) IBOutlet UIButton *formalFormalResidentialStatus;
+
+- (IBAction)closeFormalFormalAddressView:(id)sender;
+- (IBAction)closeFormalAddressView:(id)sender;
 - (IBAction)closeGeneralInfo:(id)sender;
 - (IBAction)closeCurrentAddress:(id)sender;
 - (IBAction)closeFInancialDetails:(id)sender;
@@ -120,3 +135,4 @@
 - (IBAction)startOver:(id)sender;
 
 @end
+

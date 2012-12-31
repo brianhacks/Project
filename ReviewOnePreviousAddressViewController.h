@@ -1,10 +1,11 @@
 //
-//  ReviewAndSubmitViewController.h
+//  ReviewOnePreviousAddressViewController.h
 //  TD Visa Form
 //
-//  Created by Adrian Somesan on 12/9/12.
+//  Created by Adrian Somesan on 12/27/12.
 //  Copyright (c) 2012 Adrian Somesan. All rights reserved.
 //
+
 
 #import <UIKit/UIKit.h>
 #import "AccordionView.h"
@@ -12,7 +13,7 @@
 #import "MainViewController.h"
 #import "SelectThisCardViewController.h"
 
-@interface ReviewAndSubmitViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, SelectThisCardViewControllerDelegate>
+@interface ReviewOnePreviousAddressViewController : MainViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverControllerDelegate, SelectThisCardViewControllerDelegate>
 
 
 @property (strong, nonatomic) User* userInfo;
@@ -36,6 +37,7 @@
 @property (readwrite, nonatomic) BOOL thirdViewOpen;
 @property (readwrite, nonatomic) BOOL forthViewOpen;
 @property (readwrite, nonatomic) BOOL fifthViewOpen;
+@property (readwrite, nonatomic) BOOL sixthViewOpen;
 
 @property (strong, nonatomic) UIButton *editFirstView;
 @property (strong, nonatomic) UIButton *editSecondView;
@@ -107,8 +109,16 @@
 @property (strong, nonatomic) IBOutlet UIView *formalFormalHomeAddress;
 @property (strong, nonatomic) IBOutlet UIView *formalHomeAddressView;
 @property (strong, nonatomic) IBOutlet UIView *formalFormalHomeAddressView;
+@property (strong, nonatomic) IBOutlet UITextField *previousStreetAddres;
+@property (strong, nonatomic) IBOutlet UITextField *previousCity;
+@property (strong, nonatomic) IBOutlet UIButton *previousProvinceButton;
+@property (strong, nonatomic) IBOutlet UITextField *previousPostalCode;
+@property (strong, nonatomic) IBOutlet UIButton *previousResidentialStatus;
+@property (strong, nonatomic) IBOutlet UIButton *previousYearsAndMonths;
 
 
+
+- (IBAction)closeFormalAddressView:(id)sender;
 - (IBAction)closeGeneralInfo:(id)sender;
 - (IBAction)closeCurrentAddress:(id)sender;
 - (IBAction)closeFInancialDetails:(id)sender;
@@ -120,3 +130,4 @@
 - (IBAction)startOver:(id)sender;
 
 @end
+
