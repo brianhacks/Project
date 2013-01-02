@@ -125,7 +125,7 @@
 					<object class="IBUIButton" id="692691921">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{188, 707}, {80, 40}}</string>
+						<string key="NSFrame">{{189, 707}, {80, 40}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="429094397"/>
@@ -154,7 +154,7 @@
 					<object class="IBUIButton" id="429094397">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{263, 707}, {106, 43}}</string>
+						<string key="NSFrame">{{271, 711}, {92, 33}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="799377332"/>
@@ -169,11 +169,10 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="431134023"/>
-						<object class="NSCustomResource" key="IBUINormalImage" id="297543288">
+						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">btn-start-hover.png</string>
+							<string key="NSResourceName">btn-startover.png</string>
 						</object>
-						<reference key="IBUINormalBackgroundImage" ref="297543288"/>
 						<reference key="IBUIFontDescription" ref="535542210"/>
 						<reference key="IBUIFont" ref="73582337"/>
 					</object>
@@ -183,6 +182,7 @@
 						<string key="NSFrame">{{868, 702}, {144, 46}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -378,13 +378,13 @@
 						<reference key="object" ref="766721923"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="287663232"/>
-							<reference ref="860347777"/>
 							<reference ref="799377332"/>
 							<reference ref="118288435"/>
 							<reference ref="325054479"/>
 							<reference ref="451421240"/>
-							<reference ref="429094397"/>
 							<reference ref="692691921"/>
+							<reference ref="429094397"/>
+							<reference ref="860347777"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -548,7 +548,7 @@
 			<string key="btn-security.png">{154, 72}</string>
 			<string key="btn-select-hover.png">{288, 93}</string>
 			<string key="btn-select.png">{288, 93}</string>
-			<string key="btn-start-hover.png">{206, 78}</string>
+			<string key="btn-startover.png">{166, 59}</string>
 			<string key="footer.png">{2048, 94}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1930</string>

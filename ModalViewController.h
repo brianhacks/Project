@@ -16,6 +16,8 @@
 - (void)whichModalToPresent:(NSString *)modalName;
 - (IBAction)closeModal:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UILabel *dialogTitle;
+
 
 
 @end

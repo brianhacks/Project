@@ -287,7 +287,9 @@ TO DO
     
 
     
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your data has been exported" message:@"Admin" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+
     
     
     

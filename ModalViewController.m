@@ -8,11 +8,17 @@
 
 #import "ModalViewController.h"
 
-@interface ModalViewController ()
+@interface ModalViewController (){
+    NSString *dialogTitle;
+}
 
 @end
 
+
+
 @implementation ModalViewController
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,16 +34,19 @@
 - (void)whichModalToPresent:(NSString *)modalName
 {
     NSString *urlAddress;
-    if ([modalName isEqualToString:@"privacy"]) {
+   
     
+    if ([modalName isEqualToString:@"privacy"]) {
+        [self.dialogTitle setText:@"Privacy"];
         urlAddress = @"http://www.td.com/privacyandsecurity/privacycommitment/index.jsp";
     
     }else if([modalName isEqualToString:@"security"]){
-        
+        [self.dialogTitle setText:@"Security"];
         urlAddress = @"http://www.td.com/privacyandsecurity/index.jsp";
         
     }else if([modalName isEqualToString:@"legal"]){
-        
+        [self.dialogTitle setText:@"Legal"];
+
         urlAddress = @"http://www.td.com/legal/index_inc.jsp";
         
     }
@@ -65,6 +74,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
+    
+   
+    
     
 }
 
