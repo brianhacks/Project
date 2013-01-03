@@ -691,7 +691,7 @@
     //validate the fields here!
     bool isValid = true;
     
-    if ([self.titleString isEqualToString:@""] ){
+    if ([self.selectTitelButton.titleLabel.text isEqualToString:@"Title"] ){
         isValid=false;
         //mark field as invalid
         self.selectTitelButton.backgroundColor = [UIColor yellowColor];
@@ -745,7 +745,8 @@
 
     
     
-    if( [self.gender isEqualToString:@""] ){
+    if( [self.selectGenderButton.titleLabel.text isEqualToString:@"Gender"] ){
+        isValid=false;
         //mark field as invalid
         self.selectGenderButton.backgroundColor = [UIColor yellowColor];
     }else{
