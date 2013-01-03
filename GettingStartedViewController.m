@@ -10,6 +10,9 @@
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 
+
+
+
 @interface GettingStartedViewController()
    
 
@@ -85,6 +88,17 @@
     self.nextSteptButton.enabled = NO;
     NSLog(@"Got here END OF Load");
     
+   // (( UILabel *)[[[[[[ self.areYouACanadianResidentSwitch subviews ] lastObject ] subviews ] objectAtIndex :2] subviews ] objectAtIndex :0]).text = @"Foo";
+    [self.areYouACanadianResidentSwitch setOnImage:[UIImage imageNamed:@"switch_on"]];
+    [self.areYouACanadianResidentSwitch setOffImage:[UIImage imageNamed:@"switch_off"]];
+    
+    [self.existingTDCanadaCustomer setOnImage:[UIImage imageNamed:@"switch_on"]];
+    [self.existingTDCanadaCustomer setOffImage:[UIImage imageNamed:@"switch_off"]];
+    
+    [self.bankruptcySwitch setOnImage:[UIImage imageNamed:@"switch_on"]];
+    [self.bankruptcySwitch setOffImage:[UIImage imageNamed:@"switch_off"]];
+
+
 }
 
 
@@ -120,6 +134,11 @@
     datePicker.frame=CGRectMake(0,44,320, 216);
     datePicker.datePickerMode = UIDatePickerModeDate;
     [datePicker setTag:10];
+    
+    
+    NSDate *currentDate = [NSDate date];
+    [datePicker setMaximumDate:currentDate];
+    
     [datePicker addTarget:self action:@selector(result:) forControlEvents:UIControlEventValueChanged];
     [popoverView addSubview:datePicker];
     

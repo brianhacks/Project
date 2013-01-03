@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DCRoundSwitch.h"
+
 #import "MainViewController.h"
+
+
+ 
+
 
 @interface GettingStartedViewController : MainViewController <UIPopoverControllerDelegate>
 

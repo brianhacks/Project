@@ -840,11 +840,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "GettingStartedViewController.m"
-         timestampString = "378850058.308519"
+         timestampString = "378877834.65297"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "389"
-         endingLineNumber = "389"
+         startingLineNumber = "408"
+         endingLineNumber = "408"
          landmarkName = "-refresh"
          landmarkType = "5">
       </FileBreakpoint>

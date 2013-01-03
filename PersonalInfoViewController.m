@@ -946,7 +946,7 @@
     
     
     
-    if([self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose"])
+    if([self.residentialStatusButton.titleLabel.text isEqualToString:@"Choose One"])
     {
 //        isValid=false;
         
@@ -1306,7 +1306,7 @@
     
     
     
-    if([self.previousProvinceButton.titleLabel.text isEqualToString:@"Choose"])
+    if([self.previousProvinceButton.titleLabel.text isEqualToString:@"Choose One"])
     {
         //        isValid=false;
         
@@ -1719,7 +1719,7 @@
     
     
     
-    if([self.previousPreviousProvince.titleLabel.text isEqualToString:@"Choose"])
+    if([self.previousPreviousProvince.titleLabel.text isEqualToString:@"Choose One"])
     {
         //        isValid=false;
         

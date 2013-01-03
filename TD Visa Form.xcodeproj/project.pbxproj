@@ -65,6 +65,8 @@
 		9F11097B1674E459007E5952 /* mappopover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1109781674E459007E5952 /* mappopover.png */; };
 		9F11097C1674E459007E5952 /* body-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1109791674E459007E5952 /* body-5.png */; };
 		9F11097D1674E459007E5952 /* bank-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F11097A1674E459007E5952 /* bank-selected.png */; };
+		9F1BAF8A1695366C00044679 /* switch_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1BAF881695366C00044679 /* switch_on.png */; };
+		9F1BAF8B1695366C00044679 /* switch_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1BAF891695366C00044679 /* switch_off.png */; };
 		9F2B90A1166EEF80003DD835 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90A0166EEF80003DD835 /* background.png */; };
 		9F2B90A5166F057A003DD835 /* ssaver2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90A3166F057A003DD835 /* ssaver2.png */; };
 		9F2B90A6166F057A003DD835 /* ssaver1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90A4166F057A003DD835 /* ssaver1.png */; };
@@ -286,6 +288,8 @@
 		9F1109781674E459007E5952 /* mappopover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mappopover.png; path = "TD Visa Form/images/mappopover.png"; sourceTree = "<group>"; };
 		9F1109791674E459007E5952 /* body-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "body-5.png"; path = "TD Visa Form/images/body-5.png"; sourceTree = "<group>"; };
 		9F11097A1674E459007E5952 /* bank-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bank-selected.png"; path = "TD Visa Form/images/bank-selected.png"; sourceTree = "<group>"; };
+		9F1BAF881695366C00044679 /* switch_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = switch_on.png; path = "TD Visa Form/images/switch_on.png"; sourceTree = "<group>"; };
+		9F1BAF891695366C00044679 /* switch_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = switch_off.png; path = "TD Visa Form/images/switch_off.png"; sourceTree = "<group>"; };
 		9F2B90A0166EEF80003DD835 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "TD Visa Form/background.png"; sourceTree = "<group>"; };
 		9F2B90A3166F057A003DD835 /* ssaver2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ssaver2.png; path = "TD Visa Form/ssaver2.png"; sourceTree = "<group>"; };
 		9F2B90A4166F057A003DD835 /* ssaver1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ssaver1.png; path = "TD Visa Form/ssaver1.png"; sourceTree = "<group>"; };
@@ -818,6 +822,8 @@
 		9F2B90A7166F0588003DD835 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9F1BAF881695366C00044679 /* switch_on.png */,
+				9F1BAF891695366C00044679 /* switch_off.png */,
 				9F57DC2F1681268300BF306F /* consent_title.png */,
 				9F6A1D5C167B8CC90021561B /* housing-info.png */,
 				9F6A1D59167B87E50021561B /* horizontal-line.png */,
@@ -1115,6 +1121,9 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				English,
+				ja,
+				Japanese,
 			);
 			mainGroup = 7023379C1652C56800B87249;
 			productRefGroup = 702337A81652C56800B87249 /* Products */;
@@ -1270,6 +1279,8 @@
 				705BCD21168C7AF0008E93E2 /* ReviewTwoPreviousAddressViewController.xib in Resources */,
 				9F307F9D169222CC0077F6B8 /* btn-startover.png in Resources */,
 				9F307FA416943E210077F6B8 /* btn-done-black.png in Resources */,
+				9F1BAF8A1695366C00044679 /* switch_on.png in Resources */,
+				9F1BAF8B1695366C00044679 /* switch_off.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -397,9 +397,10 @@
 							<object class="IBUIButton" id="367272078">
 								<reference key="NSNextResponder" ref="192691471"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{922, 4}, {95, 39}}</string>
+								<string key="NSFrame">{{922, 3}, {95, 39}}</string>
 								<reference key="NSSuperview" ref="192691471"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -426,7 +427,7 @@
 							<object class="IBUIButton" id="627865690">
 								<reference key="NSNextResponder" ref="192691471"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{822, 6}, {101, 39}}</string>
+								<string key="NSFrame">{{827, 5}, {101, 39}}</string>
 								<reference key="NSSuperview" ref="192691471"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="367272078"/>
@@ -1048,9 +1049,9 @@
 						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="areYouACanadianResidentSwitch">UISwitch</string>
+						<string key="areYouACanadianResidentSwitch">UICustomSwitch</string>
 						<string key="bankruptLabel">UILabel</string>
-						<string key="bankruptcySwitch">UISwitch</string>
+						<string key="bankruptcySwitch">UICustomSwitch</string>
 						<string key="birthDateButton">UIButton</string>
 						<string key="dobLabel">UILabel</string>
 						<string key="existingLabel">UILabel</string>
@@ -1066,7 +1067,7 @@
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="areYouACanadianResidentSwitch">
 							<string key="name">areYouACanadianResidentSwitch</string>
-							<string key="candidateClassName">UISwitch</string>
+							<string key="candidateClassName">UICustomSwitch</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="bankruptLabel">
 							<string key="name">bankruptLabel</string>
@@ -1074,7 +1075,7 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="bankruptcySwitch">
 							<string key="name">bankruptcySwitch</string>
-							<string key="candidateClassName">UISwitch</string>
+							<string key="candidateClassName">UICustomSwitch</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="birthDateButton">
 							<string key="name">birthDateButton</string>
