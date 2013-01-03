@@ -53,6 +53,8 @@
     [super viewDidLoad];
     
     
+  
+    
     activeBranchId = @"0";
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
@@ -71,6 +73,8 @@
     NSString *city = u.city;
     NSString *prov = u.province;
     NSString *query = [NSString stringWithFormat:@"%@ %@ %@", address, city, prov];
+   
+    [self.query setText:query];
     //    NSString *query = [NSString stringWithFormat:@"London, Oxford Street 20"];
     //geocode the default based on the users home addresss
     //  appDelegate
@@ -105,6 +109,9 @@
             
             
         }}];
+    [self.nextStep setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
+    [self.nextStep setEnabled:NO];
+    
 }
 /*
  
@@ -153,9 +160,13 @@
          }
     }
     if(enableNextButton){
+        [self.nextStep setImage:[UIImage imageNamed:@"btn-next.png"] forState:UIControlStateNormal];
         self.nextStep.enabled = YES;
+        
     }else{
-        self.nextStep.enabled = YES;
+        [self.nextStep setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
+        self.nextStep.enabled = NO;
+
     }
 }
 
@@ -488,6 +499,23 @@
         return view;
     }
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+     Annotation *branch = [allBranches objectAtIndex:indexPath.row];
+     NSString *branchId = [branch.content.values objectForKey:@"branchid"];
+    
+    [self markBranchAsSelected:branchId];
+    activeBranchId=branchId;
+
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(branch.coordinate, 3*METERS_PER_MILE, 3*METERS_PER_MILE);
+    MKCoordinateRegion adjustedRegion = [mapView regionThatFits:viewRegion];
+    [self.mapView setRegion:adjustedRegion animated:YES];
+    [self.tableView reloadData];
+    
+}
+
+
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     

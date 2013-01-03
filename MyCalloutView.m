@@ -62,7 +62,7 @@
     NSDictionary *dictionary = [NSDictionary dictionaryWithObject:self.title.text forKey:key];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self.title.text userInfo:dictionary];
-   //this is buggy!
+   
     [self  removeFromSuperview];
     
 }

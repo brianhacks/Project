@@ -117,11 +117,11 @@
     self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeVerify];
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
-    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.pickLocationViewController];
 //    self.navController = [[UINavigationController alloc] initWithRootViewController:self.reviewOnePreviousAddressViewController];
     
-   self.window.rootViewController = self.navController;
-//    self.window.rootViewController = self.personalInfoViewController;
+  // self.window.rootViewController = self.navController;
+    self.window.rootViewController = self.pickLocationViewController;
     
     
     [self.navController setNavigationBarHidden:YES animated:NO];
@@ -487,7 +487,7 @@
 //        self.idleTimer = nil;
 //        self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:debugTime target:self selector:@selector(showScreenSaver) userInfo:nil repeats:NO];
         
-        self.idleAlert = [[UIAlertView alloc] initWithTitle:@"Idle" message:@"some message" delegate:self cancelButtonTitle:@"Start Over" otherButtonTitles:@"Wake up", nil];
+        self.idleAlert = [[UIAlertView alloc] initWithTitle:@"Idle" message:@"The application is about to start over. " delegate:self cancelButtonTitle:@"Start Over" otherButtonTitles:@"Wake up", nil];
         [self.idleAlert show];
         
     }
