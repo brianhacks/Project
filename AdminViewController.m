@@ -380,7 +380,7 @@ create the X
 
 
 - (int) rowHeight {
-    return 28;
+    return 38;
 }
 
 
@@ -392,12 +392,20 @@ create the X
     return 20;
 }
 
+
+
 - (int) fixedWidthForColumn: (int) columnIndex {
-    return 0;
+    if (columnIndex == 0) {
+        return 100;
+    }
+    else {
+        return 80;
+    }
 }
 
+
 - (Boolean) hasColumnFixedWidth: (int) columnIndex {
-	return NO;
+	return YES;
 }
 
 
@@ -480,9 +488,11 @@ create the X
              cellView.label.text =@"";
         }else{
             cellView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"blue-gradient.png"]];
-            cellView.label.font = [UIFont boldSystemFontOfSize:15];
-            cellView.label.textColor = [UIColor whiteColor];
-            cellView.label.text = [colLabels objectAtIndex:column-1];
+            cellView.label.font = [UIFont boldSystemFontOfSize:12];
+           // cellView.label.textColor = [UIColor whiteColor];
+            NSString *colLab = [colLabels objectAtIndex:column-1];
+            NSArray *labelArr = [colLab componentsSeparatedByString:@"|"];
+            cellView.label.text = [NSString stringWithFormat:@"%@\n%@", labelArr[0], labelArr[1]];
             
         }
         
