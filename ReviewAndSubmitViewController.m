@@ -1328,6 +1328,8 @@
         self.finalAcceptViewController = [[FinalAcceptViewController alloc] initWithNibName:@"FinalAcceptViewController" bundle:nil];
     }
     
+    self.finalAcceptViewController.view.superview.bounds = CGRectMake(0, 0, 600, 600);
+    
     self.finalAcceptViewController.delegate = self;
     self.finalAcceptViewController.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:self.finalAcceptViewController animated:YES completion:^{}];

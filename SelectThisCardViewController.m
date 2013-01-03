@@ -41,7 +41,7 @@
     {
         // then we are at the top
     }
-    else if (scrollOffset > 100)
+    else if (scrollOffset > 150)
     {
          self.btnTerms.enabled=YES;
     }

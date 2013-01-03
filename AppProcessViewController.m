@@ -94,7 +94,8 @@
     if (self.selectThisCardViewController == nil) {
         self.selectThisCardViewController = [[SelectThisCardViewController alloc] initWithNibName:@"SelectThisCardViewController" bundle:nil];
     }
-    
+    //self.selectThisCardViewController.view.superview.bounds = CGRectMake(0, 0, 600, 600);
+
     self.selectThisCardViewController.delegate = self;
     self.selectThisCardViewController.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:self.selectThisCardViewController animated:YES completion:^{}];

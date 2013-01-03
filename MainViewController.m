@@ -97,7 +97,7 @@
         }else if([lbl isKindOfClass:[UITextField class]]){
             [(UITextField *)lbl setFont:[UIFont fontWithName:@"HelveticaNeue" size:15]];
         }else if([lbl isKindOfClass:[UIButton class]]){
-            [(UIButton *)lbl setFont:[UIFont fontWithName:@"FrutigerLTStd-BlackCn" size:15]];
+            [(UIButton *)lbl setFont:[UIFont fontWithName:@"HelveticaNeue" size:15]];
         }
         for (UIView *sview in lbl.subviews)
         {
@@ -129,11 +129,11 @@
     }else if([fontStyle isEqualToString:@"display-data"]){
         fontName = @"Frutiger LT Std";
     }else if([fontStyle isEqualToString:@"button"]){
-        fontName = @"Helvetica-neue";
+        fontName = @"HelveticaNeue-Bold";
     }else{
         //[NSException raise:NSInvalidArgumentException format:@"Style Not found for font styling"];
         NSLog(@"Style Not found for font styling");
-        fontName =@"Frutiger LT Std";
+        fontName =@"HelveticaNeue-Bold";
     }
 
 
@@ -144,10 +144,10 @@
             [lbl setFont:[UIFont fontWithName:fontName size:fontSize]];
         }else if([view isKindOfClass:[UITextField class]]){
             UITextField *field = (UITextField *)view;
-            [field setFont:[UIFont fontWithName:@"Helvetica-neue" size:fontSize]];
+            [field setFont:[UIFont fontWithName:@"HelveticaNeue" size:fontSize]];
         }else if([view isKindOfClass:[UIButton class]]){
             UIButton *button = (UIButton *)view;
-            [button setFont:[UIFont fontWithName:@"Helvetica-neue" size:fontSize]];
+            [button setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:fontSize]];
         }else if([view isKindOfClass:[UITextField class]]){
             UITextField *field = (UITextField *)view;
             [field setFont:[UIFont fontWithName:fontName size:fontSize]];
@@ -158,7 +158,7 @@
         {
             for (UIView *sview in view.subviews)
             {
-                [self setAppFontStyle:fontName forView:sview];
+                [self setAppFontStyle:fontStyle forView:sview];
             }
         }    
     }

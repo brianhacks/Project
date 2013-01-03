@@ -98,7 +98,9 @@
     [self.bankruptcySwitch setOnImage:[UIImage imageNamed:@"switch_on"]];
     [self.bankruptcySwitch setOffImage:[UIImage imageNamed:@"switch_off"]];
 
+    [self setAppFontStyle:@"button" forView:self.birthDateButton];
 
+    
 }
 
 

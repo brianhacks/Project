@@ -27,10 +27,6 @@
 		703E13111659695F0043D72A /* PINBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 703E130F1659695F0043D72A /* PINBox@2x.png */; };
 		703E13161659744C0043D72A /* GettingStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E13141659744C0043D72A /* GettingStartedViewController.m */; };
 		703E13171659744C0043D72A /* GettingStartedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 703E13151659744C0043D72A /* GettingStartedViewController.xib */; };
-		703E1326165979BE0043D72A /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E131F165979BE0043D72A /* DCRoundSwitch.m */; };
-		703E1327165979BE0043D72A /* DCRoundSwitchKnobLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E1321165979BE0043D72A /* DCRoundSwitchKnobLayer.m */; };
-		703E1328165979BE0043D72A /* DCRoundSwitchOutlineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E1323165979BE0043D72A /* DCRoundSwitchOutlineLayer.m */; };
-		703E1329165979BE0043D72A /* DCRoundSwitchToggleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 703E1325165979BE0043D72A /* DCRoundSwitchToggleLayer.m */; };
 		703E132B16597A410043D72A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703E132A16597A410043D72A /* QuartzCore.framework */; };
 		705BCD19168C758D008E93E2 /* ReviewOnePreviousAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 705BCD17168C758D008E93E2 /* ReviewOnePreviousAddressViewController.m */; };
 		705BCD1A168C758D008E93E2 /* ReviewOnePreviousAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 705BCD18168C758D008E93E2 /* ReviewOnePreviousAddressViewController.xib */; };
@@ -67,6 +63,7 @@
 		9F11097D1674E459007E5952 /* bank-selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F11097A1674E459007E5952 /* bank-selected.png */; };
 		9F1BAF8A1695366C00044679 /* switch_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1BAF881695366C00044679 /* switch_on.png */; };
 		9F1BAF8B1695366C00044679 /* switch_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1BAF891695366C00044679 /* switch_off.png */; };
+		9F1BAF9616953E2900044679 /* consent.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F1BAF9516953E2900044679 /* consent.png */; };
 		9F2B90A1166EEF80003DD835 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90A0166EEF80003DD835 /* background.png */; };
 		9F2B90A5166F057A003DD835 /* ssaver2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90A3166F057A003DD835 /* ssaver2.png */; };
 		9F2B90A6166F057A003DD835 /* ssaver1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F2B90A4166F057A003DD835 /* ssaver1.png */; };
@@ -231,14 +228,6 @@
 		703E13131659744C0043D72A /* GettingStartedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GettingStartedViewController.h; sourceTree = "<group>"; };
 		703E13141659744C0043D72A /* GettingStartedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GettingStartedViewController.m; sourceTree = "<group>"; };
 		703E13151659744C0043D72A /* GettingStartedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GettingStartedViewController.xib; sourceTree = "<group>"; };
-		703E131E165979BE0043D72A /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
-		703E131F165979BE0043D72A /* DCRoundSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitch.m; sourceTree = "<group>"; };
-		703E1320165979BE0043D72A /* DCRoundSwitchKnobLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchKnobLayer.h; sourceTree = "<group>"; };
-		703E1321165979BE0043D72A /* DCRoundSwitchKnobLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchKnobLayer.m; sourceTree = "<group>"; };
-		703E1322165979BE0043D72A /* DCRoundSwitchOutlineLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchOutlineLayer.h; sourceTree = "<group>"; };
-		703E1323165979BE0043D72A /* DCRoundSwitchOutlineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchOutlineLayer.m; sourceTree = "<group>"; };
-		703E1324165979BE0043D72A /* DCRoundSwitchToggleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchToggleLayer.h; sourceTree = "<group>"; };
-		703E1325165979BE0043D72A /* DCRoundSwitchToggleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchToggleLayer.m; sourceTree = "<group>"; };
 		703E132A16597A410043D72A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		705BCD16168C758D008E93E2 /* ReviewOnePreviousAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewOnePreviousAddressViewController.h; sourceTree = "<group>"; };
 		705BCD17168C758D008E93E2 /* ReviewOnePreviousAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewOnePreviousAddressViewController.m; sourceTree = "<group>"; };
@@ -290,6 +279,7 @@
 		9F11097A1674E459007E5952 /* bank-selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bank-selected.png"; path = "TD Visa Form/images/bank-selected.png"; sourceTree = "<group>"; };
 		9F1BAF881695366C00044679 /* switch_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = switch_on.png; path = "TD Visa Form/images/switch_on.png"; sourceTree = "<group>"; };
 		9F1BAF891695366C00044679 /* switch_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = switch_off.png; path = "TD Visa Form/images/switch_off.png"; sourceTree = "<group>"; };
+		9F1BAF9516953E2900044679 /* consent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = consent.png; path = "TD Visa Form/images/consent.png"; sourceTree = "<group>"; };
 		9F2B90A0166EEF80003DD835 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "TD Visa Form/background.png"; sourceTree = "<group>"; };
 		9F2B90A3166F057A003DD835 /* ssaver2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ssaver2.png; path = "TD Visa Form/ssaver2.png"; sourceTree = "<group>"; };
 		9F2B90A4166F057A003DD835 /* ssaver1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ssaver1.png; path = "TD Visa Form/ssaver1.png"; sourceTree = "<group>"; };
@@ -299,7 +289,7 @@
 		9F2B90B4166FA897003DD835 /* banner-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-4.png"; path = "TD Visa Form/images/banner-4.png"; sourceTree = "<group>"; };
 		9F2B90B7166FABFE003DD835 /* header-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header-5.png"; path = "TD Visa Form/images/header-5.png"; sourceTree = "<group>"; };
 		9F307F9C169222CC0077F6B8 /* btn-startover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-startover.png"; path = "../images/btn-startover.png"; sourceTree = "<group>"; };
-		9F307FA316943E210077F6B8 /* btn-done-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-done-black.png"; path = "TD Visa Form/buttons/btn-done-black.png"; sourceTree = "<group>"; };
+		9F307FA316943E210077F6B8 /* btn-done-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-done-black.png"; sourceTree = "<group>"; };
 		9F307FB01694B7AB0077F6B8 /* TD Visa Form.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "TD Visa Form.entitlements"; sourceTree = "<group>"; };
 		9F3922CE16801079008B2E56 /* FrutigerLTStd-Black 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Black 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Black 2.otf"; sourceTree = "<group>"; };
 		9F3922CF16801079008B2E56 /* FrutigerLTStd-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Black.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Black.otf"; sourceTree = "<group>"; };
@@ -581,7 +571,6 @@
 			children = (
 				9F83570D167BAB130088B366 /* libz.dylib */,
 				9F835705167BAA090088B366 /* TestFlightSDK1.1 */,
-				703E131D165979BE0043D72A /* DCRoundSwitch */,
 				9FF89E77167599B80084D3A0 /* libCorePlot-CocoaTouch.a */,
 				9FF89E78167599B80084D3A0 /* CorePlotHeaders */,
 				9FBDBCD6167437C100BE04E6 /* CoreLocation.framework */,
@@ -676,21 +665,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		703E131D165979BE0043D72A /* DCRoundSwitch */ = {
-			isa = PBXGroup;
-			children = (
-				703E131E165979BE0043D72A /* DCRoundSwitch.h */,
-				703E131F165979BE0043D72A /* DCRoundSwitch.m */,
-				703E1320165979BE0043D72A /* DCRoundSwitchKnobLayer.h */,
-				703E1321165979BE0043D72A /* DCRoundSwitchKnobLayer.m */,
-				703E1322165979BE0043D72A /* DCRoundSwitchOutlineLayer.h */,
-				703E1323165979BE0043D72A /* DCRoundSwitchOutlineLayer.m */,
-				703E1324165979BE0043D72A /* DCRoundSwitchToggleLayer.h */,
-				703E1325165979BE0043D72A /* DCRoundSwitchToggleLayer.m */,
-			);
-			path = DCRoundSwitch;
-			sourceTree = "<group>";
-		};
 		705BCD1C168C7AD5008E93E2 /* Final Accept view */ = {
 			isa = PBXGroup;
 			children = (
@@ -732,7 +706,6 @@
 				70A2528C16557E6B00049612 /* SelectThisCardViewController.h */,
 				70A2528D16557E6B00049612 /* SelectThisCardViewController.m */,
 				70A2528E16557E6B00049612 /* SelectThisCardViewController.xib */,
-				9F57DC201680FEB400BF306F /* legalstuff.png */,
 			);
 			name = "Application process";
 			sourceTree = "<group>";
@@ -743,7 +716,6 @@
 				70A252871655786E00049612 /* ModalViewController.h */,
 				70A252881655786E00049612 /* ModalViewController.m */,
 				70A252891655786E00049612 /* ModalViewController.xib */,
-				9F307FA316943E210077F6B8 /* btn-done-black.png */,
 			);
 			name = Modals;
 			sourceTree = "<group>";
@@ -822,6 +794,7 @@
 		9F2B90A7166F0588003DD835 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9F1BAF9516953E2900044679 /* consent.png */,
 				9F1BAF881695366C00044679 /* switch_on.png */,
 				9F1BAF891695366C00044679 /* switch_off.png */,
 				9F57DC2F1681268300BF306F /* consent_title.png */,
@@ -859,6 +832,7 @@
 				9F0C3906166FB9DB009C8297 /* banner-2.png */,
 				9F854C8416703CE5009F9E01 /* banner-1.png */,
 				9F2B90A4166F057A003DD835 /* ssaver1.png */,
+				9F57DC201680FEB400BF306F /* legalstuff.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -889,6 +863,7 @@
 		9F90EBAB1670F68F00501F8C /* buttons */ = {
 			isa = PBXGroup;
 			children = (
+				9F307FA316943E210077F6B8 /* btn-done-black.png */,
 				9F307F9C169222CC0077F6B8 /* btn-startover.png */,
 				9F57DC2B16810A3400BF306F /* btn-admin-generate.png */,
 				9F57DC2C16810A3400BF306F /* btn-admin-prepare.png */,
@@ -1281,6 +1256,7 @@
 				9F307FA416943E210077F6B8 /* btn-done-black.png in Resources */,
 				9F1BAF8A1695366C00044679 /* switch_on.png in Resources */,
 				9F1BAF8B1695366C00044679 /* switch_off.png in Resources */,
+				9F1BAF9616953E2900044679 /* consent.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1302,10 +1278,6 @@
 				70A2528F16557E6B00049612 /* SelectThisCardViewController.m in Sources */,
 				703E130B165968450043D72A /* GCPINViewController.m in Sources */,
 				703E13161659744C0043D72A /* GettingStartedViewController.m in Sources */,
-				703E1326165979BE0043D72A /* DCRoundSwitch.m in Sources */,
-				703E1327165979BE0043D72A /* DCRoundSwitchKnobLayer.m in Sources */,
-				703E1328165979BE0043D72A /* DCRoundSwitchOutlineLayer.m in Sources */,
-				703E1329165979BE0043D72A /* DCRoundSwitchToggleLayer.m in Sources */,
 				709BABCF1662BD4C00F852CD /* AccordionView.m in Sources */,
 				709BABD41662BD5B00F852CD /* PersonalInfoViewController.m in Sources */,
 				70CB814F1664003C0003B225 /* FinancialInfoViewController.m in Sources */,

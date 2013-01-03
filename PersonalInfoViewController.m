@@ -439,8 +439,11 @@
     [self.accordion setAllowsMultipleSelection:YES];
 //    [self.accordion setSelectedIndex:3];
     
-    [self setAppFontStyle:@"button" forView:_selectTitelButton];
-     [self setAppFontStyle:@"button" forView:_provinceButton];
+    [self setAppFontStyle:@"button" forView:self.selectTitelButton];
+    [self setAppFontStyle:@"button" forView:self.provinceButton];
+    [self setAppFontStyle:@"button" forView:self.selectLanguageOfCorespondace];
+    
+    
     
     
    
@@ -586,6 +589,7 @@
     self.titleString = [NSString stringWithFormat:@"%@",[self.titleArray objectAtIndex:[self.titlePicker selectedRowInComponent:0]]];
     [self.selectTitelButton setTitle:[NSString stringWithFormat:@"%@",self.titleString] forState:UIControlStateNormal];
     [self.popoverController2 dismissPopoverAnimated:YES];
+    [self setAppFontStyle:@"button" forView:self.selectTitelButton];
     
 }
 

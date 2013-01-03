@@ -120,8 +120,8 @@
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
 //    self.navController = [[UINavigationController alloc] initWithRootViewController:self.reviewOnePreviousAddressViewController];
     
-  // self.window.rootViewController = self.navController;
-    self.window.rootViewController = self.personalInfoViewController;
+   self.window.rootViewController = self.navController;
+   // self.window.rootViewController = self.personalInfoViewController;
     
     
     [self.navController setNavigationBarHidden:YES animated:NO];
@@ -248,9 +248,7 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
   
     NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:theDate];
-    NSString *hour =  [NSString stringWithFormat:@"%d", [components hour] ];
-    
-    
+    NSString *hour =  [NSString stringWithFormat:@"%d", [components hour]];
     
     /*
      
