@@ -77,7 +77,7 @@
 							<object class="IBUIButton" id="98094690">
 								<reference key="NSNextResponder" ref="411125220"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{44, 15}, {97, 40}}</string>
+								<string key="NSFrame">{{44, 19}, {82, 29}}</string>
 								<reference key="NSSuperview" ref="411125220"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="899962388"/>
@@ -99,14 +99,11 @@
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC41AA</bytes>
 								</object>
-								<object class="NSCustomResource" key="IBUIHighlightedImage">
+								<object class="NSCustomResource" key="IBUIHighlightedImage" id="662587384">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">btn-start-hover.png</string>
+									<string key="NSResourceName">btn-startover.png</string>
 								</object>
-								<object class="NSCustomResource" key="IBUINormalImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">btn-start.png</string>
-								</object>
+								<reference key="IBUINormalImage" ref="662587384"/>
 								<object class="IBUIFontDescription" key="IBUIFontDescription" id="59068714">
 									<int key="type">2</int>
 									<double key="pointSize">15</double>
@@ -120,7 +117,7 @@
 							<object class="IBUIButton" id="634416803">
 								<reference key="NSNextResponder" ref="411125220"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{921, 11}, {96, 39}}</string>
+								<string key="NSFrame">{{919, 14}, {96, 39}}</string>
 								<reference key="NSSuperview" ref="411125220"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="901478633"/>
@@ -151,7 +148,7 @@
 							<object class="IBUIButton" id="899962388">
 								<reference key="NSNextResponder" ref="411125220"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{812, 13}, {108, 39}}</string>
+								<string key="NSFrame">{{821, 16}, {101, 39}}</string>
 								<reference key="NSSuperview" ref="411125220"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="634416803"/>
@@ -3270,7 +3267,7 @@
 				<string key="28.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="286.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="287.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="287.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="287.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="289.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="292.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -3611,8 +3608,7 @@
 			<string key="btn-next.png">{192, 78}</string>
 			<string key="btn-prev-hover.png">{210, 78}</string>
 			<string key="btn-prev.png">{210, 78}</string>
-			<string key="btn-start-hover.png">{206, 78}</string>
-			<string key="btn-start.png">{206, 78}</string>
+			<string key="btn-startover.png">{166, 59}</string>
 			<string key="finance-info1.jpg">{748, 191}</string>
 			<string key="finance-info2.png">{757, 169}</string>
 			<string key="footer.png">{2048, 94}</string>
