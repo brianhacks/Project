@@ -52,9 +52,7 @@
 {
     AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
-    appDelegate.modalViewController.modalPresentationStyle = UIModalPresentationPageSheet;
-//    [self presentModalViewController:appDelegate.modalViewController animated:YES];
-    [self presentViewController:appDelegate.modalViewController animated:YES completion:^{}];
+    [appDelegate startOver];
     
 }
 

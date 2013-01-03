@@ -118,7 +118,7 @@
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.reviewOnePreviousAddressViewController];
+//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.personalInfoViewController];
     
    self.window.rootViewController = self.navController;
    // self.window.rootViewController = self.personalInfoViewController;
@@ -140,25 +140,10 @@
 
 
 - (void)startOver{
+    
+    UIAlertView* startOver = [[UIAlertView alloc] initWithTitle:@"Start over" message:@"Are you sure??" delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+    [startOver show];
 
-    [self initViewsAndNavController];
-    self.clearUserDataFromTheApp = YES;
-    NSManagedObjectContext* context = [self managedObjectContext];
-    NSFetchRequest* request = [NSFetchRequest new];
-    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
-    [request setEntity:entity];
-    
-    NSError* error = nil;
-    NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
-    
-    for (NSManagedObject * users in fetchedResult) {
-        [context deleteObject:users];
-    }
-    
-    NSError *saveError = nil;
-    [context save:&saveError];
-    [self popToRoot];
-    
 }
 
 /*
@@ -522,7 +507,43 @@
             
             self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:debugTime target:self selector:@selector(showScreenSaver) userInfo:nil repeats:NO];
         }
+    }else if([alertView.title isEqualToString:@"Start over"]){
+        
+        if (buttonIndex == 0) {
+            
+            NSLog(@"NO");
+            
+        }else{
+            
+            NSLog(@"YES");
+            [self startOverPressedYes];
+            
+        }
+        
     }
+    
+}
+
+- (void)startOverPressedYes
+{
+    
+    [self initViewsAndNavController];
+    self.clearUserDataFromTheApp = YES;
+    NSManagedObjectContext* context = [self managedObjectContext];
+    NSFetchRequest* request = [NSFetchRequest new];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError* error = nil;
+    NSArray* fetchedResult = [context executeFetchRequest:request error:&error];
+    
+    for (NSManagedObject * users in fetchedResult) {
+        [context deleteObject:users];
+    }
+    
+    NSError *saveError = nil;
+    [context save:&saveError];
+    [self popToRoot];
     
 }
  
