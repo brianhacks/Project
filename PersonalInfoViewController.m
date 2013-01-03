@@ -2295,6 +2295,7 @@
         if (length >= 4) {
             
             [self.primaryPhoneNumber resignFirstResponder];
+            [self.emailAddress becomeFirstResponder];
             
         }
         
