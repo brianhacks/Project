@@ -1362,7 +1362,7 @@
     
     NSString* years = [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]];
     
-    if ([years integerValue] <= 2) {
+    if ([years integerValue] < 2) {
         
         showForthHeader = true;
         
@@ -2527,13 +2527,13 @@
     
     if (showThirdHeader) {
         
-        [self.timeLivedAtPreviousAddressButton setTitle:[NSString stringWithFormat:@"%@ year(s) %@ month(s)",[self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]], [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:1]]] forState:UIControlStateNormal];
+        [self.timeLivedAtPreviousAddressButton setTitle:[NSString stringWithFormat:@"%@ year(s) %@ month(s)",[self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]], [self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:1]]] forState:UIControlStateNormal];
         
     }
     
     if (showForthHeader) {
         
-        [self.previousPreviousYearsAndMonths setTitle:[NSString stringWithFormat:@"%@ year(s) %@ month(s)",[self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]], [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:1]]] forState:UIControlStateNormal];
+        [self.previousPreviousYearsAndMonths setTitle:[NSString stringWithFormat:@"%@ year(s) %@ month(s)",[self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]], [self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:1]]] forState:UIControlStateNormal];
         
     }
     
