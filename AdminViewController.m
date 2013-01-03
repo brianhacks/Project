@@ -306,6 +306,11 @@ TO DO
 }
 
 - (IBAction)exitAdmin:(id)sender {
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
+    appDelegate.window.rootViewController = appDelegate.firstScreenSaverViewController;
+    
 }
 
 - (IBAction)exportData:(id)sender {
