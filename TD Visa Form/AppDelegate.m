@@ -682,6 +682,59 @@
     return _persistentStoreCoordinator;
 }
 
+
+- (void)addEntriesToLog
+{
+    NSArray *colLabels = [NSArray arrayWithObjects:@"12/31|Mon",@"01/01|Tue",@"01/02|Wed",@"01/03|Thu",@"01/04|Fri", nil];
+    NSArray *rowLabels = [NSArray arrayWithObjects:@"c111111",
+                 @"c029345",
+                 @"c286727",
+                 @"c328439",
+                 @"c428395",
+                 @"c502957",
+                 @"c610293",
+                 @"c728394",
+                 @"c820571",
+                 @"c919283",
+                 @"c103627",
+                 @"c114472",
+                 @"c123940",
+                 @"c132738",
+                 @"c141182",
+                 @"c153456",
+                 @"c160965",
+                 @"c178734",
+                 @"c182345",
+                 @"c192378",
+                 @"c209983",
+                 nil];
+    
+    
+    Log *logInfo = nil;
+    
+    NSManagedObjectContext* context = [self managedObjectContext];
+    
+    
+     for(int j=0;j<3;j++){
+    for(int i=0;i<20;i++){
+        logInfo = [[Log alloc] initWithEntity:[NSEntityDescription entityForName:@"Log" inManagedObjectContext:[self managedObjectContext]] insertIntoManagedObjectContext:[self managedObjectContext]];
+        [logInfo setCreatedAt:colLabels[j]];
+        [logInfo setCurrentUserCode:rowLabels[i]];
+         NSError* error = nil;
+        if (![context save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+        
+    }
+     }
+    
+    
+    
+    
+   }
+
+
+
 #pragma mark - Application's Documents directory
 
 // Returns the URL to the application's Documents directory.

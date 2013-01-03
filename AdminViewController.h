@@ -7,25 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CorePlot-CocoaTouch.h"
-#import "AdminGraph.h"
+#import "UMTableView.h"
 #import "User.h"
 
-@interface AdminViewController : UIViewController {
-    IBOutlet CPTGraphHostingView *_graphHostingView;
-    AdminGraph *_scatterPlot;
-}
-
-
+@interface AdminViewController : UIViewController <UMTableViewDelegate>
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, retain) AdminGraph *scatterPlot;
 @property (nonatomic, strong) User* userInfo;
 @property (strong, nonatomic) IBOutlet UILabel *totalApps;
+
+// grid view stuff
+
+@property(nonatomic, strong) NSMutableArray* data;
+@property(nonatomic, strong) NSMutableArray* headers;
+//
 
 - (IBAction)clearUserData:(id)sender;
 - (IBAction)exportData:(id)sender;
 - (void)exportLog;
+- (IBAction)exitAdmin:(id)sender;
 
 - (NSString *)getExportFileName;
 - (NSData *)exportToNSData;

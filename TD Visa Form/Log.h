@@ -11,7 +11,7 @@
 @interface Log : NSManagedObject
 
 @property (nonatomic, retain) NSString *createdAt;
-
+@property (nonatomic, retain) NSString *createdAtDay;
 @property (nonatomic, retain) NSString *currentUserCode;
 
 

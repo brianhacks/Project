@@ -80,6 +80,6 @@
 - (void)addBOOLInfoToUser:(BOOL)info andFieldToAddItTo:(NSString *)_field;
 
 - (void)startOver;
-
+- (void)addEntriesToLog;
 
 @end

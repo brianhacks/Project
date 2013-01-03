@@ -17,8 +17,23 @@
 }
 
 @end
-
+/*
+ OK so
+ 
+ loop through all the records
+ for each record create a dict entry
+ date-userid : count
+ 
+ increment count over time
+ 
+ */
 @implementation AdminViewController
+int numGridRows;
+int numGridColumns;
+NSMutableArray *rowLabels;
+NSMutableArray *colLabels;
+NSMutableDictionary *entries;
+
 @synthesize managedObjectContext;
 @synthesize totalApps;
 
@@ -97,55 +112,50 @@ TO DO
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [appDelegate addEntriesToLog];
+    
+    CGRect frm = CGRectMake(350, 100, 650, 510);
+    UMTableView* tableView = [[UMTableView alloc] initWithFrame: frm];
+    tableView.tableViewDelegate = self;
+    [self.view addSubview:tableView];
+    
+   rowLabels = [NSArray arrayWithObjects:@"c111111",
+                           @"c029345",
+                           @"c286727",
+                           @"c328439",
+                           @"c428395",
+                           @"c502957",
+                           @"c610293",
+                           @"c728394",
+                           @"c820571",
+                           @"c919283",
+                           @"c103627",
+                           @"c114472",
+                           @"c123940",
+                           @"c132738",
+                           @"c141182",
+                           @"c153456",
+                           @"c160965",
+                           @"c178734",
+                           @"c182345",
+                           @"c192378",
+                           @"c209983",
+                           nil];
+    
+
+    
+    
+    
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    NSError *error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription
-                                   entityForName:@"Log" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"hour", @"count", nil];
-    int i=0;
-    for (NSManagedObject *info in fetchedObjects) {
-        i++;
-        NSLog(@"Name: %@", [info valueForKey:@"createdAt"]);
-        NSString *key = [info valueForKey:@"createdAt"];
-        
-        int count;
-        //Refactor me
-        if ([data objectForKey:key]) {
-            NSLog(@"There's an object set for key @\"b\"!");
-            NSString *currentCount = [data valueForKey:key];
-            int count = [currentCount intValue];
-            count++;
-        } else {
-            NSLog(@"No object set for key @\"b\"");
-            count = 1;
-            
-        }
-       [data setObject:[NSString stringWithFormat:@"%d", count] forKey:key];
-        
-    }
-    [self.totalApps setText:[NSString stringWithFormat:@"%d", i]];
-   
-    NSMutableArray *gData = [NSMutableArray array];
-    for (NSString *key in data){
-        id value = [data objectForKey:key];
-        int y = [value intValue];
-        int x = [key intValue];
-        NSLog(@"----%d", x);
-
-        [gData addObject:[NSValue valueWithCGPoint:CGPointMake(x, y)]];
-    }
-      
-    self.scatterPlot = [[AdminGraph alloc] initWithHostingView:_graphHostingView andData:gData];
-    [self.scatterPlot initialisePlot];
-    
+    [self computeGrid];
+         
+ 
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -295,6 +305,9 @@ TO DO
     
 }
 
+- (IBAction)exitAdmin:(id)sender {
+}
+
 - (IBAction)exportData:(id)sender {
     //generate the stats file
     
@@ -347,6 +360,179 @@ TO DO
     
 }
 
+/*  
+ 
+ GRID VIEW STUFF */
+
+
+/*
+ get each record
+ 
+create the X
+ 
+ create the y
+ 
+ lets do this first
+ 
+ 
+ 
+ */
+
+
+- (int) rowHeight {
+    return 28;
+}
+
+
+- (int) numColumns {
+    return colLabels.count+1;
+}
+
+- (int) numRows {
+    return 20;
+}
+
+- (int) fixedWidthForColumn: (int) columnIndex {
+    return 0;
+}
+
+- (Boolean) hasColumnFixedWidth: (int) columnIndex {
+	return NO;
+}
+
+
+- (UIColor*) borderColor {
+	return [UIColor whiteColor];
+}
+
+-(void)computeGrid{
+    
+    // row labels
+       
+  
+    
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"Log" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+ 
+  //  NSMutableArray *coldata = [[NSMutableArray alloc] init];
+    int i=0;
+    
+    colLabels = [[NSMutableArray alloc] init];
+    
+    for (NSManagedObject *info in fetchedObjects) {
+        i++;
+        bool hasCol = false;
+        NSString *cols = [info valueForKey:@"createdAt"];
+        
+        if([colLabels indexOfObject:cols]!=NSNotFound){
+        
+                hasCol = true;
+            
+        }
+        if(!hasCol){
+            [colLabels addObject:cols];
+             NSLog(@"%@", cols);
+        }
+       
+
+        
+    }
+
+    
+    
+    entries = [[NSMutableDictionary alloc] init];
+    NSString *entryCount;
+    for (NSManagedObject *info in fetchedObjects) {
+        NSString *cols = [info valueForKey:@"createdAt"];
+        NSString *rows = [info valueForKey:@"currentUserCode"];
+        NSString *key = [NSString stringWithFormat:@"%@-%@",cols, rows];
+        NSString *currentEntry;
+        if([entries valueForKey:key]==nil){
+            currentEntry=@"";
+        }else{
+             currentEntry = [entries valueForKey:key];
+        }
+        
+        NSString *newVal = [NSString stringWithFormat:@"%@1",currentEntry];
+        [entries setObject:newVal forKey:key];
+    }
+    
+    
+    
+   
+    numGridRows = 20;
+
+}
+
+- (void)layoutView: (UMCellView*) cellView forRow: (int) row inColumn: (int) column {
+    
+    // customize header row
+	if (row == 0) {
+        if (column==0){
+             cellView.label.text =@"";
+        }else{
+            cellView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"blue-gradient.png"]];
+            cellView.label.font = [UIFont boldSystemFontOfSize:15];
+            cellView.label.textColor = [UIColor whiteColor];
+            cellView.label.text = [colLabels objectAtIndex:column-1];
+            
+        }
+        
+	}
+    
+    // all other rows
+	else {
+        if (column==0){
+            cellView.label.text =[rowLabels objectAtIndex:row];
+        }else{
+        
+            cellView.backgroundColor = [UIColor lightGrayColor];
+            cellView.label.textColor = [UIColor colorWithWhite:0.1 alpha:1.0];
+            cellView.label.font = [UIFont boldSystemFontOfSize:12];
+            
+            NSString *rowId = [rowLabels objectAtIndex:row];
+             NSString *colId = [colLabels objectAtIndex:column-1];
+            
+            NSString *key = [NSString stringWithFormat:@"%@-%@",colId, rowId];
+            
+            
+            //lets do a function here
+            //count the number of occurrences in the array where row and column match
+            // NSMutableDuctionary : date + "-"+userid : count
+            
+            NSString *entry = [entries objectForKey:key];
+            
+            cellView.label.text = [NSString stringWithFormat:@"%u", entry.length]; //[[data objectAtIndex:row] objectAtIndex:column];
+            
+            cellView.label.numberOfLines = 2;
+        
+            if ([cellView.label.text hasPrefix:@"Column:"]) {
+             //   cellView.backgroundColor = [UIColor whiteColor];
+            }
+        }
+        
+	}
+    cellView.label.textAlignment = UITextAlignmentCenter;
+}
+
+
+/// UTILITY DELETE
+
+
+- (void) headerTapped: (UIGestureRecognizer*) recognizer {
+    
+}
+- (void) cellTouched: (UITapGestureRecognizer*) recognizer {
+
+}
 
 
 
