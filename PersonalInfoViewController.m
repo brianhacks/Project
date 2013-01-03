@@ -82,6 +82,7 @@
         if (component == 0) {
             
             return [self.yearsLivedArray count];
+            
         }else if(component == 1){
             
             return [self.monthsLivedArray count];
@@ -334,7 +335,7 @@
     
     
     self.yearsLivedArray = [NSArray new];
-    self.yearsLivedArray = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30", @"31", @"32", @"33", @"34", @"35", @"36", @"37", @"38", @"39", @"40"];
+    self.yearsLivedArray = @[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"18", @"19", @"20", @"21", @"22", @"23", @"24", @"25", @"26", @"27", @"28", @"29", @"30", @"31", @"32", @"33", @"34", @"35", @"36", @"37", @"38", @"39", @"40"];
     
     [self.nextStepButton setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
     self.nextStepButton.enabled = NO;
@@ -998,7 +999,7 @@
     
     NSString* years = [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]];
     
-    if ([years integerValue] <= 2) {
+    if ([years integerValue] < 2) {
         
         showThirdHeader = true;
         
@@ -2367,7 +2368,7 @@
 - (void)chooseTime:(id)sender
 {
     
-    [self.timeLivedAtCurrentAddress setTitle:[NSString stringWithFormat:@"%@ year(s) %@ month(s)",[self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]], [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:1]]] forState:UIControlStateNormal];
+    [self.timeLivedAtCurrentAddress setTitle:[NSString stringWithFormat:@"%@ year(s) %@ month(s)",[self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]], [self.monthsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:1]]] forState:UIControlStateNormal];
     [self.popoverController5 dismissPopoverAnimated:YES];
    
 }
