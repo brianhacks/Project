@@ -41,7 +41,7 @@
     {
         // then we are at the top
     }
-    else if (scrollOffset > 150)
+    else if (scrollOffset > 100)
     {
          self.btnTerms.enabled=YES;
     }
@@ -94,8 +94,11 @@
 
 - (IBAction)chooseThisCard:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    [self dismissViewControllerAnimated:YES completion:^{
+       
+    }];
     [self.delegate chooseCard:self andButton:@"choose this card"];
+    NSLog(@"This thing working?");
     
 }
 @end

@@ -294,8 +294,9 @@
 		9F2B90B3166FA897003DD835 /* banner-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-5.png"; path = "TD Visa Form/images/banner-5.png"; sourceTree = "<group>"; };
 		9F2B90B4166FA897003DD835 /* banner-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "banner-4.png"; path = "TD Visa Form/images/banner-4.png"; sourceTree = "<group>"; };
 		9F2B90B7166FABFE003DD835 /* header-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header-5.png"; path = "TD Visa Form/images/header-5.png"; sourceTree = "<group>"; };
-		9F307F9C169222CC0077F6B8 /* btn-startover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-startover.png"; path = "TD Visa Form/images/btn-startover.png"; sourceTree = "<group>"; };
+		9F307F9C169222CC0077F6B8 /* btn-startover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-startover.png"; path = "../images/btn-startover.png"; sourceTree = "<group>"; };
 		9F307FA316943E210077F6B8 /* btn-done-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-done-black.png"; path = "TD Visa Form/buttons/btn-done-black.png"; sourceTree = "<group>"; };
+		9F307FB01694B7AB0077F6B8 /* TD Visa Form.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "TD Visa Form.entitlements"; sourceTree = "<group>"; };
 		9F3922CE16801079008B2E56 /* FrutigerLTStd-Black 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Black 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Black 2.otf"; sourceTree = "<group>"; };
 		9F3922CF16801079008B2E56 /* FrutigerLTStd-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-Black.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-Black.otf"; sourceTree = "<group>"; };
 		9F3922D016801079008B2E56 /* FrutigerLTStd-BlackCn 2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "FrutigerLTStd-BlackCn 2.otf"; path = "TD Visa Form/fonts/FrutigerLTStd-BlackCn 2.otf"; sourceTree = "<group>"; };
@@ -595,6 +596,7 @@
 		702337B31652C56800B87249 /* TD Visa Form */ = {
 			isa = PBXGroup;
 			children = (
+				9F307FB01694B7AB0077F6B8 /* TD Visa Form.entitlements */,
 				70A252911655803B00049612 /* Constants.h */,
 				9FFB47C016784DA6005E50F4 /* MainViewController.h */,
 				9FFB47C116784DA6005E50F4 /* MainViewController.m */,
@@ -702,7 +704,6 @@
 				709BABCE1662BD4C00F852CD /* AccordionView.m */,
 				709BABD11662BD5B00F852CD /* PersonalInfoViewController.h */,
 				709BABD21662BD5B00F852CD /* PersonalInfoViewController.m */,
-				9F307F9C169222CC0077F6B8 /* btn-startover.png */,
 				709BABD31662BD5B00F852CD /* PersonalInfoViewController.xib */,
 			);
 			name = "Personal Info";
@@ -882,6 +883,7 @@
 		9F90EBAB1670F68F00501F8C /* buttons */ = {
 			isa = PBXGroup;
 			children = (
+				9F307F9C169222CC0077F6B8 /* btn-startover.png */,
 				9F57DC2B16810A3400BF306F /* btn-admin-generate.png */,
 				9F57DC2C16810A3400BF306F /* btn-admin-prepare.png */,
 				9F57DC271681079F00BF306F /* btn-generate-report.jpg */,
@@ -1345,7 +1347,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1374,7 +1376,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1391,8 +1394,8 @@
 		702337CB1652C56800B87249 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Matthew Kantor (P9G34B35Q8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Matthew Kantor (P9G34B35Q8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TD Visa Form/TD Visa Form-Prefix.pch";
 				INFOPLIST_FILE = "TD Visa Form/TD Visa Form-Info.plist";
@@ -1401,13 +1404,15 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"-all_load",
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0D366B71-4FC7-4DB6-AB13-D52E2508C964";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0D366B71-4FC7-4DB6-AB13-D52E2508C964";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1416,7 +1421,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Matthew Kantor";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Matthew Kantor";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Matthew Kantor";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TD Visa Form/TD Visa Form-Prefix.pch";
@@ -1426,14 +1430,15 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/TestFlightSDK1.1\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-lz",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6C7AE0A7-7AAB-4954-B684-48C6AA1387DB";
-				"PROVISIONING_PROFILE[sdk=*]" = "6C7AE0A7-7AAB-4954-B684-48C6AA1387DB";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C7AE0A7-7AAB-4954-B684-48C6AA1387DB";
+				VALIDATE_PRODUCT = NO;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1448,7 +1453,7 @@
 				702337C91652C56800B87249 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		702337CA1652C56800B87249 /* Build configuration list for PBXNativeTarget "TD Visa Form" */ = {
 			isa = XCConfigurationList;
@@ -1457,7 +1462,7 @@
 				702337CC1652C56800B87249 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 

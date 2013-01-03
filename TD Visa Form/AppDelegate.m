@@ -177,6 +177,7 @@
 
 -(void)cleanupFromTimer{
 //     NSLog(@"CLEANUP FROM TIMER");
+    
     self.clearUserDataFromTheApp = YES;
     
     //reset fetch entity
@@ -206,6 +207,7 @@
     [self initViewsAndNavController];
     
     [self popToRoot];
+     
 }
 
 - (void)resetIdleTimer
@@ -220,6 +222,7 @@
     [self.idleTimer invalidate];
     self.idleTimer = nil;
     self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:debugTime target:self selector:@selector(showScreenSaver) userInfo:nil repeats:NO];
+     
 }
 
 
@@ -524,6 +527,7 @@
     }
     
 }
+ 
 
 - (void)backOneView
 {

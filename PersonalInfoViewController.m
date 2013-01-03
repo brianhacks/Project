@@ -389,6 +389,7 @@
     secondHeaderTitel.textColor = [UIColor blackColor];
     secondHeaderTitel.text = @"Current Home Address";
     [self setAppFontStyle:@"accordion-header" forView:secondHeaderTitel];
+
     [self drawTopLineForSubView:self.secondHeaderView];
     [self.secondHeaderView addSubview:secondHeaderTitel];
     
@@ -437,6 +438,12 @@
     // Set this if you want to allow multiple selection
     [self.accordion setAllowsMultipleSelection:YES];
 //    [self.accordion setSelectedIndex:3];
+    
+    [self setAppFontStyle:@"button" forView:_selectTitelButton];
+     [self setAppFontStyle:@"button" forView:_provinceButton];
+    
+    
+   
    
 }
 

@@ -144,9 +144,16 @@
             [lbl setFont:[UIFont fontWithName:fontName size:fontSize]];
         }else if([view isKindOfClass:[UITextField class]]){
             UITextField *field = (UITextField *)view;
+            [field setFont:[UIFont fontWithName:@"Helvetica-neue" size:fontSize]];
+        }else if([view isKindOfClass:[UIButton class]]){
+            UIButton *button = (UIButton *)view;
+            [button setFont:[UIFont fontWithName:@"Helvetica-neue" size:fontSize]];
+        }else if([view isKindOfClass:[UITextField class]]){
+            UITextField *field = (UITextField *)view;
             [field setFont:[UIFont fontWithName:fontName size:fontSize]];
         }
-        
+
+    
         if (true)
         {
             for (UIView *sview in view.subviews)

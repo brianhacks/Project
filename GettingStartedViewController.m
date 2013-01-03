@@ -33,13 +33,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"View Did load");
+
    [self setDefaultStyles:self.view];
     [self setAppFontStyle:@"display-label-bold" forView:self.residentLabel];
     [self setAppFontStyle:@"display-label-bold" forView:self.dobLabel];
     [self setAppFontStyle:@"display-label-bold" forView:self.bankruptLabel];
     [self setAppFontStyle:@"display-label-bold" forView:self.existingLabel];
 
-    self.areYouACanadianResidentSwitch.onText = NSLocalizedString(@"YES", @"YES");
+    /*self.areYouACanadianResidentSwitch.onText = NSLocalizedString(@"YES", @"YES");
 	self.areYouACanadianResidentSwitch.offText = NSLocalizedString(@"NO", @"NO");
     
     self.bankruptcySwitch.onText = NSLocalizedString(@"YES", @"YES");
@@ -47,7 +49,7 @@
     
     self.existingTDCanadaCustomer.onText = NSLocalizedString(@"YES", @"YES");
 	self.existingTDCanadaCustomer.offText = NSLocalizedString(@"NO", @"NO");
-    
+    */
     // Do any additional setup after loading the view from its nib.
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     self.view.backgroundColor = background;
@@ -81,8 +83,10 @@
     
     [self.nextSteptButton setImage:[UIImage imageNamed:@"btn-next-inactive.png"] forState:UIControlStateDisabled];
     self.nextSteptButton.enabled = NO;
+    NSLog(@"Got here END OF Load");
     
 }
+
 
 
 
@@ -382,12 +386,15 @@
     self.sageataImage.image = [UIImage imageNamed:@"sageata.png"];
     [self.view addSubview:self.sageataImage];
     */
-    
+NSLog(@"Got here");
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    NSLog(@"MEmory warning");
+
     // Dispose of any resources that can be recreated.
 }
 

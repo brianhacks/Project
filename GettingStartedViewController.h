@@ -24,9 +24,9 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *birthDateButton;
 @property (strong, nonatomic) UIPopoverController* popoverController1;
-@property (strong, nonatomic) IBOutlet DCRoundSwitch *areYouACanadianResidentSwitch;
-@property (strong, nonatomic) IBOutlet DCRoundSwitch *bankruptcySwitch;
-@property (strong, nonatomic) IBOutlet DCRoundSwitch *existingTDCanadaCustomer;
+@property (strong, nonatomic) IBOutlet UISwitch *areYouACanadianResidentSwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *bankruptcySwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *existingTDCanadaCustomer;
 @property (strong, nonatomic) UIDatePicker *datePicker;
 @property (strong, nonatomic) UIButton* chooseDateButton2;
 @property (strong, nonatomic) IBOutlet UIView *firstBorderView;

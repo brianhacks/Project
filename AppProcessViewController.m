@@ -122,6 +122,10 @@
 //        self.sageataImage.frame = CGRectMake(self.sageataImage.frame.origin.x + 120, 62., 94., 81.);
     }
     
+    
+}
+-(void)dealloc{
+    NSLog(@"dealloc");
 }
 
 
