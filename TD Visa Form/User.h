@@ -51,6 +51,9 @@
 @property (nonatomic, retain) NSString * employerWorkPrefix;
 
 @property (nonatomic, retain) NSString * resincialStatus;
+@property (nonatomic, retain) NSString * referenceNumber;
+
+
 @property (nonatomic, retain) NSString * monthlyHouseCosts;
 @property (nonatomic, retain) NSString * employmentStatus;
 @property (nonatomic, retain) NSString * currentOcupation;

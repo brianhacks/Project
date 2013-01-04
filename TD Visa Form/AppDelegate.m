@@ -27,9 +27,9 @@
 @implementation AppDelegate
 
 #define maxIdleTime 60.0//126
-#define popupIdleTime 30.0//60
-#define loginIdleTime 30.0
-#define debugTime 10000.0
+#define popupIdleTime 90.0//60
+#define loginIdleTime 60.0
+#define debugTime 60.0
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -666,7 +666,10 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"TD_Visa_Form.sqlite"];
+   // NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"TD_Visa_Form.sqlite"];
+    
+    NSURL *storeURL = [[self  applicationLibraryDirectory] URLByAppendingPathComponent:@"TD_Visa_Form.sqlite"];
+    
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -734,7 +737,7 @@
     NSManagedObjectContext* context = [self managedObjectContext];
     
     
-     for(int j=0;j<3;j++){
+     for(int j=0;j<5;j++){
     for(int i=0;i<20;i++){
         logInfo = [[Log alloc] initWithEntity:[NSEntityDescription entityForName:@"Log" inManagedObjectContext:[self managedObjectContext]] insertIntoManagedObjectContext:[self managedObjectContext]];
         [logInfo setCreatedAt:colLabels[j]];
@@ -761,5 +764,11 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+- (NSURL *)applicationLibraryDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+
 
 @end

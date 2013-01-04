@@ -54,7 +54,7 @@
 					<object class="IBUIButton" id="287663232">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{39, 711}, {82, 34}}</string>
+						<string key="NSFrame">{{39, 713}, {82, 33}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="451421240"/>
@@ -93,7 +93,7 @@
 					<object class="IBUIButton" id="451421240">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{121, 711}, {66, 36}}</string>
+						<string key="NSFrame">{{120, 713}, {65, 34}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="692691921"/>
@@ -125,7 +125,7 @@
 					<object class="IBUIButton" id="692691921">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{185, 710}, {77, 36}}</string>
+						<string key="NSFrame">{{184, 712}, {74, 34}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="429094397"/>
@@ -154,7 +154,7 @@
 					<object class="IBUIButton" id="429094397">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{267, 714}, {82, 29}}</string>
+						<string key="NSFrame">{{263, 715}, {79, 28}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="799377332"/>
@@ -179,7 +179,7 @@
 					<object class="IBUIButton" id="799377332">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{871, 703}, {139, 47}}</string>
+						<string key="NSFrame">{{871, 705}, {139, 45}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -376,14 +376,14 @@
 						<int key="objectID">2</int>
 						<reference key="object" ref="766721923"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="287663232"/>
 							<reference ref="118288435"/>
 							<reference ref="325054479"/>
 							<reference ref="451421240"/>
 							<reference ref="429094397"/>
 							<reference ref="860347777"/>
-							<reference ref="692691921"/>
 							<reference ref="799377332"/>
+							<reference ref="692691921"/>
+							<reference ref="287663232"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>

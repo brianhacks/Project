@@ -443,6 +443,10 @@
     [self setAppFontStyle:@"button" forView:self.selectTitelButton];
     [self setAppFontStyle:@"button" forView:self.provinceButton];
     [self setAppFontStyle:@"button" forView:self.selectLanguageOfCorespondace];
+    [self setAppFontStyle:@"button" forView:self.selectGenderButton];
+
+    
+    
     
     
     
@@ -640,6 +644,7 @@
     
     CGRect frame = self.selectGenderButton.frame;
     frame.origin.y = frame.origin.y + 45;
+    
     
     [self.popoverController1 presentPopoverFromRect:frame inView:self.accordionViewScrollView permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     

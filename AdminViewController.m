@@ -217,7 +217,7 @@ TO DO
     
     if (![fetchedResult count] == 0) {
         
-        self.userInfo = [fetchedResult objectAtIndex:0];
+        //self.userInfo = [fetchedResult objectAtIndex:0];
         
     }
     
@@ -236,29 +236,6 @@ TO DO
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
-    for (NSManagedObject *info in fetchedObjects) {
-        NSLog(@"Name: %@", [info valueForKey:@"createdAt"]);
-        NSString *key = [info valueForKey:@"createdAt"];
-        
-        NSString *s_count = [[NSString alloc] init];
-        int count;
-        //Refactor me
-        if ([data objectForKey:key]) {
-            NSLog(@"There's an object set for key @\"b\"!");
-            NSString *currentCount = [data valueForKey:key];
-            int count = [currentCount intValue];
-            count++;
-        } else {
-            NSLog(@"No object set for key @\"b\"");
-            count = 1;
-            
-        }
-        [data setObject:[NSString stringWithFormat:@"%d", count] forKey:key];
-        
-    }
-    
-
-   
     
     NSFileManager *filemgr;
     NSData *databuffer;
@@ -275,33 +252,31 @@ TO DO
     dataFile = [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"history.csv"]];
     
     if ([filemgr fileExistsAtPath: dataFile]){
-            //delete me
+        //delete me
     }
-        
-      //  NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath: dataFile];
+    
+    //  NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath: dataFile];
     [filemgr createFileAtPath: dataFile contents: databuffer attributes:nil];
     NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath: dataFile];
     
-        for (NSString *key in data){
-            id value = [data objectForKey:key];
-            
-            NSData *dataToSave = [[NSString stringWithFormat:@"%@,%@\n", key, value] dataUsingEncoding:NSUTF8StringEncoding];
-            //write the data
-            [fh writeData:dataToSave];
-        }
+    
+    
+    for (NSManagedObject *info in fetchedObjects) {
+       
+        NSString *key = [info valueForKey:@"createdAt"];
+        NSString *key2 = [info valueForKey:@"currentUserCode"];
         
         
-        [fh seekToEndOfFile];
+        NSString *s_count = [[NSString alloc] init];
+        //        split the string here
+        NSArray *tmpArr = [key componentsSeparatedByString:@"|"];
+        NSData *dataToSave = [[NSString stringWithFormat:@"%@,%@,%@\n", tmpArr[0], tmpArr[1], key2] dataUsingEncoding:NSUTF8StringEncoding];
+        //write the data
+        [fh writeData:dataToSave];
         
-                               
+    }
     
-
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your data has been exported" message:@"Admin" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
-
-    
-    
+    [fh seekToEndOfFile];
     
 }
 
@@ -318,70 +293,108 @@ TO DO
     
     //save the log data first
     [self exportLog];
-   // return;
-    //generate each file for record in the DB
-    
-    User *info = [self userRecord];
+ 
     
     NSFileManager *filemgr;
     NSData *databuffer;
     NSString *dataFile;
     NSString *docsDir;
     NSArray *dirPaths;
+
     
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"User" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     filemgr = [NSFileManager defaultManager];
     
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
     docsDir = [dirPaths objectAtIndex:0];
+
     
-    dataFile = [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_%@.txt",info.firstName, info.lastName]];
-    
-    if ([filemgr fileExistsAtPath: dataFile]){
-            
-        NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath: dataFile];
+    if ([fetchedObjects count] == 0) {
         
-        [fh seekToEndOfFile];
-        NSData *dataToSave = [[NSString stringWithFormat:@"Credit Card type: %@ \nSpecial Offer Code: %@ \nMarketing Code: %@ \nResponse Channel: %@ \nTitle: %@ \nFirst Name: %@ \nLast Name: %@ \nGender: %@ \nDate Of Birth: %@ \nSocial Insurance Number: %@ \nPhone Number: %@ \nHome Address: %@ \nCity: %@ \nProvince: %@ \nPostal Code: %@ \nResidential Status: %@ \nLength of Residence: %@ \nPrevious Address: %@ \nCity: %@ \nProvince/State: %@ \nCountry: %@ \nPostal Code: %@ \nLength of Residence: %@ \nCredit Limit Request: %@ \nEmail Address: %@ \nPreferred Language: %@ \nTotal Monthly Housing Costs: %@ \nCurrent Employment Status: %@ \nName of Employer: %@ \nEmployer Address: %@ \Employer City: %@ \nEmployer Province: %@ \nEmployer Country:%@ \nEmployer Postal Code: %@ \nOccupation: %@ \nCurrent Business Phone Number: %@ \nExtension: %@ \nStart Date: %@ \nGross Annual Income: %@ \nTotal Household Income: %@ \nPickup Branch: %@ \nAre you an existing TD Canada Trust Customer:%@ \nDate: %@ \nTimestamp: %@" ,@"credid card selected", @"special offer code", @"marketing code", @"response channel", info.title, info.firstName, info.lastName, info.gender, info.birthDate, info.sin, info.primaryPhone, info.street, info.city, info.province, info.resincialStatus,@"lenght of residence", info.previousAddress, info.previousCity, info.previousProvince, @"previous country",info.postalCode, info.previousPostalCode, @"previous lenght of residence", info.requestedCreditLimit, info.email, info.languagOfCorespondace, info.monthlyHouseCosts, info.employmentStatus, info.employerName, info.employerStreetAddress, info.employerCity, info.employerProvince, info.employerCountry, @"employer postal code", info.currentOcupation, @"employer phone", @"emploeyr extension", info.startDateForWork, info.grossAnualIncome, info.householdIncome, @"branch", @"existing td customer", @"date", @"time stamp"] dataUsingEncoding:NSUTF8StringEncoding];
-        [fh writeData: dataToSave];
-        
+        NSLog(@"No User Records Found");
         
     }else{
-        
-        databuffer = [[NSString stringWithFormat:@"Credit Card type: %@ \nSpecial Offer Code: %@ \nMarketing Code: %@ \nResponse Channel: %@ \nTitle: %@ \nFirst Name: %@ \nLast Name: %@ \nGender: %@ \nDate Of Birth: %@ \nSocial Insurance Number: %@ \nPhone Number: %@ \nHome Address: %@ \nCity: %@ \nProvince: %@ \nPostal Code: %@ \nResidential Status: %@ \nLength of Residence: %@ \nPrevious Address: %@ \nCity: %@ \nProvince/State: %@ \nCountry: %@ \nPostal Code: %@ \nLength of Residence: %@ \nCredit Limit Request: %@ \nEmail Address: %@ \nPreferred Language: %@ \nTotal Monthly Housing Costs: %@ \nCurrent Employment Status: %@ \nName of Employer: %@ \nEmployer Address: %@ \Employer City: %@ \nEmployer Province: %@ \nEmployer Country:%@ \nEmployer Postal Code: %@ \nOccupation: %@ \nCurrent Business Phone Number: %@ \nExtension: %@ \nStart Date: %@ \nGross Annual Income: %@ \nTotal Household Income: %@ \nPickup Branch: %@ \nAre you an existing TD Canada Trust Customer:%@ \nDate: %@ \nTimestamp: %@" ,@"credid card selected", @"special offer code", @"marketing code", @"response channel", info.title, info.firstName, info.lastName, info.gender, info.birthDate, info.sin, info.primaryPhone, info.street, info.city, info.province, info.resincialStatus,@"lenght of residence", info.previousAddress, info.previousCity, info.previousProvince, @"previous country",info.postalCode, info.previousPostalCode, @"previous lenght of residence", info.requestedCreditLimit, info.email, info.languagOfCorespondace, info.monthlyHouseCosts, info.employmentStatus, info.employerName, info.employerStreetAddress, info.employerCity, info.employerProvince, info.employerCountry, @"employer postal code", info.currentOcupation, @"employer phone", @"emploeyr extension", info.startDateForWork, info.grossAnualIncome, info.householdIncome, @"branch", @"existing td customer", @"date", @"time stamp"] dataUsingEncoding:NSUTF8StringEncoding];
-        
-        [filemgr createFileAtPath: dataFile contents: databuffer attributes:nil];
-        
-        NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath: dataFile];
-        [fh seekToEndOfFile];
+        //loop
+        for (User *info in fetchedObjects) {
+            NSLog(@"Exporting user %@",info.referenceNumber);
+              
+            dataFile = [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.txt", info.referenceNumber]];
+            NSData *dataToSave  = [[NSString stringWithFormat:@"title: \t%@\nbirthDate: \t%@\nbankrupcy: \tNo\ncanadianResident: \tYes\nfirstName: \t%@\nlastName: \t%@\nareaCode: \t%@\nprimaryPhonePrefix: \t%@\nprimaryPhone: \t%@\nreferenceNumber: \t%@\npreviousAddress: \t%@\npreviousCity: \t%@\npreviousProvince: \t%@\npreviousPostalCode: \t%@\npreviousAddressYearsAndMonths: \t%@\nemail: \t%@\ngender: \t%@\nlanguagOfCorespondace: \t%@\nsin: \t%@\nstreet: \t%@\npostalCode: \t%@\ncity: \t%@\nprovince: \t%@\nemployerWorkPrefix: \t%@\naddressYearsAndMonths: \t%@\nresincialStatus: \t%@\nmonthlyHouseCosts: \t%@\nemploymentStatus: \t%@\ncurrentOcupation: \t%@\nemployerName: \t%@\nstartDateForWork: \t%@\nemployerStreetAddress: \t%@\nemployerCountry: \t%@\nemployerProvince: \t%@\nemployerCity: \t%@\nemployerAreaCode: \t%@\nworkPhone: \t%@\nrequestedCreditLimit: \t%@\nhouseholdIncome: \t%@\ngrossAnualIncome: \t%@\ncurrentIndustry: \t%@\npreviousPreviousPostaCode: \t%@\npreviousPreviousAddress: \t%@\npreviousPreviousCity: \t%@\npreviousPreviousProvince: \t%@\npreviousPreviousAddressYearsAndMonths: \t%@\n",
+            info.title,
+            info.birthDate,
+            info.firstName,
+            info.lastName,
+            info.areaCode,
+            info.primaryPhonePrefix,
+            info.primaryPhone,
+            info.referenceNumber,
+            info.previousAddress,
+            info.previousCity,
+            info.previousProvince,
+            info.previousPostalCode,
+            info.previousAddressYearsAndMonths,
+            info.email,
+            info.gender,
+            info.languagOfCorespondace,
+            info.sin,
+            info.street,
+            info.postalCode,
+            info.city,
+            info.province,
+            info.employerWorkPrefix,
+            info.addressYearsAndMonths,
+            info.resincialStatus,
+            info.monthlyHouseCosts,
+            info.employmentStatus,
+            info.currentOcupation,
+            info.employerName,
+            info.startDateForWork,
+            info.employerStreetAddress,
+            info.employerCountry,
+            info.employerProvince,
+            info.employerCity,
+            info.employerAreaCode,
+            info.workPhone,
+            info.requestedCreditLimit,
+            info.householdIncome,
+            info.grossAnualIncome,
+            info.currentIndustry,
+            info.previousPreviousPostaCode,
+            info.previousPreviousAddress,
+            info.previousPreviousCity,
+            info.previousPreviousProvince,
+                                  info.previousPreviousAddressYearsAndMonths ]dataUsingEncoding:NSUTF8StringEncoding];
+            [filemgr createFileAtPath: dataFile contents: databuffer attributes:nil];
+            NSFileHandle *fh = [NSFileHandle fileHandleForWritingAtPath: dataFile];
+            [fh writeData: dataToSave];
+            [fh seekToEndOfFile];
+            [fh closeFile];
+             NSLog(@"Done exporting");
+       
+        }
         
     }
-    
-    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sync" message:@"Your data has been exported.  Please sync via iTunes.  Delete your data once you confirm it has been received." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK",nil];
     [alert show];
-
-    
-    
+    NSLog(@"Do I get here?");
 }
 
-/*  
- 
- GRID VIEW STUFF */
 
 
-/*
- get each record
- 
-create the X
- 
- create the y
- 
- lets do this first
- 
- 
- 
- */
+
+
+    
+
+
 
 
 - (int) rowHeight {
@@ -420,11 +433,6 @@ create the X
 
 -(void)computeGrid{
     
-    // row labels
-       
-  
-    
-    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     NSError *error;
@@ -434,7 +442,7 @@ create the X
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     
- 
+    self.totalApps.text =  [NSString stringWithFormat:@"%d",  fetchedObjects.count];
   //  NSMutableArray *coldata = [[NSMutableArray alloc] init];
     int i=0;
     

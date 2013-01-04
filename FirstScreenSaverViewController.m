@@ -47,7 +47,7 @@
  
     
      self.view.frame = CGRectMake(0.0, 0.0, 1024.0, 768.0);
-    self.switchViews = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(turnUp:) userInfo:nil repeats:YES];
+    self.switchViews = [NSTimer scheduledTimerWithTimeInterval:15.0 target:self selector:@selector(turnUp:) userInfo:nil repeats:YES];
     
     
     

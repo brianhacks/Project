@@ -22,6 +22,7 @@
 @dynamic areaCode;
 @dynamic primaryPhonePrefix;
 @dynamic primaryPhone;
+@dynamic referenceNumber;
 @dynamic previousAddress;
 @dynamic previousCity;
 @dynamic previousProvince;
