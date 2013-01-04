@@ -29,7 +29,7 @@
 #define maxIdleTime 60.0//126
 #define popupIdleTime 90.0//60
 #define loginIdleTime 60.0
-#define debugTime 60.0
+#define debugTime 1230.0
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -118,10 +118,10 @@
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-//   self.navController = [[UINavigationController alloc] initWithRootViewController:self.pickLocationViewController];
+   //self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
     
    self.window.rootViewController = self.navController;
-   // self.window.rootViewController = self.pickLocationViewController;
+  //  self.window.rootViewController = self.financialInfoViewController;
     
     
     [self.navController setNavigationBarHidden:YES animated:NO];

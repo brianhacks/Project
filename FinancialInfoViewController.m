@@ -393,9 +393,7 @@
     self.requesteCreditLimitArray = [NSMutableArray new];
     
     [super viewDidLoad];
-    [self setDefaultStyles:self.financialDetailsView];
-    [self setDefaultStyles:self.employerDetailsView];
-    [self setDefaultStyles:self.incomeAndCreditDetailsView];
+   
     
     
     // Do any additional setup after loading the view from its nib.
@@ -645,12 +643,10 @@
     self.countryArray = @[@"Afghanistan",@"Albania",@"Algeria",@"Andorra",@"Angola",@"Antigua Deps",@"Argentina",@"Armenia",@"Australia",@"Austria",@"Azerbaijan",@"Bahamas",@"Bahrain",@"Bangladesh",@"Barbados",@"Belarus",@"Belgium",@"Belize",@"Benin",@"Bhutan",@"Bolivia",@"Bosnia Herzegovina",@"Botswana",@"Brazil",@"Brunei",@"Bulgaria",@"Burkina",@"Burundi",@"Cambodia",@"Cameroon",@"Canada",@"Cape Verde",@"Central African Rep",@"Chad",@"Chile",@"China",@"Colombia",@"Comoros",@"Congo",@"Congo {Democratic Rep}",@"Costa Rica",@"Croatia",@"Cuba",@"Cyprus",@"Czech Republic",@"Denmark",@"Djibouti",@"Dominica",@"Dominican Republic",@"East Timor",@"Ecuador",@"Egypt",@"El Salvador",@"Equatorial Guinea",@"Eritrea",@"Estonia",@"Ethiopia",@"Fiji",@"Finland",@"France",@"Gabon",@"Gambia",@"Georgia",@"Germany",@"Ghana",@"Greece",@"Grenada",@"Guatemala",@"Guinea",@"Guinea-Bissau",@"Guyana",@"Haiti",@"Honduras",@"Hungary",@"Iceland",@"India",@"Indonesia",@"Iran",@"Iraq",@"Ireland {Republic}",@"Israel",@"Italy",@"Ivory Coast",@"Jamaica",@"Japan",@"Jordan",@"Kazakhstan",@"Kenya",@"Kiribati",@"Korea North",@"Korea South",@"Kosovo",@"Kuwait",@"Kyrgyzstan",@"Laos",@"Latvia",@"Lebanon",@"Lesotho",@"Liberia",@"Libya",@"Liechtenstein",@"Lithuania",@"Luxembourg",@"Macedonia",@"Madagascar",@"Malawi",@"Malaysia",@"Maldives",@"Mali",@"Malta",@"Marshall Islands",@"Mauritania",@"Mauritius",@"Mexico",@"Micronesia",@"Moldova",@"Monaco",@"Mongolia",@"Montenegro",@"Morocco",@"Mozambique",@"Myanmar, {Burma}",@"Namibia",@"Nauru",@"Nepal",@"Netherlands",@"New Zealand",@"Nicaragua",@"Niger",@"Nigeria",@"Norway",@"Oman",@"Pakistan",@"Palau",@"Panama",@"Papua New Guinea",@"Paraguay",@"Peru",@"Philippines",@"Poland",@"Portugal",@"Qatar",@"Romania",@"Russian Federation",@"Rwanda",@"St Kitts &amp; Nevis",@"St Lucia",@"Saint Vincent &amp; the Grenadines",@"Samoa",@"San Marino",@"Sao Tome &amp; Principe",@"Saudi Arabia",@"Senegal",@"Serbia",@"Seychelles",@"Sierra Leone",@"Singapore",@"Slovakia",@"Slovenia",@"Solomon Islands",@"Somalia",@"South Africa",@"South Sudan",@"Spain",@"Sri Lanka",@"Sudan",@"Suriname",@"Swaziland",@"Sweden",@"Switzerland",@"Syria",@"Taiwan",@"Tajikistan",@"Tanzania",@"Thailand",@"Togo",@"Tonga",@"Trinidad &amp; Tobago",@"Tunisia",@"Turkey",@"Turkmenistan",@"Tuvalu",@"Uganda",@"Ukraine",@"United Arab Emirates",@"United Kingdom",@"United States",@"Uruguay",@"Uzbekistan",@"Vanuatu",@"Vatican City",@"Venezuela",@"Vietnam",@"Yemen",@"Zambia",@"Zimbabwe"];
     
     self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0., 0., 987., 548.)];
-//    [self.view addSubview:self.accordion];
-
   
     self.accordionViewScrollView.contentSize = CGSizeMake(1, 600.);
     self.accordionViewScrollView.backgroundColor =[UIColor whiteColor];
-//    [self.view addSubview:self.accordionViewScrollView];
+
     [self.accordionViewScrollView addSubview:self.accordion];
     
     self.firstHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
@@ -667,11 +663,12 @@
     [self.accordion addHeader:self.firstHeaderView withView:self.financialDetailsView];
 
     self.secondHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+     [self drawTopLineForSubView:self.secondHeaderView];
+    self.secondHeaderView.backgroundColor = [UIColor whiteColor];//[UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     UILabel* secondHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 12., 350., 40.)];
     secondHeaderTitel.backgroundColor = [UIColor clearColor];
-    secondHeaderTitel.textColor = [UIColor whiteColor];
+    secondHeaderTitel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];//[UIColor whiteColor];
     secondHeaderTitel.text = @"  Employer's Details";
     [self setAppFontStyle:@"accordion-header" forView:secondHeaderTitel];
     
@@ -681,11 +678,12 @@
 
     
     self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
-    self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
+      [self drawTopLineForSubView:self.thirdHeaderView];
+    self.thirdHeaderView.backgroundColor = [UIColor whiteColor];//[UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
     UILabel* thirdHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 12., 400., 40.)];
     thirdHeaderTitel.backgroundColor = [UIColor clearColor];
-    thirdHeaderTitel.textColor = [UIColor whiteColor];
+    thirdHeaderTitel.textColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];//[UIColor whiteColor];
     thirdHeaderTitel.text = @"  Income and Credit Limit Details";
     [self setAppFontStyle:@"accordion-header" forView:thirdHeaderTitel];
     
@@ -705,6 +703,11 @@
     [self setAppFontStyle:@"button" forView:self.curretOccupationButton];
     [self setAppFontStyle:@"button" forView:self.chooseCountryButton];
     [self setAppFontStyle:@"button" forView:self.provinceButton];
+    
+    
+    [self setDefaultStyles:self.financialDetailsView];
+    [self setDefaultStyles:self.employerDetailsView];
+    [self setDefaultStyles:self.incomeAndCreditDetailsView];
     
 
     
@@ -1153,7 +1156,7 @@
         [tmpLabel removeFromSuperview];
     }
     
-    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 12., 200., 40.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
     firstHeaderTitel.text = @"  Financial Details";
@@ -1325,7 +1328,7 @@
         [tmpLabel removeFromSuperview];
     }
     
-    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 350., 40.)];
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 12., 350., 40.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
     firstHeaderTitel.text = @"  Employer's Details";
@@ -1420,7 +1423,7 @@
         [tmpLabel removeFromSuperview];
     }
     
-    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 12., 200., 40.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
     firstHeaderTitel.text = @"  Income and Credit Limit Details";

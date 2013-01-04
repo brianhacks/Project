@@ -93,11 +93,11 @@
 -(void)setDefaultStyles:(UIView*)view{
     for(UIView *lbl in view.subviews){
         if([lbl isKindOfClass:[UILabel class]]){
-            [(UILabel *)lbl setFont:[UIFont fontWithName:@"FrutigerLTStd-Roman" size:15]];
+            [(UILabel *)lbl setFont:[UIFont fontWithName:@"FrutigerLTStd-Bold" size:15]];
         }else if([lbl isKindOfClass:[UITextField class]]){
             [(UITextField *)lbl setFont:[UIFont fontWithName:@"HelveticaNeue" size:15]];
         }else if([lbl isKindOfClass:[UIButton class]]){
-            [(UIButton *)lbl setFont:[UIFont fontWithName:@"HelveticaNeue" size:15]];
+            [(UIButton *)lbl setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:15]];
         }
         for (UIView *sview in lbl.subviews)
         {

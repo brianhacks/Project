@@ -19,6 +19,11 @@
     
 
 
+- (IBAction)smallDone:(id)sender {
+    [self  removeFromSuperview];
+}
+
+
 - (IBAction)cancelBank:(id)sender {
     
     [self  removeFromSuperview];
@@ -32,23 +37,65 @@
 - (id)initWithAnnotation:(CalloutAnnotation*)annotation {
     self = [super initWithAnnotation:annotation];
     
+    
     NSString *title = [annotation.content.values objectForKey:@"branchId"];
     self.title.text = title;
     
     NSString *monday = [annotation.content.values objectForKey:@"monday"];
-    self.monday.text = monday;
+    if([monday isEqualToString:@""]){
+        self.monday.text = @"N/A";
+        
+    }else{
+        self.monday.text = monday;
+    }
+  
     NSString *tuesday = [annotation.content.values objectForKey:@"tuesday"];
-    self.tuesday.text = tuesday;
+    if([tuesday isEqualToString:@""]){
+        self.tuesday.text = @"N/A";
+        
+    }else{
+        self.tuesday.text = tuesday;
+    }
+   
     NSString *wednesday = [annotation.content.values objectForKey:@"wednesday"];
-    self.wednesday.text = wednesday;
+    
+    
+    if([wednesday isEqualToString:@""]){
+        self.wednesday.text = @"N/A";
+        
+    }else{
+        self.wednesday.text = wednesday;
+    }
     NSString *thursday = [annotation.content.values objectForKey:@"thursday"];
-    self.thursday.text = thursday;
+    
+    if([thursday isEqualToString:@""]){
+        self.thursday.text = @"N/A";
+        
+    }else{
+        self.thursday.text = thursday;
+    }
     NSString *friday = [annotation.content.values objectForKey:@"friday"];
-    self.friday.text = friday;
+    if([friday isEqualToString:@""]){
+        self.friday.text = @"N/A";
+        
+    }else{
+        self.friday.text = friday;
+    }
+    
     NSString *saturday = [annotation.content.values objectForKey:@"saturday"];
-    self.saturday.text = saturday;
+    if([saturday isEqualToString:@""]){
+        self.saturday.text = @"N/A";
+        
+    }else{
+        self.saturday.text = saturday;
+    }
     NSString *sunday = [annotation.content.values objectForKey:@"sunday"];
-    self.sunday.text = sunday;
+    if([sunday isEqualToString:@""]){
+        self.sunday.text = @"N/A";
+        
+    }else{
+        self.sunday.text = sunday;
+    }
     
     return self;
 }
@@ -66,6 +113,22 @@
     [self  removeFromSuperview];
     
 }
+
+- (IBAction)smallChooseBranch:(id)sender {
+    
+    //start function
+    NSString *notificationName = MAP_NOTIFIER_KEY;
+    
+    NSString *key = @"BranchId";
+    
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObject:self.smallTitle.text forKey:key];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self.smallTitle.text userInfo:dictionary];
+    
+    [self  removeFromSuperview];
+    
+}
+
 
 - (void)setAnnotation:(CalloutAnnotation *)annotation
 {

@@ -20,6 +20,16 @@
 @property (strong, nonatomic) IBOutlet UILabel *saturday;
 @property (strong, nonatomic) IBOutlet UILabel *sunday;
 
+//small one
+
+@property (strong, nonatomic) IBOutlet UILabel *smallTitle;
+@property (strong, nonatomic) IBOutlet UILabel *smallAddress;
+@property (strong, nonatomic) IBOutlet UILabel *smallCity;
+- (IBAction)smallDone:(id)sender;
+- (IBAction)smallChooseBranch:(id)sender;
+
+
+
 - (IBAction)cancelBank:(id)sender;
 
 

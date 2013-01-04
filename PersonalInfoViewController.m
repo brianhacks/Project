@@ -444,6 +444,17 @@
     [self setAppFontStyle:@"button" forView:self.provinceButton];
     [self setAppFontStyle:@"button" forView:self.selectLanguageOfCorespondace];
     [self setAppFontStyle:@"button" forView:self.selectGenderButton];
+    
+    
+    [self setAppFontStyle:@"button" forView:self.timeLivedAtCurrentAddress];
+    [self setAppFontStyle:@"button" forView:self.residentialStatusButton];
+    [self setAppFontStyle:@"button" forView:self.previousProvinceButton];
+    [self setAppFontStyle:@"button" forView:self.previousResidentialStatusButton];
+    [self setAppFontStyle:@"button" forView:self.timeLivedAtPreviousAddressButton];
+    
+    [self setAppFontStyle:@"button" forView:self.previousProvinceButton];
+    [self setAppFontStyle:@"button" forView:self.previousResidentialStatusButton];
+    [self setAppFontStyle:@"button" forView:self.previousPreviousYearsAndMonths];
 
     
    
