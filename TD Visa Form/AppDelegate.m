@@ -232,9 +232,6 @@
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
   
-    NSDateComponents *components = [calendar components:(NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:theDate];
-    NSString *hour =  [NSString stringWithFormat:@"%d", [components hour]];
-    
     /*
      
      OK so I'm storing the day of week and the date in a column.  You can split them out wiht "|"
@@ -254,8 +251,9 @@
      NSString *weekDay =  [theDateFormatter2 stringFromDate:[NSDate date]];
      
     
-    NSString *dateToSave = [NSString stringWithFormat:@"%@|%@",weekDay, dateInQuestion ];
+    NSString *dateToSave = [NSString stringWithFormat:@"%@|%@", dateInQuestion,weekDay ];
     [logInfo setCreatedAt:dateToSave];
+    [logInfo setCurrentUserCode:currentUserCode];
     
     
    

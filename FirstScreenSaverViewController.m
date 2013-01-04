@@ -62,7 +62,7 @@
     [self.switchViews invalidate];
     self.switchViews = nil;
     
-    self.switchViews = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(turnUp:) userInfo:nil repeats:YES];
+    self.switchViews = [NSTimer scheduledTimerWithTimeInterval:15.0 target:self selector:@selector(turnUp:) userInfo:nil repeats:YES];
     
 }
 
@@ -117,6 +117,7 @@
         
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDelegate:self];
+      ;
         [UIView setAnimationCurve:UIViewAnimationCurveLinear];
         [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:self.secondView cache:NO];
         [self.secondView setAlpha:0.0];
