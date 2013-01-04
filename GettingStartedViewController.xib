@@ -367,7 +367,7 @@
 							<object class="IBUIButton" id="954247496">
 								<reference key="NSNextResponder" ref="192691471"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{272, 9}, {82, 28}}</string>
+								<string key="NSFrame">{{271, 8}, {82, 29}}</string>
 								<reference key="NSSuperview" ref="192691471"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="627865690"/>
@@ -383,10 +383,6 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="477875435"/>
-								<object class="NSCustomResource" key="IBUIHighlightedImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">btn-start-hover.png</string>
-								</object>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">btn-startover.png</string>
@@ -400,6 +396,7 @@
 								<string key="NSFrame">{{922, 4}, {95, 38}}</string>
 								<reference key="NSSuperview" ref="192691471"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -957,9 +954,9 @@
 				<string key="123.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="13.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="0.0" key="15.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="1" key="15.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="16.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="16.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="16.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="17.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="1" key="17.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="18.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -1153,7 +1150,6 @@
 			<string key="btn-privacy.png">{165, 69}</string>
 			<string key="btn-security-hover.png">{154, 72}</string>
 			<string key="btn-security.png">{154, 72}</string>
-			<string key="btn-start-hover.png">{206, 78}</string>
 			<string key="btn-startover.png">{166, 59}</string>
 			<string key="footer.png">{2048, 94}</string>
 			<string key="left-shadow.png">{38, 400}</string>

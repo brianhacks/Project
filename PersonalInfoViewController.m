@@ -367,7 +367,7 @@
 
     self.accordion = [[AccordionView alloc] initWithFrame:CGRectMake(0, 0, 989, 660)];
     [self.accordionViewScrollView addSubview:self.accordion];
-    self.accordionViewScrollView.backgroundColor = [UIColor clearColor];
+    self.accordionViewScrollView.backgroundColor = [UIColor whiteColor];
     // Only height is taken into account, so other parameters are just dummy
     self.firstHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
@@ -446,12 +446,6 @@
     [self setAppFontStyle:@"button" forView:self.selectGenderButton];
 
     
-    
-    
-    
-    
-    
-   
    
 }
 

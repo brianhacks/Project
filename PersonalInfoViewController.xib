@@ -181,11 +181,10 @@
 									<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 								</object>
 								<reference key="IBUINormalTitleShadowColor" ref="486483526"/>
-								<object class="NSCustomResource" key="IBUIHighlightedImage" id="321297343">
+								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">btn-startover.png</string>
 								</object>
-								<reference key="IBUINormalImage" ref="321297343"/>
 								<reference key="IBUIFontDescription" ref="497513965"/>
 								<reference key="IBUIFont" ref="268866676"/>
 							</object>
@@ -2727,7 +2726,7 @@
 				<string key="165.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="1" key="165.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="166.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="166.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="166.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="167.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="1" key="167.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="168.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
