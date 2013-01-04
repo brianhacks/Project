@@ -656,10 +656,10 @@
     self.firstHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.firstHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
-    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 12., 250., 40.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
-    firstHeaderTitel.text = @"Financial Details";
+    firstHeaderTitel.text = @"  Financial Details";
     [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
     
     [self.firstHeaderView addSubview:firstHeaderTitel];
@@ -669,10 +669,10 @@
     self.secondHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
-    UILabel* secondHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* secondHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 12., 350., 40.)];
     secondHeaderTitel.backgroundColor = [UIColor clearColor];
     secondHeaderTitel.textColor = [UIColor whiteColor];
-    secondHeaderTitel.text = @"Employer's Details";
+    secondHeaderTitel.text = @"  Employer's Details";
     [self setAppFontStyle:@"accordion-header" forView:secondHeaderTitel];
     
     [self.secondHeaderView addSubview:secondHeaderTitel];
@@ -683,10 +683,10 @@
     self.thirdHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 50)];
     self.thirdHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
-    UILabel* thirdHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 400., 40.)];
+    UILabel* thirdHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 12., 400., 40.)];
     thirdHeaderTitel.backgroundColor = [UIColor clearColor];
     thirdHeaderTitel.textColor = [UIColor whiteColor];
-    thirdHeaderTitel.text = @"Income and Credit Limit Details";
+    thirdHeaderTitel.text = @"  Income and Credit Limit Details";
     [self setAppFontStyle:@"accordion-header" forView:thirdHeaderTitel];
     
     [self.thirdHeaderView addSubview:thirdHeaderTitel];
@@ -697,6 +697,17 @@
     
     // Set this if you want to allow multiple selection
     [self.accordion setAllowsMultipleSelection:YES];
+    [self setAppFontStyle:@"button" forView:self.selectCurrentOcupationPicker];
+    [self setAppFontStyle:@"button" forView:self.startDateButton];
+    [self setAppFontStyle:@"button" forView:self.requestedCreditLimitButton];
+    [self setAppFontStyle:@"button" forView:self.employmentStatus];
+    [self setAppFontStyle:@"button" forView:self.industryButton];
+    [self setAppFontStyle:@"button" forView:self.curretOccupationButton];
+    [self setAppFontStyle:@"button" forView:self.chooseCountryButton];
+    [self setAppFontStyle:@"button" forView:self.provinceButton];
+    
+
+    
 }
 
 - (void)refresh
@@ -1051,10 +1062,10 @@
     
     self.secondHeaderView.backgroundColor = [UIColor colorWithRed:0.086 green:0.24 blue:0.137 alpha:1];
     
-    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 12., 350., 40.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
-    firstHeaderTitel.text = @"Employer's Details";
+    firstHeaderTitel.text = @"  Employer's Details";
     [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
     
     [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
@@ -1109,21 +1120,21 @@
     }
     [self drawTopLineForSubView:self.firstHeaderView];
     self.editFirstView = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.editFirstView.frame = CGRectMake(910., 5., 81., 42.);
+    self.editFirstView.frame = CGRectMake(880, 5., 81., 42.);
     [self.editFirstView setTitle:@"Edit" forState:UIControlStateNormal];
     [self.editFirstView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateNormal];
     [self.editFirstView setImage:[UIImage imageNamed:@"btn-edit-hover.png"] forState:UIControlStateHighlighted];
     [self.editFirstView addTarget:self action:@selector(editFirstViewAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.firstHeaderView addSubview:self.editFirstView];
     
-    UILabel* employmentStatus = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 500., 30.)];
+    UILabel* employmentStatus = [[UILabel alloc] initWithFrame:CGRectMake(290., 12., 500., 30.)];
     employmentStatus.textColor = [UIColor blackColor];
     [self setAppFontStyle:@"label" forView:employmentStatus];
     employmentStatus.backgroundColor = [UIColor clearColor];
     employmentStatus.text = [NSString stringWithFormat:@"Employment Status: %@",self.employmentStatus.titleLabel.text];
     [self.firstHeaderView addSubview:employmentStatus];
     
-    UILabel* currentOccupation = [[UILabel alloc] initWithFrame:CGRectMake(290., 33., 500., 30.)];
+    UILabel* currentOccupation = [[UILabel alloc] initWithFrame:CGRectMake(290., 40., 500., 30.)];
     currentOccupation.textColor = [UIColor blackColor];
     [self setAppFontStyle:@"label" forView:currentOccupation];
     
@@ -1145,7 +1156,7 @@
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
-    firstHeaderTitel.text = @"Financial Details";
+    firstHeaderTitel.text = @"  Financial Details";
     [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
     
     [self.firstHeaderView addSubview:firstHeaderTitel];
@@ -1268,14 +1279,14 @@
     [self drawTopLineForSubView:self.secondHeaderView];
 
     self.editSecondView = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.editSecondView.frame = CGRectMake(910., 5., 81., 42.);
+    self.editSecondView.frame = CGRectMake(880., 5., 81., 42.);
     [self.editSecondView setTitle:@"Edit" forState:UIControlStateNormal];
     [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateNormal];
     [self.editSecondView setImage:[UIImage imageNamed:@"btn-edit-hover.png"] forState:UIControlStateHighlighted];
     [self.editSecondView addTarget:self action:@selector(editSecondViewAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.secondHeaderView addSubview:self.editSecondView];
     
-    UILabel* employerName = [[UILabel alloc] initWithFrame:CGRectMake(290., 3., 300., 30.)];
+    UILabel* employerName = [[UILabel alloc] initWithFrame:CGRectMake(290., 12., 300., 30.)];
     employerName.textColor = [UIColor blackColor];
     [self setAppFontStyle:@"label" forView:employerName];
     
@@ -1314,10 +1325,10 @@
         [tmpLabel removeFromSuperview];
     }
     
-    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
+    UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 350., 40.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
-    firstHeaderTitel.text = @"Employer's Details";
+    firstHeaderTitel.text = @"  Employer's Details";
     [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
     
     [self.secondHeaderView addSubview:firstHeaderTitel];
@@ -1374,7 +1385,7 @@
     [self drawTopLineForSubView:self.thirdHeaderView];
 
     self.editThirdView = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.editThirdView.frame = CGRectMake(910., 5., 81., 42.);
+    self.editThirdView.frame = CGRectMake(880., 5., 81., 42.);
     [self.editThirdView setTitle:@"Edit" forState:UIControlStateNormal];
     [self.editThirdView setImage:[UIImage imageNamed:@"btn-edit.png"] forState:UIControlStateNormal];
     [self.editThirdView setImage:[UIImage imageNamed:@"btn-edit-hover.png"] forState:UIControlStateHighlighted];
@@ -1412,7 +1423,7 @@
     UILabel* firstHeaderTitel = [[UILabel alloc] initWithFrame:CGRectMake(6., 3., 200., 40.)];
     firstHeaderTitel.backgroundColor = [UIColor clearColor];
     firstHeaderTitel.textColor = [UIColor whiteColor];
-    firstHeaderTitel.text = @"Income and Credit Limit Details";
+    firstHeaderTitel.text = @"  Income and Credit Limit Details";
     [self setAppFontStyle:@"accordion-header" forView:firstHeaderTitel];
     
     [self.thirdHeaderView addSubview:firstHeaderTitel];

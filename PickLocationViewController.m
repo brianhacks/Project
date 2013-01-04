@@ -504,13 +504,29 @@
      Annotation *branch = [allBranches objectAtIndex:indexPath.row];
      NSString *branchId = [branch.content.values objectForKey:@"branchid"];
     
-    [self markBranchAsSelected:branchId];
-    activeBranchId=branchId;
+    //[self markBranchAsSelected:branchId];
+   // activeBranchId=branchId;
 
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(branch.coordinate, 3*METERS_PER_MILE, 3*METERS_PER_MILE);
-    MKCoordinateRegion adjustedRegion = [mapView regionThatFits:viewRegion];
-    [self.mapView setRegion:adjustedRegion animated:YES];
-    [self.tableView reloadData];
+  // MKCoordinateRegion adjustedRegion = [mapView reg regionThatFits:viewRegion];
+    self.mapView.centerCoordinate = self.mapView.userLocation.location.coordinate;
+    CLLocationCoordinate2D coordinate = branch.coordinate;
+    CLLocationCoordinate2D newCenter;
+    newCenter.longitude = branch.coordinate.longitude;
+    newCenter.latitude = branch.coordinate.latitude+0.04;
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    span.latitudeDelta=0.1;
+    span.longitudeDelta=0.1;
+    region.span=span;
+    region.center = newCenter;
+
+    [mapView setCenterCoordinate:newCenter animated:NO];
+    [self.mapView selectAnnotation:branch animated:YES];
+   // [self.tableView reloadData];
+    
+    //[[[self.mapView annotations[0]] CalloutAnnotation]  ]
+    
     
 }
 

@@ -117,11 +117,11 @@
     self.gCPINViewController = [[GCPINViewController alloc] initWithNibName:@"GCPINViewController" bundle:nil mode:GCPINViewControllerModeVerify];
     self.adminViewController = [[AdminViewController alloc] initWithNibName:@"AdminViewController" bundle:nil];
     
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
-   self.navController = [[UINavigationController alloc] initWithRootViewController:self.financialInfoViewController];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.appProcessViewController];
+//   self.navController = [[UINavigationController alloc] initWithRootViewController:self.pickLocationViewController];
     
-   //self.window.rootViewController = self.navController;
-    self.window.rootViewController = self.financialInfoViewController;
+   self.window.rootViewController = self.navController;
+   // self.window.rootViewController = self.pickLocationViewController;
     
     
     [self.navController setNavigationBarHidden:YES animated:NO];
