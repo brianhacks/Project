@@ -1008,9 +1008,9 @@
     
     //geocode address
     
-    NSString* years = [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]];
+    self.years = [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]];
     
-    if ([years integerValue] < 2) {
+    if ([self.years integerValue] < 2) {
         
         showThirdHeader = true;
         
@@ -1370,13 +1370,20 @@
     
     //geocode address
     
-    NSString* years = [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]];
+    NSLog(@"%@",self.years);
     
-    if ([years integerValue] < 2) {
+    
+    
+    
+    
+    int i = [self.years integerValue];
+    
+    NSString* previousYears = [self.yearsLivedArray objectAtIndex:[self.timeLivedAtCurrentAddressPicker selectedRowInComponent:0]];
+    
+    
+    if (i + [previousYears integerValue] < 2) {
         
         showForthHeader = true;
-        
-        // this doesnt work so hide it for now it shouldnt happen here anyway because we havent geocoded yet.
         
     }else{
         

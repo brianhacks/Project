@@ -109,6 +109,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *previousPreviousYearsAndMonths;
 @property (strong, nonatomic) IBOutlet UIButton *previousPreviousResidentialStatus;
 
+@property (strong, nonatomic) NSString* years;
+
 
 
 - (IBAction)closePreviousPreviousAddress:(id)sender;
